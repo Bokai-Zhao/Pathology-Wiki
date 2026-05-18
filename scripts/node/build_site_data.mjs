@@ -10,20 +10,20 @@
  *   src/data/datasets.json   src/data/tools.json     src/data/benchmarks.json
  *   src/data/skills.json     src/data/graph.json     src/data/index.json
  *
- * Run order: validate_schema.py → build_graph.py → build_site_data.ts.
+ * Run order: validate_schema.py → build_graph.py → build_site_data.mjs.
+ *
+ * Plain Node ESM — no ts-node. Run with `node scripts/node/build_site_data.mjs`.
  */
 import * as fs from "node:fs";
 import * as path from "node:path";
-import * as yaml from "js-yaml";
+import yaml from "js-yaml";
 
-// Resolve from cwd — npm script runs from repo root.
 const REPO = process.cwd();
 const KNOWLEDGE = path.join(REPO, "knowledge");
 const SRC_DATA = path.join(REPO, "src", "data");
 const SKILLS = path.join(REPO, "skills");
 
-type Bundle = Record<string, string>;
-const TYPE_DIRS: Bundle = {
+const TYPE_DIRS = {
   article: "articles",
   method: "methods",
   model: "models",
@@ -32,8 +32,8 @@ const TYPE_DIRS: Bundle = {
   benchmark: "benchmarks",
 };
 
-function walk(dir: string, exts: string[]): string[] {
-  const out: string[] = [];
+function walk(dir, exts) {
+  const out = [];
   if (!fs.existsSync(dir)) return out;
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, entry.name);
@@ -43,19 +43,18 @@ function walk(dir: string, exts: string[]): string[] {
   return out;
 }
 
-function loadYaml(p: string): unknown {
+function loadYaml(p) {
   return yaml.load(fs.readFileSync(p, "utf-8"));
 }
 
-function ensureDir(p: string) {
+function ensureDir(p) {
   fs.mkdirSync(p, { recursive: true });
 }
 
-function buildBundle(type: keyof typeof TYPE_DIRS) {
+function buildBundle(type) {
   const root = path.join(KNOWLEDGE, TYPE_DIRS[type]);
   const files = walk(root, [".yaml", ".yml"]);
-  const items = files.map((f) => loadYaml(f)).filter(Boolean);
-  return items;
+  return files.map((f) => loadYaml(f)).filter(Boolean);
 }
 
 function buildSkills() {
@@ -74,7 +73,7 @@ function buildSkills() {
 function main() {
   ensureDir(SRC_DATA);
 
-  for (const t of Object.keys(TYPE_DIRS) as (keyof typeof TYPE_DIRS)[]) {
+  for (const t of Object.keys(TYPE_DIRS)) {
     const items = buildBundle(t);
     fs.writeFileSync(
       path.join(SRC_DATA, `${TYPE_DIRS[t]}.json`),
@@ -87,7 +86,6 @@ function main() {
     JSON.stringify(buildSkills(), null, 2)
   );
 
-  // copy graph.json from knowledge/graph/graph.json if present
   const graphIn = path.join(KNOWLEDGE, "graph", "graph.json");
   if (fs.existsSync(graphIn)) {
     fs.copyFileSync(graphIn, path.join(SRC_DATA, "graph.json"));
@@ -95,9 +93,8 @@ function main() {
     console.warn("no knowledge/graph/graph.json — run build_graph.py first");
   }
 
-  // index
-  const index: Record<string, number> = {};
-  for (const t of Object.keys(TYPE_DIRS) as (keyof typeof TYPE_DIRS)[]) {
+  const index = {};
+  for (const t of Object.keys(TYPE_DIRS)) {
     const f = path.join(SRC_DATA, `${TYPE_DIRS[t]}.json`);
     index[t] = JSON.parse(fs.readFileSync(f, "utf-8")).length;
   }

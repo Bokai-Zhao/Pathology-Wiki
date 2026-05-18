@@ -14,13 +14,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
       - name: Install Python deps
-        run: |
-          pip install -e .
+        run: pip install pyyaml jsonschema networkx click
       - name: Validate schemas
         run: python scripts/python/validate_schema.py
       - name: Build graph
@@ -29,16 +28,17 @@ jobs:
         run: python scripts/python/check_orphans.py
       - name: Export agent context
         run: python scripts/python/export_claude_context.py
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: '22'
+          cache: 'npm'
       - name: Install Node deps
         run: npm ci
       - name: Build site data
         run: npm run build:data
       - name: Build Docusaurus
         run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: build
 
