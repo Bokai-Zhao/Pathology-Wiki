@@ -11,6 +11,7 @@ venv/
 .env.local
 .idea/
 .vscode/
+.claude/settings.local.json
 
 # generated artifacts — regenerable, do not commit raw
 src/data/*.json
