@@ -1,0 +1,77 @@
+id: uni
+type: model
+name: UNI
+
+model_family: vision_only_pfm
+architecture: ViT-L/16
+parameter_count: ~307M    # to_verify (standard ViT-L)
+input_type:
+  - h-and-e-patch-224x224
+  - h-and-e-patch-256x256
+output_type:
+  - patch-embedding-1024d   # to_verify
+embedding_dim: 1024          # to_verify
+
+training:
+  paradigm: self-supervised
+  objective: dinov2
+  pretraining_data:
+    - mass-100k
+  n_slides: 100000           # ~ from paper, to_verify exact figure
+  n_patches: 100000000       # ~100M, to_verify
+  n_centers: to_verify
+
+released_by: Mahmood Lab (Brigham and Women's Hospital / Harvard Medical School)
+released_in_article: uni-2024
+release_date: "2024-03"      # to_verify exact month
+weights_license: cc-by-nc-sa-4.0   # to_verify — verify against HF model card
+weights_access: gated
+
+links:
+  github: https://github.com/mahmoodlab/UNI
+  huggingface: https://huggingface.co/MahmoodLab/UNI
+  paper: uni-2024
+
+related_methods:
+  - pathology-foundation-model
+  - patch-level-ssl
+  - vision-only-pfm
+related_datasets:
+  - mass-100k
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - uni-2024
+
+capabilities:
+  - "H&E patch encoding (vision only) for downstream classification/MIL/retrieval"
+  - "Strong frozen-feature performance on diverse tissue types"
+  - "Drop-in replacement for ImageNet-pretrained ViT or CTransPath in pathology pipelines"
+
+limitations:
+  - "No vision-language alignment (use CONCH/MUSK for VLM tasks)"
+  - "No slide-level pretraining (use GigaPath for slide-level objectives)"
+  - "Pretraining data internal — not reproducible from scratch"
+  - "Gated weights: requires Hugging Face access request"
+
+claude:
+  summary: |
+    UNI is the canonical vision-only pathology foundation model: ViT-L/16,
+    DINOv2, trained on Mass-100K. Use it as the default H&E patch encoder
+    baseline. UNI2 is its successor — when UNI2 is added as a node, link with
+    `uni2 --supersedes--> uni` and `--version_of--> {abstract method node}`.
+  use_when:
+    - "Need a strong vision-only H&E patch encoder for downstream tasks"
+    - "Comparing PFMs in a benchmark"
+    - "Default backbone for slide aggregation (ABMIL/CLAM/TransMIL on UNI features)"
+  do_not_use_when:
+    - "Need VLM capabilities (CONCH, MUSK)"
+    - "Need slide-level pretraining (GigaPath)"
+    - "User cannot accept gated weights (use CTransPath or open ImageNet-pretrained alternatives)"
+  prefer_over:
+    - resnet-50-imagenet
+    - ctranspath        # for general-purpose H&E embeddings; still cite CTransPath as predecessor
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

@@ -1,0 +1,26 @@
+edges:
+  # UNI paper releases the UNI model
+  - { from: uni-2024, to: uni, type: releases_model,
+      evidence: "UNI paper (Chen et al. 2024) ships ViT-L/16 weights via Hugging Face MahmoodLab/UNI",
+      confidence: high }
+
+  # UNI is a vision-only pathology foundation model
+  - { from: uni, to: pathology-foundation-model, type: belongs_to,
+      evidence: "vision-only PFM branch of method_map.yaml",
+      confidence: high }
+
+  - { from: uni-2024, to: pathology-foundation-model, type: proposes_method,
+      evidence: "paper's primary contribution is a pathology foundation model",
+      confidence: high }
+
+  # PANDA preprocessing typically uses OpenSlide
+  - { from: panda, to: openslide, type: related_to,
+      evidence: "PANDA WSIs are TIFF-based; OpenSlide is the canonical reader",
+      confidence: medium }
+
+  # Future edges deferred until referenced nodes exist (see report Pending References):
+  #   uni-2024 --uses_dataset--> mass-100k
+  #   uni --uses_dataset--> mass-100k
+  #   panda --used_by_articles--> bulten-2022-panda
+  #   panda --used_by_benchmark--> wsi-pfm-benchmark
+  #   uni --supersedes? UNI2 (uni2 not yet ingested)

@@ -1,0 +1,31 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "skill.schema.yaml"
+title: Skill
+description: |
+  Optional YAML metadata for a skill. The actual skill content lives in
+  skills/{category}/{id}/SKILL.md. This YAML supports indexing and graph linking.
+
+type: object
+required: [id, type, category, name, claude]
+additionalProperties: false
+
+properties:
+  id:   { $ref: "_common.schema.yaml#/definitions/stable_id" }
+  type: { type: string, const: skill }
+  name: { type: string }
+  category:
+    type: string
+    enum: [sources, articles, objects, graph, writing, benchmarks, workflows]
+  purpose: { type: string }
+
+  inputs:  { type: array, items: { type: string } }
+  outputs: { type: array, items: { type: string } }
+
+  related_skills:    { type: array, items: { type: string } }
+  related_methods:   { type: array, items: { type: string } }
+  related_datasets:  { type: array, items: { type: string } }
+  related_tools:     { type: array, items: { type: string } }
+
+  registered_as_claude_code_skill: { type: boolean, default: false }
+
+  claude: { $ref: "_common.schema.yaml#/definitions/claude_block" }

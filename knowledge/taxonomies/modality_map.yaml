@@ -1,0 +1,60 @@
+# Modality taxonomy. Each id is used in `modalities:` arrays.
+
+map:
+  histology:
+    label: Histology / Pathology
+    children:
+      - h-and-e
+      - ihc
+      - if  # immunofluorescence
+      - special-stain
+      - frozen-section
+      - cytology
+
+  spatial_omics:
+    label: Spatial Omics
+    children:
+      - 10x-visium
+      - visium-hd
+      - cosmx
+      - merfish
+      - xenium
+      - stereo-seq
+      - slide-seqv2
+      - dbit-seq
+
+  bulk_omics:
+    label: Bulk Omics
+    children:
+      - bulk-rna-seq
+      - methylation-array
+      - whole-exome-seq
+      - whole-genome-seq
+
+  single_cell:
+    label: Single-Cell Omics
+    children:
+      - single-cell-rna-seq
+      - single-cell-atac
+
+  radiology:
+    label: Radiology
+    children:
+      - ct
+      - mri
+      - pet
+      - ultrasound
+
+  text:
+    label: Text / Report / EHR
+    children:
+      - pathology-report
+      - radiology-report
+      - clinical-note
+      - ehr-structured
+
+  knowledge:
+    label: Knowledge / Ontology
+    children:
+      - knowledge-graph
+      - ontology-annotation

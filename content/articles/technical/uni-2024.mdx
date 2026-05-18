@@ -1,0 +1,75 @@
+---
+id: uni-2024
+title: "UNI — Towards a General-Purpose Foundation Model for Computational Pathology"
+slug: /articles/technical/uni-2024
+sidebar_position: 1
+description: "Vision-only pathology foundation model (ViT-L/16, DINOv2, Mass-100K)."
+tags: [foundation-model, ssl, vit, dinov2, technical_article]
+---
+
+import LocalGraph from '@site/src/components/LocalGraph';
+import ArticleCard from '@site/src/components/ArticleCard';
+import SkillCard from '@site/src/components/SkillCard';
+
+# UNI — Towards a General-Purpose Foundation Model for Computational Pathology
+
+<ArticleCard id="uni-2024" />
+
+<LocalGraph nodeId="uni-2024" hops={1} />
+
+## Why it matters
+
+Before UNI, pathology pipelines mostly relied on ImageNet-pretrained CNNs or a handful of pathology-specific encoders (CTransPath, Phikon, Lunit-DINO). UNI is one of the first pathology foundation models that explicitly targets **general-purpose** patch-level representations across many tissue types, evaluated on a broad downstream suite (33 tasks at slide and patch level). Together with GigaPath, Virchow, H-Optimus, and CONCH, it anchors the modern PFM cohort that any new method should benchmark against.
+
+## Core idea
+
+Train a ViT-L/16 with the **DINOv2** self-supervised recipe on **Mass-100K**, an internal corpus of ~100k H&E whole-slide images (~100M patches) spanning ~20 tissue types. Use the resulting frozen encoder as a drop-in feature extractor for downstream classification, MIL aggregation (ABMIL/CLAM/TransMIL), and retrieval.
+
+## Inputs and outputs
+
+- **Input**: H&E patches (commonly 256×256 or 224×224 at ~20× / 0.5 μm/px).
+- **Output**: per-patch embedding (ViT-L hidden dim — typically 1024).
+
+## Method
+
+- **Architecture**: ViT-L/16 (~307M parameters).
+- **Objective**: DINOv2 (self-distillation with masked image modelling).
+- **Pretraining data**: Mass-100K (~100k WSIs, ~100M patches, internal — not publicly redistributable).
+- **Compute**: large-scale GPU pretraining (paper reports detailed setup).
+- **Downstream evaluation**: 33 tasks across patch-level classification, slide-level MIL, and retrieval, compared against ImageNet-pretrained ResNet-50 / ViT, CTransPath, Phikon, Lunit-DINO.
+
+## Datasets / tasks / metrics
+
+- **Pretraining**: Mass-100K (internal).
+- **Eval datasets** (selected): 33-task evaluation benchmark covering many public datasets — see paper for the full list.
+- **Tasks**: tissue-type classification, tumor-vs-normal, subtype classification, grading, biomarker prediction, slide-level survival proxies.
+- **Metrics**: AUC, balanced accuracy, top-k accuracy.
+
+## Main results
+
+UNI generally outperforms ImageNet baselines and prior pathology PFMs (CTransPath, Phikon, Lunit-DINO) on the majority of downstream tasks under frozen-feature evaluation, with consistent gains on rare-tissue and few-shot settings. See the paper for per-task numbers — this page does not reproduce metrics to avoid drift.
+
+## Limitations
+
+- **Pretraining data not redistributable** — Mass-100K is internal, blocking from-scratch reproduction.
+- **Patch-level only** in the primary release — slide-level objectives require downstream MIL or pooling (consider GigaPath for slide-level pretraining).
+- **H&E only** — IHC/IF tasks need a different encoder.
+- **Gated weights** on Hugging Face — pipelines requiring fully open weights should consider CTransPath or open ViT alternatives.
+
+## How Claude should use this object
+
+<SkillCard id="uni-2024" />
+
+UNI is a **canonical baseline** in any new WSI-level benchmark. When the user asks to compare PFMs, cite UNI alongside CTransPath, GigaPath, Virchow, H-Optimus, and CONCH. When UNI2 is added, link via `supersedes` and update method-comparison tables.
+
+## Related nodes
+
+- model: [UNI](/models/uni)
+- method: [Pathology Foundation Model](/methods/pathology-foundation-model)
+- datasets cited: Mass-100K *(stub deferred — pending user decision per CLAUDE.md §11.6)*
+
+## References
+
+- DOI: [10.1038/s41591-024-02857-3](https://doi.org/10.1038/s41591-024-02857-3)
+- Code: [github.com/mahmoodlab/UNI](https://github.com/mahmoodlab/UNI)
+- Weights: [huggingface.co/MahmoodLab/UNI](https://huggingface.co/MahmoodLab/UNI)

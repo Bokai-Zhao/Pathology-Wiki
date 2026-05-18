@@ -1,0 +1,25 @@
+nodes:
+  - id: uni-2024
+    type: technical_article
+    label: "UNI (Towards a General-Purpose Foundation Model for Computational Pathology)"
+    aliases: [uni-paper]
+    taxonomy_path: [Pathology Foundation Models, vision-only PFMs]
+
+  - id: uni
+    type: model
+    label: UNI (ViT-L/16, DINOv2)
+    taxonomy_path: [Pathology Foundation Models, vision-only PFMs]
+
+  - id: openslide
+    type: tool
+    label: OpenSlide (WSI I/O)
+
+  - id: panda
+    type: dataset
+    label: "PANDA — Prostate cANcer graDe Assessment"
+    aliases: [prostate-cancer-grade-assessment]
+
+  - id: pathology-foundation-model
+    type: method
+    label: Pathology Foundation Model
+    taxonomy_path: [Pathology Foundation Models]

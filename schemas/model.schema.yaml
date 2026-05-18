@@ -1,0 +1,54 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "model.schema.yaml"
+title: Model
+description: |
+  Pretrained pathology models (foundation models, VLMs, MIL aggregators, etc.).
+  Versioning lives in graph edges (uses_version / supersedes / version_of) — see CLAUDE.md §9.2.
+
+type: object
+required: [id, type, name, claude]
+additionalProperties: false
+
+properties:
+  id:   { $ref: "_common.schema.yaml#/definitions/stable_id" }
+  type: { type: string, const: model }
+  name: { type: string }
+
+  model_family:
+    type: string
+    description: "e.g. vision_only_pfm, vision_language_pfm, mil_aggregator, st_model, vlm"
+
+  architecture:    { type: string }
+  parameter_count: { type: string }
+  input_type:      { type: array, items: { type: string } }
+  output_type:     { type: array, items: { type: string } }
+  embedding_dim:   { type: integer }
+
+  training:
+    type: object
+    properties:
+      paradigm:           { type: string }
+      objective:          { type: string }
+      pretraining_data:   { type: array, items: { type: string } }
+      n_slides:           { $ref: "_common.schema.yaml#/definitions/int_or_marker" }
+      n_patches:          { $ref: "_common.schema.yaml#/definitions/int_or_marker" }
+      n_centers:          { $ref: "_common.schema.yaml#/definitions/int_or_marker" }
+
+  released_by:           { type: string, description: "e.g. lab name or organization" }
+  released_in_article:   { type: string, description: "stable_id of the releasing article" }
+  release_date:          { type: string }
+  weights_license:       { type: string }
+  weights_access:        { type: string, enum: [open, gated, restricted, closed, unknown] }
+
+  links: { $ref: "_common.schema.yaml#/definitions/links" }
+
+  related_methods:    { type: array, items: { type: string } }
+  related_datasets:   { type: array, items: { type: string } }
+  related_tools:      { type: array, items: { type: string } }
+  related_benchmarks: { type: array, items: { type: string } }
+  related_articles:   { type: array, items: { type: string } }
+
+  capabilities: { type: array, items: { type: string } }
+  limitations:  { type: array, items: { type: string } }
+
+  claude: { $ref: "_common.schema.yaml#/definitions/claude_block" }

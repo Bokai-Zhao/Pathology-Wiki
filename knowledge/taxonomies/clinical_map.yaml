@@ -1,0 +1,98 @@
+# Clinical taxonomy: organs / diseases / biomarkers used by clinical_articles
+# and by dataset/benchmark labels.
+
+organs:
+  - breast
+  - prostate
+  - colorectal
+  - lung
+  - pancreas
+  - liver
+  - kidney
+  - bladder
+  - stomach
+  - gastric
+  - ovary
+  - cervix
+  - endometrium
+  - skin
+  - brain
+  - thyroid
+  - head-and-neck
+  - lymph-node
+  - bone-marrow
+
+disease_groups:
+  carcinoma:
+    label: Carcinomas
+    children:
+      - breast-cancer
+      - prostate-cancer
+      - colorectal-cancer
+      - lung-adenocarcinoma
+      - lung-squamous-cell-carcinoma
+      - pancreatic-ductal-adenocarcinoma
+      - hepatocellular-carcinoma
+      - renal-cell-carcinoma
+      - urothelial-carcinoma
+      - gastric-adenocarcinoma
+      - ovarian-cancer
+      - endometrial-cancer
+      - cervical-cancer
+      - cutaneous-melanoma
+      - cutaneous-scc
+  cns_tumors:
+    label: CNS Tumors
+    children:
+      - glioma
+      - glioblastoma
+      - astrocytoma
+      - oligodendroglioma
+      - medulloblastoma
+      - meningioma
+  hematologic:
+    label: Hematologic
+    children:
+      - acute-myeloid-leukemia
+      - lymphoma-dlbcl
+      - multiple-myeloma
+
+biomarkers:
+  - her2
+  - er
+  - pr
+  - ki67
+  - pd-l1
+  - ttf-1
+  - ck7
+  - ck20
+  - cd3
+  - cd8
+  - tils
+  - msi-status
+  - tmb
+  - egfr-mutation
+  - kras-mutation
+  - braf-mutation
+  - tp53-mutation
+  - idh-mutation
+  - 1p19q-codeletion
+  - mgmt-methylation
+  - hrd-score
+  - psa
+
+grading_systems:
+  - gleason  # prostate
+  - isup-grade  # prostate (PANDA labels)
+  - nottingham  # breast
+  - figo  # gynecologic
+  - ajcc-tnm  # general
+  - who-cns-2021  # CNS tumor classification
+
+clinical_endpoints:
+  - overall-survival
+  - disease-free-survival
+  - progression-free-survival
+  - response-to-therapy
+  - recurrence
+  - metastasis

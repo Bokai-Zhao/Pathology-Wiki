@@ -1,0 +1,102 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "common.schema.yaml"
+title: Common fragments shared across object schemas
+description: |
+  Reusable fragments. Each object schema $refs into these.
+  Source of truth lives in CLAUDE.md §6 and claude.md §5.
+
+definitions:
+
+  stable_id:
+    type: string
+    pattern: "^[a-z0-9][a-z0-9-]*[a-z0-9]$"
+    description: "lowercase kebab-case ASCII; see CLAUDE.md §9.1"
+
+  links:
+    type: object
+    additionalProperties: false
+    properties:
+      doi:        { type: string }
+      pubmed:     { type: string }
+      arxiv:      { type: string }
+      biorxiv:    { type: string }
+      medrxiv:    { type: string }
+      journal:    { type: string, format: uri }
+      pdf:        { type: string, format: uri }
+      code:       { type: string, format: uri }
+      github:     { type: string, format: uri }
+      docs:       { type: string, format: uri }
+      project:    { type: string, format: uri }
+      homepage:   { type: string, format: uri }
+      download:   { type: string, format: uri }
+      pypi:       { type: string }
+      conda:      { type: string }
+      paper:      { type: string }
+      dataset:    { type: string }
+      huggingface: { type: string }
+      kaggle:     { type: string }
+      license:    { type: string }
+
+  unknown_marker:
+    description: "Either a normal value or one of the explicit unknown markers."
+    oneOf:
+      - {}
+      - { type: string, enum: [unknown, not_found, to_verify] }
+
+  int_or_marker:
+    description: "Integer, or one of the explicit unknown markers (CLAUDE.md §17)."
+    oneOf:
+      - { type: integer }
+      - { type: string, enum: [unknown, not_found, to_verify] }
+
+  string_or_marker:
+    description: "String, or one of the explicit unknown markers (CLAUDE.md §17)."
+    oneOf:
+      - { type: string }
+      - { type: string, enum: [unknown, not_found, to_verify] }
+
+  claude_block:
+    type: object
+    required: [update_level, update_status]
+    properties:
+      summary:
+        type: string
+      use_when:
+        type: array
+        items: { type: string }
+      do_not_use_when:
+        type: array
+        items: { type: string }
+      prefer_over:
+        type: array
+        items: { type: string }
+      avoid_when:
+        type: array
+        items: { type: string }
+      update_level:
+        type: string
+        enum: [add_only, link_update, taxonomy_update, skill_update]
+      update_status:
+        type: string
+        enum: [draft, stub_pending, complete, needs_review]
+      extraction_confidence:
+        type: string
+        enum: [high, medium, low]
+      metadata_confidence:
+        type: string
+        enum: [high, medium, low]
+      troubleshooting_notes:
+        type: array
+        items: { type: string }
+
+  related_arrays:
+    description: "Hint arrays in object YAML. Authoritative edges live in graph/edges.yaml (CLAUDE.md §8.4)."
+    type: object
+    properties:
+      related_methods:    { type: array, items: { type: string } }
+      related_models:     { type: array, items: { type: string } }
+      related_datasets:   { type: array, items: { type: string } }
+      related_tools:      { type: array, items: { type: string } }
+      related_benchmarks: { type: array, items: { type: string } }
+      related_articles:   { type: array, items: { type: string } }
+      related_skills:     { type: array, items: { type: string } }

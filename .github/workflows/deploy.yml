@@ -1,0 +1,53 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Python deps
+        run: |
+          pip install -e .
+      - name: Validate schemas
+        run: python scripts/python/validate_schema.py
+      - name: Build graph
+        run: python scripts/python/build_graph.py
+      - name: Check orphans
+        run: python scripts/python/check_orphans.py
+      - name: Export agent context
+        run: python scripts/python/export_claude_context.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Node deps
+        run: npm ci
+      - name: Build site data
+        run: npm run build:data
+      - name: Build Docusaurus
+        run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

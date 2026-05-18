@@ -1,0 +1,106 @@
+id: openslide
+type: tool
+name: OpenSlide
+
+tool_type:
+  - wsi_io
+
+links:
+  homepage: https://openslide.org
+  github: https://github.com/openslide/openslide
+  docs: https://openslide.org/api/python/
+  pypi: openslide-python
+  conda: conda-forge::openslide-python
+  license: https://github.com/openslide/openslide/blob/main/lgpl-2.1.txt
+
+supported_inputs:
+  - aperio-svs
+  - hamamatsu-ndpi
+  - hamamatsu-vms
+  - hamamatsu-vmu
+  - leica-scn
+  - mirax-mrxs
+  - philips-tiff
+  - sakura-svslide
+  - trestle-tif
+  - ventana-bif
+  - generic-tiled-tiff
+
+supported_outputs:
+  - region-tile-rgba
+  - thumbnail
+  - associated-image
+  - slide-level-property-dict
+
+capabilities:
+  - "Read whole-slide images from multiple vendor formats with a uniform API"
+  - "Extract arbitrary level-K tiles at requested (x, y, w, h) without loading the whole slide"
+  - "Read slide metadata (mpp-x, mpp-y, level dimensions, vendor properties)"
+  - "Generate macro / label / thumbnail associated images"
+
+related_methods:
+  - cnn-patch-classification
+  - weakly-supervised-mil
+related_tasks:
+  - tissue-segmentation
+  - tumor-region-segmentation
+  - tumor-vs-normal
+related_datasets: []
+related_benchmarks: []
+related_articles: []
+related_models: []
+
+agent_interface:
+  callable: true
+  install_command: "pip install openslide-python  # also requires libopenslide system package"
+  example_usage: |
+    import openslide
+    slide = openslide.OpenSlide("slide.svs")
+    region = slide.read_region((x, y), level=0, size=(256, 256))  # PIL.Image RGBA
+  cli_available: false
+  python_api_available: true
+  docker_available: false
+
+maturity:
+  repo_status: active
+  documentation: good
+  reproducibility: excellent
+  maintenance_level: active
+
+language:
+  - C
+  - Python
+
+license: LGPL-2.1
+
+limitations:
+  - "Slide-format coverage is broad but not universal — newer vendor formats (some 3DHISTECH, Olympus) require workarounds."
+  - "No GPU acceleration; tile reads are CPU-bound."
+  - "Reading at non-native magnification levels uses on-the-fly downsampling that may degrade quality."
+  - "openslide-python requires the underlying C library — pip install alone is insufficient on most systems."
+
+claude:
+  summary: |
+    OpenSlide is the de-facto WSI I/O library for computational pathology.
+    Use it whenever a pipeline starts from a vendor-format WSI. For higher
+    throughput consider pyvips for the same formats with libvips backing.
+  use_when:
+    - "Loading SVS/NDPI/MRXS WSIs from raw vendor files"
+    - "Extracting patches at arbitrary (x, y, level) coordinates"
+    - "Reading slide-level mpp / vendor metadata"
+  do_not_use_when:
+    - "Slide is already a tiled TIFF and pyvips is faster for the workload"
+    - "Need GPU-decoded reads (use cuCIM)"
+    - "Working with DICOM WSIs (use pydicom or a DICOM-aware reader)"
+  prefer_over:
+    - "ad-hoc tifffile readers when vendor metadata is needed"
+  avoid_when:
+    - "User refuses the LGPL system-library install (then suggest pyvips/cuCIM)"
+  troubleshooting_notes:
+    - "Install order: install libopenslide via apt/brew/conda first, then `pip install openslide-python`."
+    - "On macOS Apple Silicon, brew install openslide; ensure DYLD_LIBRARY_PATH covers Homebrew lib path."
+    - "Some MRXS files require all .ini and folder siblings present — never split the bundle."
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

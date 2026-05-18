@@ -1,0 +1,42 @@
+:root {
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #93c5fd;
+  --ifm-code-font-size: 95%;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #60a5fa;
+}
+
+.pwiki-card {
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+}
+
+.pwiki-card h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.pwiki-card-meta {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 8px;
+}
+
+.pwiki-local-graph {
+  border: 1px dashed var(--ifm-toc-border-color);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 16px 0;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.85rem;
+}

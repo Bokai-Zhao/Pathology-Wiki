@@ -1,0 +1,70 @@
+# Pathology AI task taxonomy. Each leaf is a stable_id used in `tasks:` arrays.
+
+map:
+  classification:
+    label: Classification
+    children:
+      - tissue-type-classification
+      - tumor-vs-normal
+      - subtype-classification
+      - grading
+      - staging
+      - mutation-prediction
+      - msi-prediction
+      - molecular-subtype-prediction
+
+  segmentation:
+    label: Segmentation
+    children:
+      - nucleus-segmentation
+      - cell-segmentation
+      - gland-segmentation
+      - tumor-region-segmentation
+      - tissue-segmentation
+
+  detection:
+    label: Detection
+    children:
+      - mitosis-detection
+      - tumor-region-detection
+      - lymph-node-metastasis-detection
+
+  regression_prediction:
+    label: Regression / Prediction
+    children:
+      - survival-prediction
+      - response-to-therapy-prediction
+      - biomarker-expression-prediction
+      - gene-expression-prediction
+      - st-gene-expression-prediction
+
+  retrieval_caption:
+    label: Retrieval / Caption / VQA
+    children:
+      - image-text-retrieval
+      - histology-captioning
+      - pathology-vqa
+      - report-grounding
+
+  spatial_omics:
+    label: Spatial Omics
+    children:
+      - spatial-domain-identification
+      - h-e-st-alignment
+      - cell-type-deconvolution
+      - spatial-trajectory-inference
+
+  multimodal:
+    label: Multimodal Fusion
+    children:
+      - pathology-genomics-fusion
+      - pathology-radiology-fusion
+      - pathology-report-fusion
+
+  agentic:
+    label: Agentic
+    children:
+      - paper-extraction
+      - dataset-curation
+      - benchmark-execution
+      - clinical-report-generation

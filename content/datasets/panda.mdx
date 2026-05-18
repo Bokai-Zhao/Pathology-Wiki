@@ -1,0 +1,96 @@
+---
+id: panda
+title: "PANDA — Prostate cANcer graDe Assessment Challenge"
+slug: /datasets/panda
+sidebar_position: 1
+description: "~10.6K H&E prostate biopsy WSIs from two centres (Radboudumc, Karolinska) labelled with ISUP grade."
+tags: [dataset, prostate-cancer, gleason, isup, h-and-e, kaggle]
+---
+
+import LocalGraph from '@site/src/components/LocalGraph';
+import DatasetCard from '@site/src/components/DatasetCard';
+import SkillCard from '@site/src/components/SkillCard';
+
+# PANDA — Prostate cANcer graDe Assessment
+
+<DatasetCard id="panda" />
+
+<LocalGraph nodeId="panda" hops={1} />
+
+## What it contains
+
+PANDA is the largest public dataset for prostate Gleason / ISUP grading on H&E biopsies. It bundles **~10,616 WSIs** *(to verify)* contributed by **two institutions**:
+
+- **Radboud University Medical Center (Radboudumc)**, the Netherlands
+- **Karolinska Institute**, Sweden
+
+Each slide is a prostate **needle-biopsy core** scanned at high resolution (multi-resolution TIFF readable with OpenSlide / pyvips). Labels include ISUP grade group (0–5), Gleason primary/secondary patterns, and partial pixel-level tumour annotations on a subset.
+
+## Modalities and scope
+
+- **Modality**: H&E
+- **Organ**: prostate
+- **Disease**: prostate adenocarcinoma
+- **Species**: human
+- **Specimen type**: needle biopsy (not radical prostatectomy)
+
+## Labels and tasks
+
+- `isup-grade` — ordinal 0–5
+- `gleason-primary`, `gleason-secondary` — Gleason pattern pair
+- `tumor-mask` — partial pixel-level annotations (subset)
+
+Standard tasks:
+
+- **Grading** — ISUP grade group classification (the original challenge).
+- **Subtype classification** — Gleason pattern.
+- **Tumor region segmentation** — on the annotated subset.
+
+Original challenge metric: **quadratic-weighted kappa**.
+
+## Access
+
+Data is hosted on **Kaggle** (`prostate-cancer-grade-assessment`). Requires a Kaggle account and acceptance of the competition rules. Test set is held by Kaggle — for offline evaluation, build a local validation split from training.
+
+License terms come from the Kaggle competition rules; verify the current text via the [rules page](https://www.kaggle.com/competitions/prostate-cancer-grade-assessment/rules) before any redistribution.
+
+## Preprocessing
+
+```python
+import openslide
+slide = openslide.OpenSlide("/path/to/0005f7aaab2800f6170c399693a96917.tiff")
+print(slide.level_dimensions, slide.properties.get("openslide.mpp-x"))
+```
+
+Recommended flow:
+
+1. Read TIFF WSIs with **OpenSlide** or **pyvips**.
+2. Tissue masking to drop background.
+3. Patch at 20× (or 10× for compute-bound runs); 256×256 patches are common.
+4. **Harmonise across the two centres** — Radboud and Karolinska annotated under different protocols. Always evaluate per-source as well as combined.
+
+## Used by benchmarks
+
+- WSI-PFM benchmark *(node not yet ingested — pending §11.6 user decision)*
+
+## Known pitfalls
+
+- Two source institutions with different annotation protocols → cross-source generalisation is non-trivial; report per-centre metrics.
+- Karolinska subset has known label noise; community-cleaned variants exist.
+- Heavy class imbalance toward ISUP grade 0 (benign).
+- Test set inaccessible offline — invalid to compare to leaderboard numbers without a Kaggle submission.
+- Biopsy specimens, not whole-organ resections — distribution differs from TCGA-PRAD.
+
+## How Claude should use this dataset
+
+<SkillCard id="panda" />
+
+## Related nodes
+
+- tool: [OpenSlide](/tools/openslide) — canonical reader.
+- methods: weakly-supervised-mil, pathology-foundation-model, clam, abmil *(method nodes pending — §11.6)*.
+
+## References
+
+- Kaggle: [prostate-cancer-grade-assessment](https://www.kaggle.com/competitions/prostate-cancer-grade-assessment)
+- Paper: Bulten et al., *Nature Medicine* 2022 *(article node deferred — pending §11.6)*

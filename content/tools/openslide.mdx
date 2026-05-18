@@ -1,0 +1,87 @@
+---
+id: openslide
+title: "OpenSlide — WSI I/O library"
+slug: /tools/openslide
+sidebar_position: 1
+description: "C library + Python bindings for reading multi-format whole-slide images."
+tags: [tool, wsi-io, openslide, h-and-e]
+---
+
+import LocalGraph from '@site/src/components/LocalGraph';
+import ToolCard from '@site/src/components/ToolCard';
+import SkillCard from '@site/src/components/SkillCard';
+
+# OpenSlide
+
+<ToolCard id="openslide" />
+
+<LocalGraph nodeId="openslide" hops={1} />
+
+## What it is
+
+OpenSlide is the de-facto WSI I/O library in computational pathology. It provides a C library and a Python binding (`openslide-python`) that read whole-slide images from many vendor formats — Aperio SVS, Hamamatsu NDPI/VMS, Leica SCN, MIRAX, Philips TIFF, Ventana BIF, generic tiled TIFF — through a uniform tile-read API.
+
+## What problem it solves
+
+Vendor formats vary in tile size, compression, pyramid layout, and metadata conventions. OpenSlide hides these differences behind one API: open a slide, query level dimensions, read a region at any (x, y, level) without loading the whole file.
+
+## Installation
+
+```bash
+# 1. Install the OpenSlide system library (Linux)
+sudo apt-get install libopenslide-dev   # or: brew install openslide   (macOS)
+
+# 2. Install Python bindings
+pip install openslide-python
+```
+
+`pip install openslide-python` alone is **insufficient** on most systems — the underlying C library must be installed first. On macOS Apple Silicon, set `DYLD_LIBRARY_PATH` to cover Homebrew lib path.
+
+## Minimal usage
+
+```python
+import openslide
+
+slide = openslide.OpenSlide("slide.svs")
+print(slide.level_dimensions)             # ((W0, H0), (W1, H1), ...)
+print(slide.properties.get("openslide.mpp-x"))   # microns per pixel
+
+region = slide.read_region((x, y), level=0, size=(256, 256))   # PIL.Image RGBA
+```
+
+## Inputs and outputs
+
+- **Inputs**: SVS, NDPI, VMS, VMU, SCN, MRXS, BIF, tiled TIFF, ...
+- **Outputs**: RGBA tiles (PIL.Image), thumbnails, associated images (label, macro), property dictionaries (mpp-x/y, level downsamples, vendor metadata).
+
+## When to use
+
+- Reading vendor-format WSIs from raw files.
+- Extracting patches at arbitrary (x, y, level).
+- Reading slide-level metadata (mpp, level dimensions, vendor properties).
+
+## When **not** to use
+
+- The slide is already a tiled TIFF and `pyvips` is faster for the workload.
+- GPU-decoded reads needed → use **cuCIM**.
+- DICOM WSIs → use **pydicom** or a DICOM-aware reader.
+
+## Common failure modes
+
+- `OpenSlideUnsupportedFormatError` despite an `.svs` extension → file is actually a generic TIFF without a pyramid; reopen with `tifffile`.
+- MRXS bundle: requires the `.mrxs` file **plus** all sibling folders/INI files. Never split.
+- macOS Apple Silicon: missing `libopenslide` dyld → ensure Homebrew lib path is on `DYLD_LIBRARY_PATH`.
+
+## Related tools
+
+- **pyvips** — alternative reader, often faster for tiled TIFF; same format coverage via libvips.
+- **cuCIM** — GPU-accelerated WSI I/O for compatible NVIDIA stacks.
+- **TIAToolbox** — wraps OpenSlide for higher-level pipelines (preprocessing, MIL).
+
+## How Claude should use this tool
+
+<SkillCard id="openslide" />
+
+## Related nodes
+
+- dataset: [PANDA](/datasets/panda) — H&E TIFFs that OpenSlide reads.

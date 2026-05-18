@@ -1,0 +1,112 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "article.schema.yaml"
+title: Article
+description: |
+  Schema for an article node. Articles must be classified before extraction
+  (CLAUDE.md §5). Clinical and technical articles use different focus blocks.
+
+type: object
+required: [id, type, article_type, title, authors, year, claude]
+additionalProperties: false
+
+properties:
+  id:    { $ref: "_common.schema.yaml#/definitions/stable_id" }
+  type:
+    type: string
+    const: article
+  article_type:
+    type: object
+    required: [primary]
+    properties:
+      primary:
+        type: string
+        enum:
+          - clinical_article
+          - technical_article
+          - review_article
+          - benchmark_article
+          - dataset_article
+          - tool_article
+          - guideline_article
+          - perspective_article
+          - preprint
+      secondary:
+        type: array
+        items:
+          type: string
+          enum:
+            - clinical_article
+            - technical_article
+            - review_article
+            - benchmark_article
+            - dataset_article
+            - tool_article
+            - guideline_article
+            - perspective_article
+            - preprint
+  title:   { type: string }
+  authors:
+    type: array
+    items: { type: string }
+  year:    { type: integer, minimum: 1900, maximum: 2100 }
+  venue:   { type: string }
+  publication_status:
+    type: string
+    enum: [preprint, in_press, published, withdrawn]
+
+  links:    { $ref: "_common.schema.yaml#/definitions/links" }
+  abstract: { type: string }
+  keywords:
+    type: array
+    items: { type: string }
+
+  domains:    { type: array, items: { type: string } }
+  modalities: { type: array, items: { type: string } }
+  organs:     { type: array, items: { type: string } }
+  diseases:   { type: array, items: { type: string } }
+  biomarkers: { type: array, items: { type: string } }
+  tasks:      { type: array, items: { type: string } }
+  metrics:    { type: array, items: { type: string } }
+
+  related_methods:    { type: array, items: { type: string } }
+  related_models:     { type: array, items: { type: string } }
+  related_datasets:   { type: array, items: { type: string } }
+  related_tools:      { type: array, items: { type: string } }
+  related_benchmarks: { type: array, items: { type: string } }
+  related_articles:   { type: array, items: { type: string } }
+
+  clinical_focus:
+    type: object
+    properties:
+      clinical_problem:        { type: string }
+      diagnostic_criteria:     { type: array, items: { type: string } }
+      pathology_criteria:      { type: array, items: { type: string } }
+      grading_system:          { type: array, items: { type: string } }
+      staging_system:          { type: array, items: { type: string } }
+      biomarkers:              { type: array, items: { type: string } }
+      molecular_alterations:   { type: array, items: { type: string } }
+      clinical_endpoints:      { type: array, items: { type: string } }
+      treatment_context:       { type: array, items: { type: string } }
+      cohort_design:           { type: string }
+      clinical_workflow:       { type: string }
+      clinical_need_for_ai:    { type: string }
+      possible_ai_tasks:       { type: array, items: { type: string } }
+
+  technical_focus:
+    type: object
+    properties:
+      method_family:           { type: array, items: { type: string } }
+      model_architecture:      { type: array, items: { type: string } }
+      training_strategy:       { type: array, items: { type: string } }
+      supervision_type:        { type: array, items: { type: string } }
+      input_type:              { type: array, items: { type: string } }
+      output_type:             { type: array, items: { type: string } }
+      datasets:                { type: array, items: { type: string } }
+      metrics:                 { type: array, items: { type: string } }
+      baselines:               { type: array, items: { type: string } }
+      implementation:          { type: string }
+      reproducibility:         { type: string }
+      limitations:             { type: array, items: { type: string } }
+      reusable_components:     { type: array, items: { type: string } }
+
+  claude: { $ref: "_common.schema.yaml#/definitions/claude_block" }

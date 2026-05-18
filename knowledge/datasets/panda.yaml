@@ -1,0 +1,108 @@
+id: panda
+type: dataset
+name: PANDA
+full_name: "Prostate cANcer graDe Assessment (PANDA) Challenge"
+
+links:
+  homepage: https://www.kaggle.com/competitions/prostate-cancer-grade-assessment
+  kaggle: prostate-cancer-grade-assessment
+  paper: bulten-2022-panda     # NOTE: not yet a node — §11.6 ask user
+  download: https://www.kaggle.com/competitions/prostate-cancer-grade-assessment/data
+  doi: 10.1038/s41591-021-01620-2   # to_verify (Bulten et al. Nature Medicine 2022)
+  license: https://www.kaggle.com/competitions/prostate-cancer-grade-assessment/rules
+
+modalities:
+  - h-and-e
+organs:
+  - prostate
+diseases:
+  - prostate-cancer
+species:
+  - human
+data_types:
+  - whole-slide-image
+  - biopsy-needle-core
+
+tasks:
+  - grading                         # ISUP grade group (0–5)
+  - subtype-classification          # Gleason pattern primary/secondary
+  - tumor-region-segmentation       # mask-style annotations on a subset
+labels:
+  - isup-grade
+  - gleason-primary
+  - gleason-secondary
+  - tumor-mask
+metrics:
+  - quadratic-weighted-kappa        # competition metric
+  - balanced-accuracy
+  - auc
+
+scale:
+  n_slides: 10616                   # to_verify (training set ~10.6K WSIs)
+  n_patients: to_verify
+  n_centers: 2                      # Radboudumc + Karolinska Institute
+  file_size: "~410 GB"              # to_verify
+
+access:
+  public: true
+  license: "Kaggle competition rules; non-commercial research use; redistribution restricted (verify exact terms via competition rules link)"
+  download_difficulty: medium
+  requires_registration: true       # Kaggle account + competition rules acceptance
+  access_url: https://www.kaggle.com/competitions/prostate-cancer-grade-assessment/data
+
+preprocessing:
+  required_steps:
+    - "Read TIFF WSIs (Aperio-style, multi-resolution)"
+    - "Tissue masking to skip background patches"
+    - "Patch extraction at chosen magnification (typically 20x or 10x)"
+    - "Harmonisation across the two source institutions (Radboud / Karolinska) — different annotation conventions"
+  recommended_tools:
+    - openslide
+    - pyvips
+  coordinate_system: "Native slide pixel space at level 0; preprocess at lower levels for speed."
+  file_formats:
+    - tiff
+
+used_by_articles: []           # to populate as PFM evaluation papers cite PANDA
+used_by_benchmarks: []         # link to wsi-pfm-benchmark when added
+related_methods:
+  - weakly-supervised-mil
+  - pathology-foundation-model
+  - clam
+  - abmil
+related_tools:
+  - openslide
+related_articles: []
+
+known_pitfalls:
+  - "Labels were collected from two institutions with different annotation protocols — model performance differs across sources; always evaluate per-source as well as combined."
+  - "ISUP grade 0 (benign) is over-represented relative to higher grades; class imbalance must be addressed."
+  - "Some slides have known label noise; a noise-cleaned subset has been published by community."
+  - "Test set held by Kaggle; offline evaluation requires a local val split, not the original test set."
+  - "Slides are biopsy needle cores, not full tumor sections — distribution differs from TCGA radical-prostatectomy slides."
+
+claude:
+  summary: |
+    PANDA is the standard public dataset for prostate Gleason / ISUP grading.
+    Two source institutions (Radboud, Karolinska); ~10.6K WSIs in training.
+    Grading metric is quadratic-weighted kappa. Use it as the canonical
+    grading task in any WSI-PFM benchmark covering biomarker-free grading.
+  use_when:
+    - "Evaluating any PFM / MIL / weakly supervised method on Gleason grading"
+    - "Cross-institution generalisation studies (Radboud vs Karolinska)"
+    - "Slide-level classification benchmarks needing real-world label noise"
+  do_not_use_when:
+    - "Need radical prostatectomy slides (PANDA is biopsies)"
+    - "Need pixel-perfect tumor masks (annotations are partial / noisy)"
+    - "Need patient outcomes — no survival labels"
+  preprocessing_notes:
+    - "Standardise magnification across the two centres before patching."
+    - "For MIL, patch at 20x with ~256x256 tiles is a common starting point."
+    - "Always report per-centre metrics in addition to pooled."
+  known_pitfalls:
+    - "Label noise on Karolinska subset; community-cleaned subset exists."
+    - "Quadratic-weighted kappa is sensitive to ordinal label distance — calibrate accordingly."
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

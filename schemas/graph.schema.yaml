@@ -1,0 +1,91 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "graph.schema.yaml"
+title: Graph (nodes.yaml + edges.yaml)
+description: |
+  Schemas for the central graph storage in knowledge/graph/.
+  See CLAUDE.md §8 — single source of truth for nodes and edges.
+  nodes_file and edges_file are self-contained sub-schemas (no internal
+  $ref) so they validate cleanly when used in isolation.
+
+# Top-level files:
+#   knowledge/graph/nodes.yaml — { nodes: [ <node>, ... ] }
+#   knowledge/graph/edges.yaml — { edges: [ <edge>, ... ] }
+
+nodes_file:
+  type: object
+  required: [nodes]
+  additionalProperties: false
+  properties:
+    nodes:
+      type: array
+      items:
+        type: object
+        required: [id, type, label]
+        additionalProperties: false
+        properties:
+          id: { $ref: "_common.schema.yaml#/definitions/stable_id" }
+          type:
+            type: string
+            enum:
+              - article
+              - clinical_article
+              - technical_article
+              - method
+              - model
+              - dataset
+              - benchmark
+              - tool
+              - repo
+              - task
+              - metric
+              - modality
+              - disease
+              - organ
+              - biomarker
+              - skill
+              - agent_workflow
+          label:    { type: string }
+          aliases:  { type: array, items: { type: string } }
+          taxonomy_path:
+            type: array
+            items: { type: string }
+            description: "e.g. [Pathology Foundation Models, vision-only PFMs]"
+
+edges_file:
+  type: object
+  required: [edges]
+  additionalProperties: false
+  properties:
+    edges:
+      type: array
+      items:
+        type: object
+        required: [from, to, type]
+        additionalProperties: false
+        properties:
+          from: { $ref: "_common.schema.yaml#/definitions/stable_id" }
+          to:   { $ref: "_common.schema.yaml#/definitions/stable_id" }
+          type:
+            type: string
+            enum:
+              - proposes_method
+              - releases_model
+              - uses_dataset
+              - evaluates_task
+              - uses_metric
+              - compares_with
+              - implements
+              - extends
+              - belongs_to
+              - related_to
+              - has_code
+              - has_dataset
+              - used_by_benchmark
+              - supports_skill
+              - consumed_by_workflow
+              - updates_taxonomy
+              - uses_version
+              - version_of
+              - supersedes
+          evidence:   { type: string, description: "free-text rationale or citation" }
+          confidence: { type: string, enum: [high, medium, low] }

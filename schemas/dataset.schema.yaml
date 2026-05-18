@@ -1,0 +1,61 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "dataset.schema.yaml"
+title: Dataset
+
+type: object
+required: [id, type, name, claude]
+additionalProperties: false
+
+properties:
+  id:   { $ref: "_common.schema.yaml#/definitions/stable_id" }
+  type: { type: string, const: dataset }
+  name: { type: string }
+  full_name: { type: string }
+
+  links: { $ref: "_common.schema.yaml#/definitions/links" }
+
+  modalities:    { type: array, items: { type: string } }
+  organs:        { type: array, items: { type: string } }
+  diseases:      { type: array, items: { type: string } }
+  species:       { type: array, items: { type: string } }
+  data_types:    { type: array, items: { type: string } }
+
+  tasks:   { type: array, items: { type: string } }
+  labels:  { type: array, items: { type: string } }
+  metrics: { type: array, items: { type: string } }
+
+  scale:
+    type: object
+    properties:
+      n_slides:     { $ref: "_common.schema.yaml#/definitions/int_or_marker" }
+      n_patients:   { $ref: "_common.schema.yaml#/definitions/int_or_marker" }
+      n_patches:    { $ref: "_common.schema.yaml#/definitions/int_or_marker" }
+      file_size:    { type: string }
+      n_centers:    { $ref: "_common.schema.yaml#/definitions/int_or_marker" }
+
+  access:
+    type: object
+    properties:
+      public:                { type: boolean }
+      license:               { type: string }
+      download_difficulty:   { type: string, enum: [easy, medium, hard, gated, unknown] }
+      requires_registration: { type: boolean }
+      access_url:            { type: string, format: uri }
+
+  preprocessing:
+    type: object
+    properties:
+      required_steps:      { type: array, items: { type: string } }
+      recommended_tools:   { type: array, items: { type: string } }
+      coordinate_system:   { type: string }
+      file_formats:        { type: array, items: { type: string } }
+
+  used_by_articles:    { type: array, items: { type: string } }
+  used_by_benchmarks:  { type: array, items: { type: string } }
+  related_methods:     { type: array, items: { type: string } }
+  related_tools:       { type: array, items: { type: string } }
+  related_articles:    { type: array, items: { type: string } }
+
+  known_pitfalls:      { type: array, items: { type: string } }
+
+  claude: { $ref: "_common.schema.yaml#/definitions/claude_block" }

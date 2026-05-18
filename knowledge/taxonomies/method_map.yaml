@@ -1,0 +1,87 @@
+# Pathology AI method map (CLAUDE.md §7).
+# Eight top-level branches. Every `method` node sets `stage` to one of these enum keys.
+
+map:
+  traditional_cpath:
+    label: Traditional Computational Pathology
+    children:
+      - handcrafted-morphology-features
+      - nuclei-segmentation
+      - gland-segmentation
+      - cell-graph
+      - texture-color-shape-features
+      - classical-machine-learning
+
+  deep_wsi_learning:
+    label: Deep Learning for WSI
+    children:
+      - cnn-patch-classification
+      - weakly-supervised-mil
+      - abmil
+      - clam
+      - dsmil
+      - transmil
+      - graph-based-wsi-learning
+      - survival-biomarker-prediction
+
+  pathology_foundation_model:
+    label: Pathology Foundation Models
+    children:
+      - patch-level-ssl
+      - slide-level-pretraining
+      - multi-scale-pretraining
+      - vision-only-pfm
+      - vision-language-pfm
+      - vision-omics-pfm
+      - pathology-specific-scaling
+
+  pathology_vlm:
+    label: Pathology Vision-Language Models
+    children:
+      - image-text-contrastive
+      - report-alignment
+      - histology-captioning
+      - pathology-vqa
+      - retrieval-augmented-pathology-reasoning
+      - instruction-tuned-pathology-mllm
+
+  multimodal_pathology_ai:
+    label: Multimodal Pathology AI
+    children:
+      - pathology-genomics
+      - pathology-spatial-transcriptomics
+      - pathology-radiology
+      - pathology-ehr
+      - pathology-report
+      - pathology-knowledge-graph
+
+  benchmark_evaluation:
+    label: Benchmark and Evaluation
+    children:
+      - wsi-pfm-benchmark
+      - spatial-domain-benchmark
+      - cell-level-benchmark
+      - pathology-vlm-benchmark
+      - multimodal-fusion-benchmark
+
+  clinical_translation:
+    label: Clinical Translation
+    children:
+      - diagnosis
+      - grading
+      - subtyping
+      - biomarker-prediction
+      - prognosis-prediction
+      - therapy-response
+      - clinical-workflow-integration
+
+  agentic_pathology_ai:
+    label: Agentic Pathology AI
+    children:
+      - paper-reading-agent
+      - dataset-curation-agent
+      - benchmark-execution-agent
+      - repo-analysis-agent
+      - multimodal-reasoning-agent
+      - clinical-report-agent
+      - autonomous-discovery-agent

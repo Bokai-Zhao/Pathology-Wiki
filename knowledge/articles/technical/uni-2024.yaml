@@ -1,0 +1,139 @@
+id: uni-2024
+type: article
+
+article_type:
+  primary: technical_article
+  secondary:
+    - dataset_article   # the paper releases Mass-100K (a pretraining corpus)
+
+title: "Towards a General-Purpose Foundation Model for Computational Pathology"
+authors:
+  - Richard J. Chen
+  - Tong Ding
+  - Ming Y. Lu
+  - Drew F. K. Williamson
+  - Guillaume Jaume
+  - Andrew H. Song
+  - Bowen Chen
+  - Andrew Zhang
+  - Daniel Shao
+  - Muhammad Shaban
+  - Mane Williams
+  - Lukas Oldenburg
+  - Luca L. Weishaupt
+  - Judy J. Wang
+  - Anurag Vaidya
+  - Long Phi Le
+  - Georg Gerber
+  - Sharifa Sahai
+  - Walt Williams
+  - Faisal Mahmood
+year: 2024
+venue: Nature Medicine
+publication_status: published
+
+links:
+  doi: 10.1038/s41591-024-02857-3
+  arxiv: to_verify
+  pubmed: to_verify
+  github: https://github.com/mahmoodlab/UNI
+  huggingface: https://huggingface.co/MahmoodLab/UNI
+  project: to_verify
+
+abstract: |
+  UNI is a self-supervised vision-only pathology foundation model trained with
+  DINOv2 on Mass-100K, an internal corpus of ~100k WSIs (~100M H&E patches)
+  spanning 20 tissue types. It targets general-purpose patch-level
+  representations for downstream WSI tasks (classification, MIL aggregation,
+  retrieval), evaluated across 33 tasks at slide and patch level.
+keywords:
+  - pathology foundation model
+  - self-supervised learning
+  - DINOv2
+  - vision transformer
+  - whole slide image
+  - computational pathology
+
+domains: [computational-pathology]
+modalities: [h-and-e]
+organs: []           # general-purpose; cohort spans 20 tissue types
+diseases: []
+biomarkers: []
+tasks:
+  - tissue-type-classification
+  - tumor-vs-normal
+  - subtype-classification
+  - grading
+  - biomarker-expression-prediction
+metrics:
+  - auc
+  - balanced-accuracy
+  - top-k-accuracy
+
+related_methods:
+  - pathology-foundation-model
+  - patch-level-ssl
+  - vision-only-pfm
+related_models:
+  - uni
+related_datasets:
+  - mass-100k       # NOTE: not yet a node — §11.6 ask user
+related_tools: []
+related_benchmarks: []
+related_articles: []
+
+technical_focus:
+  method_family:
+    - pathology_foundation_model
+    - patch-level-ssl
+  model_architecture:
+    - vit-l-16
+  training_strategy:
+    - dinov2-self-supervised
+  supervision_type:
+    - self-supervised
+  input_type:
+    - h-and-e-patch-256x256
+    - h-and-e-patch-224x224
+  output_type:
+    - patch-embedding-1024d   # to_verify (commonly cited as ViT-L embedding dim)
+  datasets:
+    - mass-100k
+  metrics:
+    - auc
+    - balanced-accuracy
+    - top-k-accuracy
+  baselines:
+    - ctranspath
+    - phikon
+    - lunit-dino
+    - resnet-50-imagenet
+  implementation: "PyTorch; checkpoints distributed via Hugging Face under gated access."
+  reproducibility: "Code and weights public (gated request); pretraining corpus internal."
+  limitations:
+    - "Mass-100K not openly downloadable — pretraining cannot be reproduced from scratch."
+    - "Patch-level model; slide-level aggregation requires downstream MIL or pooling."
+    - "H&E only in primary release; staining variation outside training distribution may degrade."
+  reusable_components:
+    - vit-l-pathology-encoder
+    - dinov2-pathology-recipe
+
+claude:
+  summary: |
+    UNI is a vision-only ViT-L pathology foundation model from Mahmood Lab,
+    pretrained with DINOv2 on Mass-100K. It is the canonical baseline encoder
+    for any new WSI-level benchmark covering H&E classification, MIL, or
+    retrieval. UNI2 is a subsequent version — track via `supersedes` edges
+    when added.
+  use_when:
+    - "Designing a WSI-level benchmark (use UNI as a strong vision-only baseline)."
+    - "Comparing pathology PFMs (cite alongside CTransPath, GigaPath, Virchow, H-Optimus, CONCH)."
+    - "Citing patch-level SSL on H&E."
+  do_not_use_when:
+    - "User wants a vision-language model — cite CONCH/MUSK instead."
+    - "User wants slide-level pretraining specifically — cite GigaPath/Prov-GigaPath."
+    - "User needs open pretraining data — Mass-100K is internal."
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium    # several link fields marked to_verify

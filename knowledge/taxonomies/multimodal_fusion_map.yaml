@@ -1,0 +1,32 @@
+# Multimodal fusion strategies and pairings.
+
+fusion_strategies:
+  - early-fusion
+  - intermediate-fusion
+  - late-fusion
+  - cross-attention-fusion
+  - co-attention-fusion
+  - contrastive-alignment
+  - retrieval-augmented-fusion
+  - knowledge-graph-injection
+
+modality_pairs:
+  - { id: pathology-genomics,         left: h-and-e,  right: bulk-rna-seq }
+  - { id: pathology-spatial-trans,    left: h-and-e,  right: 10x-visium }
+  - { id: pathology-spatial-cosmx,    left: h-and-e,  right: cosmx }
+  - { id: pathology-radiology,        left: h-and-e,  right: mri }
+  - { id: pathology-radiology-ct,     left: h-and-e,  right: ct }
+  - { id: pathology-ehr,              left: h-and-e,  right: ehr-structured }
+  - { id: pathology-report,           left: h-and-e,  right: pathology-report }
+  - { id: pathology-knowledge-graph,  left: h-and-e,  right: knowledge-graph }
+  - { id: pathology-methylation,      left: h-and-e,  right: methylation-array }
+  - { id: pathology-singlecell,       left: h-and-e,  right: single-cell-rna-seq }
+
+representative_tasks:
+  - survival-prediction
+  - response-to-therapy-prediction
+  - mutation-prediction
+  - molecular-subtype-prediction
+  - biomarker-expression-prediction
+  - st-gene-expression-prediction
+  - spatial-domain-identification

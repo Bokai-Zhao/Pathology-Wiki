@@ -1,0 +1,48 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "benchmark.schema.yaml"
+title: Benchmark
+
+type: object
+required: [id, type, name, benchmark_goal, claude]
+additionalProperties: false
+
+properties:
+  id:   { $ref: "_common.schema.yaml#/definitions/stable_id" }
+  type: { type: string, const: benchmark }
+  name: { type: string }
+
+  benchmark_goal: { type: string }
+  benchmark_type:
+    type: string
+    description: "e.g. wsi_pfm, vlm_eval, multimodal_fusion, st_alignment, cell_level"
+
+  datasets:   { type: array, items: { type: string } }
+  models:     { type: array, items: { type: string } }
+  methods:    { type: array, items: { type: string } }
+  tasks:      { type: array, items: { type: string } }
+  metrics:    { type: array, items: { type: string } }
+  baselines:  { type: array, items: { type: string } }
+
+  pipeline:
+    type: object
+    properties:
+      inputs:  { type: array, items: { type: string } }
+      steps:   { type: array, items: { type: string } }
+      outputs: { type: array, items: { type: string } }
+
+  leaderboard:
+    type: object
+    properties:
+      available:     { type: boolean }
+      url:           { type: string, format: uri }
+      result_format: { type: string }
+
+  add_model_workflow:    { type: string }
+  add_dataset_workflow:  { type: string }
+  aggregation_workflow:  { type: string }
+
+  related_articles: { type: array, items: { type: string } }
+  related_tools:    { type: array, items: { type: string } }
+  related_skills:   { type: array, items: { type: string } }
+
+  claude: { $ref: "_common.schema.yaml#/definitions/claude_block" }

@@ -1,0 +1,46 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "method.schema.yaml"
+title: Method
+
+type: object
+required: [id, type, name, stage, claude]
+additionalProperties: false
+
+properties:
+  id:   { $ref: "_common.schema.yaml#/definitions/stable_id" }
+  type: { type: string, const: method }
+  name: { type: string }
+
+  stage:
+    description: "Top-level method-map branch (CLAUDE.md §7)."
+    type: array
+    items:
+      type: string
+      enum:
+        - traditional_cpath
+        - deep_wsi_learning
+        - pathology_foundation_model
+        - pathology_vlm
+        - multimodal_pathology_ai
+        - benchmark_evaluation
+        - clinical_translation
+        - agentic_pathology_ai
+
+  parent_methods:  { type: array, items: { type: string } }
+  child_methods:   { type: array, items: { type: string } }
+  predecessors:    { type: array, items: { type: string } }
+  successors:      { type: array, items: { type: string } }
+
+  core_idea:       { type: string }
+  key_questions:   { type: array, items: { type: string } }
+
+  representative_articles:   { type: array, items: { type: string } }
+  representative_models:     { type: array, items: { type: string } }
+  representative_tools:      { type: array, items: { type: string } }
+  representative_datasets:   { type: array, items: { type: string } }
+  related_benchmarks:        { type: array, items: { type: string } }
+
+  tasks:      { type: array, items: { type: string } }
+  modalities: { type: array, items: { type: string } }
+
+  claude: { $ref: "_common.schema.yaml#/definitions/claude_block" }

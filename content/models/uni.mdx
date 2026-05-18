@@ -1,0 +1,84 @@
+---
+id: uni
+title: "UNI (model card)"
+slug: /models/uni
+sidebar_position: 1
+description: "Vision-only pathology foundation model — ViT-L/16, DINOv2, Mass-100K."
+tags: [model, foundation-model, vision-only-pfm, vit-l, dinov2]
+---
+
+import LocalGraph from '@site/src/components/LocalGraph';
+import ModelCard from '@site/src/components/ModelCard';
+import SkillCard from '@site/src/components/SkillCard';
+
+# UNI
+
+<ModelCard id="uni" />
+
+<LocalGraph nodeId="uni" hops={1} />
+
+## Why it matters
+
+UNI is the canonical vision-only pathology foundation model: a ViT-L/16 pretrained with DINOv2 on Mass-100K. It is the default H&E patch encoder for new WSI-level studies that want a strong frozen baseline without designing a custom backbone.
+
+## Core idea
+
+ViT-L/16 trained with DINOv2 self-supervised learning on ~100M H&E patches drawn from ~100k WSIs across 20 tissue types. Frozen features transfer to downstream slide-level MIL, patch classification, and retrieval.
+
+## Inputs and outputs
+
+- **Input**: H&E patches (224×224 or 256×256, ~0.5 μm/px).
+- **Output**: 1024-d patch embeddings *(to verify against the released checkpoint).*
+
+## Capabilities
+
+- Strong frozen-feature performance on diverse tissue types.
+- Drop-in replacement for ImageNet-pretrained ViT or CTransPath in pathology pipelines.
+- Standard backbone for ABMIL / CLAM / TransMIL slide aggregation on H&E.
+
+## How to load
+
+```python
+# Hugging Face — gated; request access first.
+from huggingface_hub import login
+login()
+
+import timm
+import torch
+
+model = timm.create_model("hf_hub:MahmoodLab/UNI", pretrained=True, init_values=1e-5, dynamic_img_size=True)
+model.eval()
+```
+
+*Verify the exact loading idiom against the [UNI README](https://github.com/mahmoodlab/UNI) — the recipe above is illustrative.*
+
+## When to use
+
+- Any new WSI-level benchmark that needs a strong vision-only baseline.
+- Comparing pathology PFMs in a structured benchmark.
+- Slide aggregation studies where patch features must be fixed.
+
+## When **not** to use
+
+- VLM tasks (image-text retrieval, captioning, VQA) — use **CONCH** or **MUSK**.
+- Slide-level pretraining objectives — use **GigaPath / Prov-GigaPath**.
+- Pipelines that require fully open weights / no gating — fall back to **CTransPath** or open ViT alternatives.
+
+## Limitations
+
+- Pretraining data internal — cannot retrain from scratch.
+- Gated weights via Hugging Face access request.
+- H&E only; staining variation outside training distribution may degrade.
+
+## Versioning
+
+- **UNI2** has been released as a successor; when its node is added, link with `uni2 --supersedes--> uni`. See CLAUDE.md §9.2 for the versioning convention.
+
+## How Claude should use this object
+
+<SkillCard id="uni" />
+
+## Related nodes
+
+- article: [UNI paper (uni-2024)](/articles/technical/uni-2024)
+- method: [Pathology Foundation Model](/methods/pathology-foundation-model)

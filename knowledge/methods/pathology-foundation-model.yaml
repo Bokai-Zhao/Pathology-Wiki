@@ -1,0 +1,67 @@
+id: pathology-foundation-model
+type: method
+name: Pathology Foundation Model
+
+stage:
+  - pathology_foundation_model
+
+parent_methods: []
+child_methods:
+  - patch-level-ssl
+  - slide-level-pretraining
+  - multi-scale-pretraining
+  - vision-only-pfm
+  - vision-language-pfm
+  - vision-omics-pfm
+predecessors:
+  - cnn-patch-classification
+  - weakly-supervised-mil
+successors: []
+
+core_idea: |
+  Pretrain a large image (or image+text/omics) encoder on millions of pathology
+  patches/slides using self-supervised or contrastive objectives, then transfer
+  to many downstream tasks via frozen features or lightweight heads. The aim
+  is general-purpose representations whose value scales with pretraining data
+  and parameters, analogous to ImageNet-era backbones but pathology-specific.
+
+key_questions:
+  - "Patch-level vs slide-level pretraining objectives?"
+  - "Vision-only vs vision-language vs vision-omics?"
+  - "How does pretraining scale (data, params, magnification) translate to clinical utility?"
+  - "What evaluation suite captures generality without overfitting to TCGA-like distributions?"
+
+representative_articles:
+  - uni-2024
+representative_models:
+  - uni
+representative_tools: []
+representative_datasets: []
+related_benchmarks: []
+
+tasks:
+  - tissue-type-classification
+  - tumor-vs-normal
+  - subtype-classification
+  - grading
+  - biomarker-expression-prediction
+  - survival-prediction
+
+modalities:
+  - h-and-e
+
+claude:
+  summary: |
+    Umbrella method node for pathology foundation models — covers vision-only,
+    vision-language, and vision-omics PFMs. Models like UNI / GigaPath /
+    Virchow / H-Optimus / CTransPath / CONCH / MUSK / Phikon link here.
+  use_when:
+    - "Discussing pretraining strategies for WSI encoders"
+    - "Framing a benchmark around foundation models vs natural-image baselines"
+    - "Positioning a new model in the PFM space"
+  do_not_use_when:
+    - "User wants the specific architecture / pretraining recipe — link directly to the model node"
+  update_level: taxonomy_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

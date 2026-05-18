@@ -1,0 +1,58 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "tool.schema.yaml"
+title: Tool
+
+type: object
+required: [id, type, name, claude]
+additionalProperties: false
+
+properties:
+  id:   { $ref: "_common.schema.yaml#/definitions/stable_id" }
+  type: { type: string, const: tool }
+  name: { type: string }
+  tool_type:
+    type: array
+    items: { type: string }
+    description: "e.g. wsi_io, segmentation, mil_framework, ssl_pretrain, vlm_inference, st_analysis"
+
+  links: { $ref: "_common.schema.yaml#/definitions/links" }
+
+  supported_inputs:  { type: array, items: { type: string } }
+  supported_outputs: { type: array, items: { type: string } }
+  capabilities:      { type: array, items: { type: string } }
+
+  related_methods:    { type: array, items: { type: string } }
+  related_tasks:      { type: array, items: { type: string } }
+  related_datasets:   { type: array, items: { type: string } }
+  related_benchmarks: { type: array, items: { type: string } }
+  related_articles:   { type: array, items: { type: string } }
+  related_models:     { type: array, items: { type: string } }
+
+  agent_interface:
+    type: object
+    properties:
+      callable:              { type: boolean }
+      install_command:       { type: string }
+      example_usage:         { type: string }
+      cli_available:         { type: boolean }
+      python_api_available:  { type: boolean }
+      docker_available:      { type: boolean }
+
+  maturity:
+    type: object
+    properties:
+      repo_status:        { type: string, enum: [active, maintained, dormant, archived, unknown] }
+      documentation:      { type: string, enum: [excellent, good, partial, sparse, missing, unknown] }
+      reproducibility:    { type: string, enum: [excellent, good, partial, sparse, unknown] }
+      maintenance_level:  { type: string, enum: [active, periodic, low, abandoned, unknown] }
+
+  language:
+    type: array
+    items: { type: string }
+    description: "e.g. C, C++, Python, TypeScript"
+
+  license: { type: string }
+
+  limitations: { type: array, items: { type: string } }
+
+  claude: { $ref: "_common.schema.yaml#/definitions/claude_block" }
