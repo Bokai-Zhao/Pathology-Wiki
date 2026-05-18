@@ -31,9 +31,8 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
-          cache: 'npm'
       - name: Install Node deps
-        run: npm ci
+        run: npm install --no-audit --no-fund --no-progress
       - name: Build site data
         run: npm run build:data
       - name: Build Docusaurus
