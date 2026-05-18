@@ -6,10 +6,14 @@ const config: Config = {
   title: 'Pathology-Wiki',
   tagline: 'An agent-extensible knowledge base for computational pathology',
   favicon: 'img/favicon.ico',
-  url: 'https://pathology-wiki.example.com',
-  baseUrl: '/',
-  organizationName: 'pathology-wiki',
-  projectName: 'pathology-wiki',
+
+  // GitHub Pages deployment
+  url: 'https://bokai-zhao.github.io',
+  baseUrl: '/Pathology-Wiki/',
+  organizationName: 'Bokai-Zhao',
+  projectName: 'Pathology-Wiki',
+  trailingSlash: false,
+
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   i18n: {
