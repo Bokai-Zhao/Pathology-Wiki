@@ -30,6 +30,13 @@ nodes_file:
               - article
               - clinical_article
               - technical_article
+              - review_article
+              - benchmark_article
+              - dataset_article
+              - tool_article
+              - guideline_article
+              - perspective_article
+              - preprint
               - method
               - model
               - dataset

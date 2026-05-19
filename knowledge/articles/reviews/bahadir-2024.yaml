@@ -1,0 +1,286 @@
+id: bahadir-2024
+type: article
+
+article_type:
+  primary: review_article
+  secondary:
+    - technical_article          # covers method taxonomies, training recipes, datasets, metrics
+    - clinical_article           # also surveys clinical applications and translation
+
+title: "Artificial intelligence applications in histopathology"
+authors:
+  - Cagla Deniz Bahadir
+  - Mohamed Omar
+  - Jacob Rosenthal
+  - Luigi Marchionni
+  - Benjamin Liechty
+  - David J. Pisapia
+  - Mert R. Sabuncu
+year: 2024
+venue: Nature Reviews Electrical Engineering
+publication_status: published
+
+links:
+  doi: 10.1038/s44287-023-00012-7
+  paper: https://www.nature.com/articles/s44287-023-00012-7
+  pubmed: to_verify
+
+abstract: |
+  A broad review of artificial intelligence applications in histopathology,
+  spanning whole-slide image acquisition and preprocessing, deep-learning
+  architectures (CNNs, transformers, weakly-supervised MIL, graph neural
+  networks), self-supervised learning and pathology foundation models, vision-
+  language pretraining, generative models for stain normalisation and data
+  augmentation, image registration, segmentation (gland and nuclei),
+  classification, survival and biomarker prediction, mitosis detection, and
+  clinical translation. The review covers ~206 references and is written from
+  the perspective of the electrical-engineering and machine-learning community
+  developing the underlying techniques. Authors include both computational
+  (Sabuncu Lab at Cornell) and clinical (Weill Cornell pathology — Liechty,
+  Pisapia) researchers.
+keywords:
+  - histopathology
+  - artificial intelligence
+  - deep learning
+  - whole slide image
+  - foundation model
+  - multiple instance learning
+  - vision-language
+  - segmentation
+  - clinical translation
+  - computational pathology
+
+domains:
+  - computational-pathology
+  - clinical-pathology
+modalities:
+  - h-and-e
+organs:
+  - breast
+  - prostate
+  - colon
+  - lung
+  - kidney
+  - skin
+  - lymph-node
+  - brain
+diseases:
+  - breast-cancer
+  - prostate-cancer
+  - colorectal-cancer
+  - non-small-cell-lung-cancer
+  - glioma
+  - melanoma
+biomarkers:
+  - her2
+  - idh-mutation
+  - microsatellite-instability
+  - tumor-infiltrating-lymphocytes
+tasks:
+  - tumor-detection
+  - slide-level-classification
+  - subtype-classification
+  - grading
+  - biomarker-expression-prediction
+  - mutation-prediction
+  - survival-prediction
+  - nuclei-instance-segmentation
+  - gland-segmentation
+  - mitosis-detection
+  - stain-normalization
+  - image-registration
+  - histology-captioning
+  - zero-shot-classification
+metrics:
+  - auc
+  - accuracy
+  - dice
+  - f1
+  - panoptic-quality
+  - froc
+  - quadratic-weighted-kappa
+
+related_methods:
+  - pathology-foundation-model
+  - patch-level-ssl
+  - pathology-vlm
+  - weakly-supervised-mil
+  - abmil
+  - clam
+  - transmil
+  - hover-net
+  - cellvit
+related_models:
+  - uni
+  - ctranspath
+  - plip
+related_datasets:
+  - camelyon16
+  - bach
+  - glas
+  - pannuke
+  - midog
+  - panda
+related_tools:
+  - openslide
+related_benchmarks: []
+related_articles:
+  - abmil-2018
+  - clam-2021
+  - transmil-2021
+  - campanella-2019
+  - hover-net-2019
+  - cellvit-2024
+  - ctranspath-2022
+  - clip-2021
+  - plip-2023
+  - mi-zero-2023
+  - uni-2024
+
+technical_focus:
+  method_family:
+    - pathology-foundation-model
+    - patch-level-ssl
+    - pathology-vlm
+    - weakly-supervised-mil
+    - cnn-segmentation
+    - graph-neural-network
+    - generative-models
+    - stain-normalization
+    - image-registration
+  model_architecture:
+    - cnn
+    - vit
+    - swin-transformer
+    - transformer-mil
+    - graph-neural-network
+    - diffusion-model
+    - gan
+  training_strategy:
+    - fully-supervised
+    - weakly-supervised
+    - self-supervised
+    - vision-language-contrastive
+    - multi-task
+  supervision_type:
+    - fully-supervised
+    - weakly-supervised
+    - self-supervised
+    - zero-shot
+  input_type:
+    - h-and-e-patch
+    - h-and-e-whole-slide-image
+    - pathology-text
+  output_type:
+    - patch-class-label
+    - slide-class-label
+    - nuclei-instance-mask
+    - gland-instance-mask
+    - mitosis-coordinate
+    - text-caption
+  datasets:
+    - camelyon16
+    - panda
+    - bach
+    - glas
+    - pannuke
+    - midog
+    - tcga                        # descriptive label
+    - paip                        # descriptive label
+    - tupac16                     # descriptive label
+  metrics:
+    - auc
+    - accuracy
+    - dice
+    - f1
+    - panoptic-quality
+    - froc
+    - quadratic-weighted-kappa
+  baselines: []                    # review — no single baseline; covers many
+  implementation: "Review article — no single implementation; surveys public code releases across cited methods."
+  reproducibility: "N/A — review article."
+  limitations:
+    - "Coverage cutoff ~mid-2023 — recent VLMs (CONCH, QuiltNet, MUSK), slide-level PFMs (GigaPath, Virchow, H-Optimus), and PathChat-style MLLMs are not covered."
+    - "Limited treatment of multimodal (path+omics+radiology) beyond MCAT / Vanguri."
+    - "Agentic pathology AI is out of scope."
+    - "Clinical-translation depth varies — deeper on deep learning workflow than on regulatory / deployment considerations."
+  reusable_components: []           # review — no novel components
+
+clinical_focus:
+  clinical_problem: |
+    Surveys the spectrum of clinical pathology problems amenable to AI:
+    tumor detection, grading (Gleason for prostate, ISUP, Nottingham for
+    breast), subtype classification, biomarker prediction (HER2, IDH, MSI,
+    TILs), molecular alteration inference, mitotic-count grading, survival /
+    prognosis prediction, and treatment-response prediction.
+  diagnostic_criteria:
+    - to_verify                    # review breadth — varies per task
+  pathology_criteria:
+    - to_verify
+  grading_system:
+    - gleason
+    - isup
+    - nottingham
+  biomarkers:
+    - her2
+    - idh-mutation
+    - microsatellite-instability
+    - tumor-infiltrating-lymphocytes
+  molecular_alterations:
+    - idh-mutation
+    - microsatellite-instability
+  clinical_endpoints:
+    - overall-survival
+    - disease-free-survival
+    - treatment-response
+    - cancer-detection
+  treatment_context: []
+  cohort_design: "Review — surveys retrospective cohorts (TCGA, MSKCC, multi-institution) cited per study."
+  clinical_workflow: |
+    Discusses computer-assisted triage (slide-level cancer detection),
+    pathologist-AI collaboration, and integration with downstream molecular /
+    treatment decisions. References Campanella 2019 as the canonical
+    clinical-grade workflow example.
+  clinical_need_for_ai: |
+    Pathology workload bottleneck (rising case volumes, falling pathologist
+    numbers), interobserver variability for grading and rare-cancer
+    diagnosis, biomarker prediction from H&E sidestepping expensive
+    molecular assays, prognosis stratification beyond manual grading.
+  possible_ai_tasks:
+    - slide-level-tumor-detection
+    - grading-automation
+    - biomarker-prediction-from-he
+    - molecular-alteration-prediction
+    - survival-prediction
+    - treatment-response-prediction
+    - mitotic-count-automation
+    - clinical-triage
+
+claude:
+  summary: |
+    Bahadir et al. (Nat Rev Electr Eng 2024) — a broad review of AI in
+    histopathology covering ~206 references. Spans WSI preprocessing,
+    deep-learning architectures (CNNs, MIL, transformers, GNNs), self-
+    supervised pathology foundation models, vision-language pretraining,
+    generative stain-norm / synthesis, segmentation, classification,
+    biomarker/mutation/survival prediction, mitosis detection, and clinical
+    translation. Written from the EE/ML community perspective. Cutoff
+    ~mid-2023 — does not cover CONCH, QuiltNet, MUSK, GigaPath, Virchow,
+    H-Optimus, PathChat. Use as a starting reference for any pathology AI
+    survey or thesis introduction.
+  use_when:
+    - "Need a single broad reference for AI-in-histopathology background"
+    - "Surveying classical → modern pipelines in computational pathology"
+    - "Looking for entry-level positioning of MIL / PFM / VLM in a unified narrative"
+    - "Thesis intro / grant proposal background section"
+  do_not_use_when:
+    - "Need 2024+ developments (CONCH / GigaPath / Virchow / H-Optimus / PathChat)"
+    - "Need deep clinical regulatory / deployment guidance"
+    - "Need a primary source — review article, not novel methodology"
+    - "Need depth on multimodal path+omics+radiology — coverage is light"
+  prefer_over:
+    - older-pathology-ai-surveys     # most pre-2023 reviews
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

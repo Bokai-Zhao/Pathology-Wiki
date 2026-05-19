@@ -177,3 +177,10 @@ nodes:
     label: "MI-Zero (Lu et al. 2023, CVPR)"
     aliases: [lu-2023-mi-zero, mizero-2023]
     taxonomy_path: [Articles, Technical, Pathology VLM]
+
+  # ---- Review article (added 2026-05-19) ----
+  - id: bahadir-2024
+    type: review_article
+    label: "Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)"
+    aliases: [bahadir-2024-review, bahadir-omar-2024]
+    taxonomy_path: [Articles, Reviews, AI in Histopathology]

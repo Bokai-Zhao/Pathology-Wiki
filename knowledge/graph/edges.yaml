@@ -183,3 +183,73 @@ edges:
   # Cross-cluster: PLIP evaluated on pannuke crops
   - { from: plip-2023, to: pannuke, type: uses_dataset,
       evidence: "PLIP downstream evaluation includes PanNuke patch-level crops", confidence: medium }
+
+  # ---- Bahadir 2024 review — broad survey (added 2026-05-19) ----
+  # Bahadir et al. cite each of the following as exemplars in the survey;
+  # use compares_with for method-survey edges and related_to for general references.
+
+  # Datasets surveyed
+  - { from: bahadir-2024, to: camelyon16, type: related_to,
+      evidence: "Litjens 2018 Camelyon dataset cited as the canonical breast lymph-node WSI benchmark", confidence: high }
+  - { from: bahadir-2024, to: panda, type: related_to,
+      evidence: "Bulten 2022 PANDA challenge cited as the canonical Gleason grading benchmark", confidence: high }
+  - { from: bahadir-2024, to: bach, type: related_to,
+      evidence: "Aresta 2019 BACH challenge cited for breast histology classification", confidence: high }
+  - { from: bahadir-2024, to: glas, type: related_to,
+      evidence: "Sirinukunwattana 2017 GlaS challenge cited as the canonical gland segmentation benchmark", confidence: high }
+  - { from: bahadir-2024, to: pannuke, type: related_to,
+      evidence: "Gamper 2020 PanNuke cited as the canonical pan-cancer nuclei dataset", confidence: high }
+  - { from: bahadir-2024, to: midog, type: related_to,
+      evidence: "Aubreville 2023 MIDOG cited as the canonical mitosis-detection benchmark", confidence: high }
+
+  # MIL articles surveyed
+  - { from: bahadir-2024, to: abmil-2018, type: compares_with,
+      evidence: "Ilse 2018 ABMIL cited as the foundational attention-based MIL aggregator", confidence: high }
+  - { from: bahadir-2024, to: clam-2021, type: compares_with,
+      evidence: "Lu 2021 CLAM cited as the data-efficient weakly-supervised MIL framework", confidence: high }
+  - { from: bahadir-2024, to: transmil-2021, type: compares_with,
+      evidence: "Shao 2021 TransMIL cited as the Transformer-based correlated MIL variant", confidence: high }
+  - { from: bahadir-2024, to: campanella-2019, type: compares_with,
+      evidence: "Campanella 2019 cited as the clinical-grade weakly-supervised MIL scale precedent (~44k MSKCC slides)", confidence: high }
+
+  # Method nodes surveyed
+  - { from: bahadir-2024, to: weakly-supervised-mil, type: related_to,
+      evidence: "Weakly-supervised MIL is a major chapter of the survey", confidence: high }
+  - { from: bahadir-2024, to: pathology-foundation-model, type: related_to,
+      evidence: "Pathology foundation models / self-supervised pretraining is a major chapter", confidence: high }
+  - { from: bahadir-2024, to: patch-level-ssl, type: related_to,
+      evidence: "Patch-level SSL pretraining recipes (SimCLR, MoCo, DINO, CTransPath) discussed at length", confidence: high }
+  - { from: bahadir-2024, to: pathology-vlm, type: related_to,
+      evidence: "Vision-language pathology (CLIP / PLIP / MI-Zero) discussed as an emerging direction", confidence: high }
+
+  # Cell / tissue baselines surveyed
+  - { from: bahadir-2024, to: hover-net-2019, type: compares_with,
+      evidence: "Graham 2019 HoVer-Net cited as the canonical joint nuclei seg + classification CNN", confidence: high }
+  - { from: bahadir-2024, to: cellvit-2024, type: compares_with,
+      evidence: "Hörst 2023 (preprint, published 2024) CellViT cited as the ViT-based cell segmentation successor", confidence: high }
+  - { from: bahadir-2024, to: ctranspath-2022, type: compares_with,
+      evidence: "Wang 2022 CTransPath cited as the canonical Transformer-based pathology SSL baseline", confidence: high }
+
+  # Vision-language articles surveyed
+  - { from: bahadir-2024, to: clip-2021, type: related_to,
+      evidence: "Radford 2021 CLIP cited as the architectural origin of vision-language pretraining", confidence: high }
+  - { from: bahadir-2024, to: plip-2023, type: compares_with,
+      evidence: "Huang 2023 PLIP cited as the first widely-cited pathology vision-language foundation model", confidence: high }
+  - { from: bahadir-2024, to: mi-zero-2023, type: compares_with,
+      evidence: "Lu 2023 MI-Zero cited as the slide-level zero-shot extension via top-k VL aggregation", confidence: high }
+
+  # PFM article surveyed
+  - { from: bahadir-2024, to: uni-2024, type: related_to,
+      evidence: "Chen 2024 UNI is the canonical vision-only pathology PFM reference (citation may be late add given cutoff)", confidence: medium }
+
+  # Tools surveyed
+  - { from: bahadir-2024, to: openslide, type: related_to,
+      evidence: "OpenSlide is the canonical WSI reader referenced for preprocessing workflows", confidence: medium }
+
+  # Review → Articles it updates / draws on (uses_version-style summary; here just related_to)
+  - { from: bahadir-2024, to: uni, type: related_to,
+      evidence: "Model UNI referenced via uni-2024 article — pathology PFM exemplar", confidence: medium }
+  - { from: bahadir-2024, to: ctranspath, type: related_to,
+      evidence: "Model CTransPath referenced via ctranspath-2022 article — pre-UNI SSL baseline", confidence: medium }
+  - { from: bahadir-2024, to: plip, type: related_to,
+      evidence: "Model PLIP referenced via plip-2023 article — pathology VL foundation model exemplar", confidence: medium }

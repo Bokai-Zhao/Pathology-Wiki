@@ -32,11 +32,33 @@ TYPE_DIRS = {
     "article": "articles",
     "clinical_article": "articles",
     "technical_article": "articles",
+    "review_article": "articles",
+    "benchmark_article": "articles",
+    "dataset_article": "articles",
+    "tool_article": "articles",
+    "guideline_article": "articles",
+    "perspective_article": "articles",
+    "preprint": "articles",
     "model": "models",
     "tool": "tools",
     "dataset": "datasets",
     "method": "methods",
     "benchmark": "benchmarks",
+}
+
+# Article subdirectory routing (knowledge/articles/{subdir}/ and content/articles/{subdir}/).
+# Maps article *type* → subdir. Used by _src_path so reviews / benchmarks / etc. link correctly.
+ARTICLE_SUBDIRS = {
+    "article": "technical",
+    "technical_article": "technical",
+    "clinical_article": "clinical",
+    "review_article": "reviews",
+    "benchmark_article": "benchmarks",
+    "dataset_article": "datasets",
+    "tool_article": "tools",
+    "guideline_article": "guidelines",
+    "perspective_article": "perspectives",
+    "preprint": "technical",
 }
 
 
@@ -84,8 +106,8 @@ def _src_path(type_: str, id_: str) -> str:
     plural = TYPE_DIRS.get(type_)
     if plural is None:
         return ""
-    if type_ in ("article", "technical_article", "clinical_article"):
-        return f"articles/technical/{id_}.md"
+    if type_ in ARTICLE_SUBDIRS:
+        return f"articles/{ARTICLE_SUBDIRS[type_]}/{id_}.md"
     return f"{plural}/{id_}.md"
 
 

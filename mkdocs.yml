@@ -73,6 +73,8 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Articles:
+      - Reviews:
+          - "Bahadir 2024 — AI in histopathology": articles/reviews/bahadir-2024.md
       - Technical:
           - "UNI (2024)": articles/technical/uni-2024.md
           - "ABMIL (Ilse 2018)": articles/technical/abmil-2018.md
