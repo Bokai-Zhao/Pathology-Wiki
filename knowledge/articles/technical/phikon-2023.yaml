@@ -1,0 +1,129 @@
+id: phikon-2023
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "Scaling Self-Supervised Learning for Histopathology with Masked Image Modeling"
+authors:
+  - Alexandre Filiot
+  - Ridouane Ghermi
+  - Antoine Olivier
+  - Paul Jacob
+  - Lucas Fidon
+  - Axel Camara
+  - Alice Mac Kain
+  - Charlie Saillard
+  - Jean-Baptiste Schiratti
+year: 2023
+venue: medRxiv (preprint, MICCAI Workshop)
+publication_status: preprint
+
+links:
+  doi: 10.1101/2023.07.21.23292757
+  paper: https://www.medrxiv.org/content/10.1101/2023.07.21.23292757v3
+  huggingface: https://huggingface.co/owkin/phikon
+  github: https://github.com/owkin/HistoSSLscaling
+
+abstract: |
+  Phikon is a patch-level pathology foundation model from Owkin trained with
+  iBOT (a masked image modelling SSL recipe combining DINO + MIM) on ~6,000
+  TCGA WSIs (~43M H&E patches). Phikon was, alongside CTransPath, one of the
+  strongest open-weights pathology SSL checkpoints in the pre-UNI era; it
+  established iBOT as a competitive alternative to DINO/contrastive recipes
+  for pathology pretraining. Released openly on Hugging Face under a research
+  license, Phikon remains a widely-used open baseline. Phikon-v2 (2024)
+  further scales the recipe to ~58k WSIs.
+keywords:
+  - foundation model
+  - self-supervised learning
+  - iBOT
+  - masked image modeling
+  - pathology
+  - vision transformer
+
+domains: [computational-pathology]
+modalities: [h-and-e]
+organs: []
+diseases: []
+biomarkers: []
+tasks:
+  - patch-classification
+  - tissue-type-classification
+  - tumor-vs-normal
+  - subtype-classification
+  - slide-level-classification
+metrics:
+  - auc
+  - accuracy
+  - balanced-accuracy
+
+related_methods:
+  - pathology-foundation-model
+  - patch-level-ssl
+related_models:
+  - ctranspath
+  - uni
+related_datasets:
+  - tcga
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - ctranspath-2022
+  - lunit-dino-2022
+  - uni-2024
+
+technical_focus:
+  method_family:
+    - pathology-foundation-model
+    - patch-level-ssl
+    - masked-image-modeling
+  model_architecture:
+    - vit-b-16
+    - vit-l-16
+  training_strategy:
+    - ibot                            # DINO + MIM combined
+  supervision_type:
+    - self-supervised
+  input_type:
+    - h-and-e-patch-224x224
+  output_type:
+    - patch-embedding-768d            # ViT-B output dim — to_verify
+  datasets:
+    - tcga                            # ~6k WSIs / ~43M patches
+  metrics:
+    - auc
+    - accuracy
+  baselines:
+    - ctranspath
+    - lunit-dino
+    - resnet-50-imagenet
+  implementation: "PyTorch; iBOT recipe (DINO + MIM); weights public on Hugging Face owkin/phikon."
+  reproducibility: "Code + weights public; pretraining cohort is TCGA (publicly accessible)."
+  limitations:
+    - "Pretraining cohort smaller than UNI / Virchow / Prov-GigaPath."
+    - "Pre-DINOv2 — Phikon-v2 (2024) and modern PFMs use DINOv2 and outperform on most tasks."
+    - "ViT-B backbone — UNI uses ViT-L for stronger downstream features."
+  reusable_components:
+    - phikon-vit-encoder
+    - ibot-pathology-recipe
+
+claude:
+  summary: |
+    Filiot et al. (medRxiv 2023, Owkin) — Phikon is a patch-level pathology
+    PFM trained with iBOT (DINO + MIM) on ~6k TCGA WSIs. One of the
+    strongest open-weights pre-UNI pathology SSL checkpoints; superseded by
+    Phikon-v2 (2024) and the modern UNI / Virchow / Prov-GigaPath wave.
+    Standard sibling reference in PFM benchmarks.
+  use_when:
+    - "Need an open-weights pathology SSL baseline (alternative to CTransPath)"
+    - "Citing the iBOT recipe in pathology pretraining"
+    - "Comparing pre-UNI pathology PFMs"
+  do_not_use_when:
+    - "Need state-of-the-art performance — UNI / Virchow / GigaPath outperform"
+    - "Need vision-language — CONCH / PLIP"
+    - "Need slide-level pretraining — Prov-GigaPath / TITAN"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

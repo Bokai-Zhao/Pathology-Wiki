@@ -1,0 +1,117 @@
+id: dt-mil-2021
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "DT-MIL: Deformable Transformer for Multi-Instance Learning on Histopathological Image"
+authors:
+  - Hangchen Li
+  - Chen Yang
+  - Xiaoping Zhu
+  - Lihua Zhang
+year: 2021
+venue: MICCAI
+publication_status: published
+
+links:
+  paper: https://link.springer.com/chapter/10.1007/978-3-030-87237-3_20
+  doi: to_verify                       # MICCAI 2021 LNCS chapter — exact DOI not resolved by Crossref
+  arxiv: to_verify
+
+abstract: |
+  DT-MIL (Deformable Transformer MIL) introduces a deformable Transformer
+  aggregator for WSI multiple instance learning. Where ABMIL and CLAM use
+  scalar-attention pooling and TransMIL uses Nyström-approximated full
+  self-attention, DT-MIL uses sparse deformable attention — each query
+  attends to a small learnable subset of "key" patches rather than all
+  patches in the bag. This reduces compute while preserving long-range
+  context. DT-MIL evaluates on Camelyon16 and TCGA cohorts as a sibling
+  reference to TransMIL.
+keywords:
+  - multiple instance learning
+  - deformable transformer
+  - sparse attention
+  - whole slide image
+  - histopathology
+
+domains: [computational-pathology]
+modalities: [h-and-e]
+organs: [breast, lung, kidney, lymph-node]
+diseases:
+  - breast-cancer-metastasis
+  - non-small-cell-lung-cancer
+biomarkers: []
+tasks:
+  - slide-level-classification
+  - subtype-classification
+metrics:
+  - auc
+  - accuracy
+
+related_methods:
+  - weakly-supervised-mil
+  - transmil
+  - abmil
+related_models: []
+related_datasets:
+  - camelyon16
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - abmil-2018
+  - transmil-2021
+  - dsmil-2021
+
+technical_focus:
+  method_family:
+    - weakly-supervised-mil
+    - transformer-aggregation
+    - deformable-attention
+  model_architecture:
+    - resnet-encoder
+    - deformable-transformer
+  training_strategy:
+    - end-to-end-bag-level
+  supervision_type:
+    - weakly-supervised
+  input_type:
+    - h-and-e-patch
+    - bag-of-patches
+  output_type:
+    - bag-level-label
+  datasets:
+    - camelyon16
+  metrics:
+    - auc
+    - accuracy
+  baselines:
+    - abmil
+    - clam
+    - transmil
+    - dsmil
+  implementation: "PyTorch; deformable attention via DETR-style sparse keys."
+  reproducibility: "MICCAI 2021 paper; code release status to_verify."
+  limitations:
+    - "Sparse deformable attention adds implementation complexity vs CLAM/TransMIL."
+    - "Default ResNet encoder is now superseded by pathology PFMs."
+    - "Less widely adopted in practice than CLAM / TransMIL."
+  reusable_components:
+    - deformable-mil-aggregator
+
+claude:
+  summary: |
+    Li et al. (MICCAI 2021) — DT-MIL replaces TransMIL's Nyström attention
+    with deformable attention (DETR-style). Sibling reference in the
+    Transformer-MIL family alongside TransMIL.
+  use_when:
+    - "Citing the deformable-attention MIL formulation"
+    - "Comparing sparse-attention MIL variants"
+  do_not_use_when:
+    - "Need open MIL toolkit ergonomics — CLAM repo is more polished"
+    - "Need a simpler MIL baseline — ABMIL / CLAM"
+    - "Need exhaustive Transformer attention — TransMIL"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: medium
+  metadata_confidence: low             # DOI unresolved; awaiting confirmation from MICCAI 2021 LNCS

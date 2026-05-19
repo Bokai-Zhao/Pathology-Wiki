@@ -229,3 +229,66 @@ nodes:
     label: "DSMIL (Li, Li, Eliceiri 2021, CVPR)"
     aliases: [li-2021-dsmil, dual-stream-mil]
     taxonomy_path: [Articles, Technical, MIL]
+
+  # ---- Wave 1 batch B from Awesome-AI4DigitalPathology (added 2026-05-20) ----
+  # 4 multimodal slide PFMs, 1 multimodal MIL, 1 MIL variant, 2 pre-UNI SSL, 1 deformable MIL, 1 multimodal precursor
+
+  - id: titan-2025
+    type: technical_article
+    label: "TITAN (Ding et al. 2025, Nat Med)"
+    aliases: [ding-2025-titan, mahmood-titan]
+    taxonomy_path: [Articles, Technical, Multimodal Slide PFM]
+
+  - id: prism-2024
+    type: technical_article
+    label: "PRISM (Shaikovski et al. 2024, arXiv/Paige.AI)"
+    aliases: [shaikovski-2024-prism, paige-prism]
+    taxonomy_path: [Articles, Technical, Multimodal Slide PFM]
+
+  - id: madeleine-2024
+    type: technical_article
+    label: "MADELEINE (Jaume et al. 2024, ECCV)"
+    aliases: [jaume-2024-madeleine, multistain-pretraining]
+    taxonomy_path: [Articles, Technical, Slide-Level PFM]
+
+  - id: tangle-2024
+    type: technical_article
+    label: "TANGLE (Jaume et al. 2024, CVPR)"
+    aliases: [jaume-2024-tangle, transcriptomics-guided-slide]
+    taxonomy_path: [Articles, Technical, Multimodal Slide PFM]
+
+  - id: porpoise-2022
+    type: technical_article
+    label: "PORPOISE (Chen et al. 2022, Cancer Cell)"
+    aliases: [chen-2022-porpoise, pan-cancer-multimodal]
+    taxonomy_path: [Articles, Technical, Multimodal]
+
+  - id: dtfd-mil-2022
+    type: technical_article
+    label: "DTFD-MIL (Zhang et al. 2022, CVPR)"
+    aliases: [zhang-2022-dtfd-mil, pseudo-bag-mil]
+    taxonomy_path: [Articles, Technical, MIL]
+
+  - id: lunit-dino-2022
+    type: technical_article
+    label: "Lunit-DINO (Kang et al. 2022)"
+    aliases: [kang-2022-lunit-dino, ssl-pathology-benchmark]
+    taxonomy_path: [Articles, Technical, Pathology SSL]
+
+  - id: phikon-2023
+    type: technical_article
+    label: "Phikon (Filiot et al. 2023, Owkin)"
+    aliases: [filiot-2023-phikon, owkin-phikon]
+    taxonomy_path: [Articles, Technical, Pathology SSL]
+
+  - id: dt-mil-2021
+    type: technical_article
+    label: "DT-MIL (Li et al. 2021, MICCAI)"
+    aliases: [li-2021-dt-mil, deformable-mil]
+    taxonomy_path: [Articles, Technical, MIL]
+
+  - id: mcat-2021
+    type: technical_article
+    label: "MCAT (Chen et al. 2021, ICCV)"
+    aliases: [chen-2021-mcat, multimodal-co-attention-transformer]
+    taxonomy_path: [Articles, Technical, Multimodal]

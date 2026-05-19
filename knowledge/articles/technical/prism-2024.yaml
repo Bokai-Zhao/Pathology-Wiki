@@ -1,0 +1,146 @@
+id: prism-2024
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "PRISM: A Multi-Modal Generative Foundation Model for Slide-Level Histopathology"
+authors:
+  - George Shaikovski
+  - Adam Casson
+  - Kristen Severson
+  - Eric Zimmermann
+  - Yi Kan Wang
+  - Jeremy D. Kunz
+  - Juan A. Retamero
+  - Gerard Oakley
+  - David Klimstra
+  - Christopher Kanan
+  - Matthew C. H. Lee
+  - Razik Yousfi
+  - Brandon Rothrock
+  - Siqi Liu
+  - Thomas J. Fuchs
+year: 2024
+venue: arXiv
+publication_status: preprint
+
+links:
+  arxiv: "2405.10254"
+  paper: https://arxiv.org/abs/2405.10254
+  huggingface: https://huggingface.co/paige-ai/Prism
+  doi: 10.48550/arXiv.2405.10254       # to_verify (arXiv DOI)
+
+abstract: |
+  PRISM is a multimodal generative foundation model for slide-level
+  histopathology from Paige.AI, the same lab that released Virchow. PRISM
+  pairs a Virchow-derived patch encoder with a slide-level Transformer and a
+  generative text decoder that captions whole slides given paired pathology
+  reports during pretraining. The model supports zero-shot slide-level
+  classification, slide retrieval, and slide-level report generation across
+  internal MSKCC cohorts. PRISM is the first slide-level pathology PFM with
+  an explicit generative captioning head.
+keywords:
+  - multimodal foundation model
+  - slide-level pretraining
+  - vision-language
+  - pathology
+  - generative
+  - report generation
+
+domains: [computational-pathology, multimodal]
+modalities:
+  - h-and-e
+  - pathology-text
+organs: []
+diseases: []
+biomarkers: []
+tasks:
+  - zero-shot-slide-level-classification
+  - slide-text-retrieval
+  - slide-level-report-generation
+  - subtype-classification
+metrics:
+  - auc
+  - balanced-accuracy
+  - rouge
+  - bleu
+
+related_methods:
+  - pathology-foundation-model
+  - pathology-vlm
+  - patch-level-ssl
+related_models:
+  - virchow-2024                # Virchow patch encoder reused
+related_datasets: []
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - virchow-2024
+  - gigapath-2024
+  - titan-2025
+  - conch-2024
+
+technical_focus:
+  method_family:
+    - pathology-foundation-model
+    - pathology-vlm
+    - slide-level-pretraining
+    - generative-multimodal
+  model_architecture:
+    - virchow-patch-encoder
+    - slide-level-transformer
+    - text-decoder
+  training_strategy:
+    - contrastive
+    - generative-captioning
+    - report-alignment
+  supervision_type:
+    - self-supervised
+    - vision-language-paired
+  input_type:
+    - whole-slide-patch-sequence
+    - pathology-report
+  output_type:
+    - slide-embedding
+    - generated-caption
+    - slide-text-similarity
+  datasets:
+    - mskcc-prism-internal
+  metrics:
+    - auc
+    - rouge
+    - bleu
+  baselines:
+    - virchow-2024
+    - gigapath-2024
+  implementation: "PyTorch; Virchow patch encoder + slide-level Transformer + text decoder; weights distributed via Hugging Face under gated research terms."
+  reproducibility: "Weights public (gated) on huggingface.co/paige-ai/Prism; pretraining cohort is MSKCC-internal."
+  limitations:
+    - "Pretraining cohort is MSKCC-internal — open replication blocked."
+    - "Generative captioning depends heavily on report-corpus quality."
+    - "Heavier inference than patch-only PFMs."
+    - "Gated weights via Paige.AI on Hugging Face."
+  reusable_components:
+    - prism-slide-encoder
+    - prism-report-decoder
+
+claude:
+  summary: |
+    Shaikovski et al. (arXiv 2024) — PRISM is the Paige.AI multimodal
+    generative slide-level foundation model, building on Virchow's patch
+    encoder. Adds a generative text decoder for slide-level report generation
+    and slide-text retrieval. Sister to TITAN in the multimodal slide-level
+    PFM space.
+  use_when:
+    - "Need a multimodal slide-level PFM with generative captioning"
+    - "Slide-level report generation pipelines"
+    - "Comparing multimodal slide-level PFMs (TITAN / PRISM)"
+  do_not_use_when:
+    - "Need open-weights / non-gated PFM"
+    - "Need an instruction-tuned conversational copilot — cite PathChat"
+    - "Need patch-level encoder — use Virchow / UNI"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

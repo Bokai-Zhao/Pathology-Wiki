@@ -1,0 +1,156 @@
+id: porpoise-2022
+type: article
+
+article_type:
+  primary: technical_article
+  secondary:
+    - clinical_article
+
+title: "Pan-cancer integrative histology-genomic analysis via multimodal deep learning"
+authors:
+  - Richard J. Chen
+  - Ming Y. Lu
+  - Drew F. K. Williamson
+  - Tiffany Y. Chen
+  - Jana Lipkova
+  - Zahra Noor
+  - Muhammad Shaban
+  - Maha Shady
+  - Mane Williams
+  - Bumjin Joo
+  - Faisal Mahmood
+year: 2022
+venue: Cancer Cell
+publication_status: published
+
+links:
+  doi: 10.1016/j.ccell.2022.07.004
+  paper: https://www.sciencedirect.com/science/article/pii/S1535610822003178
+  github: https://github.com/mahmoodlab/PORPOISE
+  pubmed: to_verify
+
+abstract: |
+  PORPOISE (Pan-cancer Integrative Multimodal Prognosis) is a pan-cancer
+  histology-genomic deep learning framework from Mahmood Lab. PORPOISE fuses
+  slide-level features from WSIs with molecular features from bulk RNA-seq /
+  mutations / copy-number-variation across 14 cancer types and ~5,720
+  TCGA patients, producing a unified prognosis predictor that beats
+  histology-only and genomics-only baselines on overall survival and
+  disease-free survival. The framework also enables interpretable prognosis
+  by attributing risk to specific morphological / molecular features, and
+  is one of the most widely cited multimodal pathology AI papers from the
+  pre-PFM era.
+keywords:
+  - multimodal pathology
+  - histology-genomics fusion
+  - pan-cancer
+  - prognosis
+  - survival prediction
+  - TCGA
+
+domains: [computational-pathology, multimodal, clinical-pathology]
+modalities:
+  - h-and-e
+  - rna-seq
+  - mutations
+  - cnv
+organs: []                            # 14 cancer types pan-cancer
+diseases: []
+biomarkers: []
+tasks:
+  - survival-prediction
+  - prognosis-prediction
+  - multimodal-fusion
+metrics:
+  - c-index
+  - kaplan-meier
+  - hazard-ratio
+
+related_methods:
+  - weakly-supervised-mil
+  - multimodal-pathology-ai            # deferred parent method node
+related_models: []
+related_datasets:
+  - tcga
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - clam-2021
+  - mcat-2021
+  - campanella-2019
+
+technical_focus:
+  method_family:
+    - weakly-supervised-mil
+    - multimodal-fusion
+    - histology-genomics
+  model_architecture:
+    - clam-style-mil
+    - multimodal-fusion-network
+    - cox-survival-head
+  training_strategy:
+    - end-to-end-multimodal
+    - cox-loss
+  supervision_type:
+    - weakly-supervised
+    - survival-supervised
+  input_type:
+    - h-and-e-patch-bag
+    - rna-seq-vector
+    - mutation-vector
+    - cnv-vector
+  output_type:
+    - hazard-score
+    - risk-stratification
+  datasets:
+    - tcga                            # 14 cancer types, ~5720 patients
+  metrics:
+    - c-index
+    - hazard-ratio
+  baselines:
+    - clam-only
+    - genomics-only
+    - early-fusion-mlp
+  implementation: "PyTorch; CLAM-style MIL + multimodal fusion + Cox proportional-hazards head; code public on github.com/mahmoodlab/PORPOISE."
+  reproducibility: "Code public; needs TCGA WSIs + matched RNA-seq / mutation / CNV data."
+  limitations:
+    - "Requires paired multimodal data — limits to cohorts like TCGA where all modalities exist."
+    - "TCGA-only training — generalisation to non-TCGA institutional cohorts is paper-extension territory."
+    - "Cox proportional-hazards assumption may not hold for all cancer types."
+  reusable_components:
+    - clam-multimodal-fusion
+    - cox-survival-head
+    - pan-cancer-mil-pipeline
+
+clinical_focus:
+  clinical_problem: "Pan-cancer prognosis stratification from H&E + bulk molecular profiling — predicting overall and disease-free survival across 14 cancer types."
+  clinical_endpoints:
+    - overall-survival
+    - disease-free-survival
+  cohort_design: "TCGA — 14 cancer types, ~5,720 patients with paired WSIs + RNA-seq + mutations + CNV."
+  clinical_workflow: "Retrospective prognosis modelling: input WSI + matched genomics → output continuous risk score + interpretable feature attribution."
+  clinical_need_for_ai: "Prognosis stratification beyond traditional staging; integration of cheap H&E with expensive molecular profiling."
+  possible_ai_tasks:
+    - survival-prediction
+    - prognosis-stratification
+    - histology-genomics-fusion
+    - interpretable-prognosis
+
+claude:
+  summary: |
+    Chen et al. (Cancer Cell 2022) — PORPOISE is the pan-cancer multimodal
+    histology-genomics survival framework from Mahmood Lab. CLAM-style MIL +
+    multimodal fusion + Cox head across 14 TCGA cancer types and 5,720
+    patients. The most widely cited pre-PFM-era multimodal pathology AI
+    paper; canonical reference for histology-genomics fusion.
+  use_when:
+    - "Multimodal histology-genomics survival prediction"
+    - "Pan-cancer prognosis stratification"
+    - "Citing the most-used multimodal pathology AI baseline"
+  do_not_use_when:
+    - "Have no matched genomics — H&E-only PFMs (UNI / Virchow / Prov-GigaPath) are the alternative"
+    - "Need a slide-level PFM — PORPOISE is patch-level MIL"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

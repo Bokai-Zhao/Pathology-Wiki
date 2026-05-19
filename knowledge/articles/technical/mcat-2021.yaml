@@ -1,0 +1,128 @@
+id: mcat-2021
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "Multimodal Co-Attention Transformer for Survival Prediction in Gigapixel Whole Slide Images"
+authors:
+  - Richard J. Chen
+  - Ming Y. Lu
+  - Wei-Hung Weng
+  - Tiffany Y. Chen
+  - Drew F. K. Williamson
+  - Trevor Manz
+  - Maha Shady
+  - Faisal Mahmood
+year: 2021
+venue: ICCV
+publication_status: published
+
+links:
+  paper: https://openaccess.thecvf.com/content/ICCV2021/html/Chen_Multimodal_Co-Attention_Transformer_for_Survival_Prediction_in_Gigapixel_Whole_Slide_ICCV_2021_paper.html
+  github: https://github.com/mahmoodlab/MCAT
+  doi: to_verify                       # ICCV 2021 IEEE DOI not resolved by Crossref direct lookup
+  arxiv: to_verify
+
+abstract: |
+  MCAT (Multimodal Co-Attention Transformer) is one of the first widely-cited
+  multimodal pathology AI architectures from Mahmood Lab, fusing WSI patch
+  features with bulk genomic features (RNA-seq / mutations / CNV) via a
+  cross-modal co-attention Transformer. Each modality attends to the other
+  through learned co-attention layers, producing a joint representation used
+  for survival prediction. Evaluated on TCGA cohorts spanning multiple cancer
+  types, MCAT outperforms histology-only and genomics-only Cox baselines.
+  MCAT establishes the precedent for cross-modal Transformer fusion in
+  pathology and is the immediate predecessor of PORPOISE in the same lab's
+  multimodal survival line.
+keywords:
+  - multimodal pathology
+  - co-attention transformer
+  - survival prediction
+  - histology-genomics fusion
+  - whole slide image
+
+domains: [computational-pathology, multimodal]
+modalities:
+  - h-and-e
+  - rna-seq
+  - mutations
+  - cnv
+organs: []
+diseases: []
+biomarkers: []
+tasks:
+  - survival-prediction
+  - multimodal-fusion
+metrics:
+  - c-index
+  - hazard-ratio
+
+related_methods:
+  - weakly-supervised-mil
+  - multimodal-pathology-ai
+related_models: []
+related_datasets:
+  - tcga
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - clam-2021
+  - porpoise-2022
+
+technical_focus:
+  method_family:
+    - weakly-supervised-mil
+    - multimodal-fusion
+    - co-attention-transformer
+  model_architecture:
+    - clam-style-mil
+    - co-attention-transformer
+    - cox-survival-head
+  training_strategy:
+    - end-to-end-multimodal
+    - cox-loss
+  supervision_type:
+    - weakly-supervised
+    - survival-supervised
+  input_type:
+    - h-and-e-patch-bag
+    - bulk-rna-seq
+    - mutation-vector
+  output_type:
+    - hazard-score
+  datasets:
+    - tcga
+  metrics:
+    - c-index
+  baselines:
+    - clam-only
+    - genomics-only-cox
+    - early-fusion-mlp
+  implementation: "PyTorch; CLAM patch encoder + co-attention Transformer + Cox head; code public on github.com/mahmoodlab/MCAT."
+  reproducibility: "Code public; needs TCGA WSIs + matched genomics."
+  limitations:
+    - "Requires paired multimodal data — limits cohorts."
+    - "Co-attention Transformer adds parameters vs simple concatenation fusion."
+    - "Default ResNet encoder now superseded by pathology PFMs."
+  reusable_components:
+    - co-attention-fusion-block
+    - clam-multimodal-pipeline
+
+claude:
+  summary: |
+    Chen et al. (ICCV 2021) — MCAT introduces co-attention Transformer fusion
+    for histology-genomics survival prediction. The immediate predecessor of
+    PORPOISE in Mahmood Lab's multimodal pathology line, and the canonical
+    reference for cross-modal Transformer fusion in pathology.
+  use_when:
+    - "Multimodal histology-genomics survival prediction"
+    - "Cross-modal Transformer fusion in pathology"
+    - "Comparing multimodal pathology AI baselines"
+  do_not_use_when:
+    - "Have no matched genomics — H&E-only PFMs are the alternative"
+    - "Need a slide-level PFM — MCAT is patch-level MIL"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: low             # exact DOI unresolved

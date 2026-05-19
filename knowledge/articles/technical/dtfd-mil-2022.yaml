@@ -1,0 +1,134 @@
+id: dtfd-mil-2022
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "DTFD-MIL: Double-Tier Feature Distillation Multiple Instance Learning for Histopathology Whole Slide Image Classification"
+authors:
+  - Hongrun Zhang
+  - Yanda Meng
+  - Yitian Zhao
+  - Yihong Qiao
+  - Xiaoyun Yang
+  - Sarah E. Coupland
+  - Yalin Zheng
+year: 2022
+venue: CVPR
+publication_status: published
+
+links:
+  doi: 10.1109/CVPR52688.2022.01824
+  paper: https://openaccess.thecvf.com/content/CVPR2022/html/Zhang_DTFD-MIL_Double-Tier_Feature_Distillation_Multiple_Instance_Learning_for_Histopathology_Whole_CVPR_2022_paper.html
+  arxiv: "2203.12081"
+  github: https://github.com/hrzhang1123/DTFD-MIL
+
+abstract: |
+  DTFD-MIL (Double-Tier Feature Distillation MIL) addresses the small-bag-
+  size problem in WSI classification by introducing pseudo-bags. Each WSI is
+  partitioned into multiple smaller pseudo-bags, an inner-tier MIL aggregator
+  produces per-pseudo-bag embeddings, and an outer-tier aggregator pools
+  pseudo-bag embeddings into a slide-level prediction with a feature-
+  distillation loss that aligns inner and outer features. The method
+  outperforms ABMIL and CLAM on Camelyon16 and TCGA cohorts with very small
+  numbers of training slides per class. DTFD-MIL is the canonical reference
+  for pseudo-bag construction and MIL feature distillation.
+keywords:
+  - multiple instance learning
+  - pseudo-bag
+  - feature distillation
+  - whole slide image
+  - histopathology
+
+domains: [computational-pathology]
+modalities: [h-and-e]
+organs: [breast, lung, kidney, lymph-node]
+diseases:
+  - breast-cancer-metastasis
+  - non-small-cell-lung-cancer
+  - renal-cell-carcinoma
+biomarkers: []
+tasks:
+  - slide-level-classification
+  - subtype-classification
+  - tumor-detection
+metrics:
+  - auc
+  - accuracy
+
+related_methods:
+  - weakly-supervised-mil
+  - abmil
+related_models: []
+related_datasets:
+  - camelyon16
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - abmil-2018
+  - clam-2021
+  - transmil-2021
+  - dsmil-2021
+
+technical_focus:
+  method_family:
+    - weakly-supervised-mil
+    - pseudo-bag
+    - feature-distillation
+  model_architecture:
+    - resnet-encoder
+    - inner-tier-mil-aggregator
+    - outer-tier-mil-aggregator
+  training_strategy:
+    - pseudo-bag-construction
+    - feature-distillation-loss
+    - end-to-end
+  supervision_type:
+    - weakly-supervised
+  input_type:
+    - h-and-e-patch
+    - bag-of-patches
+  output_type:
+    - bag-level-label
+    - pseudo-bag-attention
+  datasets:
+    - camelyon16
+    - tcga-nsclc                       # descriptive label
+    - tcga-rcc                         # descriptive label
+  metrics:
+    - auc
+    - accuracy
+  baselines:
+    - abmil
+    - clam
+    - dsmil
+    - transmil
+  implementation: "PyTorch; pseudo-bag splitter + double-tier MIL; code public on github.com/hrzhang1123/DTFD-MIL."
+  reproducibility: "Code public; needs Camelyon16 / TCGA WSIs and CLAM-style features."
+  limitations:
+    - "Pseudo-bag count is a hyperparameter that affects performance — needs per-cohort tuning."
+    - "Feature distillation adds computational overhead vs single-tier MIL."
+    - "Default ResNet encoder is now superseded by pathology PFMs (UNI / Virchow / GigaPath)."
+  reusable_components:
+    - pseudo-bag-construction
+    - double-tier-mil-aggregator
+    - feature-distillation-loss
+
+claude:
+  summary: |
+    Zhang et al. (CVPR 2022) — DTFD-MIL extends MIL with pseudo-bag construction
+    + double-tier feature distillation. Particularly strong in low-slide-count
+    regimes. Standard sibling reference to ABMIL / CLAM / TransMIL / DSMIL in
+    the canonical MIL benchmark suite.
+  use_when:
+    - "Citing the pseudo-bag MIL formulation"
+    - "Low-slide-count regimes where pseudo-bag augmentation helps"
+    - "Comparing MIL aggregators — cite alongside ABMIL / CLAM / TransMIL / DSMIL"
+  do_not_use_when:
+    - "Need a simpler MIL baseline — ABMIL / CLAM are simpler"
+    - "Need explicit Transformer self-attention — TransMIL is the reference"
+    - "Compute-constrained — double-tier adds overhead"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

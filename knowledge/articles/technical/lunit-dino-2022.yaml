@@ -1,0 +1,129 @@
+id: lunit-dino-2022
+type: article
+
+article_type:
+  primary: technical_article
+  secondary:
+    - benchmark_article                # paper benchmarks SSL recipes broadly
+
+title: "Benchmarking Self-Supervised Learning on Diverse Pathology Datasets"
+authors:
+  - Mingu Kang
+  - Heon Song
+  - Seonwook Park
+  - Donggeun Yoo
+  - Sérgio Pereira
+year: 2022
+venue: arXiv (CVPR 2023)
+publication_status: published
+
+links:
+  arxiv: "2212.04690"
+  paper: https://arxiv.org/abs/2212.04690
+  github: https://github.com/lunit-io/benchmark-ssl-pathology
+  huggingface: https://huggingface.co/lunit/dino-vits16-pretrained
+  doi: to_verify
+
+abstract: |
+  Lunit-DINO benchmarks self-supervised learning recipes on pathology
+  data, comparing DINO, SwAV, MoCo v2, BarlowTwins, and supervised
+  ImageNet baselines on patch-level pathology classification across
+  multiple H&E datasets. The paper releases the Lunit-DINO checkpoint —
+  a ViT-S/16 trained with DINO on TCGA + TULIP — that for several years
+  served as the strongest open-weights pathology SSL baseline alongside
+  CTransPath. Lunit-DINO is one of the foundational papers establishing
+  DINO as the canonical pretraining recipe for pathology PFMs (later
+  scaled to UNI / Virchow / Prov-GigaPath via DINOv2).
+keywords:
+  - self-supervised learning
+  - DINO
+  - pathology
+  - foundation model
+  - benchmarking
+  - vision transformer
+
+domains: [computational-pathology]
+modalities: [h-and-e]
+organs: []
+diseases: []
+biomarkers: []
+tasks:
+  - patch-classification
+  - tissue-type-classification
+  - tumor-vs-normal
+  - benchmarking-ssl
+metrics:
+  - accuracy
+  - auc
+  - top-k-accuracy
+
+related_methods:
+  - pathology-foundation-model
+  - patch-level-ssl
+related_models:
+  - ctranspath
+related_datasets:
+  - tcga
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - ctranspath-2022
+  - uni-2024
+
+technical_focus:
+  method_family:
+    - pathology-foundation-model
+    - patch-level-ssl
+    - self-distillation
+  model_architecture:
+    - vit-s-16
+    - vit-b-16
+  training_strategy:
+    - dino
+    - swav
+    - moco-v2
+    - barlow-twins
+  supervision_type:
+    - self-supervised
+  input_type:
+    - h-and-e-patch-224x224
+  output_type:
+    - patch-embedding
+  datasets:
+    - tcga
+    - tulip                           # Lunit-internal pathology cohort
+  metrics:
+    - accuracy
+    - top-k-accuracy
+  baselines:
+    - ctranspath
+    - resnet-50-imagenet
+    - vit-imagenet
+  implementation: "PyTorch; benchmarks 4 SSL recipes; releases Lunit-DINO checkpoint."
+  reproducibility: "Code + weights public; one of the most reproducible early pathology SSL papers."
+  limitations:
+    - "Pre-DINOv2 — modern PFMs (UNI / Virchow / Prov-GigaPath) use DINOv2 and outperform Lunit-DINO."
+    - "ViT-S/16 backbone is small by modern PFM standards."
+    - "Pretraining cohort smaller than 100k+ WSI modern PFMs."
+  reusable_components:
+    - dino-pathology-recipe
+    - lunit-vit-s-encoder
+
+claude:
+  summary: |
+    Kang et al. (arXiv 2022 / CVPR 2023) — Lunit-DINO benchmarks SSL recipes
+    on pathology data and releases the Lunit-DINO ViT-S/16 checkpoint
+    pretrained on TCGA + TULIP. Established DINO as the canonical recipe for
+    pathology PFMs; precedes the UNI / Virchow / Prov-GigaPath wave.
+  use_when:
+    - "Citing the precedent for DINO pathology pretraining"
+    - "Open-weights compute-cheap SSL baseline (alternative to CTransPath)"
+    - "Comparing pre-DINOv2 vs DINOv2 pathology recipes"
+  do_not_use_when:
+    - "Need state-of-the-art performance — UNI / Virchow outperform"
+    - "Need Swin backbone — CTransPath is the alternative"
+    - "Need vision-language — CONCH / PLIP"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

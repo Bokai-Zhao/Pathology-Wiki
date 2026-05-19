@@ -120,6 +120,16 @@ nav:
           - "CONCH (Lu 2024)": articles/technical/conch-2024.md
           - "PathChat (Lu 2024)": articles/technical/pathchat-2024.md
           - "DSMIL (Li 2021)": articles/technical/dsmil-2021.md
+          - "TITAN (Ding 2025)": articles/technical/titan-2025.md
+          - "PRISM (Shaikovski 2024)": articles/technical/prism-2024.md
+          - "MADELEINE (Jaume 2024)": articles/technical/madeleine-2024.md
+          - "TANGLE (Jaume 2024)": articles/technical/tangle-2024.md
+          - "PORPOISE (Chen 2022)": articles/technical/porpoise-2022.md
+          - "DTFD-MIL (Zhang 2022)": articles/technical/dtfd-mil-2022.md
+          - "Lunit-DINO (Kang 2022)": articles/technical/lunit-dino-2022.md
+          - "Phikon (Filiot 2023)": articles/technical/phikon-2023.md
+          - "DT-MIL (Li 2021)": articles/technical/dt-mil-2021.md
+          - "MCAT (Chen 2021)": articles/technical/mcat-2021.md
   - Models:
       - UNI: models/uni.md
       - CTransPath: models/ctranspath.md

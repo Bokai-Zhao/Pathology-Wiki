@@ -1,0 +1,130 @@
+id: madeleine-2024
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "Multistain Pretraining for Slide Representation Learning in Pathology"
+authors:
+  - Guillaume Jaume
+  - Anurag Vaidya
+  - Andrew Zhang
+  - Andrew H. Song
+  - Richard J. Chen
+  - Sharifa Sahai
+  - Dandan Mo
+  - Emilio Madrigal
+  - Long Phi Le
+  - Faisal Mahmood
+year: 2024
+venue: ECCV
+publication_status: published
+
+links:
+  doi: 10.1007/978-3-031-73414-4_2
+  paper: https://link.springer.com/chapter/10.1007/978-3-031-73414-4_2
+  huggingface: https://huggingface.co/MahmoodLab/madeleine
+  arxiv: to_verify
+
+abstract: |
+  MADELEINE is a slide-level pathology foundation model from Mahmood Lab that
+  pretrains across multiple histology stains (H&E, IHC, special stains)
+  jointly. Built on top of a CONCH-style patch encoder, MADELEINE applies
+  contrastive learning across stain-paired slide embeddings, learning a
+  representation that generalises across staining protocols and supports
+  multi-stain downstream tasks (mIHC analysis, multistain biomarker
+  prediction, stain-invariant retrieval). One of the first slide-level PFMs
+  designed explicitly for multi-stain inputs rather than H&E only.
+keywords:
+  - multistain
+  - slide-level pretraining
+  - contrastive learning
+  - pathology foundation model
+  - IHC
+  - H&E
+
+domains: [computational-pathology]
+modalities:
+  - h-and-e
+  - immunohistochemistry
+  - special-stain
+organs: []
+diseases: []
+biomarkers: []
+tasks:
+  - subtype-classification
+  - biomarker-expression-prediction
+  - multi-stain-retrieval
+  - stain-invariant-classification
+metrics:
+  - auc
+  - balanced-accuracy
+
+related_methods:
+  - pathology-foundation-model
+  - patch-level-ssl
+related_models:
+  - uni
+related_datasets: []
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - conch-2024
+  - uni-2024
+  - gigapath-2024
+
+technical_focus:
+  method_family:
+    - pathology-foundation-model
+    - slide-level-pretraining
+    - multistain-pretraining
+  model_architecture:
+    - conch-patch-encoder
+    - slide-level-transformer
+  training_strategy:
+    - cross-stain-contrastive
+  supervision_type:
+    - self-supervised
+  input_type:
+    - whole-slide-h-and-e
+    - whole-slide-ihc
+    - whole-slide-special-stain
+  output_type:
+    - slide-embedding
+  datasets:
+    - mahmood-multistain-internal
+  metrics:
+    - auc
+    - balanced-accuracy
+  baselines:
+    - uni-2024
+    - conch-2024
+    - gigapath-2024
+  implementation: "PyTorch; CONCH-style patch encoder + slide-level Transformer trained with cross-stain contrastive objective."
+  reproducibility: "Weights public (gated) on huggingface.co/MahmoodLab/madeleine; cohort partly internal."
+  limitations:
+    - "Cross-stain pretraining requires multi-stain registration / pairing — limits the cohorts that can be used."
+    - "Gated weights via Mahmood Lab."
+    - "Slide-level only — patch-level downstream tasks should still use UNI / Virchow."
+  reusable_components:
+    - cross-stain-contrastive-recipe
+    - madeleine-slide-encoder
+
+claude:
+  summary: |
+    Jaume et al. (ECCV 2024) — MADELEINE is the first widely-cited multistain
+    slide-level pathology foundation model. Cross-stain contrastive
+    pretraining (H&E + IHC + special stains) yields stain-invariant slide
+    embeddings useful for mIHC and multistain downstream tasks.
+  use_when:
+    - "Need stain-invariant slide-level representations"
+    - "Multistain (H&E + IHC) downstream tasks"
+    - "Discussing cross-stain pretraining strategies"
+  do_not_use_when:
+    - "Have only H&E — overhead of cross-stain training is wasted"
+    - "Need patch-level encoder — UNI / Virchow"
+    - "Need open weights — gated"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

@@ -1,0 +1,155 @@
+id: titan-2025
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "A multimodal whole-slide foundation model for pathology"
+authors:
+  - Tong Ding
+  - Sophia J. Wagner
+  - Andrew H. Song
+  - Richard J. Chen
+  - Ming Y. Lu
+  - Andrew Zhang
+  - Anurag J. Vaidya
+  - Guillaume Jaume
+  - Muhammad Shaban
+  - Ahrong Kim
+  - Drew F. K. Williamson
+  - Faisal Mahmood
+year: 2025
+venue: Nature Medicine
+publication_status: published
+
+links:
+  doi: 10.1038/s41591-025-03982-3
+  paper: https://www.nature.com/articles/s41591-025-03982-3
+  huggingface: https://huggingface.co/MahmoodLab/TITAN
+  pubmed: to_verify
+
+abstract: |
+  TITAN is a multimodal whole-slide foundation model from Mahmood Lab that
+  jointly pretrains a slide-level vision encoder with paired pathology reports
+  and synthetic captions. Built on top of a CONCH/UNI-style patch encoder,
+  TITAN uses contrastive learning to align slide embeddings with both clinical
+  reports and large-language-model-generated narrative descriptions, producing
+  a slide encoder that supports zero-shot slide-level classification, slide
+  retrieval, and report generation. Evaluated across diverse downstream tasks
+  including pan-cancer subtyping, biomarker prediction, survival, and rare
+  cancer detection, TITAN matches or exceeds Prov-GigaPath / CHIEF / Virchow
+  on most benchmarks while adding a vision-language interface absent from
+  prior slide-level PFMs.
+keywords:
+  - multimodal foundation model
+  - slide-level pretraining
+  - vision-language
+  - pathology
+  - whole slide image
+  - report alignment
+
+domains: [computational-pathology, multimodal]
+modalities:
+  - h-and-e
+  - pathology-text
+organs: []
+diseases: []
+biomarkers: []
+tasks:
+  - zero-shot-slide-level-classification
+  - subtype-classification
+  - biomarker-expression-prediction
+  - survival-prediction
+  - slide-text-retrieval
+  - report-generation
+metrics:
+  - auc
+  - balanced-accuracy
+  - top-k-accuracy
+  - c-index
+
+related_methods:
+  - pathology-foundation-model
+  - pathology-vlm
+  - patch-level-ssl
+related_models:
+  - uni
+related_datasets: []
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - uni-2024
+  - conch-2024
+  - gigapath-2024
+  - chief-2024
+  - virchow-2024
+  - mi-zero-2023
+
+technical_focus:
+  method_family:
+    - pathology-foundation-model
+    - pathology-vlm
+    - slide-level-pretraining
+    - multimodal-fusion
+  model_architecture:
+    - patch-encoder-conch-style
+    - slide-level-transformer
+    - text-transformer
+  training_strategy:
+    - contrastive
+    - report-alignment
+    - synthetic-caption-augmentation
+  supervision_type:
+    - self-supervised
+    - vision-language-paired
+  input_type:
+    - whole-slide-patch-sequence
+    - pathology-report
+  output_type:
+    - slide-embedding
+    - text-embedding
+    - generated-caption
+    - slide-class-probability
+  datasets:
+    - mahmood-titan-internal-cohort
+  metrics:
+    - auc
+    - balanced-accuracy
+    - c-index
+    - top-k-accuracy
+  baselines:
+    - gigapath-2024
+    - chief-2024
+    - virchow-2024
+    - uni-2024
+  implementation: "PyTorch; CONCH/UNI patch encoder + slide-level Transformer + text Transformer; weights distributed via Hugging Face under gated research terms."
+  reproducibility: "Code public; weights gated via Mahmood Lab on Hugging Face; training cohort partly internal."
+  limitations:
+    - "Pretraining cohort partly internal — full reproduction blocked."
+    - "Synthetic-caption augmentation depends on the upstream LLM quality."
+    - "Slide-level Transformer increases inference cost over patch-only PFMs."
+    - "Gated weights — open workflows needing fully open weights should fall back to CTransPath."
+  reusable_components:
+    - titan-slide-encoder
+    - report-aligned-slide-pretraining-recipe
+
+claude:
+  summary: |
+    Ding et al. (Nat Med 2025, 31:3749–3761) — TITAN is the first widely-cited
+    multimodal whole-slide foundation model. Pairs a CONCH/UNI-style patch
+    encoder with a slide-level Transformer + text Transformer, contrastively
+    pretrained against pathology reports + synthetic captions. Adds a
+    vision-language interface that Prov-GigaPath / CHIEF / Virchow lack while
+    matching or exceeding their slide-level downstream metrics.
+  use_when:
+    - "Need a multimodal slide-level pathology foundation model"
+    - "Slide-text retrieval / slide-level captioning workflows"
+    - "Comparing slide-level PFMs across vision-only vs multimodal axes"
+  do_not_use_when:
+    - "Need open-weights / non-gated PFM"
+    - "Need a patch-level encoder for downstream MIL — use UNI / Virchow"
+    - "Need an instruction-tuned conversational pathology copilot — cite PathChat"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

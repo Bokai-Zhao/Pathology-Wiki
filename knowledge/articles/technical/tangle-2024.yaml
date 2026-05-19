@@ -1,0 +1,130 @@
+id: tangle-2024
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "Transcriptomics-guided Slide Representation Learning in Computational Pathology"
+authors:
+  - Guillaume Jaume
+  - Lukas Oldenburg
+  - Anurag Vaidya
+  - Richard J. Chen
+  - Drew F. K. Williamson
+  - Thomas Peeters
+  - Andrew H. Song
+  - Faisal Mahmood
+year: 2024
+venue: CVPR
+publication_status: published
+
+links:
+  arxiv: "2405.11618"
+  paper: https://openaccess.thecvf.com/content/CVPR2024/html/Jaume_Transcriptomics-Guided_Slide_Representation_Learning_in_Computational_Pathology_CVPR_2024_paper.html
+  github: https://github.com/mahmoodlab/TANGLE
+  doi: 10.48550/arXiv.2405.11618       # to_verify
+
+abstract: |
+  TANGLE is a slide-level pathology foundation model that pretrains slide
+  representations against paired transcriptomics (RNA-seq) data via
+  contrastive learning. Each slide-transcriptome pair becomes a positive
+  example in a CLIP-style objective, aligning slide embeddings with bulk
+  transcriptomic profiles. Demonstrated on TCGA cohorts, TANGLE produces
+  slide embeddings that perform strongly on biomarker prediction, mutation
+  inference, and survival prediction without requiring matched
+  transcriptomes at inference time. Establishes the precedent for
+  transcriptomics-guided slide pretraining as an alternative to report-
+  guided multimodal slide PFMs (TITAN, PRISM).
+keywords:
+  - slide-level pretraining
+  - transcriptomics
+  - multimodal
+  - contrastive learning
+  - pathology
+
+domains: [computational-pathology, multimodal]
+modalities:
+  - h-and-e
+  - rna-seq
+organs: []
+diseases: []
+biomarkers: []
+tasks:
+  - biomarker-expression-prediction
+  - mutation-prediction
+  - survival-prediction
+  - subtype-classification
+metrics:
+  - auc
+  - c-index
+  - balanced-accuracy
+
+related_methods:
+  - pathology-foundation-model
+  - patch-level-ssl
+related_models: []
+related_datasets:
+  - tcga                              # TCGA WSI + TCGA RNA-seq pairs
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - uni-2024
+  - gigapath-2024
+  - titan-2025
+
+technical_focus:
+  method_family:
+    - pathology-foundation-model
+    - slide-level-pretraining
+    - multimodal-pathology-ai
+  model_architecture:
+    - patch-encoder
+    - slide-level-transformer
+    - rna-seq-mlp
+  training_strategy:
+    - cross-modal-contrastive
+  supervision_type:
+    - self-supervised
+    - cross-modal-paired
+  input_type:
+    - whole-slide-h-and-e
+    - bulk-rna-seq
+  output_type:
+    - slide-embedding
+    - rna-seq-embedding
+  datasets:
+    - tcga                            # WSI + RNA-seq paired cohorts
+  metrics:
+    - auc
+    - c-index
+  baselines:
+    - uni-2024
+    - gigapath-2024
+  implementation: "PyTorch; patch encoder + slide-level Transformer + RNA-seq encoder; CLIP-style contrastive loss across modalities."
+  reproducibility: "Code public on github.com/mahmoodlab/TANGLE; uses TCGA paired cohorts."
+  limitations:
+    - "Pretraining requires paired RNA-seq + WSI cohorts — limits scale to TCGA-class cohorts."
+    - "RNA-seq inference adds latency if used at test time (slide embedding alone is fine)."
+    - "Slide-level only — patch-level downstream needs an MIL aggregator on PFM features."
+  reusable_components:
+    - tangle-slide-encoder
+    - cross-modal-clip-recipe
+
+claude:
+  summary: |
+    Jaume et al. (CVPR 2024) — TANGLE pretrains slide representations against
+    paired transcriptomics via CLIP-style contrastive alignment. The
+    transcriptomics-guided counterpart to report-guided slide PFMs (TITAN,
+    PRISM). Strong on biomarker / mutation / survival downstream tasks.
+  use_when:
+    - "Need transcriptomics-guided slide-level pretraining"
+    - "Biomarker / mutation / survival prediction from H&E with RNA-seq guidance"
+    - "Multimodal pathology AI discussions"
+  do_not_use_when:
+    - "Have no paired RNA-seq cohort — TANGLE's pretraining cannot be reproduced from H&E alone"
+    - "Need patch-level encoder — UNI / Virchow"
+    - "Need report-guided multimodal — TITAN / PRISM"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

@@ -371,3 +371,133 @@ edges:
   # Bahadir 2024 review extension
   - { from: bahadir-2024, to: gigapath-2024, type: related_to,
       evidence: "Bahadir 2024 review cutoff is ~mid-2023; Prov-GigaPath is the canonical slide-level PFM successor to the review's PFM-section discussion", confidence: medium }
+
+  # ---- Wave 1 batch B (added 2026-05-20): 10 papers ----
+
+  # TITAN — multimodal slide PFM
+  - { from: titan-2025, to: pathology-foundation-model, type: belongs_to,
+      evidence: "TITAN is a multimodal whole-slide pathology foundation model", confidence: high }
+  - { from: titan-2025, to: pathology-vlm, type: belongs_to,
+      evidence: "TITAN aligns slide embeddings with paired pathology reports + LLM-generated captions — fits the VLM branch", confidence: high }
+  - { from: titan-2025, to: conch-2024, type: extends,
+      evidence: "TITAN reuses CONCH-style patch encoder; built by the same Mahmood Lab team", confidence: high }
+  - { from: titan-2025, to: gigapath-2024, type: compares_with,
+      evidence: "TITAN benchmarks against Prov-GigaPath on slide-level downstream tasks", confidence: high }
+  - { from: titan-2025, to: virchow-2024, type: compares_with,
+      evidence: "TITAN benchmarks against Virchow on slide-level downstream tasks", confidence: high }
+  - { from: titan-2025, to: chief-2024, type: compares_with,
+      evidence: "TITAN benchmarks against CHIEF on slide-level downstream tasks", confidence: high }
+
+  # PRISM — Paige.AI multimodal slide PFM
+  - { from: prism-2024, to: pathology-foundation-model, type: belongs_to,
+      evidence: "PRISM is a multimodal slide-level pathology PFM from Paige.AI", confidence: high }
+  - { from: prism-2024, to: pathology-vlm, type: belongs_to,
+      evidence: "PRISM has explicit generative text decoder for slide-level captioning", confidence: high }
+  - { from: prism-2024, to: virchow-2024, type: extends,
+      evidence: "PRISM reuses Virchow's patch encoder; both are Paige.AI releases", confidence: high }
+  - { from: prism-2024, to: titan-2025, type: compares_with,
+      evidence: "PRISM and TITAN are sister multimodal slide-level PFMs", confidence: high }
+
+  # MADELEINE — multistain slide PFM
+  - { from: madeleine-2024, to: pathology-foundation-model, type: belongs_to,
+      evidence: "MADELEINE is a multistain slide-level pathology PFM", confidence: high }
+  - { from: madeleine-2024, to: patch-level-ssl, type: belongs_to,
+      evidence: "Patch encoder is CONCH/UNI-style SSL", confidence: medium }
+  - { from: madeleine-2024, to: conch-2024, type: extends,
+      evidence: "MADELEINE uses CONCH-style patch encoder + cross-stain contrastive slide pretraining", confidence: high }
+
+  # TANGLE — transcriptomics-guided slide PFM
+  - { from: tangle-2024, to: pathology-foundation-model, type: belongs_to,
+      evidence: "TANGLE is a transcriptomics-guided slide-level pathology PFM", confidence: high }
+  - { from: tangle-2024, to: titan-2025, type: compares_with,
+      evidence: "TANGLE (transcriptomics-guided) and TITAN (report-guided) are sibling multimodal slide PFMs", confidence: high }
+  - { from: tangle-2024, to: madeleine-2024, type: compares_with,
+      evidence: "TANGLE and MADELEINE are co-released Mahmood Lab multimodal slide-level PFMs (different auxiliary modalities)", confidence: high }
+
+  # PORPOISE — pan-cancer multimodal survival
+  - { from: porpoise-2022, to: weakly-supervised-mil, type: belongs_to,
+      evidence: "PORPOISE uses CLAM-style MIL for the histology branch", confidence: high }
+  - { from: porpoise-2022, to: clam-2021, type: extends,
+      evidence: "PORPOISE builds on CLAM-style MIL with multimodal fusion + Cox head", confidence: high }
+  - { from: porpoise-2022, to: mcat-2021, type: extends,
+      evidence: "PORPOISE is the immediate successor of MCAT in Mahmood Lab's multimodal survival line", confidence: high }
+  - { from: porpoise-2022, to: campanella-2019, type: related_to,
+      evidence: "Pan-cancer multimodal extension of weakly-supervised pathology AI lineage", confidence: medium }
+
+  # DTFD-MIL — pseudo-bag MIL
+  - { from: dtfd-mil-2022, to: weakly-supervised-mil, type: proposes_method,
+      evidence: "DTFD-MIL introduces pseudo-bag construction + double-tier feature distillation MIL", confidence: high }
+  - { from: dtfd-mil-2022, to: abmil-2018, type: extends,
+      evidence: "Builds on ABMIL with pseudo-bag splitting + double-tier aggregation", confidence: high }
+  - { from: dtfd-mil-2022, to: clam-2021, type: compares_with,
+      evidence: "DTFD-MIL benchmarks against CLAM on Camelyon16 and TCGA cohorts", confidence: high }
+  - { from: dtfd-mil-2022, to: transmil-2021, type: compares_with,
+      evidence: "DTFD-MIL benchmarks against TransMIL", confidence: high }
+  - { from: dtfd-mil-2022, to: dsmil-2021, type: compares_with,
+      evidence: "DTFD-MIL benchmarks against DSMIL", confidence: high }
+  - { from: dtfd-mil-2022, to: camelyon16, type: uses_dataset,
+      evidence: "DTFD-MIL evaluates on Camelyon16", confidence: high }
+
+  # Lunit-DINO — pathology SSL benchmark
+  - { from: lunit-dino-2022, to: pathology-foundation-model, type: belongs_to,
+      evidence: "Lunit-DINO is a patch-level pathology PFM", confidence: high }
+  - { from: lunit-dino-2022, to: patch-level-ssl, type: belongs_to,
+      evidence: "Lunit-DINO is patch-level SSL pretraining (DINO recipe)", confidence: high }
+  - { from: lunit-dino-2022, to: ctranspath-2022, type: compares_with,
+      evidence: "Lunit-DINO is the contemporaneous open-weights pathology SSL baseline alongside CTransPath", confidence: high }
+  - { from: lunit-dino-2022, to: uni-2024, type: related_to,
+      evidence: "UNI uses DINOv2; Lunit-DINO established DINO as the canonical pathology SSL recipe", confidence: high }
+
+  # Phikon — Owkin iBOT pathology PFM
+  - { from: phikon-2023, to: pathology-foundation-model, type: belongs_to,
+      evidence: "Phikon is a patch-level pathology PFM", confidence: high }
+  - { from: phikon-2023, to: patch-level-ssl, type: belongs_to,
+      evidence: "Phikon uses iBOT (DINO + MIM) patch-level SSL", confidence: high }
+  - { from: phikon-2023, to: ctranspath-2022, type: compares_with,
+      evidence: "Phikon benchmarks against CTransPath as the pre-existing open-weights pathology SSL baseline", confidence: high }
+  - { from: phikon-2023, to: lunit-dino-2022, type: compares_with,
+      evidence: "Phikon and Lunit-DINO are sibling pre-UNI open-weights pathology SSL checkpoints", confidence: high }
+  - { from: phikon-2023, to: uni-2024, type: related_to,
+      evidence: "UNI supersedes Phikon on most downstream tasks via DINOv2 + larger pretraining cohort", confidence: high }
+
+  # DT-MIL — deformable Transformer MIL
+  - { from: dt-mil-2021, to: weakly-supervised-mil, type: proposes_method,
+      evidence: "DT-MIL introduces deformable Transformer attention for MIL", confidence: high }
+  - { from: dt-mil-2021, to: abmil-2018, type: extends,
+      evidence: "Extends attention-MIL with deformable Transformer aggregation", confidence: high }
+  - { from: dt-mil-2021, to: transmil-2021, type: compares_with,
+      evidence: "DT-MIL (deformable attention) and TransMIL (Nyström attention) are sibling Transformer-MIL designs", confidence: high }
+  - { from: dt-mil-2021, to: camelyon16, type: uses_dataset,
+      evidence: "DT-MIL evaluates on Camelyon16", confidence: high }
+
+  # MCAT — multimodal co-attention transformer
+  - { from: mcat-2021, to: weakly-supervised-mil, type: belongs_to,
+      evidence: "MCAT uses CLAM-style MIL for the histology branch", confidence: high }
+  - { from: mcat-2021, to: clam-2021, type: extends,
+      evidence: "MCAT builds on CLAM with cross-modal co-attention Transformer fusion", confidence: high }
+
+  # Awesome-list cross-references for batch B
+  - { from: awesome-ai4digitalpathology, to: titan-2025, type: related_to,
+      evidence: "Listed in slide-level FMs section as TITAN", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: prism-2024, type: related_to,
+      evidence: "Listed in slide-level FMs section as PRISM", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: madeleine-2024, type: related_to,
+      evidence: "Listed in slide-level FMs section as MADELEINE", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: tangle-2024, type: related_to,
+      evidence: "Listed in slide-level FMs section as TANGLE", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: porpoise-2022, type: related_to,
+      evidence: "Listed in multi-omics section as PORPOISE", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: dtfd-mil-2022, type: related_to,
+      evidence: "Listed in MIL section as DTFD-MIL", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: lunit-dino-2022, type: related_to,
+      evidence: "Listed in patch-level FMs section as Lunit-DINO", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: phikon-2023, type: related_to,
+      evidence: "Listed in patch-level FMs section as Phikon", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: dt-mil-2021, type: related_to,
+      evidence: "Listed in MIL section as DT-MIL", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: mcat-2021, type: related_to,
+      evidence: "Listed in multi-omics section as MCAT", confidence: high }
+
+  # PANDA gains DTFD-MIL as another canonical aggregator
+  - { from: panda, to: dtfd-mil-2022, type: related_to,
+      evidence: "DTFD-MIL is a canonical MIL aggregator used in PANDA Gleason-grading pipelines, particularly in low-data regimes", confidence: medium }
