@@ -6,29 +6,35 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An agent-extensible knowledge base for computational pathology.">
+        <meta name="description" content="CLIP ViT-B/32 fine-tuned on ~200k pathology image-caption pairs from medical Twitter (OpenPath). The first widely-cited pathology VL model.">
       
       
       
+        <link rel="canonical" href="https://bokai-zhao.github.io/Pathology-Wiki/models/plip/">
       
+      
+        <link rel="prev" href="../ctranspath/">
+      
+      
+        <link rel="next" href="../../tools/openslide/">
       
       
         
       
       
-      <link rel="icon" href="/Pathology-Wiki/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Pathology-Wiki</title>
+        <title>PLIP — Pathology Language–Image Pretraining - Pathology-Wiki</title>
       
     
     
-      <link rel="stylesheet" href="/Pathology-Wiki/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/Pathology-Wiki/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="/Pathology-Wiki/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/Pathology-Wiki/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#plip-pathology-languageimage-pretraining" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/Pathology-Wiki/." title="Pathology-Wiki" class="md-header__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
+    <a href="../.." title="Pathology-Wiki" class="md-header__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              PLIP — Pathology Language–Image Pretraining
             
           </span>
         </div>
@@ -221,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Pathology-Wiki/." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -249,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/articles/reviews/bahadir-2024/" class="md-tabs__link">
+        <a href="../../articles/reviews/bahadir-2024/" class="md-tabs__link">
           
   
   
@@ -270,11 +281,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/models/uni/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../uni/" class="md-tabs__link">
           
   
   
@@ -296,7 +309,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/tools/openslide/" class="md-tabs__link">
+        <a href="../../tools/openslide/" class="md-tabs__link">
           
   
   
@@ -318,7 +331,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/datasets/panda/" class="md-tabs__link">
+        <a href="../../datasets/panda/" class="md-tabs__link">
           
   
   
@@ -340,7 +353,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/methods/pathology-foundation-model/" class="md-tabs__link">
+        <a href="../../methods/pathology-foundation-model/" class="md-tabs__link">
           
   
   
@@ -360,7 +373,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Pathology-Wiki/graph/" class="md-tabs__link">
+      <a href="../../graph/" class="md-tabs__link">
         
   
   
@@ -379,7 +392,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Pathology-Wiki/skills/" class="md-tabs__link">
+      <a href="../../skills/" class="md-tabs__link">
         
   
   
@@ -414,7 +427,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/Pathology-Wiki/." title="Pathology-Wiki" class="md-nav__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
+    <a href="../.." title="Pathology-Wiki" class="md-nav__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -444,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -585,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/reviews/bahadir-2024/" class="md-nav__link">
+      <a href="../../articles/reviews/bahadir-2024/" class="md-nav__link">
         
   
   
@@ -697,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/uni-2024/" class="md-nav__link">
+      <a href="../../articles/technical/uni-2024/" class="md-nav__link">
         
   
   
@@ -725,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/abmil-2018/" class="md-nav__link">
+      <a href="../../articles/technical/abmil-2018/" class="md-nav__link">
         
   
   
@@ -753,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/clam-2021/" class="md-nav__link">
+      <a href="../../articles/technical/clam-2021/" class="md-nav__link">
         
   
   
@@ -781,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/transmil-2021/" class="md-nav__link">
+      <a href="../../articles/technical/transmil-2021/" class="md-nav__link">
         
   
   
@@ -809,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/campanella-2019/" class="md-nav__link">
+      <a href="../../articles/technical/campanella-2019/" class="md-nav__link">
         
   
   
@@ -837,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/hover-net-2019/" class="md-nav__link">
+      <a href="../../articles/technical/hover-net-2019/" class="md-nav__link">
         
   
   
@@ -865,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/cellvit-2024/" class="md-nav__link">
+      <a href="../../articles/technical/cellvit-2024/" class="md-nav__link">
         
   
   
@@ -893,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/ctranspath-2022/" class="md-nav__link">
+      <a href="../../articles/technical/ctranspath-2022/" class="md-nav__link">
         
   
   
@@ -921,7 +934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/clip-2021/" class="md-nav__link">
+      <a href="../../articles/technical/clip-2021/" class="md-nav__link">
         
   
   
@@ -949,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/plip-2023/" class="md-nav__link">
+      <a href="../../articles/technical/plip-2023/" class="md-nav__link">
         
   
   
@@ -977,7 +990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/mi-zero-2023/" class="md-nav__link">
+      <a href="../../articles/technical/mi-zero-2023/" class="md-nav__link">
         
   
   
@@ -1017,8 +1030,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1032,19 +1047,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1062,7 +1080,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1080,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/models/uni/" class="md-nav__link">
+      <a href="../uni/" class="md-nav__link">
         
   
   
@@ -1108,7 +1126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/models/ctranspath/" class="md-nav__link">
+      <a href="../ctranspath/" class="md-nav__link">
         
   
   
@@ -1133,10 +1151,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/Pathology-Wiki/models/plip/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PLIP
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1152,6 +1197,142 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#plip-pathology-languageimage-pretraining_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PLIP — Pathology Language–Image Pretraining
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pretraining" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pretraining
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capabilities
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-claude-should-use-this-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Claude should use this model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Claude should use this model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-plip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill: plip
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1227,7 +1408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/tools/openslide/" class="md-nav__link">
+      <a href="../../tools/openslide/" class="md-nav__link">
         
   
   
@@ -1328,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/panda/" class="md-nav__link">
+      <a href="../../datasets/panda/" class="md-nav__link">
         
   
   
@@ -1356,7 +1537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/camelyon16/" class="md-nav__link">
+      <a href="../../datasets/camelyon16/" class="md-nav__link">
         
   
   
@@ -1384,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/bach/" class="md-nav__link">
+      <a href="../../datasets/bach/" class="md-nav__link">
         
   
   
@@ -1412,7 +1593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/glas/" class="md-nav__link">
+      <a href="../../datasets/glas/" class="md-nav__link">
         
   
   
@@ -1440,7 +1621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/pannuke/" class="md-nav__link">
+      <a href="../../datasets/pannuke/" class="md-nav__link">
         
   
   
@@ -1468,7 +1649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/midog/" class="md-nav__link">
+      <a href="../../datasets/midog/" class="md-nav__link">
         
   
   
@@ -1575,7 +1756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/pathology-foundation-model/" class="md-nav__link">
+      <a href="../../methods/pathology-foundation-model/" class="md-nav__link">
         
   
   
@@ -1603,7 +1784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/patch-level-ssl/" class="md-nav__link">
+      <a href="../../methods/patch-level-ssl/" class="md-nav__link">
         
   
   
@@ -1631,7 +1812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/weakly-supervised-mil/" class="md-nav__link">
+      <a href="../../methods/weakly-supervised-mil/" class="md-nav__link">
         
   
   
@@ -1659,7 +1840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/abmil/" class="md-nav__link">
+      <a href="../../methods/abmil/" class="md-nav__link">
         
   
   
@@ -1687,7 +1868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/clam/" class="md-nav__link">
+      <a href="../../methods/clam/" class="md-nav__link">
         
   
   
@@ -1715,7 +1896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/transmil/" class="md-nav__link">
+      <a href="../../methods/transmil/" class="md-nav__link">
         
   
   
@@ -1743,7 +1924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/hover-net/" class="md-nav__link">
+      <a href="../../methods/hover-net/" class="md-nav__link">
         
   
   
@@ -1771,7 +1952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/cellvit/" class="md-nav__link">
+      <a href="../../methods/cellvit/" class="md-nav__link">
         
   
   
@@ -1799,7 +1980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/pathology-vlm/" class="md-nav__link">
+      <a href="../../methods/pathology-vlm/" class="md-nav__link">
         
   
   
@@ -1834,7 +2015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/graph/" class="md-nav__link">
+      <a href="../../graph/" class="md-nav__link">
         
   
   
@@ -1861,7 +2042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/skills/" class="md-nav__link">
+      <a href="../../skills/" class="md-nav__link">
         
   
   
@@ -1898,6 +2079,132 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#plip-pathology-languageimage-pretraining_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PLIP — Pathology Language–Image Pretraining
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pretraining" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pretraining
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capabilities
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-claude-should-use-this-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Claude should use this model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Claude should use this model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-plip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill: plip
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1910,8 +2217,112 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+    <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/edit/main/content/models/plip.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="plip-pathology-languageimage-pretraining">PLIP — Pathology Language–Image Pretraining<a class="headerlink" href="#plip-pathology-languageimage-pretraining" title="Permanent link">&para;</a></h1>
+<div class="pwiki-card">
+<div class="pwiki-card-kind">model · vision_language_pfm</div>
+<h3 class="pwiki-card-title" id="plip-pathology-languageimage-pretraining_1">PLIP — Pathology Language–Image Pretraining<a class="headerlink" href="#plip-pathology-languageimage-pretraining_1" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-meta">ViT-B/32 (CLIP-init) · ~150M · weights open · Stanford / Zou Lab</div>
+<div class="pwiki-card-links"><a href="https://github.com/PathologyFoundation/plip" target="_blank" rel="noreferrer">github</a> · <a href="https://huggingface.co/vinid/plip" target="_blank" rel="noreferrer">huggingface</a> · <a href="https://doi.org/10.1038/s41591-023-02504-3" target="_blank" rel="noreferrer">doi</a></div>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Local graph (1-hop neighbours)</p>
+<p><strong>Outgoing</strong></p>
+<ul>
+<li><code>belongs_to</code> → <a href="../../methods/pathology-vlm/">Pathology Vision-Language Models</a> <code>(method)</code></li>
+<li><code>extends</code> → <a href="../../articles/technical/clip-2021/">CLIP (Radford et al. 2021, ICML)</a> <code>(technical_article)</code></li>
+</ul>
+<p><strong>Incoming</strong></p>
+<ul>
+<li><a href="../../articles/technical/plip-2023/">PLIP (Huang et al. 2023, Nat Med)</a> <code>(technical_article)</code> → <code>releases_model</code></li>
+<li><a href="../../articles/reviews/bahadir-2024/">Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)</a> <code>(review_article)</code> → <code>related_to</code></li>
+</ul>
+</div>
+<h2 id="why-it-matters">Why it matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h2>
+<p>PLIP was the <strong>first pathology vision-language foundation model with open weights</strong>. By fine-tuning <a href="../../articles/technical/clip-2021/">CLIP (Radford et al. 2021, ICML)</a> on ~200k pathology image-caption pairs scraped from medical Twitter (the OpenPath corpus), Huang et al. demonstrated that domain-specific VL pretraining unlocks zero-shot H&amp;E classification and image-text retrieval at a level CLIP-ImageNet cannot match.</p>
+<p>PLIP is now somewhat dated — CONCH and QuiltNet outperform it on most downstream benchmarks — but it remains the standard <strong>open-weights pathology VL baseline</strong> and the most-cited pathology VL reference.</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Image encoder</strong>: CLIP ViT-B/32 (initialised from OpenAI CLIP, fine-tuned).</li>
+<li><strong>Text encoder</strong>: CLIP text Transformer.</li>
+<li><strong>Output</strong>: 512-dim shared embedding <em>(to verify against repo)</em>.</li>
+<li><strong>Parameter count</strong>: ~150M (combined image + text) <em>(to verify)</em>.</li>
+</ul>
+<h2 id="pretraining">Pretraining<a class="headerlink" href="#pretraining" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Objective</strong>: InfoNCE (same as CLIP).</li>
+<li><strong>Data</strong>: OpenPath — ~200k pathology image-caption pairs mined from medical Twitter, curated for pathology-related hashtags and clinician posts.</li>
+</ul>
+<h2 id="capabilities">Capabilities<a class="headerlink" href="#capabilities" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Zero-shot pathology image classification</strong> via text prompts.</li>
+<li><strong>Image-text retrieval</strong> over pathology corpora.</li>
+<li><strong>Patch + text joint embedding</strong> usable in retrieval-augmented pipelines.</li>
+</ul>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Twitter captions are noisy</strong> — clinical fidelity varies.</li>
+<li><strong>ViT-B/32 backbone</strong> is small by modern PFM standards.</li>
+<li><strong>Common-finding bias</strong> — rare conditions are under-represented in Twitter posts.</li>
+<li><strong>Patch-level only</strong> — slide-level zero-shot needs MI-Zero or CONCH-MIL.</li>
+<li><strong>Ethical / consent concerns</strong> — Twitter-mined data; CONCH and QuiltNet use textbook sources instead.</li>
+</ul>
+<h2 id="how-claude-should-use-this-model">How Claude should use this model<a class="headerlink" href="#how-claude-should-use-this-model" title="Permanent link">&para;</a></h2>
+<div class="pwiki-card">
+<div class="pwiki-card-kind">skill · models</div>
+<h3 class="pwiki-card-title" id="skill-plip">Skill: plip<a class="headerlink" href="#skill-plip" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-meta">Documentation-form SKILL.md (CLAUDE.md §12).</div>
+<div>
+<p>How Claude should use this object — see the SKILL doc at <code>skills/models/plip/SKILL.md</code>.</p>
+</div>
+<div class="pwiki-card-links"><a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/skills/models/plip/SKILL.md" target="_blank" rel="noreferrer">source</a></div>
+</div>
+<p>Pick PLIP when:</p>
+<ul>
+<li>Open weights and reproducibility matter.</li>
+<li>A zero-shot baseline is needed for an H&amp;E classification task.</li>
+<li>The user asks for the first widely-cited pathology VL reference.</li>
+</ul>
+<p>Prefer CONCH when access is available and SOTA performance matters.</p>
+<h2 id="related-nodes">Related nodes<a class="headerlink" href="#related-nodes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>belongs to: <a href="../../methods/pathology-vlm/">Pathology Vision-Language Models</a></li>
+<li>extends: <a href="../../articles/technical/clip-2021/">CLIP (Radford et al. 2021, ICML)</a></li>
+<li>article: <a href="../../articles/technical/plip-2023/">PLIP (Huang et al. 2023, Nat Med)</a></li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li>DOI: <a href="https://doi.org/10.1038/s41591-023-02504-3">10.1038/s41591-023-02504-3</a></li>
+<li>Code: <a href="https://github.com/PathologyFoundation/plip">github.com/PathologyFoundation/plip</a></li>
+<li>Hugging Face: <a href="https://huggingface.co/vinid/plip">vinid/plip</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1970,10 +2381,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/Pathology-Wiki/", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "/Pathology-Wiki/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/Pathology-Wiki/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

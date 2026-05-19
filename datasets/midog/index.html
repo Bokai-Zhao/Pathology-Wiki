@@ -6,29 +6,35 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An agent-extensible knowledge base for computational pathology.">
+        <meta name="description" content="Multi-scanner, multi-tumour mitotic-figure detection benchmark on H&E.">
       
       
       
+        <link rel="canonical" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/midog/">
       
+      
+        <link rel="prev" href="../pannuke/">
+      
+      
+        <link rel="next" href="../../methods/pathology-foundation-model/">
       
       
         
       
       
-      <link rel="icon" href="/Pathology-Wiki/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Pathology-Wiki</title>
+        <title>MIDOG — Mitosis Domain Generalization Challenge - Pathology-Wiki</title>
       
     
     
-      <link rel="stylesheet" href="/Pathology-Wiki/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/Pathology-Wiki/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="/Pathology-Wiki/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/Pathology-Wiki/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#midog-mitosis-domain-generalization-challenge" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/Pathology-Wiki/." title="Pathology-Wiki" class="md-header__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
+    <a href="../.." title="Pathology-Wiki" class="md-header__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              MIDOG — Mitosis Domain Generalization Challenge
             
           </span>
         </div>
@@ -221,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Pathology-Wiki/." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -249,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/articles/reviews/bahadir-2024/" class="md-tabs__link">
+        <a href="../../articles/reviews/bahadir-2024/" class="md-tabs__link">
           
   
   
@@ -274,7 +285,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/models/uni/" class="md-tabs__link">
+        <a href="../../models/uni/" class="md-tabs__link">
           
   
   
@@ -296,7 +307,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/tools/openslide/" class="md-tabs__link">
+        <a href="../../tools/openslide/" class="md-tabs__link">
           
   
   
@@ -314,11 +325,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/datasets/panda/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../panda/" class="md-tabs__link">
           
   
   
@@ -340,7 +353,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/methods/pathology-foundation-model/" class="md-tabs__link">
+        <a href="../../methods/pathology-foundation-model/" class="md-tabs__link">
           
   
   
@@ -360,7 +373,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Pathology-Wiki/graph/" class="md-tabs__link">
+      <a href="../../graph/" class="md-tabs__link">
         
   
   
@@ -379,7 +392,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Pathology-Wiki/skills/" class="md-tabs__link">
+      <a href="../../skills/" class="md-tabs__link">
         
   
   
@@ -414,7 +427,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/Pathology-Wiki/." title="Pathology-Wiki" class="md-nav__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
+    <a href="../.." title="Pathology-Wiki" class="md-nav__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -444,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -585,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/reviews/bahadir-2024/" class="md-nav__link">
+      <a href="../../articles/reviews/bahadir-2024/" class="md-nav__link">
         
   
   
@@ -697,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/uni-2024/" class="md-nav__link">
+      <a href="../../articles/technical/uni-2024/" class="md-nav__link">
         
   
   
@@ -725,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/abmil-2018/" class="md-nav__link">
+      <a href="../../articles/technical/abmil-2018/" class="md-nav__link">
         
   
   
@@ -753,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/clam-2021/" class="md-nav__link">
+      <a href="../../articles/technical/clam-2021/" class="md-nav__link">
         
   
   
@@ -781,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/transmil-2021/" class="md-nav__link">
+      <a href="../../articles/technical/transmil-2021/" class="md-nav__link">
         
   
   
@@ -809,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/campanella-2019/" class="md-nav__link">
+      <a href="../../articles/technical/campanella-2019/" class="md-nav__link">
         
   
   
@@ -837,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/hover-net-2019/" class="md-nav__link">
+      <a href="../../articles/technical/hover-net-2019/" class="md-nav__link">
         
   
   
@@ -865,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/cellvit-2024/" class="md-nav__link">
+      <a href="../../articles/technical/cellvit-2024/" class="md-nav__link">
         
   
   
@@ -893,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/ctranspath-2022/" class="md-nav__link">
+      <a href="../../articles/technical/ctranspath-2022/" class="md-nav__link">
         
   
   
@@ -921,7 +934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/clip-2021/" class="md-nav__link">
+      <a href="../../articles/technical/clip-2021/" class="md-nav__link">
         
   
   
@@ -949,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/plip-2023/" class="md-nav__link">
+      <a href="../../articles/technical/plip-2023/" class="md-nav__link">
         
   
   
@@ -977,7 +990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/mi-zero-2023/" class="md-nav__link">
+      <a href="../../articles/technical/mi-zero-2023/" class="md-nav__link">
         
   
   
@@ -1080,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/models/uni/" class="md-nav__link">
+      <a href="../../models/uni/" class="md-nav__link">
         
   
   
@@ -1108,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/models/ctranspath/" class="md-nav__link">
+      <a href="../../models/ctranspath/" class="md-nav__link">
         
   
   
@@ -1136,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/models/plip/" class="md-nav__link">
+      <a href="../../models/plip/" class="md-nav__link">
         
   
   
@@ -1227,7 +1240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/tools/openslide/" class="md-nav__link">
+      <a href="../../tools/openslide/" class="md-nav__link">
         
   
   
@@ -1259,8 +1272,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1280,19 +1295,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1310,7 +1328,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1328,7 +1346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/panda/" class="md-nav__link">
+      <a href="../panda/" class="md-nav__link">
         
   
   
@@ -1356,7 +1374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/camelyon16/" class="md-nav__link">
+      <a href="../camelyon16/" class="md-nav__link">
         
   
   
@@ -1384,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/bach/" class="md-nav__link">
+      <a href="../bach/" class="md-nav__link">
         
   
   
@@ -1412,7 +1430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/glas/" class="md-nav__link">
+      <a href="../glas/" class="md-nav__link">
         
   
   
@@ -1440,7 +1458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/pannuke/" class="md-nav__link">
+      <a href="../pannuke/" class="md-nav__link">
         
   
   
@@ -1465,10 +1483,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/midog/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MIDOG
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1484,6 +1529,164 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#midog-mitosis-domain-generalization-challenge-2021-2022-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MIDOG — MItosis DOmain Generalization Challenge (2021 / 2022 / 2025)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-contains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it contains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modalities-and-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modalities and scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks-and-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tasks and metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preprocessing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-claude-should-use-this-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Claude should use this dataset
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Claude should use this dataset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-midog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill: midog
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1575,7 +1778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/pathology-foundation-model/" class="md-nav__link">
+      <a href="../../methods/pathology-foundation-model/" class="md-nav__link">
         
   
   
@@ -1603,7 +1806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/patch-level-ssl/" class="md-nav__link">
+      <a href="../../methods/patch-level-ssl/" class="md-nav__link">
         
   
   
@@ -1631,7 +1834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/weakly-supervised-mil/" class="md-nav__link">
+      <a href="../../methods/weakly-supervised-mil/" class="md-nav__link">
         
   
   
@@ -1659,7 +1862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/abmil/" class="md-nav__link">
+      <a href="../../methods/abmil/" class="md-nav__link">
         
   
   
@@ -1687,7 +1890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/clam/" class="md-nav__link">
+      <a href="../../methods/clam/" class="md-nav__link">
         
   
   
@@ -1715,7 +1918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/transmil/" class="md-nav__link">
+      <a href="../../methods/transmil/" class="md-nav__link">
         
   
   
@@ -1743,7 +1946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/hover-net/" class="md-nav__link">
+      <a href="../../methods/hover-net/" class="md-nav__link">
         
   
   
@@ -1771,7 +1974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/cellvit/" class="md-nav__link">
+      <a href="../../methods/cellvit/" class="md-nav__link">
         
   
   
@@ -1799,7 +2002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/pathology-vlm/" class="md-nav__link">
+      <a href="../../methods/pathology-vlm/" class="md-nav__link">
         
   
   
@@ -1834,7 +2037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/graph/" class="md-nav__link">
+      <a href="../../graph/" class="md-nav__link">
         
   
   
@@ -1861,7 +2064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/skills/" class="md-nav__link">
+      <a href="../../skills/" class="md-nav__link">
         
   
   
@@ -1898,6 +2101,154 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#midog-mitosis-domain-generalization-challenge-2021-2022-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MIDOG — MItosis DOmain Generalization Challenge (2021 / 2022 / 2025)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-contains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it contains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modalities-and-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modalities and scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks-and-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tasks and metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preprocessing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-claude-should-use-this-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Claude should use this dataset
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Claude should use this dataset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-midog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill: midog
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1910,8 +2261,136 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+    <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/edit/main/content/datasets/midog.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="midog-mitosis-domain-generalization-challenge">MIDOG — MItosis DOmain Generalization Challenge<a class="headerlink" href="#midog-mitosis-domain-generalization-challenge" title="Permanent link">&para;</a></h1>
+<div class="pwiki-card">
+<div class="pwiki-card-kind">dataset</div>
+<h3 class="pwiki-card-title" id="midog-mitosis-domain-generalization-challenge-2021-2022-2025">MIDOG — MItosis DOmain Generalization Challenge (2021 / 2022 / 2025)<a class="headerlink" href="#midog-mitosis-domain-generalization-challenge-2021-2022-2025" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-meta">h-and-e · breast, skin, lung, lymph-node, soft-tissue · 405 slides · CC BY 4.0 (training data); test data held by organisers for ongoing evaluation</div>
+<div class="pwiki-card-links"><a href="https://imig.science/midog/" target="_blank" rel="noreferrer">homepage</a> · <a href="https://doi.org/10.1016/j.media.2022.102699" target="_blank" rel="noreferrer">doi</a> · <a href="https://imig.science/midog/the-dataset/" target="_blank" rel="noreferrer">download</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">license</a> · <a href="https://imig.science/midog/the-dataset/" target="_blank" rel="noreferrer">access</a></div>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Local graph (1-hop neighbours)</p>
+<p><strong>Outgoing</strong></p>
+<ul>
+<li><code>related_to</code> → <a href="../../tools/openslide/">OpenSlide (WSI I/O)</a> <code>(tool)</code></li>
+</ul>
+<p><strong>Incoming</strong></p>
+<ul>
+<li><a href="../../articles/reviews/bahadir-2024/">Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)</a> <code>(review_article)</code> → <code>related_to</code></li>
+</ul>
+</div>
+<h2 id="what-it-contains">What it contains<a class="headerlink" href="#what-it-contains" title="Permanent link">&para;</a></h2>
+<p>MIDOG is the canonical <strong>multi-domain mitosis-detection benchmark</strong> on H&amp;E. The release combines high-power-field (HPF) annotations across multiple scanners, institutions, and tumour types:</p>
+<ul>
+<li><strong>Human breast cancer</strong></li>
+<li><strong>Canine cutaneous mast cell tumour</strong> (the original 2021 cohort)</li>
+<li><strong>Melanoma</strong> (human and canine)</li>
+<li><strong>Neuroendocrine tumour</strong></li>
+<li><strong>Lymphoma</strong></li>
+</ul>
+<p>Annotations are mitotic-figure <strong>centre points</strong> + class label (true mitosis vs hard-negative "lookalike"). Editions: MIDOG 2021, 2022, 2025 — each adds new tumour cohorts; cite the edition explicitly.</p>
+<h2 id="modalities-and-scope">Modalities and scope<a class="headerlink" href="#modalities-and-scope" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Modality</strong>: H&amp;E</li>
+<li><strong>Organs</strong>: breast, skin, lung, lymph node, soft tissue <em>(varies by edition)</em></li>
+<li><strong>Disease</strong>: cancers with mitotic-count-driven grading</li>
+<li><strong>Species</strong>: human + canine (cross-species design is intentional)</li>
+<li><strong>Specimen type</strong>: WSIs cropped to annotated HPFs</li>
+</ul>
+<h2 id="tasks-and-metrics">Tasks and metrics<a class="headerlink" href="#tasks-and-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mitotic figure detection</td>
+<td><strong>F1</strong> at fixed IoU / centre-distance tolerance (primary), precision, recall</td>
+</tr>
+<tr>
+<td>Mitosis vs lookalike classification</td>
+<td>AP</td>
+</tr>
+</tbody>
+</table>
+<h2 id="access">Access<a class="headerlink" href="#access" title="Permanent link">&para;</a></h2>
+<p>Distributed at <code>imig.science/midog</code>. Requires registration. <strong>CC BY 4.0</strong> for training data; test data held by the organisers for ongoing evaluation submissions.</p>
+<h2 id="preprocessing">Preprocessing<a class="headerlink" href="#preprocessing" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">openslide</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">slide</span> <span class="o">=</span> <span class="n">openslide</span><span class="o">.</span><span class="n">OpenSlide</span><span class="p">(</span><span class="s2">&quot;/data/midog/001.tif&quot;</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">ann</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/data/midog/midog2022_annotations.json&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+<p>Pipeline:</p>
+<ol>
+<li>Read <code>.tif</code> via <a href="../../tools/openslide/">OpenSlide (WSI I/O)</a>.</li>
+<li><strong>Only score detections inside the provided HPF regions</strong> — annotations are exhaustive only there. Outside HPFs the "ground truth" is undefined; counting false positives outside inflates error unfairly.</li>
+<li>Patch at <strong>40×</strong> (~0.25 μm/px) — mitotic figures are only ~10–20 pixels wide.</li>
+<li>Mine <strong>hard-negative lookalikes</strong> from the released annotations — they are the major source of false positives.</li>
+</ol>
+<h2 id="why-it-matters">Why it matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h2>
+<p>MIDOG is explicitly built to <strong>break single-domain models</strong>: training on one scanner + tumour type and testing on others produces sharp degradation, which is the point. It is the standard benchmark for <strong>domain generalisation</strong> in pathology and for <strong>prognostic mitotic-count workflows</strong> (mitoses per area is a routine grading input in clinical pathology).</p>
+<h2 id="known-pitfalls">Known pitfalls<a class="headerlink" href="#known-pitfalls" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Annotations are HPF-region-bounded</strong> — running detection outside those regions inflates false positives.</li>
+<li><strong>Cross-scanner / cross-tumour drift is the point</strong> — naive single-domain training collapses; reviewers expect explicit domain-generalisation or domain-adaptation reporting.</li>
+<li><strong>Mitotic figures are tiny</strong> (~10–20 px at 40×) — ImageNet-style downsizing destroys them.</li>
+<li><strong>Ordinal mitotic counts</strong> (per ROI) feed prognostic grading systems — calibrate count thresholds against pathologist consensus before clinical claims.</li>
+<li><strong>Edition matters</strong> — 2021 was canine-only-ish, 2022 added cohorts, 2025 again — always cite the edition.</li>
+</ul>
+<h2 id="how-claude-should-use-this-dataset">How Claude should use this dataset<a class="headerlink" href="#how-claude-should-use-this-dataset" title="Permanent link">&para;</a></h2>
+<div class="pwiki-card">
+<div class="pwiki-card-kind">skill · datasets</div>
+<h3 class="pwiki-card-title" id="skill-midog">Skill: midog<a class="headerlink" href="#skill-midog" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-meta">Documentation-form SKILL.md (CLAUDE.md §12).</div>
+<div>
+<p>How Claude should use this object — see the SKILL doc at <code>skills/datasets/midog/SKILL.md</code>.</p>
+</div>
+<div class="pwiki-card-links"><a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/skills/datasets/midog/SKILL.md" target="_blank" rel="noreferrer">source</a></div>
+</div>
+<p>MIDOG is the <strong>only benchmark to use when evaluating mitotic-count workflows or pathology domain generalisation</strong>. Pair with <a href="../pannuke/">PanNuke — Pan-Cancer Nuclei Seg &amp; Classification</a> when the broader question is "general nuclei + specific mitoses".</p>
+<h2 id="related-nodes">Related nodes<a class="headerlink" href="#related-nodes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>tool: <a href="../../tools/openslide/">OpenSlide (WSI I/O)</a></li>
+<li>companion: <a href="../pannuke/">PanNuke — Pan-Cancer Nuclei Seg &amp; Classification</a> (nuclei broadly)</li>
+<li>challenge paper: <code>aubreville-2023-midog</code> <em>(article node deferred — pending §11.6)</em></li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Homepage: <a href="https://imig.science/midog/">imig.science/midog</a></li>
+<li>Data page: <a href="https://imig.science/midog/the-dataset/">imig.science/midog/the-dataset/</a></li>
+<li>Aubreville et al., <em>Medical Image Analysis</em> 84 (2023) 102699 (DOI to verify)</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1970,10 +2449,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/Pathology-Wiki/", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "/Pathology-Wiki/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/Pathology-Wiki/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

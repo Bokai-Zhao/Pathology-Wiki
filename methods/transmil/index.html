@@ -6,29 +6,35 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An agent-extensible knowledge base for computational pathology.">
+        <meta name="description" content="Nyström self-attention + PPEG positional encoding for WSI MIL; models instance-instance correlations at gigapixel scale.">
       
       
       
+        <link rel="canonical" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/transmil/">
       
+      
+        <link rel="prev" href="../clam/">
+      
+      
+        <link rel="next" href="../hover-net/">
       
       
         
       
       
-      <link rel="icon" href="/Pathology-Wiki/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Pathology-Wiki</title>
+        <title>TransMIL — Transformer-based Correlated MIL - Pathology-Wiki</title>
       
     
     
-      <link rel="stylesheet" href="/Pathology-Wiki/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/Pathology-Wiki/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="/Pathology-Wiki/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/Pathology-Wiki/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#transmil-transformer-based-correlated-multiple-instance-learning" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/Pathology-Wiki/." title="Pathology-Wiki" class="md-header__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
+    <a href="../.." title="Pathology-Wiki" class="md-header__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              TransMIL — Transformer-based Correlated MIL
             
           </span>
         </div>
@@ -221,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Pathology-Wiki/." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -249,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/articles/reviews/bahadir-2024/" class="md-tabs__link">
+        <a href="../../articles/reviews/bahadir-2024/" class="md-tabs__link">
           
   
   
@@ -274,7 +285,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/models/uni/" class="md-tabs__link">
+        <a href="../../models/uni/" class="md-tabs__link">
           
   
   
@@ -296,7 +307,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/tools/openslide/" class="md-tabs__link">
+        <a href="../../tools/openslide/" class="md-tabs__link">
           
   
   
@@ -318,7 +329,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/datasets/panda/" class="md-tabs__link">
+        <a href="../../datasets/panda/" class="md-tabs__link">
           
   
   
@@ -336,11 +347,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/methods/pathology-foundation-model/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../pathology-foundation-model/" class="md-tabs__link">
           
   
   
@@ -360,7 +373,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Pathology-Wiki/graph/" class="md-tabs__link">
+      <a href="../../graph/" class="md-tabs__link">
         
   
   
@@ -379,7 +392,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Pathology-Wiki/skills/" class="md-tabs__link">
+      <a href="../../skills/" class="md-tabs__link">
         
   
   
@@ -414,7 +427,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/Pathology-Wiki/." title="Pathology-Wiki" class="md-nav__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
+    <a href="../.." title="Pathology-Wiki" class="md-nav__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -444,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -585,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/reviews/bahadir-2024/" class="md-nav__link">
+      <a href="../../articles/reviews/bahadir-2024/" class="md-nav__link">
         
   
   
@@ -697,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/uni-2024/" class="md-nav__link">
+      <a href="../../articles/technical/uni-2024/" class="md-nav__link">
         
   
   
@@ -725,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/abmil-2018/" class="md-nav__link">
+      <a href="../../articles/technical/abmil-2018/" class="md-nav__link">
         
   
   
@@ -753,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/clam-2021/" class="md-nav__link">
+      <a href="../../articles/technical/clam-2021/" class="md-nav__link">
         
   
   
@@ -781,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/transmil-2021/" class="md-nav__link">
+      <a href="../../articles/technical/transmil-2021/" class="md-nav__link">
         
   
   
@@ -809,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/campanella-2019/" class="md-nav__link">
+      <a href="../../articles/technical/campanella-2019/" class="md-nav__link">
         
   
   
@@ -837,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/hover-net-2019/" class="md-nav__link">
+      <a href="../../articles/technical/hover-net-2019/" class="md-nav__link">
         
   
   
@@ -865,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/cellvit-2024/" class="md-nav__link">
+      <a href="../../articles/technical/cellvit-2024/" class="md-nav__link">
         
   
   
@@ -893,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/ctranspath-2022/" class="md-nav__link">
+      <a href="../../articles/technical/ctranspath-2022/" class="md-nav__link">
         
   
   
@@ -921,7 +934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/clip-2021/" class="md-nav__link">
+      <a href="../../articles/technical/clip-2021/" class="md-nav__link">
         
   
   
@@ -949,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/plip-2023/" class="md-nav__link">
+      <a href="../../articles/technical/plip-2023/" class="md-nav__link">
         
   
   
@@ -977,7 +990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/mi-zero-2023/" class="md-nav__link">
+      <a href="../../articles/technical/mi-zero-2023/" class="md-nav__link">
         
   
   
@@ -1080,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/models/uni/" class="md-nav__link">
+      <a href="../../models/uni/" class="md-nav__link">
         
   
   
@@ -1108,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/models/ctranspath/" class="md-nav__link">
+      <a href="../../models/ctranspath/" class="md-nav__link">
         
   
   
@@ -1136,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/models/plip/" class="md-nav__link">
+      <a href="../../models/plip/" class="md-nav__link">
         
   
   
@@ -1227,7 +1240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/tools/openslide/" class="md-nav__link">
+      <a href="../../tools/openslide/" class="md-nav__link">
         
   
   
@@ -1328,7 +1341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/panda/" class="md-nav__link">
+      <a href="../../datasets/panda/" class="md-nav__link">
         
   
   
@@ -1356,7 +1369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/camelyon16/" class="md-nav__link">
+      <a href="../../datasets/camelyon16/" class="md-nav__link">
         
   
   
@@ -1384,7 +1397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/bach/" class="md-nav__link">
+      <a href="../../datasets/bach/" class="md-nav__link">
         
   
   
@@ -1412,7 +1425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/glas/" class="md-nav__link">
+      <a href="../../datasets/glas/" class="md-nav__link">
         
   
   
@@ -1440,7 +1453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/pannuke/" class="md-nav__link">
+      <a href="../../datasets/pannuke/" class="md-nav__link">
         
   
   
@@ -1468,7 +1481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/midog/" class="md-nav__link">
+      <a href="../../datasets/midog/" class="md-nav__link">
         
   
   
@@ -1500,8 +1513,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1527,19 +1542,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -1557,7 +1575,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1575,7 +1593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/pathology-foundation-model/" class="md-nav__link">
+      <a href="../pathology-foundation-model/" class="md-nav__link">
         
   
   
@@ -1603,7 +1621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/patch-level-ssl/" class="md-nav__link">
+      <a href="../patch-level-ssl/" class="md-nav__link">
         
   
   
@@ -1631,7 +1649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/weakly-supervised-mil/" class="md-nav__link">
+      <a href="../weakly-supervised-mil/" class="md-nav__link">
         
   
   
@@ -1659,7 +1677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/abmil/" class="md-nav__link">
+      <a href="../abmil/" class="md-nav__link">
         
   
   
@@ -1687,7 +1705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/clam/" class="md-nav__link">
+      <a href="../clam/" class="md-nav__link">
         
   
   
@@ -1712,10 +1730,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/transmil/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TransMIL
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1731,6 +1776,131 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#transmil-transformer-based-correlated-multiple-instance-learning_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TransMIL — Transformer-based Correlated Multiple Instance Learning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core idea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representative-article" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Representative article
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-claude-should-use-this-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Claude should use this method
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Claude should use this method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-transmil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill: transmil
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1743,7 +1913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/hover-net/" class="md-nav__link">
+      <a href="../hover-net/" class="md-nav__link">
         
   
   
@@ -1771,7 +1941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/cellvit/" class="md-nav__link">
+      <a href="../cellvit/" class="md-nav__link">
         
   
   
@@ -1799,7 +1969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/pathology-vlm/" class="md-nav__link">
+      <a href="../pathology-vlm/" class="md-nav__link">
         
   
   
@@ -1834,7 +2004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/graph/" class="md-nav__link">
+      <a href="../../graph/" class="md-nav__link">
         
   
   
@@ -1861,7 +2031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/skills/" class="md-nav__link">
+      <a href="../../skills/" class="md-nav__link">
         
   
   
@@ -1898,6 +2068,121 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#transmil-transformer-based-correlated-multiple-instance-learning_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TransMIL — Transformer-based Correlated Multiple Instance Learning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core idea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representative-article" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Representative article
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-claude-should-use-this-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Claude should use this method
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Claude should use this method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-transmil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill: transmil
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1910,8 +2195,110 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+    <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/edit/main/content/methods/transmil.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="transmil-transformer-based-correlated-multiple-instance-learning">TransMIL — Transformer-based Correlated Multiple Instance Learning<a class="headerlink" href="#transmil-transformer-based-correlated-multiple-instance-learning" title="Permanent link">&para;</a></h1>
+<div class="pwiki-card">
+<div class="pwiki-card-kind">method</div>
+<h3 class="pwiki-card-title" id="transmil-transformer-based-correlated-multiple-instance-learning_1">TransMIL — Transformer-based Correlated Multiple Instance Learning<a class="headerlink" href="#transmil-transformer-based-correlated-multiple-instance-learning_1" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-meta">stage: deep_wsi_learning · parents: weakly-supervised-mil</div>
+<div>
+<p>Replace ABMIL's MLP-attention aggregator with a Transformer encoder that
+models instance-instance correlations. Two ingredients: (1) a Nyström-based
+attention approximation to make self-attention feasible on bags of
+thousands of patches; (2) a Pyramid Position Encoding Generator (PPEG) to
+re-inject 2-D spatial context into the sequence. The result captures
+correlations between distant patches that mean / attention pooling cannot.
+</p>
+</div>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Local graph (1-hop neighbours)</p>
+<p><strong>Outgoing</strong></p>
+<ul>
+<li><code>belongs_to</code> → <a href="../weakly-supervised-mil/">Weakly-Supervised Multiple Instance Learning (WSI)</a> <code>(method)</code></li>
+<li><code>extends</code> → <a href="../abmil/">ABMIL — Attention-Based Multiple Instance Learning</a> <code>(method)</code></li>
+</ul>
+<p><strong>Incoming</strong></p>
+<ul>
+<li><a href="../../articles/technical/transmil-2021/">TransMIL (Shao et al. 2021, NeurIPS)</a> <code>(technical_article)</code> → <code>proposes_method</code></li>
+</ul>
+</div>
+<h2 id="why-it-matters">Why it matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h2>
+<p><a href="../abmil/">ABMIL — Attention-Based Multiple Instance Learning</a> and <a href="../clam/">CLAM — Clustering-constrained Attention MIL</a> treat patches as <strong>independent instances</strong> — the attention score for one patch does not depend on what the others contain. In pathology, that assumption breaks: tumour regions are spatially contiguous, immune infiltration is contextual, gland architecture only makes sense across multiple patches. TransMIL fixes this with <strong>Transformer self-attention</strong>, which lets every patch attend to every other patch. To make this tractable on bags of thousands of patches it uses:</p>
+<ul>
+<li><strong>Nyström attention approximation</strong> — drops attention cost from O(N²) to O(N).</li>
+<li><strong>Pyramid Position Encoding Generator (PPEG)</strong> — re-injects 2-D spatial context into the otherwise permutation-invariant Transformer sequence via multi-scale convolutions on the bag.</li>
+</ul>
+<h2 id="core-idea">Core idea<a class="headerlink" href="#core-idea" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>patches → linear proj → [CLS] + sequence
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   → PPEG (spatial conv)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   → Nyström-attention Transformer layers
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   → take [CLS] embedding → classifier
+</span></code></pre></div>
+<p>The Transformer captures distant-patch correlations that attention pooling cannot. PPEG restores enough spatial signal that the model can reason about tissue architecture.</p>
+<h2 id="key-questions">Key questions<a class="headerlink" href="#key-questions" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Nyström vs exact attention</strong>: Nyström is an approximation; on small bags, exact attention can outperform.</li>
+<li><strong>Number of Transformer layers / heads</strong>: original paper uses 2 layers; deeper helps marginally and costs compute.</li>
+<li><strong>Does PPEG matter?</strong> Ablations in the paper show it does — random 2-D mixing alone underperforms.</li>
+<li><strong>Backbone interaction</strong>: as with other MIL methods, the patch encoder choice (ImageNet vs CTransPath vs UNI) dominates accuracy gains.</li>
+</ul>
+<h2 id="representative-article">Representative article<a class="headerlink" href="#representative-article" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../articles/technical/transmil-2021/">TransMIL (Shao et al. 2021, NeurIPS)</a> — Shao et al., <em>NeurIPS</em> 2021.</li>
+</ul>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Approximate attention</strong> — Nyström adds variance; exact attention on small bags can do better.</li>
+<li><strong>Parameter cost</strong> — adds Transformer parameters vs ABMIL/CLAM; compute-bound deployment may prefer simpler aggregators.</li>
+<li><strong>Less interpretable</strong> than CLAM's per-class attention branches — visualising "what the Transformer attends to" is non-trivial.</li>
+</ul>
+<h2 id="how-claude-should-use-this-method">How Claude should use this method<a class="headerlink" href="#how-claude-should-use-this-method" title="Permanent link">&para;</a></h2>
+<div class="pwiki-card">
+<div class="pwiki-card-kind">skill · methods</div>
+<h3 class="pwiki-card-title" id="skill-transmil">Skill: transmil<a class="headerlink" href="#skill-transmil" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-meta">Documentation-form SKILL.md (CLAUDE.md §12).</div>
+<div>
+<p>How Claude should use this object — see the SKILL doc at <code>skills/methods/transmil/SKILL.md</code>.</p>
+</div>
+<div class="pwiki-card-links"><a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/skills/methods/transmil/SKILL.md" target="_blank" rel="noreferrer">source</a></div>
+</div>
+<p>Reach for TransMIL when <strong>instance-instance correlations matter</strong> (survival, complex subtyping, spatial architectural cues). For most binary slide-level classification, <a href="../clam/">CLAM — Clustering-constrained Attention MIL</a> is simpler and adequate.</p>
+<h2 id="related-nodes">Related nodes<a class="headerlink" href="#related-nodes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>parent: <a href="../weakly-supervised-mil/">Weakly-Supervised Multiple Instance Learning (WSI)</a></li>
+<li>predecessor: <a href="../abmil/">ABMIL — Attention-Based Multiple Instance Learning</a></li>
+<li>sibling: <a href="../clam/">CLAM — Clustering-constrained Attention MIL</a></li>
+<li>dataset: <a href="../../datasets/camelyon16/">Camelyon16 — Cancer Metastases in Lymph Nodes 2016</a></li>
+<li>article: <a href="../../articles/technical/transmil-2021/">TransMIL (Shao et al. 2021, NeurIPS)</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1970,10 +2357,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/Pathology-Wiki/", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "/Pathology-Wiki/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/Pathology-Wiki/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

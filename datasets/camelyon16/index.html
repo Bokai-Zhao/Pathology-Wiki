@@ -6,29 +6,35 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An agent-extensible knowledge base for computational pathology.">
+        <meta name="description" content="400 H&E sentinel-lymph-node WSIs from two centres with slide-level + lesion-level annotations.">
       
       
       
+        <link rel="canonical" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/camelyon16/">
       
+      
+        <link rel="prev" href="../panda/">
+      
+      
+        <link rel="next" href="../bach/">
       
       
         
       
       
-      <link rel="icon" href="/Pathology-Wiki/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Pathology-Wiki</title>
+        <title>Camelyon16 — Breast Cancer Lymph-Node Metastasis Detection - Pathology-Wiki</title>
       
     
     
-      <link rel="stylesheet" href="/Pathology-Wiki/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/Pathology-Wiki/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="/Pathology-Wiki/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/Pathology-Wiki/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#camelyon16-cancer-metastases-in-lymph-nodes-2016" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/Pathology-Wiki/." title="Pathology-Wiki" class="md-header__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
+    <a href="../.." title="Pathology-Wiki" class="md-header__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Camelyon16 — Breast Cancer Lymph-Node Metastasis Detection
             
           </span>
         </div>
@@ -221,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Pathology-Wiki/." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -249,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/articles/reviews/bahadir-2024/" class="md-tabs__link">
+        <a href="../../articles/reviews/bahadir-2024/" class="md-tabs__link">
           
   
   
@@ -274,7 +285,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/models/uni/" class="md-tabs__link">
+        <a href="../../models/uni/" class="md-tabs__link">
           
   
   
@@ -296,7 +307,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/tools/openslide/" class="md-tabs__link">
+        <a href="../../tools/openslide/" class="md-tabs__link">
           
   
   
@@ -314,11 +325,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/datasets/panda/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../panda/" class="md-tabs__link">
           
   
   
@@ -340,7 +353,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/Pathology-Wiki/methods/pathology-foundation-model/" class="md-tabs__link">
+        <a href="../../methods/pathology-foundation-model/" class="md-tabs__link">
           
   
   
@@ -360,7 +373,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Pathology-Wiki/graph/" class="md-tabs__link">
+      <a href="../../graph/" class="md-tabs__link">
         
   
   
@@ -379,7 +392,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Pathology-Wiki/skills/" class="md-tabs__link">
+      <a href="../../skills/" class="md-tabs__link">
         
   
   
@@ -414,7 +427,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/Pathology-Wiki/." title="Pathology-Wiki" class="md-nav__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
+    <a href="../.." title="Pathology-Wiki" class="md-nav__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -444,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -585,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/reviews/bahadir-2024/" class="md-nav__link">
+      <a href="../../articles/reviews/bahadir-2024/" class="md-nav__link">
         
   
   
@@ -697,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/uni-2024/" class="md-nav__link">
+      <a href="../../articles/technical/uni-2024/" class="md-nav__link">
         
   
   
@@ -725,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/abmil-2018/" class="md-nav__link">
+      <a href="../../articles/technical/abmil-2018/" class="md-nav__link">
         
   
   
@@ -753,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/clam-2021/" class="md-nav__link">
+      <a href="../../articles/technical/clam-2021/" class="md-nav__link">
         
   
   
@@ -781,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/transmil-2021/" class="md-nav__link">
+      <a href="../../articles/technical/transmil-2021/" class="md-nav__link">
         
   
   
@@ -809,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/campanella-2019/" class="md-nav__link">
+      <a href="../../articles/technical/campanella-2019/" class="md-nav__link">
         
   
   
@@ -837,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/hover-net-2019/" class="md-nav__link">
+      <a href="../../articles/technical/hover-net-2019/" class="md-nav__link">
         
   
   
@@ -865,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/cellvit-2024/" class="md-nav__link">
+      <a href="../../articles/technical/cellvit-2024/" class="md-nav__link">
         
   
   
@@ -893,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/ctranspath-2022/" class="md-nav__link">
+      <a href="../../articles/technical/ctranspath-2022/" class="md-nav__link">
         
   
   
@@ -921,7 +934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/clip-2021/" class="md-nav__link">
+      <a href="../../articles/technical/clip-2021/" class="md-nav__link">
         
   
   
@@ -949,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/plip-2023/" class="md-nav__link">
+      <a href="../../articles/technical/plip-2023/" class="md-nav__link">
         
   
   
@@ -977,7 +990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/articles/technical/mi-zero-2023/" class="md-nav__link">
+      <a href="../../articles/technical/mi-zero-2023/" class="md-nav__link">
         
   
   
@@ -1080,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/models/uni/" class="md-nav__link">
+      <a href="../../models/uni/" class="md-nav__link">
         
   
   
@@ -1108,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/models/ctranspath/" class="md-nav__link">
+      <a href="../../models/ctranspath/" class="md-nav__link">
         
   
   
@@ -1136,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/models/plip/" class="md-nav__link">
+      <a href="../../models/plip/" class="md-nav__link">
         
   
   
@@ -1227,7 +1240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/tools/openslide/" class="md-nav__link">
+      <a href="../../tools/openslide/" class="md-nav__link">
         
   
   
@@ -1259,8 +1272,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1280,19 +1295,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1310,7 +1328,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1328,7 +1346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/panda/" class="md-nav__link">
+      <a href="../panda/" class="md-nav__link">
         
   
   
@@ -1353,10 +1371,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/camelyon16/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camelyon16
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1372,6 +1417,164 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#camelyon16-cancer-metastases-in-lymph-nodes-2016-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CAMELYON16 — Cancer Metastases in Lymph Nodes 2016 Challenge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-contains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it contains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modalities-and-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modalities and scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks-and-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tasks and metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preprocessing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-claude-should-use-this-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Claude should use this dataset
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Claude should use this dataset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-camelyon16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill: camelyon16
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1384,7 +1587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/bach/" class="md-nav__link">
+      <a href="../bach/" class="md-nav__link">
         
   
   
@@ -1412,7 +1615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/glas/" class="md-nav__link">
+      <a href="../glas/" class="md-nav__link">
         
   
   
@@ -1440,7 +1643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/pannuke/" class="md-nav__link">
+      <a href="../pannuke/" class="md-nav__link">
         
   
   
@@ -1468,7 +1671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/datasets/midog/" class="md-nav__link">
+      <a href="../midog/" class="md-nav__link">
         
   
   
@@ -1575,7 +1778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/pathology-foundation-model/" class="md-nav__link">
+      <a href="../../methods/pathology-foundation-model/" class="md-nav__link">
         
   
   
@@ -1603,7 +1806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/patch-level-ssl/" class="md-nav__link">
+      <a href="../../methods/patch-level-ssl/" class="md-nav__link">
         
   
   
@@ -1631,7 +1834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/weakly-supervised-mil/" class="md-nav__link">
+      <a href="../../methods/weakly-supervised-mil/" class="md-nav__link">
         
   
   
@@ -1659,7 +1862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/abmil/" class="md-nav__link">
+      <a href="../../methods/abmil/" class="md-nav__link">
         
   
   
@@ -1687,7 +1890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/clam/" class="md-nav__link">
+      <a href="../../methods/clam/" class="md-nav__link">
         
   
   
@@ -1715,7 +1918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/transmil/" class="md-nav__link">
+      <a href="../../methods/transmil/" class="md-nav__link">
         
   
   
@@ -1743,7 +1946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/hover-net/" class="md-nav__link">
+      <a href="../../methods/hover-net/" class="md-nav__link">
         
   
   
@@ -1771,7 +1974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/cellvit/" class="md-nav__link">
+      <a href="../../methods/cellvit/" class="md-nav__link">
         
   
   
@@ -1799,7 +2002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/methods/pathology-vlm/" class="md-nav__link">
+      <a href="../../methods/pathology-vlm/" class="md-nav__link">
         
   
   
@@ -1834,7 +2037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/graph/" class="md-nav__link">
+      <a href="../../graph/" class="md-nav__link">
         
   
   
@@ -1861,7 +2064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Pathology-Wiki/skills/" class="md-nav__link">
+      <a href="../../skills/" class="md-nav__link">
         
   
   
@@ -1898,6 +2101,154 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#camelyon16-cancer-metastases-in-lymph-nodes-2016-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CAMELYON16 — Cancer Metastases in Lymph Nodes 2016 Challenge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-contains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it contains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modalities-and-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modalities and scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks-and-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tasks and metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preprocessing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-claude-should-use-this-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Claude should use this dataset
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Claude should use this dataset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-camelyon16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill: camelyon16
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1910,8 +2261,146 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+    <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/edit/main/content/datasets/camelyon16.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="camelyon16-cancer-metastases-in-lymph-nodes-2016">Camelyon16 — Cancer Metastases in Lymph Nodes 2016<a class="headerlink" href="#camelyon16-cancer-metastases-in-lymph-nodes-2016" title="Permanent link">&para;</a></h1>
+<div class="pwiki-card">
+<div class="pwiki-card-kind">dataset</div>
+<h3 class="pwiki-card-title" id="camelyon16-cancer-metastases-in-lymph-nodes-2016-challenge">CAMELYON16 — Cancer Metastases in Lymph Nodes 2016 Challenge<a class="headerlink" href="#camelyon16-cancer-metastases-in-lymph-nodes-2016-challenge" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-meta">h-and-e · lymph-node, breast · 400 slides · CC0 1.0 (public domain dedication) per grand-challenge release; verify on the data page before redistribution</div>
+<div class="pwiki-card-links"><a href="https://camelyon16.grand-challenge.org/" target="_blank" rel="noreferrer">homepage</a> · <a href="https://camelyon17.grand-challenge.org/Data/" target="_blank" rel="noreferrer">download</a> · <a href="https://doi.org/10.1001/jama.2017.14585" target="_blank" rel="noreferrer">doi</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">license</a> · <a href="https://camelyon17.grand-challenge.org/Data/" target="_blank" rel="noreferrer">access</a></div>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Local graph (1-hop neighbours)</p>
+<p><strong>Outgoing</strong></p>
+<ul>
+<li><code>related_to</code> → <a href="../../tools/openslide/">OpenSlide (WSI I/O)</a> <code>(tool)</code></li>
+</ul>
+<p><strong>Incoming</strong></p>
+<ul>
+<li><a href="../../methods/pathology-foundation-model/">Pathology Foundation Model</a> <code>(method)</code> → <code>related_to</code></li>
+<li><a href="../panda/">PANDA — Prostate cANcer graDe Assessment</a> <code>(dataset)</code> → <code>related_to</code></li>
+<li><a href="../../articles/technical/abmil-2018/">ABMIL (Ilse, Tomczak, Welling 2018)</a> <code>(technical_article)</code> → <code>uses_dataset</code></li>
+<li><a href="../../articles/technical/clam-2021/">CLAM (Lu et al. 2021, Nat Biomed Eng)</a> <code>(technical_article)</code> → <code>uses_dataset</code></li>
+<li><a href="../../articles/technical/transmil-2021/">TransMIL (Shao et al. 2021, NeurIPS)</a> <code>(technical_article)</code> → <code>uses_dataset</code></li>
+<li><a href="../../articles/technical/campanella-2019/">Campanella et al. 2019 — Clinical-Grade Weakly-Supervised Pathology MIL</a> <code>(technical_article)</code> → <code>related_to</code></li>
+<li><a href="../../articles/reviews/bahadir-2024/">Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)</a> <code>(review_article)</code> → <code>related_to</code></li>
+</ul>
+</div>
+<h2 id="what-it-contains">What it contains<a class="headerlink" href="#what-it-contains" title="Permanent link">&para;</a></h2>
+<p>Camelyon16 is the founding public benchmark for <strong>breast cancer metastasis detection in sentinel lymph nodes</strong> on H&amp;E WSIs. The release contains <strong>400 whole-slide images</strong> (270 training + 130 test) contributed by <strong>Radboud University Medical Center</strong> and <strong>Utrecht University Medical Center</strong>.</p>
+<p>Each slide is labelled at three granularities:</p>
+<ul>
+<li><strong>Slide-level</strong>: negative / isolated tumor cells (ITC) / micrometastasis / macrometastasis.</li>
+<li><strong>Lesion-level</strong>: exhaustive polygons around contiguous tumor regions on positive slides (XML/JSON).</li>
+<li><strong>Pixel-level</strong>: derived tumor masks from the lesion polygons.</li>
+</ul>
+<h2 id="modalities-and-scope">Modalities and scope<a class="headerlink" href="#modalities-and-scope" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Modality</strong>: H&amp;E</li>
+<li><strong>Organ</strong>: lymph node (sentinel) — breast-cancer specimen</li>
+<li><strong>Disease</strong>: breast cancer with regional metastasis</li>
+<li><strong>Species</strong>: human</li>
+<li><strong>Specimen type</strong>: sentinel lymph node sections</li>
+</ul>
+<h2 id="tasks-and-metrics">Tasks and metrics<a class="headerlink" href="#tasks-and-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Slide-level tumor presence</td>
+<td>AUC</td>
+</tr>
+<tr>
+<td>Lesion-level detection</td>
+<td><strong>FROC</strong> (free-response ROC) — the headline challenge metric</td>
+</tr>
+<tr>
+<td>Pixel segmentation</td>
+<td>Dice (secondary)</td>
+</tr>
+</tbody>
+</table>
+<p>FROC measures sensitivity at fixed false-positive-per-image counts and is the standard against which weakly supervised MIL pipelines are reported.</p>
+<h2 id="access">Access<a class="headerlink" href="#access" title="Permanent link">&para;</a></h2>
+<p>Hosted via the grand-challenge platform (<code>camelyon17.grand-challenge.org/Data/</code> is the canonical data page for both editions). Registration required. Released under CC0 — the data are public-domain dedicated, but redistribution should still cite the JAMA 2017 challenge paper.</p>
+<p>The full release is ~750 GB <em>(to verify)</em>; budget time for Aspera / S3 download.</p>
+<h2 id="preprocessing">Preprocessing<a class="headerlink" href="#preprocessing" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">openslide</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">slide</span> <span class="o">=</span> <span class="n">openslide</span><span class="o">.</span><span class="n">OpenSlide</span><span class="p">(</span><span class="s2">&quot;/data/camelyon16/training/tumor/tumor_001.tif&quot;</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">slide</span><span class="o">.</span><span class="n">level_dimensions</span><span class="p">,</span> <span class="n">slide</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;openslide.mpp-x&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+<p>Standard pipeline:</p>
+<ol>
+<li>Read <code>.tif</code> via <a href="../../tools/openslide/">OpenSlide (WSI I/O)</a> — handles Aperio / Hamamatsu vendor blocks.</li>
+<li>Tissue mask at level 4-6 (downsample) → keep only foreground patches.</li>
+<li>Patch at 20× or 40× (challenge slides have 40× level); 256×256 conventional for MIL.</li>
+<li>Build positive/negative patch labels from the XML tumor polygons.</li>
+</ol>
+<h2 id="why-it-matters">Why it matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h2>
+<p>Camelyon16 is the <strong>seed dataset for the entire weakly-supervised MIL literature in pathology</strong> — ABMIL, CLAM, TransMIL, DSMIL, DTFD-MIL all report Camelyon16 numbers. Any new WSI classification method without a Camelyon16 number is treated with suspicion.</p>
+<h2 id="known-pitfalls">Known pitfalls<a class="headerlink" href="#known-pitfalls" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Two-centre, two-scanner</strong> drift — Pannoramic 250 Flash (Radboud) vs Aperio (Utrecht). Stain and resolution differ.</li>
+<li><strong>Lesion vs slide metrics tell different stories</strong> — high AUC with low FROC means the model is voting correctly but localising poorly.</li>
+<li><strong>ITC may be under-annotated</strong> — exhaustive polygons cover the main contiguous lesion only.</li>
+<li><strong>Camelyon17 is a different challenge</strong> (patient-level pN staging on 1000 slides from 5 centres) — do not conflate.</li>
+</ul>
+<h2 id="how-claude-should-use-this-dataset">How Claude should use this dataset<a class="headerlink" href="#how-claude-should-use-this-dataset" title="Permanent link">&para;</a></h2>
+<div class="pwiki-card">
+<div class="pwiki-card-kind">skill · datasets</div>
+<h3 class="pwiki-card-title" id="skill-camelyon16">Skill: camelyon16<a class="headerlink" href="#skill-camelyon16" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-meta">Documentation-form SKILL.md (CLAUDE.md §12).</div>
+<div>
+<p>How Claude should use this object — see the SKILL doc at <code>skills/datasets/camelyon16/SKILL.md</code>.</p>
+</div>
+<div class="pwiki-card-links"><a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/skills/datasets/camelyon16/SKILL.md" target="_blank" rel="noreferrer">source</a></div>
+</div>
+<p>Camelyon16 is the <strong>first benchmark to run</strong> when proposing a new WSI classification / MIL method. Always pair slide-AUC with lesion-FROC.</p>
+<h2 id="related-nodes">Related nodes<a class="headerlink" href="#related-nodes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>tool: <a href="../../tools/openslide/">OpenSlide (WSI I/O)</a></li>
+<li>method context: <a href="../../methods/pathology-foundation-model/">Pathology Foundation Model</a></li>
+<li>companion benchmark: <a href="../panda/">PANDA — Prostate cANcer graDe Assessment</a> (grading complement)</li>
+<li>challenge paper: <code>bejnordi-2017-camelyon16</code> <em>(article node deferred — pending §11.6)</em></li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Challenge homepage: <a href="https://camelyon16.grand-challenge.org/">camelyon16.grand-challenge.org</a></li>
+<li>Data download (joint with Camelyon17): <a href="https://camelyon17.grand-challenge.org/Data/">camelyon17.grand-challenge.org/Data/</a></li>
+<li>Bejnordi et al., <em>JAMA</em> 2017 (DOI to verify)</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1970,10 +2459,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/Pathology-Wiki/", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "/Pathology-Wiki/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/Pathology-Wiki/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
