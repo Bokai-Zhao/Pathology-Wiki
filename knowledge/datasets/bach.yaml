@@ -1,0 +1,95 @@
+id: bach
+type: dataset
+name: BACH
+full_name: "BACH — BreAst Cancer Histology images grand challenge (ICIAR 2018)"
+
+links:
+  homepage: https://iciar2018-challenge.grand-challenge.org/
+  paper: aresta-2019-bach              # Aresta et al. Med Image Anal — node pending §11.6
+  doi: 10.1016/j.media.2019.05.010      # to_verify
+  license: https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+modalities:
+  - h-and-e
+organs:
+  - breast
+diseases:
+  - breast-cancer
+species:
+  - human
+data_types:
+  - microscopy-image                   # 400 H&E microscopy ROI images (2040×1536)
+  - whole-slide-image                  # 10 pixel-annotated WSIs (Part B)
+
+tasks:
+  - image-classification               # 4-class: normal / benign / in-situ / invasive
+  - whole-slide-segmentation           # Part B: pixel-wise 4-class WSI labelling
+labels:
+  - tissue-class-4way                  # normal, benign, in-situ carcinoma, invasive carcinoma
+  - pixel-class                        # WSI subset
+metrics:
+  - accuracy                           # Part A primary
+  - precision
+  - recall
+  - dice                               # Part B segmentation
+
+scale:
+  n_slides: 10                         # WSIs (Part B)
+  n_patches: 400                       # microscopy images (Part A); 100 per class
+  n_patients: to_verify
+  n_centers: to_verify
+  file_size: "~24 GB"                  # to_verify (Part A+B combined)
+
+access:
+  public: true
+  license: "CC BY-NC-ND 4.0 (challenge data release)"
+  download_difficulty: medium
+  requires_registration: true          # grand-challenge.org account
+  access_url: https://iciar2018-challenge.grand-challenge.org/
+
+preprocessing:
+  required_steps:
+    - "Part A: load microscopy TIFs at native 2040x1536 (~0.42 μm/px)"
+    - "Stain normalisation (Macenko / Reinhard / Vahadane) — staining varies"
+    - "Patch extraction (typical: 512x512 sub-patches at training time)"
+    - "Part B: read WSI .svs via OpenSlide; sliding-window tile inference"
+  recommended_tools:
+    - openslide
+  coordinate_system: "Native pixel space; Part A images already at chosen magnification."
+  file_formats:
+    - tif
+    - svs
+
+used_by_articles: []
+used_by_benchmarks: []
+related_methods:
+  - pathology-foundation-model
+related_tools:
+  - openslide
+related_articles: []
+
+known_pitfalls:
+  - "Part A has only 400 images (100 per class) — heavy augmentation / SSL pretraining is mandatory to avoid overfitting."
+  - "Stain heterogeneity is significant; reported numbers swing depending on stain normalisation choice."
+  - "4-class definitions (benign vs in-situ vs invasive) follow specific consensus criteria — verify before applying labels to external data."
+  - "Part B WSIs (10 slides) are too few for slide-level metrics — use Part B for qualitative localisation only."
+
+claude:
+  summary: |
+    BACH is the ICIAR 2018 challenge dataset for 4-class breast histology
+    classification (normal / benign / in-situ / invasive). Small (400 microscopy
+    images + 10 WSIs) but widely used to stress-test stain robustness and few-shot
+    transfer; commonly cited alongside Camelyon16 as a complementary breast
+    benchmark.
+  use_when:
+    - "4-class breast histology classification"
+    - "Stain-robustness ablations (small dataset, large stain variance)"
+    - "Few-shot / transfer-learning ablations from PFMs"
+  do_not_use_when:
+    - "Need many slides per class — too small"
+    - "Need lesion-level segmentation at scale — Part B is only 10 slides"
+    - "Need molecular subtypes (ER/PR/HER2) — labels are morphological only"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

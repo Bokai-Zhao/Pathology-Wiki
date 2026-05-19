@@ -1,0 +1,111 @@
+id: pannuke
+type: dataset
+name: PanNuke
+full_name: "PanNuke — Pan-Cancer Nuclei Segmentation and Classification Dataset"
+
+links:
+  homepage: https://jgamper.github.io/PanNukeDataset/
+  paper: gamper-2020-pannuke               # node pending §11.6
+  arxiv: "2003.10778"                      # extension/baselines paper
+  doi: 10.48550/arXiv.2003.10778           # to_verify
+  github: https://github.com/TIA-Lab/PanNuke-metrics
+  license: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+modalities:
+  - h-and-e
+organs:
+  - breast
+  - colon
+  - lung
+  - prostate
+  - stomach
+  - kidney
+  - ovary
+  - bladder
+  - pancreas
+  - skin
+  - thyroid
+  - liver
+  - cervix
+  - bile-duct
+  - oesophagus
+  - testis
+  - uterus
+  - head-neck
+  - adrenal-gland
+diseases:
+  - pan-cancer
+species:
+  - human
+data_types:
+  - microscopy-image-patch                 # 256x256 patches
+
+tasks:
+  - nuclei-instance-segmentation
+  - nuclei-classification                  # 5-class
+labels:
+  - nuclei-instance-mask
+  - nuclei-class-5way                      # neoplastic, inflammatory, connective, dead, epithelial
+metrics:
+  - panoptic-quality                       # PQ — primary
+  - detection-quality                      # DQ
+  - segmentation-quality                   # SQ
+  - binary-pq
+  - multi-class-pq
+
+scale:
+  n_slides: to_verify                      # patches drawn from many WSI sources
+  n_patches: 7901                          # 256×256 patches across 19 tissues
+  n_patients: to_verify
+  n_centers: to_verify
+  file_size: "~3 GB"                       # to_verify
+
+access:
+  public: true
+  license: "CC BY-NC-SA 4.0 (non-commercial, share-alike)"
+  download_difficulty: easy
+  requires_registration: false
+  access_url: https://jgamper.github.io/PanNukeDataset/
+
+preprocessing:
+  required_steps:
+    - "Load .npy arrays (images and masks) — already 256×256 patches"
+    - "Map instance masks to per-class integer label maps"
+    - "Use the 3-fold split shipped with the release; never hand-pick splits"
+    - "Use the official metric implementation (PanNuke-metrics repo) — PQ has tissue-specific edge cases"
+  recommended_tools: []
+  coordinate_system: "Patch-local (256×256); no WSI coordinates."
+  file_formats:
+    - npy
+
+used_by_articles: []
+used_by_benchmarks: []
+related_methods: []
+related_tools: []
+related_articles: []
+
+known_pitfalls:
+  - "Patches are pre-cropped — model cannot exploit tissue-level context beyond 256×256."
+  - "Class 4 (Dead) is rare; report per-class PQ, never only mean PQ."
+  - "Stain variability is large across 19 tissues — naive training without colour augmentation underperforms."
+  - "Use the official 3-fold split; ad-hoc splits invalidate cross-method comparison."
+  - "Tissue-type label is part of metadata — useful for stratified evaluation but not part of the model input."
+
+claude:
+  summary: |
+    PanNuke is the standard public benchmark for nuclei instance segmentation
+    and 5-class classification on H&E patches, spanning 19 tissue types
+    (~7.9k patches at 256×256). Panoptic Quality (PQ) is the primary metric.
+    Pair with HoVer-Net / CellViT / StarDist for baselines.
+  use_when:
+    - "Evaluating a new nuclei segmentation or instance method"
+    - "Multi-class nuclei classification across cancer types"
+    - "Stress-testing tissue-domain generalisation on H&E"
+  do_not_use_when:
+    - "Need IHC / multiplex IF stains — H&E only"
+    - "Need tissue-level context beyond 256×256 — patches are pre-cropped"
+    - "Need pixel-perfect agreement on rare cell types (e.g. mitoses) — labels are class-level, not state-level"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

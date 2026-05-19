@@ -24,3 +24,26 @@ edges:
   #   panda --used_by_articles--> bulten-2022-panda
   #   panda --used_by_benchmark--> wsi-pfm-benchmark
   #   uni --supersedes? UNI2 (uni2 not yet ingested)
+
+  # ---- Cluster 1: WSI public datasets (added 2026-05-19) ----
+  # Datasets share OpenSlide as the canonical WSI reader
+  - { from: camelyon16, to: openslide, type: related_to,
+      evidence: "Camelyon16 .tif WSIs are typically read with OpenSlide", confidence: high }
+  - { from: bach, to: openslide, type: related_to,
+      evidence: "BACH Part B WSIs (.svs) read with OpenSlide", confidence: medium }
+  - { from: midog, to: openslide, type: related_to,
+      evidence: "MIDOG .tif WSIs read with OpenSlide", confidence: high }
+
+  # Datasets used by the foundation-model evaluation track
+  - { from: pathology-foundation-model, to: camelyon16, type: related_to,
+      evidence: "Camelyon16 is a standard downstream benchmark for pathology PFMs (UNI, GigaPath, Virchow all evaluate on it)", confidence: high }
+  - { from: pathology-foundation-model, to: pannuke, type: related_to,
+      evidence: "PanNuke nuclei classification commonly used to test PFM patch-level features", confidence: medium }
+
+  # PANDA grouped with Camelyon16 as the seed grading / classification benchmarks
+  - { from: panda, to: camelyon16, type: related_to,
+      evidence: "PANDA (grading) and Camelyon16 (detection) jointly anchor the canonical WSI weakly-supervised benchmark suite", confidence: medium }
+
+  # GlaS (glands) and PanNuke (nuclei) are the morphometric segmentation pair
+  - { from: glas, to: pannuke, type: related_to,
+      evidence: "GlaS (gland-level) and PanNuke (cell-level) are the standard pair of small-scale H&E segmentation benchmarks", confidence: high }

@@ -1,0 +1,105 @@
+id: midog
+type: dataset
+name: MIDOG
+full_name: "MIDOG — MItosis DOmain Generalization Challenge (2021 / 2022 / 2025)"
+
+links:
+  homepage: https://imig.science/midog/
+  paper: aubreville-2023-midog               # Aubreville et al. Med Image Anal 84:102699 — node pending §11.6
+  doi: 10.1016/j.media.2022.102699           # to_verify
+  download: https://imig.science/midog/the-dataset/
+  license: https://creativecommons.org/licenses/by/4.0/
+
+modalities:
+  - h-and-e
+organs:
+  - breast
+  - skin                                     # cutaneous mast cell tumour (canine)
+  - lung
+  - lymph-node
+  - soft-tissue
+diseases:
+  - breast-cancer
+  - canine-cutaneous-mast-cell-tumor
+  - melanoma
+  - neuroendocrine-tumor
+  - lymphoma
+species:
+  - human
+  - canine
+data_types:
+  - whole-slide-image
+  - microscopy-image-patch
+
+tasks:
+  - mitosis-detection                        # primary task: bounding-box / centre point
+  - mitosis-classification                   # mitotic figure vs lookalike (atypical)
+labels:
+  - mitosis-centre-coordinate
+  - mitosis-bounding-box
+  - hard-negative-lookalike
+metrics:
+  - f1                                       # primary, at fixed IoU / distance tolerance
+  - precision
+  - recall
+  - average-precision
+
+scale:
+  n_slides: 405                              # to_verify (MIDOG 2022 release combined cohorts)
+  n_patients: to_verify
+  n_centers: 7                               # to_verify (multi-scanner, multi-institution by design)
+  file_size: "~80 GB"                        # to_verify
+
+access:
+  public: true
+  license: "CC BY 4.0 (training data); test data held by organisers for ongoing evaluation"
+  download_difficulty: medium
+  requires_registration: true                # imig.science / grand-challenge.org
+  access_url: https://imig.science/midog/the-dataset/
+
+preprocessing:
+  required_steps:
+    - "Read .tif WSIs via OpenSlide"
+    - "Use provided ROI bounding boxes — mitoses are annotated within selected high-power fields only, not the whole slide"
+    - "Patch at 40x (~0.25 μm/px) since mitotic figures are small (~10–20 px)"
+    - "Hard-negative mining via provided lookalike annotations"
+  recommended_tools:
+    - openslide
+  coordinate_system: "Level-0 pixel space; annotations as (x, y) centre coordinates + class label."
+  file_formats:
+    - tif
+    - json                                   # annotation format
+
+used_by_articles: []
+used_by_benchmarks: []
+related_methods: []
+related_tools:
+  - openslide
+related_articles: []
+
+known_pitfalls:
+  - "Mitoses are annotated only inside specified high-power fields (HPFs) — running detection outside those regions inflates false positives unfairly."
+  - "Scanners and tumor types vary by design — single-domain training collapses; domain generalisation / adaptation is the explicit purpose of the benchmark."
+  - "Mitotic figures are small (~10–20 px at 40x) — naive ImageNet preprocessing loses them."
+  - "Counting mitoses per ROI is ordinal-sensitive (used as a prognostic mitotic count) — calibrate count thresholds against pathologist consensus."
+  - "MIDOG editions (2021 / 2022 / 2025) differ in tumour mix; cite the specific edition used."
+
+claude:
+  summary: |
+    MIDOG is the canonical multi-domain mitosis-detection benchmark on H&E,
+    spanning multiple scanners, institutions, and tumour types (human breast,
+    canine cutaneous mast cell tumour, melanoma, neuroendocrine, lymphoma).
+    Designed explicitly to test cross-scanner / cross-tumour generalisation —
+    naive single-domain training fails.
+  use_when:
+    - "Mitosis detection / counting on H&E"
+    - "Domain generalisation / scanner robustness ablations"
+    - "Prognostic mitotic-count workflow validation"
+  do_not_use_when:
+    - "Need cell types other than mitoses — use PanNuke for general nuclei classes"
+    - "Need IHC / Ki67-based proliferation — MIDOG is H&E mitosis only"
+    - "Need raw fully-annotated WSIs — only HPF-region annotations are released"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

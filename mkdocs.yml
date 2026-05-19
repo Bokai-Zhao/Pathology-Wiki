@@ -81,6 +81,11 @@ nav:
       - OpenSlide: tools/openslide.md
   - Datasets:
       - PANDA: datasets/panda.md
+      - Camelyon16: datasets/camelyon16.md
+      - BACH: datasets/bach.md
+      - GlaS: datasets/glas.md
+      - PanNuke: datasets/pannuke.md
+      - MIDOG: datasets/midog.md
   - Methods:
       - Pathology Foundation Model: methods/pathology-foundation-model.md
   - Knowledge graph: graph.md

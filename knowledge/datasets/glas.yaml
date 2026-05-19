@@ -1,0 +1,90 @@
+id: glas
+type: dataset
+name: GlaS
+full_name: "GlaS — Gland Segmentation in Colon Histology Images Challenge (MICCAI 2015)"
+
+links:
+  homepage: https://warwick.ac.uk/fac/cross_fac/tia/data/glascontest/
+  paper: sirinukunwattana-2017-glas     # node pending §11.6
+  doi: 10.1016/j.media.2016.08.008      # to_verify (Sirinukunwattana et al. Med Image Anal 35:489–502)
+  download: https://warwick.ac.uk/fac/cross_fac/tia/data/glascontest/download/
+
+modalities:
+  - h-and-e
+organs:
+  - colon
+diseases:
+  - colorectal-cancer
+species:
+  - human
+data_types:
+  - microscopy-image                    # 165 ROI images extracted from 16 H&E WSIs
+
+tasks:
+  - gland-instance-segmentation
+  - benign-vs-malignant-classification
+labels:
+  - gland-instance-mask                 # one mask per gland instance
+  - histology-grade                     # benign / malignant per image
+metrics:
+  - f1-detection                        # gland-detection F1 (challenge metric)
+  - object-dice                         # object-level Dice
+  - object-hausdorff                    # shape-aware boundary error
+
+scale:
+  n_slides: 16                          # source WSIs
+  n_patches: 165                        # ROI images: 85 train, 80 test (Test A 60 + Test B 20)
+  n_patients: to_verify
+  n_centers: 1                          # University Hospitals Coventry and Warwickshire
+  file_size: "~200 MB"                  # to_verify
+
+access:
+  public: true
+  license: "Research use only; cite the challenge paper. Verify exact terms on the warwick.ac.uk download page."
+  download_difficulty: easy
+  requires_registration: false
+  access_url: https://warwick.ac.uk/fac/cross_fac/tia/data/glascontest/
+
+preprocessing:
+  required_steps:
+    - "Load BMP/TIF images at native resolution (~0.62 μm/px)"
+    - "Convert instance masks (one colour per instance) to integer label maps"
+    - "Random crop/flip/rotate for augmentation; gland shapes are scale-variant"
+  recommended_tools: []
+  coordinate_system: "Native pixel space (cropped ROIs, not WSIs)."
+  file_formats:
+    - bmp
+    - tif
+
+used_by_articles: []
+used_by_benchmarks: []
+related_methods: []
+related_tools: []
+related_articles: []
+
+known_pitfalls:
+  - "Very small (165 images) — heavy augmentation is mandatory; data leakage between train/test through patient overlap can inflate metrics."
+  - "Two test splits (Test A, Test B) with different difficulty; always report both — Test B is much harder and recently-reported numbers often hide it."
+  - "Object-level metrics (Object-Dice, Object-Hausdorff) are non-standard implementations — use the official Matlab / community Python reimplementations to stay comparable."
+  - "Instance masks are colour-coded BMPs — losing colour mode during loading collapses instances."
+  - "Source is a single centre — generalisation to other cohorts is unproven."
+
+claude:
+  summary: |
+    GlaS is the canonical small benchmark for colon gland instance segmentation
+    on H&E. Two test splits (A easier, B harder), three metrics
+    (F1, Object-Dice, Object-Hausdorff). Despite its small size it remains the
+    de-facto first stop for any new gland or instance-segmentation method in
+    histopathology.
+  use_when:
+    - "Evaluating a new gland or instance segmentation model"
+    - "Demonstrating that a backbone transfers to morphometric tasks"
+    - "Ablating augmentation / shape-aware losses (Object-Hausdorff is shape-sensitive)"
+  do_not_use_when:
+    - "Need WSI-level evaluation — GlaS is image-level"
+    - "Need many gland types or organs — colon only"
+    - "Need cell-level (not gland-level) segmentation — use PanNuke / HoVer-Net data"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

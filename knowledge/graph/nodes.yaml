@@ -23,3 +23,34 @@ nodes:
     type: method
     label: Pathology Foundation Model
     taxonomy_path: [Pathology Foundation Models]
+
+  # ---- Cluster 1: WSI public datasets (added 2026-05-19) ----
+  - id: camelyon16
+    type: dataset
+    label: "Camelyon16 — Cancer Metastases in Lymph Nodes 2016"
+    aliases: [camelyon-16, cam16]
+    taxonomy_path: [Datasets, WSI Classification]
+
+  - id: bach
+    type: dataset
+    label: "BACH — BreAst Cancer Histology Challenge (ICIAR 2018)"
+    aliases: [iciar-2018-bach]
+    taxonomy_path: [Datasets, Breast Histology]
+
+  - id: glas
+    type: dataset
+    label: "GlaS — Gland Segmentation in Colon Histology (MICCAI 2015)"
+    aliases: [glas-challenge, miccai-2015-gland]
+    taxonomy_path: [Datasets, Segmentation]
+
+  - id: pannuke
+    type: dataset
+    label: "PanNuke — Pan-Cancer Nuclei Seg & Classification"
+    aliases: [pan-nuke]
+    taxonomy_path: [Datasets, Nuclei]
+
+  - id: midog
+    type: dataset
+    label: "MIDOG — MItosis DOmain Generalization Challenge"
+    aliases: [midog-2021, midog-2022, midog-2025]
+    taxonomy_path: [Datasets, Mitosis Detection]

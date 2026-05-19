@@ -1,0 +1,101 @@
+id: camelyon16
+type: dataset
+name: Camelyon16
+full_name: "CAMELYON16 — Cancer Metastases in Lymph Nodes 2016 Challenge"
+
+links:
+  homepage: https://camelyon16.grand-challenge.org/
+  download: https://camelyon17.grand-challenge.org/Data/
+  paper: bejnordi-2017-camelyon16     # JAMA 2017 challenge paper — node pending §11.6
+  doi: 10.1001/jama.2017.14585        # to_verify (Bejnordi et al. JAMA 318(22):2199–2210)
+  license: https://creativecommons.org/publicdomain/zero/1.0/
+
+modalities:
+  - h-and-e
+organs:
+  - lymph-node
+  - breast
+diseases:
+  - breast-cancer
+  - lymph-node-metastasis
+species:
+  - human
+data_types:
+  - whole-slide-image
+  - sentinel-lymph-node-section
+
+tasks:
+  - tumor-detection
+  - slide-level-classification           # macro/micro metastasis vs negative
+  - pixel-segmentation                   # tumor region masks
+  - lesion-level-detection               # for FROC evaluation
+labels:
+  - slide-level-label                    # negative / itc / micro / macro
+  - tumor-mask                           # pixel-level on positive slides
+metrics:
+  - auc
+  - froc                                 # primary challenge metric — free-response ROC
+  - accuracy
+
+scale:
+  n_slides: 400                          # 270 training + 130 testing
+  n_patients: to_verify
+  n_centers: 2                           # Radboud UMC + Utrecht UMC
+  file_size: "~750 GB"                   # to_verify (raw .tif WSIs)
+
+access:
+  public: true
+  license: "CC0 1.0 (public domain dedication) per grand-challenge release; verify on the data page before redistribution"
+  download_difficulty: hard              # ~750 GB; Aspera or S3 mirrors typical
+  requires_registration: true            # grand-challenge.org account
+  access_url: https://camelyon17.grand-challenge.org/Data/
+
+preprocessing:
+  required_steps:
+    - "Read .tif WSIs via OpenSlide (Aperio / Hamamatsu vendor metadata)"
+    - "Tissue mask at low magnification to skip background"
+    - "Patch extraction at 20x or 40x (challenge slides include 40x level)"
+    - "Use provided XML/JSON tumor annotations to derive positive patches"
+  recommended_tools:
+    - openslide
+    - asap                               # original challenge annotation viewer
+  coordinate_system: "Level-0 pixel space; annotation polygons in native slide coordinates."
+  file_formats:
+    - tif
+    - xml                                # tumor region annotations
+
+used_by_articles: []
+used_by_benchmarks: []
+related_methods:
+  - weakly-supervised-mil
+  - pathology-foundation-model
+related_tools:
+  - openslide
+related_articles: []
+
+known_pitfalls:
+  - "Class imbalance: many negative slides; lesion-level FROC and slide-level AUC tell different stories."
+  - "Two source centres use different scanners (Pannoramic 250 Flash / Aperio); colour and resolution drift across institutions."
+  - "Some tumor annotations are exhaustive only for the contiguous main lesion — isolated tumor cells (ITC) may be under-annotated."
+  - "FROC requires lesion-level coordinates, not just slide-level predictions — many MIL pipelines need a localisation post-processing step."
+  - "Camelyon17 (patient-level pN staging) is a separate, larger challenge — do not conflate."
+
+claude:
+  summary: |
+    Camelyon16 is the foundational public benchmark for breast-cancer lymph-node
+    metastasis detection on H&E WSIs (400 slides, two centres). It established
+    slide-level AUC and lesion-level FROC as the standard metrics for tumor
+    detection on gigapixel images, and is the seed dataset for almost every
+    weakly-supervised MIL paper (ABMIL / CLAM / TransMIL / DSMIL all benchmark on it).
+  use_when:
+    - "Validating a new WSI binary classification / MIL pipeline"
+    - "Comparing weakly-supervised vs fully-supervised tumor detection"
+    - "Studying cross-scanner generalisation on H&E"
+  do_not_use_when:
+    - "Patient-level pN staging is the goal — use Camelyon17 instead"
+    - "Need labels other than tumor presence (e.g. molecular subtypes)"
+    - "Need diverse cancer types — this is breast-only metastasis"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium
