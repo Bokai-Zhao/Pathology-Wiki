@@ -43,6 +43,33 @@ plugins:
   - macros:
       module_name: macros
       include_dir: content
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          name: English
+          default: true
+          build: true
+          site_name: Pathology-Wiki
+        - locale: zh
+          name: 中文
+          link: /zh/
+          build: true
+          site_name: Pathology-Wiki — 病理 AI 知识库
+          nav_translations:
+            Home: 首页
+            Articles: 论文
+            Reviews: 综述
+            Technical: 技术
+            Models: 模型
+            Tools: 工具
+            Datasets: 数据集
+            Methods: 方法
+            Knowledge graph: 知识图谱
+            Skills: 技能
 
 markdown_extensions:
   - admonition
