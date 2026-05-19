@@ -79,8 +79,12 @@ nav:
           - "CLAM (Lu 2021)": articles/technical/clam-2021.md
           - "TransMIL (Shao 2021)": articles/technical/transmil-2021.md
           - "Campanella 2019 — clinical-grade MIL": articles/technical/campanella-2019.md
+          - "HoVer-Net (Graham 2019)": articles/technical/hover-net-2019.md
+          - "CellViT (Hörst 2024)": articles/technical/cellvit-2024.md
+          - "CTransPath (Wang 2022)": articles/technical/ctranspath-2022.md
   - Models:
       - UNI: models/uni.md
+      - CTransPath: models/ctranspath.md
   - Tools:
       - OpenSlide: tools/openslide.md
   - Datasets:
@@ -92,10 +96,13 @@ nav:
       - MIDOG: datasets/midog.md
   - Methods:
       - Pathology Foundation Model: methods/pathology-foundation-model.md
+      - Patch-Level SSL: methods/patch-level-ssl.md
       - Weakly-Supervised MIL: methods/weakly-supervised-mil.md
       - ABMIL: methods/abmil.md
       - CLAM: methods/clam.md
       - TransMIL: methods/transmil.md
+      - HoVer-Net: methods/hover-net.md
+      - CellViT: methods/cellvit.md
   - Knowledge graph: graph.md
   - Skills: skills.md
 

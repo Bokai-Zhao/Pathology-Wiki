@@ -1,0 +1,67 @@
+id: patch-level-ssl
+type: method
+name: Patch-Level Self-Supervised Learning (Pathology)
+
+stage:
+  - pathology_foundation_model
+
+parent_methods:
+  - pathology-foundation-model
+child_methods: []
+predecessors: []
+successors: []
+
+core_idea: |
+  Pretrain a patch-level visual encoder on millions of pathology image patches
+  using self-supervised objectives — contrastive (MoCo, SimCLR), masked image
+  modelling (MAE, MIM), or self-distillation (DINO, DINOv2) — *without* slide-
+  level or pixel-level labels. The result is a general-purpose patch encoder
+  that downstream slide-level pipelines (MIL aggregators, retrieval, anomaly
+  detection) use as a frozen backbone. Patch-level SSL is the dominant
+  pretraining strategy for modern pathology foundation models (CTransPath,
+  Phikon, Lunit-DINO, UNI, Virchow, H-Optimus).
+
+key_questions:
+  - "Which SSL objective transfers best to pathology — contrastive vs DINO vs MIM?"
+  - "How much pretraining data is enough — TCGA-only vs multi-cohort millions?"
+  - "What patch size / magnification mix maximises downstream utility?"
+  - "How do gains scale with model size and pretraining compute?"
+  - "How do patch-level SSL encoders compare against slide-level pretraining (GigaPath)?"
+
+representative_articles:
+  - uni-2024
+  - ctranspath-2022
+representative_models:
+  - uni
+  - ctranspath
+representative_tools: []
+representative_datasets: []
+related_benchmarks: []
+
+tasks:
+  - patch-classification
+  - tissue-type-classification
+  - tumor-vs-normal
+  - slide-level-classification           # via MIL aggregation on patch features
+  - retrieval
+modalities:
+  - h-and-e
+
+claude:
+  summary: |
+    Umbrella sub-branch of pathology_foundation_model covering all patch-level
+    self-supervised pretraining recipes — CTransPath (MoCo v3 + SRCL),
+    Phikon (iBOT), Lunit-DINO (DINO), UNI (DINOv2), Virchow (DINOv2),
+    H-Optimus, PathDINO. All share a patch-in, embedding-out interface and
+    are used as frozen feature extractors for downstream MIL.
+  use_when:
+    - "Discussing pathology SSL pretraining recipes"
+    - "Comparing patch-level encoders for downstream MIL"
+    - "Positioning a new patch SSL method in the PFM landscape"
+  do_not_use_when:
+    - "User wants slide-level pretraining (GigaPath) — link to a different sub-branch"
+    - "User wants vision-language alignment (CONCH / MUSK / PLIP)"
+  update_level: taxonomy_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

@@ -1,0 +1,61 @@
+id: cellvit
+type: method
+name: CellViT — Vision Transformers for Precise Cell Segmentation and Classification
+
+stage:
+  - deep_wsi_learning
+
+parent_methods: []
+child_methods: []
+predecessors:
+  - hover-net
+successors: []
+
+core_idea: |
+  Combine a SAM-pretrained (or DINOv2-pretrained) Vision Transformer backbone
+  with a HoVer-Net-style three-decoder head (nuclear pixel + HV distance map +
+  nuclear type). The ViT encoder provides richer, less stain-sensitive features
+  than the original HoVer-Net CNN backbone, particularly when initialised from
+  large-scale natural-image SSL (SAM, DINOv2). The decoder structure preserves
+  HoVer-Net's instance-separation trick. CellViT outperforms HoVer-Net on
+  PanNuke and is currently a strong open-source baseline for H&E cell
+  segmentation + classification.
+
+key_questions:
+  - "SAM vs DINOv2 vs UNI as the ViT backbone?"
+  - "How much does the HV head still matter when the backbone is much stronger?"
+  - "Inference speed vs HoVer-Net — ViT adds compute but reduces post-processing"
+  - "Domain shift: does the ViT backbone generalise better across tissues than HoVer-Net?"
+
+representative_articles:
+  - cellvit-2024
+representative_models: []
+representative_tools: []
+representative_datasets:
+  - pannuke
+related_benchmarks: []
+
+tasks:
+  - nuclei-instance-segmentation
+  - nuclei-classification
+modalities:
+  - h-and-e
+
+claude:
+  summary: |
+    CellViT (Hörst et al., Med Image Anal 2024) keeps HoVer-Net's three-decoder
+    head but replaces the CNN encoder with a SAM/DINOv2-pretrained ViT. State
+    of the art on PanNuke at release; standard open-source ViT-based cell
+    segmentation baseline.
+  use_when:
+    - "Nuclei segmentation + classification on H&E with a modern ViT backbone"
+    - "Comparing ViT-based vs CNN-based cell models on PanNuke"
+    - "When SAM / DINOv2 weights are preferred over ImageNet supervised"
+  do_not_use_when:
+    - "Need an extremely lightweight model — ViT is heavier than HoVer-Net"
+    - "Need cell-state / mitosis-specific labels — use MIDOG-trained detectors"
+    - "Need IHC / IF — H&E only"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

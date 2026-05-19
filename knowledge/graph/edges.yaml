@@ -105,3 +105,49 @@ edges:
   # weakly-supervised-mil → pathology-foundation-model is the historical succession edge
   - { from: weakly-supervised-mil, to: pathology-foundation-model, type: related_to,
       evidence: "Pathology foundation models build on the MIL paradigm — typical pipeline is PFM patch features fed into a MIL aggregator", confidence: high }
+
+  # ---- Cluster 3: cell/tissue baselines + PFM SSL (added 2026-05-19) ----
+
+  # Method hierarchy
+  - { from: patch-level-ssl, to: pathology-foundation-model, type: belongs_to,
+      evidence: "Patch-level SSL is the dominant pretraining sub-branch of pathology foundation models", confidence: high }
+  - { from: cellvit, to: hover-net, type: extends,
+      evidence: "CellViT keeps HoVer-Net's three-decoder head (NP+HV+NT) and replaces the CNN encoder with a SAM-pretrained ViT", confidence: high }
+
+  # Articles propose methods / release models
+  - { from: hover-net-2019, to: hover-net, type: proposes_method,
+      evidence: "Graham et al. Med Image Anal 2019 — introduces the HV-decoder three-branch CNN", confidence: high }
+  - { from: cellvit-2024, to: cellvit, type: proposes_method,
+      evidence: "Hörst et al. Med Image Anal 2024 — introduces CellViT (SAM-pretrained ViT + HoVer-Net decoder)", confidence: high }
+  - { from: cellvit-2024, to: hover-net-2019, type: extends,
+      evidence: "CellViT explicitly extends HoVer-Net's decoder head with a stronger ViT encoder", confidence: high }
+  - { from: ctranspath-2022, to: ctranspath, type: releases_model,
+      evidence: "Wang et al. Med Image Anal 2022 — releases the CTransPath checkpoint", confidence: high }
+  - { from: ctranspath-2022, to: patch-level-ssl, type: proposes_method,
+      evidence: "CTransPath is a patch-level SSL pretraining recipe (SRCL on Swin-T) for pathology", confidence: high }
+
+  # Articles use datasets
+  - { from: hover-net-2019, to: pannuke, type: uses_dataset,
+      evidence: "HoVer-Net benchmarks on PanNuke along with CoNSeP/Kumar/CPM", confidence: high }
+  - { from: cellvit-2024, to: pannuke, type: uses_dataset,
+      evidence: "CellViT primary benchmark is PanNuke", confidence: high }
+
+  # Model + PFM relations
+  - { from: ctranspath, to: pathology-foundation-model, type: belongs_to,
+      evidence: "CTransPath is an early open-source pathology foundation model", confidence: high }
+  - { from: ctranspath, to: patch-level-ssl, type: belongs_to,
+      evidence: "CTransPath is trained with patch-level SSL (SRCL)", confidence: high }
+
+  # PFM SSL hierarchy: UNI also fits under patch-level-ssl now that the node exists
+  - { from: uni, to: patch-level-ssl, type: belongs_to,
+      evidence: "UNI is a patch-level SSL pretrained model (DINOv2)", confidence: high }
+  - { from: ctranspath, to: uni, type: related_to,
+      evidence: "CTransPath is the pre-UNI open-source pathology SSL baseline; UNI supersedes it in most benchmarks", confidence: high }
+
+  # Cross-cluster links
+  - { from: pannuke, to: hover-net, type: related_to,
+      evidence: "HoVer-Net is the canonical CNN baseline on PanNuke", confidence: high }
+  - { from: pannuke, to: cellvit, type: related_to,
+      evidence: "CellViT is the canonical ViT baseline on PanNuke", confidence: high }
+  - { from: hover-net-2019, to: cellvit-2024, type: related_to,
+      evidence: "HoVer-Net precedes and motivates CellViT; both share decoder structure", confidence: high }

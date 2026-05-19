@@ -1,0 +1,128 @@
+id: ctranspath-2022
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "Transformer-based unsupervised contrastive learning for histopathological image classification"
+authors:
+  - Xiyue Wang
+  - Sen Yang
+  - Jun Zhang
+  - Minghui Wang
+  - Jing Zhang
+  - Wei Yang
+  - Junzhou Huang
+  - Xiao Han
+year: 2022
+venue: Medical Image Analysis
+publication_status: published
+
+links:
+  doi: 10.1016/j.media.2022.102559
+  paper: https://www.sciencedirect.com/science/article/pii/S1361841522002043
+  github: https://github.com/Xiyue-Wang/TransPath
+  pubmed: to_verify
+
+abstract: |
+  Pretrains a Swin Transformer Tiny on ~32k TCGA + PAIP whole-slide images
+  (~15M H&E patches at 224×224) using SRCL — Semantically-Relevant Contrastive
+  Learning, a MoCo v3 variant that augments the standard contrastive pair with
+  semantically-related positives drawn from a learned memory bank. The
+  resulting CTransPath checkpoint serves as a general-purpose pathology
+  patch encoder for downstream classification, MIL, and retrieval. CTransPath
+  was the strongest open-source pathology SSL baseline before the UNI /
+  GigaPath / Virchow era and remains a widely-used reference encoder.
+keywords:
+  - pathology
+  - self-supervised learning
+  - swin transformer
+  - contrastive learning
+  - foundation model
+  - whole slide image
+
+domains: [computational-pathology]
+modalities: [h-and-e]
+organs: []
+diseases: []
+biomarkers: []
+tasks:
+  - patch-classification
+  - tissue-type-classification
+  - tumor-vs-normal
+  - retrieval
+  - slide-level-classification
+metrics:
+  - auc
+  - accuracy
+  - top-k-accuracy
+
+related_methods:
+  - pathology-foundation-model
+  - patch-level-ssl
+related_models:
+  - ctranspath
+related_datasets: []
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - uni-2024
+
+technical_focus:
+  method_family:
+    - pathology-foundation-model
+    - patch-level-ssl
+    - contrastive-learning
+  model_architecture:
+    - swin-transformer-tiny
+  training_strategy:
+    - srcl                        # Semantically-Relevant Contrastive Learning (MoCo v3 variant)
+    - memory-bank
+  supervision_type:
+    - self-supervised
+  input_type:
+    - h-and-e-patch-224x224
+  output_type:
+    - patch-embedding-768d        # to_verify (Swin-T hidden dim)
+  datasets:
+    - tcga
+    - paip
+  metrics:
+    - auc
+    - accuracy
+    - top-k-accuracy
+  baselines:
+    - resnet-50-imagenet
+    - vit-imagenet
+    - simclr-pathology
+    - moco-v3-imagenet
+  implementation: "PyTorch; Swin-T backbone modified for SSL pretraining."
+  reproducibility: "Code and pretrained weights public on github.com/Xiyue-Wang/TransPath; reproduction needs ~32k WSIs of TCGA/PAIP."
+  limitations:
+    - "Smaller backbone (~28M params) than modern PFMs (UNI ViT-L ~307M, Virchow ViT-H ~632M)."
+    - "Pretraining cohort limited to TCGA + PAIP — less stain diversity than 100k+ WSI PFMs."
+    - "Embedding dim 768 vs UNI's 1024 — small representation cost in downstream MIL."
+    - "No vision-language alignment."
+  reusable_components:
+    - swin-pathology-encoder
+    - srcl-contrastive-recipe
+
+claude:
+  summary: |
+    Wang et al. (Med Image Anal 2022) — CTransPath was the strongest open-
+    source pathology SSL checkpoint before the UNI / GigaPath / Virchow era,
+    pretrained on TCGA + PAIP with SRCL (a semantically-aware MoCo v3 variant)
+    on a Swin-T backbone. Still widely used as the open, lightweight baseline
+    PFM in modern benchmarks.
+  use_when:
+    - "Need an open-weights pathology SSL baseline (no gating)"
+    - "Compute-budget-constrained training (small backbone)"
+    - "Comparing PFMs — cite CTransPath as the pre-UNI predecessor"
+  do_not_use_when:
+    - "Need the strongest possible H&E encoder — UNI/GigaPath/Virchow outperform"
+    - "Need slide-level pretraining — use GigaPath"
+    - "Need VL capabilities — use CONCH/PLIP"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

@@ -1,0 +1,78 @@
+id: ctranspath
+type: model
+name: CTransPath
+
+model_family: vision_only_pfm
+architecture: Swin Transformer Tiny (modified)
+parameter_count: ~28M           # to_verify (standard Swin-T)
+input_type:
+  - h-and-e-patch-224x224
+output_type:
+  - patch-embedding-768d        # to_verify (Swin-T hidden dim)
+embedding_dim: 768               # to_verify
+
+training:
+  paradigm: self-supervised
+  objective: srcl                # Semantically-Relevant Contrastive Learning (MoCo v3 variant)
+  pretraining_data:
+    - tcga                       # 32k WSIs (TCGA-frozen + diagnostic)
+    - paip
+  n_slides: 32000                # to_verify
+  n_patches: 15000000            # ~15M patches at 224×224, to_verify
+  n_centers: to_verify
+
+released_by: Tencent AI Lab (Wang et al.)
+released_in_article: ctranspath-2022
+release_date: "2022-10"          # Med Image Anal published Oct 2022 — to_verify exact month
+weights_license: unknown          # to_verify (often CC-BY-NC for pathology checkpoints)
+weights_access: open
+
+links:
+  github: https://github.com/Xiyue-Wang/TransPath
+  paper: ctranspath-2022
+  doi: 10.1016/j.media.2022.102559
+
+related_methods:
+  - pathology-foundation-model
+  - patch-level-ssl
+related_datasets:
+  - tcga                          # not yet a node
+  - paip                          # not yet a node
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - ctranspath-2022
+
+capabilities:
+  - "H&E patch encoding (vision only) for downstream classification / MIL / retrieval"
+  - "Pre-foundation-model-era pathology SSL baseline still widely used"
+  - "Drop-in replacement for ImageNet-pretrained CNNs in pathology pipelines"
+  - "Open weights — no gating, easy reproduction"
+
+limitations:
+  - "Smaller backbone (~28M) and less data than modern PFMs (UNI / GigaPath / Virchow)"
+  - "Pretraining limited to TCGA + PAIP — may not generalise to non-TCGA stains as well as larger PFMs"
+  - "No vision-language alignment"
+  - "Embedding dim 768 (smaller than UNI's 1024) — slight downstream representation cost"
+
+claude:
+  summary: |
+    CTransPath (Wang et al., Med Image Anal 2022) — the canonical pre-PFM-era
+    open-source pathology SSL checkpoint. Swin-T pretrained with SRCL
+    (semantic-aware contrastive learning) on ~32k TCGA/PAIP WSIs. Still widely
+    used as an open baseline alongside UNI / GigaPath / Virchow in PFM
+    benchmarks.
+  use_when:
+    - "Need an open-weights pathology SSL baseline (no gating)"
+    - "Compute-budget-constrained downstream training (smaller backbone)"
+    - "Comparing PFMs — cite CTransPath as the pre-UNI baseline"
+  do_not_use_when:
+    - "Need the strongest possible H&E encoder — UNI / GigaPath / Virchow outperform"
+    - "Need slide-level pretraining — use GigaPath"
+    - "Need VL capabilities — use CONCH / PLIP"
+  prefer_over:
+    - resnet-50-imagenet
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

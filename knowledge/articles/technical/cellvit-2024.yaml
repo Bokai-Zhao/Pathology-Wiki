@@ -1,0 +1,138 @@
+id: cellvit-2024
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "CellViT: Vision Transformers for precise cell segmentation and classification"
+authors:
+  - Fabian Hörst
+  - Moritz Rempe
+  - Lukas Heine
+  - Constantin Seibold
+  - Julius Keyl
+  - Giulia Baldini
+  - Selma Ugurel
+  - Jens Siveke
+  - Barbara Grünwald
+  - Jan Egger
+  - Jens Kleesiek
+year: 2024
+venue: Medical Image Analysis
+publication_status: published
+
+links:
+  doi: 10.1016/j.media.2024.103143
+  arxiv: "2306.15350"
+  paper: https://www.sciencedirect.com/science/article/pii/S1361841524000598
+  github: https://github.com/TIO-IKIM/CellViT
+
+abstract: |
+  Replaces HoVer-Net's CNN encoder with a Vision Transformer (ViT) pretrained
+  on natural images via SAM (Segment Anything) or via the DINOv2 recipe, while
+  keeping HoVer-Net's three-decoder head (nuclear pixel + horizontal-vertical
+  distance map + nuclear type). The richer ViT features substantially improve
+  PanNuke nuclei segmentation and classification performance over HoVer-Net
+  and StarDist. Released as an open-source implementation with two variants
+  — CellViT-256 (SAM-pretrained ViT-B) and CellViT-SAM-H (SAM-pretrained
+  ViT-H) — providing a strong modern open-source baseline for H&E cell
+  analysis.
+keywords:
+  - cell segmentation
+  - vision transformer
+  - SAM
+  - DINOv2
+  - PanNuke
+  - histopathology
+
+domains: [computational-pathology]
+modalities: [h-and-e]
+organs:
+  - breast
+  - colon
+  - lung
+  - prostate
+  - skin
+diseases:
+  - pan-cancer
+biomarkers: []
+tasks:
+  - nuclei-instance-segmentation
+  - nuclei-classification
+metrics:
+  - panoptic-quality
+  - dice
+  - f1
+
+related_methods:
+  - cellvit
+  - hover-net
+related_models: []
+related_datasets:
+  - pannuke
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - hover-net-2019
+
+technical_focus:
+  method_family:
+    - vit-segmentation
+    - instance-segmentation
+  model_architecture:
+    - vit-b-sam-pretrained
+    - vit-h-sam-pretrained
+    - three-decoder-head
+    - np-decoder
+    - hv-decoder
+    - nt-decoder
+  training_strategy:
+    - end-to-end-multi-task
+    - fine-tune-from-sam
+  supervision_type:
+    - fully-supervised
+  input_type:
+    - h-and-e-patch-256x256
+    - h-and-e-patch-1024x1024
+  output_type:
+    - nuclei-instance-mask
+    - per-nucleus-class-label
+  datasets:
+    - pannuke
+  metrics:
+    - panoptic-quality
+    - dice
+    - f1
+  baselines:
+    - hover-net
+    - stardist
+    - hovermaskcnn
+  implementation: "PyTorch + Hugging Face SAM weights; full training/inference pipeline released."
+  reproducibility: "Code, configs, and pretrained weights public on github.com/TIO-IKIM/CellViT."
+  limitations:
+    - "Larger model (ViT-B / ViT-H) than HoVer-Net — slower training and inference."
+    - "Heavy reliance on SAM pretraining — degraded performance reported when SAM weights are unavailable."
+    - "PanNuke evaluation only — large-cohort cross-tissue generalisation less extensively validated than HoVer-Net's multi-dataset claim."
+    - "Inference at WSI scale needs tiling and may run slower than CNN baselines."
+  reusable_components:
+    - sam-encoder-adaptor
+    - vit-hover-decoder-coupling
+
+claude:
+  summary: |
+    Hörst et al. (Med Image Anal 2024) — CellViT replaces HoVer-Net's CNN
+    encoder with a SAM-pretrained ViT while keeping the HV-decoder head.
+    State of the art on PanNuke at release; the standard modern open-source
+    ViT-based cell segmentation baseline.
+  use_when:
+    - "Modern ViT-based nuclei seg + classification baseline"
+    - "Need SAM / DINOv2 initialisation in a pathology cell task"
+    - "PanNuke leaderboard reference"
+  do_not_use_when:
+    - "Compute-constrained — HoVer-Net CNN is cheaper"
+    - "Need a fully pathology-pretrained encoder — UNI/GigaPath/Virchow for features, not for cell seg specifically"
+    - "Need IHC / IF — H&E only"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

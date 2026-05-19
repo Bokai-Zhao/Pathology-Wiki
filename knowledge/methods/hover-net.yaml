@@ -1,0 +1,61 @@
+id: hover-net
+type: method
+name: HoVer-Net — Joint Nuclei Instance Segmentation and Classification
+
+stage:
+  - traditional_cpath
+  - deep_wsi_learning
+
+parent_methods: []
+child_methods: []
+predecessors: []
+successors:
+  - cellvit
+
+core_idea: |
+  CNN with three decoders applied to H&E patches: (1) nuclear pixel (NP)
+  decoder producing a binary nuclei mask, (2) horizontal-vertical (HV) distance
+  map decoder predicting per-pixel distance from each nucleus centre, used to
+  split touching nuclei via watershed-style instance separation, and (3)
+  nuclear type (NT) decoder producing a per-nucleus class label. Together they
+  solve nuclei instance segmentation and classification in one forward pass.
+  HoVer-Net is the canonical baseline for nuclei tasks in H&E pathology.
+
+key_questions:
+  - "How much does the HV-map separation help vs simple connected components?"
+  - "Trade-off between encoder depth and inference speed at WSI scale?"
+  - "How well do HoVer-Net weights trained on one tissue transfer to another?"
+
+representative_articles:
+  - hover-net-2019
+representative_models: []
+representative_tools: []
+representative_datasets:
+  - pannuke
+related_benchmarks: []
+
+tasks:
+  - nuclei-instance-segmentation
+  - nuclei-classification
+modalities:
+  - h-and-e
+
+claude:
+  summary: |
+    HoVer-Net (Graham et al., Med Image Anal 2019) is the canonical CNN
+    architecture for joint nuclei segmentation + classification in H&E. Three
+    decoders (NP, HV, NT) with watershed-style instance separation. Standard
+    baseline against which CellViT, StarDist, and follow-ups are compared on
+    PanNuke / CoNSeP / MoNuSAC.
+  use_when:
+    - "Nuclei instance segmentation + classification baseline on H&E"
+    - "Educational reference for the HV-decoder instance-separation trick"
+    - "Comparing modern ViT cell methods (CellViT) against the canonical CNN baseline"
+  do_not_use_when:
+    - "Need raw patch features for downstream MIL — use a PFM"
+    - "Need IHC / IF stains — HoVer-Net is H&E"
+    - "Need real-time inference at WSI scale — modern lightweight alternatives may be faster"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

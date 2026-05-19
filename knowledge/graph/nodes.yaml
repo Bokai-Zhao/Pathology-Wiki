@@ -103,3 +103,46 @@ nodes:
     label: "Campanella et al. 2019 — Clinical-Grade Weakly-Supervised Pathology MIL"
     aliases: [clinical-grade-mil-2019, mskcc-mil-2019]
     taxonomy_path: [Articles, Technical, MIL]
+
+  # ---- Cluster 3: cell / tissue baselines + PFM SSL (added 2026-05-19) ----
+  - id: patch-level-ssl
+    type: method
+    label: Patch-Level Self-Supervised Learning (Pathology)
+    aliases: [pathology-patch-ssl]
+    taxonomy_path: [Pathology Foundation Models, Patch-Level SSL]
+
+  - id: hover-net
+    type: method
+    label: HoVer-Net — Joint Nuclei Seg + Classification
+    aliases: [hovernet, hv-net]
+    taxonomy_path: [Deep Learning for WSI, Nuclei Segmentation]
+
+  - id: cellvit
+    type: method
+    label: CellViT — ViT Cell Segmentation + Classification
+    aliases: [cell-vit]
+    taxonomy_path: [Deep Learning for WSI, Nuclei Segmentation]
+
+  - id: ctranspath
+    type: model
+    label: CTransPath (Swin-T, SRCL)
+    aliases: [c-transpath, ctp]
+    taxonomy_path: [Pathology Foundation Models, Vision-Only PFMs]
+
+  - id: hover-net-2019
+    type: technical_article
+    label: "HoVer-Net (Graham et al. 2019, Med Image Anal)"
+    aliases: [graham-2019-hovernet]
+    taxonomy_path: [Articles, Technical, Nuclei]
+
+  - id: cellvit-2024
+    type: technical_article
+    label: "CellViT (Hörst et al. 2024, Med Image Anal)"
+    aliases: [horst-2024-cellvit, cellvit-2023-preprint]
+    taxonomy_path: [Articles, Technical, Nuclei]
+
+  - id: ctranspath-2022
+    type: technical_article
+    label: "CTransPath (Wang et al. 2022, Med Image Anal)"
+    aliases: [wang-2022-ctranspath, transpath-2022]
+    taxonomy_path: [Articles, Technical, Pathology SSL]

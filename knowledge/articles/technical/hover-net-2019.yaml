@@ -1,0 +1,134 @@
+id: hover-net-2019
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "Hover-Net: Simultaneous segmentation and classification of nuclei in multi-tissue histology images"
+authors:
+  - Simon Graham
+  - Quoc Dang Vu
+  - Shan E. Ahmed Raza
+  - Ayesha Azam
+  - Yee Wah Tsang
+  - Jin Tae Kwak
+  - Nasir Rajpoot
+year: 2019
+venue: Medical Image Analysis
+publication_status: published
+
+links:
+  doi: 10.1016/j.media.2019.101563
+  paper: https://www.sciencedirect.com/science/article/pii/S1361841519301045
+  github: https://github.com/vqdang/hover_net
+  pubmed: to_verify
+
+abstract: |
+  Introduces HoVer-Net, a single-stage CNN with three decoder branches for
+  simultaneous nuclei instance segmentation and classification in H&E
+  histology. The novel ingredient is the horizontal-vertical (HV) distance map
+  decoder, whose predicted per-pixel distances to the nearest nucleus centre
+  are used to split touching nuclei via a watershed-style post-processing.
+  Demonstrated on multi-tissue datasets (CoNSeP, Kumar, CPM, PanNuke), HoVer-Net
+  sets a strong baseline for joint nuclei segmentation + classification that
+  remains the standard reference architecture for cell-level H&E analysis.
+keywords:
+  - nuclei segmentation
+  - nuclei classification
+  - histopathology
+  - H&E
+  - instance segmentation
+
+domains: [computational-pathology]
+modalities: [h-and-e]
+organs:
+  - colon
+  - breast
+  - prostate
+  - kidney
+  - liver
+  - stomach
+diseases:
+  - pan-cancer
+biomarkers: []
+tasks:
+  - nuclei-instance-segmentation
+  - nuclei-classification
+metrics:
+  - panoptic-quality
+  - dice
+  - aji
+  - f1
+
+related_methods:
+  - hover-net
+related_models: []
+related_datasets:
+  - pannuke
+related_tools: []
+related_benchmarks: []
+related_articles: []
+
+technical_focus:
+  method_family:
+    - cnn-segmentation
+    - instance-segmentation
+  model_architecture:
+    - preact-resnet-encoder
+    - three-decoder-head
+    - np-decoder
+    - hv-decoder
+    - nt-decoder
+  training_strategy:
+    - end-to-end-multi-task
+  supervision_type:
+    - fully-supervised
+  input_type:
+    - h-and-e-patch
+  output_type:
+    - nuclei-instance-mask
+    - per-nucleus-class-label
+  datasets:
+    - consep                      # not yet a node
+    - kumar                       # not yet a node
+    - cpm                         # not yet a node
+    - pannuke
+  metrics:
+    - panoptic-quality
+    - dice
+    - aji
+    - f1
+  baselines:
+    - mask-rcnn
+    - micronet
+    - dcan
+  implementation: "TensorFlow (original) + PyTorch (community port at vqdang/hover_net)."
+  reproducibility: "Code and weights public; PanNuke / CoNSeP datasets public."
+  limitations:
+    - "Multi-task three-decoder loss balancing is sensitive — paper provides ratios but ad-hoc cohorts need re-tuning."
+    - "Watershed post-processing on the HV map is the main inference bottleneck at WSI scale."
+    - "CNN backbone is now superseded by ViT alternatives (CellViT)."
+    - "H&E only — IHC / multiplex IF need re-training."
+  reusable_components:
+    - hv-distance-map-head
+    - watershed-post-processing
+    - three-decoder-template
+
+claude:
+  summary: |
+    Graham et al. (Med Image Anal 2019) — HoVer-Net is the canonical joint
+    nuclei seg + classification CNN. The horizontal-vertical (HV) distance
+    map idea has since been adopted by CellViT and many follow-ups. Standard
+    PanNuke baseline.
+  use_when:
+    - "Citing the canonical joint nuclei seg + classification architecture"
+    - "Establishing a CNN baseline for any new cell-level method"
+    - "Demonstrating the HV-decoder template for instance separation"
+  do_not_use_when:
+    - "Need ViT-based features — cite CellViT instead"
+    - "Need general PFM patch features — cite UNI / GigaPath / CTransPath"
+    - "Need IHC / IF — outside the H&E training scope"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high
