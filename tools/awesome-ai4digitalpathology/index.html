@@ -1,44 +1,44 @@
 
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="在数百万张病理图像块上无标签预训练块编码器。现代 PFM 的主流预训练配方。">
+        <meta name="description" content="Community-curated index of ~447 papers, datasets, and tools for AI in digital / computational pathology, organised across 16 sub-topics.">
       
       
       
-        <link rel="canonical" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/patch-level-ssl/">
+        <link rel="canonical" href="https://bokai-zhao.github.io/Pathology-Wiki/tools/awesome-ai4digitalpathology/">
       
       
-        <link rel="prev" href="../pathology-foundation-model/">
+        <link rel="prev" href="../openslide/">
       
       
-        <link rel="next" href="../weakly-supervised-mil/">
+        <link rel="next" href="../../datasets/panda/">
       
       
         
-          <link rel="alternate" href="../../../methods/patch-level-ssl/" hreflang="en">
+          <link rel="alternate" href="./" hreflang="en">
         
-          <link rel="alternate" href="./" hreflang="zh">
+          <link rel="alternate" href="../../zh/tools/awesome-ai4digitalpathology/" hreflang="zh">
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>块级自监督学习（病理） - Pathology-Wiki — 病理 AI 知识库</title>
+        <title>Awesome-AI4DigitalPathology — curated reference list - Pathology-Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -57,9 +57,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -84,8 +84,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#patch-level-self-supervised-learning" class="md-skip">
-          跳转至
+        <a href="#awesome-ai4digitalpathology" class="md-skip">
+          Skip to content
         </a>
       
     </div>
@@ -97,8 +97,8 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../" title="Pathology-Wiki — 病理 AI 知识库" class="md-header__button md-logo" aria-label="Pathology-Wiki — 病理 AI 知识库" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Pathology-Wiki" class="md-header__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,13 +112,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Pathology-Wiki — 病理 AI 知识库
+            Pathology-Wiki
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              块级自监督学习（病理）
+              Awesome-AI4DigitalPathology — curated reference list
             
           </span>
         </div>
@@ -158,20 +158,20 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
+    <button class="md-header__button md-icon" aria-label="Select language">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="../../../methods/patch-level-ssl/" hreflang="en" class="md-select__link">
+            <a href="./" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="./" hreflang="zh" class="md-select__link">
+            <a href="../../zh/tools/awesome-ai4digitalpathology/" hreflang="zh" class="md-select__link">
               中文
             </a>
           </li>
@@ -192,21 +192,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -219,7 +219,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -231,7 +231,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Bokai-Zhao/Pathology-Wiki" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/Bokai-Zhao/Pathology-Wiki" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -252,7 +252,7 @@
         
           
             
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -262,13 +262,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
     
   
-  首页
+  Home
 
       </a>
     </li>
@@ -296,7 +296,7 @@
   
     
   
-  论文
+  Articles
 
         </a>
       </li>
@@ -321,7 +321,7 @@
   
     
   
-  模型
+  Models
 
         </a>
       </li>
@@ -333,17 +333,19 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../tools/openslide/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../openslide/" class="md-tabs__link">
           
   
   
     
   
-  工具
+  Tools
 
         </a>
       </li>
@@ -365,7 +367,7 @@
   
     
   
-  数据集
+  Datasets
 
         </a>
       </li>
@@ -377,19 +379,17 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../pathology-foundation-model/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../methods/pathology-foundation-model/" class="md-tabs__link">
           
   
   
     
   
-  方法
+  Methods
 
         </a>
       </li>
@@ -409,7 +409,7 @@
   
     
   
-  知识图谱
+  Knowledge graph
 
       </a>
     </li>
@@ -428,7 +428,7 @@
   
     
   
-  技能
+  Skills
 
       </a>
     </li>
@@ -455,19 +455,19 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../" title="Pathology-Wiki — 病理 AI 知识库" class="md-nav__button md-logo" aria-label="Pathology-Wiki — 病理 AI 知识库" data-md-component="logo">
+    <a href="../.." title="Pathology-Wiki" class="md-nav__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Pathology-Wiki — 病理 AI 知识库
+    Pathology-Wiki
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Bokai-Zhao/Pathology-Wiki" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/Bokai-Zhao/Pathology-Wiki" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -487,14 +487,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    首页
+    Home
   
 
     
@@ -543,7 +543,7 @@
   <span class="md-ellipsis">
     
   
-    论文
+    Articles
   
 
     
@@ -559,7 +559,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    论文
+    Articles
   
 
           </label>
@@ -599,7 +599,7 @@
   <span class="md-ellipsis">
     
   
-    综述
+    Reviews
   
 
     
@@ -615,7 +615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    综述
+    Reviews
   
 
           </label>
@@ -711,7 +711,7 @@
   <span class="md-ellipsis">
     
   
-    技术
+    Technical
   
 
     
@@ -727,7 +727,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    技术
+    Technical
   
 
           </label>
@@ -1094,7 +1094,7 @@
   <span class="md-ellipsis">
     
   
-    模型
+    Models
   
 
     
@@ -1110,7 +1110,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    模型
+    Models
   
 
           </label>
@@ -1211,8 +1211,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1224,26 +1226,29 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    工具
+    Tools
   
 
     
@@ -1254,12 +1259,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
-    工具
+    Tools
   
 
           </label>
@@ -1272,7 +1277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tools/openslide/" class="md-nav__link">
+      <a href="../openslide/" class="md-nav__link">
         
   
   
@@ -1297,10 +1302,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../tools/awesome-ai4digitalpathology/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Awesome-AI4DigitalPathology
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1316,6 +1348,131 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#awesome-ai4digitalpathology_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Awesome-AI4DigitalPathology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-pathology-wiki-uses-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Pathology-Wiki uses it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entries-already-in-the-wiki-cross-matched-on-first-snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entries already in the wiki (cross-matched on first snapshot)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-claude-should-use-this-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Claude should use this resource
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Claude should use this resource">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-awesome-ai4digitalpathology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill: awesome-ai4digitalpathology
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1372,7 +1529,7 @@
   <span class="md-ellipsis">
     
   
-    数据集
+    Datasets
   
 
     
@@ -1388,7 +1545,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    数据集
+    Datasets
   
 
           </label>
@@ -1573,10 +1730,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -1602,29 +1757,26 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    方法
+    Methods
   
 
     
@@ -1635,12 +1787,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
-    方法
+    Methods
   
 
           </label>
@@ -1653,7 +1805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pathology-foundation-model/" class="md-nav__link">
+      <a href="../../methods/pathology-foundation-model/" class="md-nav__link">
         
   
   
@@ -1678,37 +1830,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Patch-Level SSL
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../methods/patch-level-ssl/" class="md-nav__link">
         
   
   
@@ -1724,131 +1849,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#patch-level-self-supervised-learning-pathology" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Patch-Level Self-Supervised Learning (Pathology)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        为什么重要
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心思路
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        目标函数家族
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        关键问题
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        局限
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#claude" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Claude 应该如何使用这个方法
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Claude 应该如何使用这个方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#skill-patch-level-ssl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skill: patch-level-ssl
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关节点
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1861,7 +1861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../weakly-supervised-mil/" class="md-nav__link">
+      <a href="../../methods/weakly-supervised-mil/" class="md-nav__link">
         
   
   
@@ -1889,7 +1889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../abmil/" class="md-nav__link">
+      <a href="../../methods/abmil/" class="md-nav__link">
         
   
   
@@ -1917,7 +1917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../clam/" class="md-nav__link">
+      <a href="../../methods/clam/" class="md-nav__link">
         
   
   
@@ -1945,7 +1945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transmil/" class="md-nav__link">
+      <a href="../../methods/transmil/" class="md-nav__link">
         
   
   
@@ -1973,7 +1973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hover-net/" class="md-nav__link">
+      <a href="../../methods/hover-net/" class="md-nav__link">
         
   
   
@@ -2001,7 +2001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cellvit/" class="md-nav__link">
+      <a href="../../methods/cellvit/" class="md-nav__link">
         
   
   
@@ -2029,7 +2029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pathology-vlm/" class="md-nav__link">
+      <a href="../../methods/pathology-vlm/" class="md-nav__link">
         
   
   
@@ -2071,7 +2071,7 @@
   <span class="md-ellipsis">
     
   
-    知识图谱
+    Knowledge graph
   
 
     
@@ -2098,7 +2098,7 @@
   <span class="md-ellipsis">
     
   
-    技能
+    Skills
   
 
     
@@ -2124,7 +2124,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -2133,15 +2133,15 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#patch-level-self-supervised-learning-pathology" class="md-nav__link">
+  <a href="#awesome-ai4digitalpathology_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Patch-Level Self-Supervised Learning (Pathology)
+        Awesome-AI4DigitalPathology
       
     </span>
   </a>
@@ -2149,10 +2149,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#what-it-is" class="md-nav__link">
     <span class="md-ellipsis">
       
-        为什么重要
+        What it is
       
     </span>
   </a>
@@ -2160,10 +2160,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#coverage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心思路
+        Coverage
       
     </span>
   </a>
@@ -2171,10 +2171,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#how-pathology-wiki-uses-it" class="md-nav__link">
     <span class="md-ellipsis">
       
-        目标函数家族
+        How Pathology-Wiki uses it
       
     </span>
   </a>
@@ -2182,10 +2182,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#entries-already-in-the-wiki-cross-matched-on-first-snapshot" class="md-nav__link">
     <span class="md-ellipsis">
       
-        关键问题
+        Entries already in the wiki (cross-matched on first snapshot)
       
     </span>
   </a>
@@ -2193,10 +2193,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#limitations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        局限
+        Limitations
       
     </span>
   </a>
@@ -2204,22 +2204,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#claude" class="md-nav__link">
+  <a href="#how-claude-should-use-this-resource" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude 应该如何使用这个方法
+        How Claude should use this resource
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Claude 应该如何使用这个方法">
+    <nav class="md-nav" aria-label="How Claude should use this resource">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#skill-patch-level-ssl" class="md-nav__link">
+  <a href="#skill-awesome-ai4digitalpathology" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Skill: patch-level-ssl
+        Skill: awesome-ai4digitalpathology
       
     </span>
   </a>
@@ -2232,10 +2232,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        相关节点
+        References
       
     </span>
   </a>
@@ -2259,7 +2259,7 @@
 
 
   
-    <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/edit/main/content/methods/patch-level-ssl.zh.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/edit/main/content/tools/awesome-ai4digitalpathology.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2267,95 +2267,161 @@
   
 
 
-<h1 id="patch-level-self-supervised-learning">块级自监督学习（病理） (Patch-Level Self-Supervised Learning)<a class="headerlink" href="#patch-level-self-supervised-learning" title="Permanent link">&para;</a></h1>
+<h1 id="awesome-ai4digitalpathology">Awesome-AI4DigitalPathology<a class="headerlink" href="#awesome-ai4digitalpathology" title="Permanent link">&para;</a></h1>
 <div class="pwiki-card">
-<div class="pwiki-card-kind">method</div>
-<h3 class="pwiki-card-title" id="patch-level-self-supervised-learning-pathology">Patch-Level Self-Supervised Learning (Pathology)<a class="headerlink" href="#patch-level-self-supervised-learning-pathology" title="Permanent link">&para;</a></h3>
-<div class="pwiki-card-meta">stage: pathology_foundation_model · parents: pathology-foundation-model</div>
-<div>
-<p>Pretrain a patch-level visual encoder on millions of pathology image patches
-using self-supervised objectives — contrastive (MoCo, SimCLR), masked image
-modelling (MAE, MIM), or self-distillation (DINO, DINOv2) — *without* slide-
-level or pixel-level labels. The result is a general-purpose patch encoder
-that downstream slide-level pipelines (MIL aggregators, retrieval, anomaly
-detection) use as a frozen backbone. Patch-level SSL is the dominant
-pretraining strategy for modern pathology foundation models (CTransPath,
-Phikon, Lunit-DINO, UNI, Virchow, H-Optimus).
-</p>
+<div class="pwiki-card-kind">tool · reference_index / paper_list / awesome_list</div>
+<h3 class="pwiki-card-title" id="awesome-ai4digitalpathology_1">Awesome-AI4DigitalPathology<a class="headerlink" href="#awesome-ai4digitalpathology_1" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-meta">license unknown</div>
+<div class="pwiki-card-links"><a href="https://github.com/lingxitong/Awesome-AI4DigitalPathology" target="_blank" rel="noreferrer">github</a> · <a href="https://github.com/lingxitong/Awesome-AI4DigitalPathology" target="_blank" rel="noreferrer">homepage</a> · <a href="https://github.com/lingxitong/Awesome-AI4DigitalPathology/blob/main/README.md" target="_blank" rel="noreferrer">docs</a></div>
 </div>
-</div>
-<div class="pwiki-localgraph"><div class="pwiki-localgraph-header"><strong>Local graph</strong><span class="pwiki-localgraph-legend"><span><i style="background:var(--pwiki-color-method)"></i>method</span><span><i style="background:var(--pwiki-color-article)"></i>article</span><span><i style="background:var(--pwiki-color-model)"></i>model</span><span style="margin-left:0.6rem;opacity:0.7">1 out · 5 in · 6 neighbours</span></span></div><div class="pwiki-localgraph-canvas" data-graph="{&quot;nodes&quot;: [{&quot;id&quot;: &quot;patch-level-ssl&quot;, &quot;label&quot;: &quot;Patch-Level Self-Supervised Learning (Pathology)&quot;, &quot;type&quot;: &quot;method&quot;, &quot;href&quot;: &quot;patch-level-ssl/&quot;}, {&quot;id&quot;: &quot;pathology-foundation-model&quot;, &quot;label&quot;: &quot;Pathology Foundation Model&quot;, &quot;type&quot;: &quot;method&quot;, &quot;href&quot;: &quot;pathology-foundation-model/&quot;}, {&quot;id&quot;: &quot;ctranspath-2022&quot;, &quot;label&quot;: &quot;CTransPath (Wang et al. 2022, Med Image Anal)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/ctranspath-2022/&quot;}, {&quot;id&quot;: &quot;ctranspath&quot;, &quot;label&quot;: &quot;CTransPath (Swin-T, SRCL)&quot;, &quot;type&quot;: &quot;model&quot;, &quot;href&quot;: &quot;../models/ctranspath/&quot;}, {&quot;id&quot;: &quot;uni&quot;, &quot;label&quot;: &quot;UNI (ViT-L/16, DINOv2)&quot;, &quot;type&quot;: &quot;model&quot;, &quot;href&quot;: &quot;../models/uni/&quot;}, {&quot;id&quot;: &quot;pathology-vlm&quot;, &quot;label&quot;: &quot;Pathology Vision-Language Models&quot;, &quot;type&quot;: &quot;method&quot;, &quot;href&quot;: &quot;pathology-vlm/&quot;}, {&quot;id&quot;: &quot;bahadir-2024&quot;, &quot;label&quot;: &quot;Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)&quot;, &quot;type&quot;: &quot;review_article&quot;, &quot;href&quot;: &quot;../articles/reviews/bahadir-2024/&quot;}], &quot;edges&quot;: [{&quot;from&quot;: &quot;patch-level-ssl&quot;, &quot;to&quot;: &quot;pathology-foundation-model&quot;, &quot;type&quot;: &quot;belongs_to&quot;}, {&quot;from&quot;: &quot;ctranspath-2022&quot;, &quot;to&quot;: &quot;patch-level-ssl&quot;, &quot;type&quot;: &quot;proposes_method&quot;}, {&quot;from&quot;: &quot;ctranspath&quot;, &quot;to&quot;: &quot;patch-level-ssl&quot;, &quot;type&quot;: &quot;belongs_to&quot;}, {&quot;from&quot;: &quot;uni&quot;, &quot;to&quot;: &quot;patch-level-ssl&quot;, &quot;type&quot;: &quot;belongs_to&quot;}, {&quot;from&quot;: &quot;pathology-vlm&quot;, &quot;to&quot;: &quot;patch-level-ssl&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;bahadir-2024&quot;, &quot;to&quot;: &quot;patch-level-ssl&quot;, &quot;type&quot;: &quot;related_to&quot;}]}" data-center="patch-level-ssl"></div><noscript><div class="pwiki-localgraph-fallback"><strong>Local graph</strong> (text fallback — JS disabled)<ul><li><code>belongs_to</code> → <a href="pathology-foundation-model.md">Pathology Foundation Model</a></li><li><a href="../articles/technical/ctranspath-2022.md">CTransPath (Wang et al. 2022, Med Image Anal)</a> → <code>proposes_method</code></li><li><a href="../models/ctranspath.md">CTransPath (Swin-T, SRCL)</a> → <code>belongs_to</code></li><li><a href="../models/uni.md">UNI (ViT-L/16, DINOv2)</a> → <code>belongs_to</code></li><li><a href="pathology-vlm.md">Pathology Vision-Language Models</a> → <code>related_to</code></li><li><a href="../articles/reviews/bahadir-2024.md">Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)</a> → <code>related_to</code></li></ul></div></noscript></div>
+<div class="pwiki-localgraph"><div class="pwiki-localgraph-header"><strong>Local graph</strong><span class="pwiki-localgraph-legend"><span><i style="background:var(--pwiki-color-tool)"></i>tool</span><span><i style="background:var(--pwiki-color-model)"></i>model</span><span><i style="background:var(--pwiki-color-method)"></i>method</span><span><i style="background:var(--pwiki-color-article)"></i>article</span><span><i style="background:var(--pwiki-color-dataset)"></i>dataset</span><span style="margin-left:0.6rem;opacity:0.7">10 out · 0 in · 10 neighbours</span></span></div><div class="pwiki-localgraph-canvas" data-graph="{&quot;nodes&quot;: [{&quot;id&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;label&quot;: &quot;Awesome-AI4DigitalPathology — curated reference list (~447 entries)&quot;, &quot;type&quot;: &quot;tool&quot;, &quot;href&quot;: &quot;awesome-ai4digitalpathology/&quot;}, {&quot;id&quot;: &quot;uni&quot;, &quot;label&quot;: &quot;UNI (ViT-L/16, DINOv2)&quot;, &quot;type&quot;: &quot;model&quot;, &quot;href&quot;: &quot;../models/uni/&quot;}, {&quot;id&quot;: &quot;ctranspath&quot;, &quot;label&quot;: &quot;CTransPath (Swin-T, SRCL)&quot;, &quot;type&quot;: &quot;model&quot;, &quot;href&quot;: &quot;../models/ctranspath/&quot;}, {&quot;id&quot;: &quot;plip&quot;, &quot;label&quot;: &quot;PLIP (CLIP fine-tuned on OpenPath)&quot;, &quot;type&quot;: &quot;model&quot;, &quot;href&quot;: &quot;../models/plip/&quot;}, {&quot;id&quot;: &quot;clam&quot;, &quot;label&quot;: &quot;CLAM — Clustering-constrained Attention MIL&quot;, &quot;type&quot;: &quot;method&quot;, &quot;href&quot;: &quot;../methods/clam/&quot;}, {&quot;id&quot;: &quot;hover-net&quot;, &quot;label&quot;: &quot;HoVer-Net — Joint Nuclei Seg + Classification&quot;, &quot;type&quot;: &quot;method&quot;, &quot;href&quot;: &quot;../methods/hover-net/&quot;}, {&quot;id&quot;: &quot;cellvit&quot;, &quot;label&quot;: &quot;CellViT — ViT Cell Segmentation + Classification&quot;, &quot;type&quot;: &quot;method&quot;, &quot;href&quot;: &quot;../methods/cellvit/&quot;}, {&quot;id&quot;: &quot;bahadir-2024&quot;, &quot;label&quot;: &quot;Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)&quot;, &quot;type&quot;: &quot;review_article&quot;, &quot;href&quot;: &quot;../articles/reviews/bahadir-2024/&quot;}, {&quot;id&quot;: &quot;camelyon16&quot;, &quot;label&quot;: &quot;Camelyon16 — Cancer Metastases in Lymph Nodes 2016&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;../datasets/camelyon16/&quot;}, {&quot;id&quot;: &quot;panda&quot;, &quot;label&quot;: &quot;PANDA — Prostate cANcer graDe Assessment&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;../datasets/panda/&quot;}, {&quot;id&quot;: &quot;pannuke&quot;, &quot;label&quot;: &quot;PanNuke — Pan-Cancer Nuclei Seg &amp; Classification&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;../datasets/pannuke/&quot;}], &quot;edges&quot;: [{&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;uni&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;ctranspath&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;plip&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;clam&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;hover-net&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;cellvit&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;bahadir-2024&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;panda&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;pannuke&quot;, &quot;type&quot;: &quot;related_to&quot;}]}" data-center="awesome-ai4digitalpathology"></div><noscript><div class="pwiki-localgraph-fallback"><strong>Local graph</strong> (text fallback — JS disabled)<ul><li><code>related_to</code> → <a href="../models/uni.md">UNI (ViT-L/16, DINOv2)</a></li><li><code>related_to</code> → <a href="../models/ctranspath.md">CTransPath (Swin-T, SRCL)</a></li><li><code>related_to</code> → <a href="../models/plip.md">PLIP (CLIP fine-tuned on OpenPath)</a></li><li><code>related_to</code> → <a href="../methods/clam.md">CLAM — Clustering-constrained Attention MIL</a></li><li><code>related_to</code> → <a href="../methods/hover-net.md">HoVer-Net — Joint Nuclei Seg + Classification</a></li><li><code>related_to</code> → <a href="../methods/cellvit.md">CellViT — ViT Cell Segmentation + Classification</a></li><li><code>related_to</code> → <a href="../articles/reviews/bahadir-2024.md">Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)</a></li><li><code>related_to</code> → <a href="../datasets/camelyon16.md">Camelyon16 — Cancer Metastases in Lymph Nodes 2016</a></li><li><code>related_to</code> → <a href="../datasets/panda.md">PANDA — Prostate cANcer graDe Assessment</a></li><li><code>related_to</code> → <a href="../datasets/pannuke.md">PanNuke — Pan-Cancer Nuclei Seg &amp; Classification</a></li></ul></div></noscript></div>
 
-<h2 id="_1">为什么重要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>病理领域有过多无标签的 WSI、过少有标签的 WSI。块级 SSL 反转了这种不对称：用自监督目标在<strong>数百万张无标签块</strong>上预训练一个块编码器，再通过冻结特征 + 轻量化任务头（通常是一个 MIL 聚合器）迁移到下游任务。这是现代病理基础模型阵营的主流预训练配方：<a href="../../models/ctranspath/">CTransPath (Swin-T, SRCL)</a>、Phikon、Lunit-DINO、<a href="../../models/uni/">UNI (ViT-L/16, DINOv2)</a>、Virchow、H-Optimus、PathDINO 都属于这一支。</p>
-<h2 id="_2">核心思路<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>millions of unlabelled H&amp;E patches
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   → encoder (ViT / Swin) with SSL objective (contrastive / DINO / MIM)
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   → frozen patch encoder
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   → downstream MIL aggregator on slide-level tasks
-</span></code></pre></div>
-<p>下游价值都来自编码器。现代流水线几乎总是<strong>冻结 SSL 预训练好的编码器</strong>，只在其上训练聚合器 + 分类器。</p>
-<h2 id="_3">目标函数家族<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="what-it-is">What it is<a class="headerlink" href="#what-it-is" title="Permanent link">&para;</a></h2>
+<p>A curated, regularly-updated <strong>awesome-list</strong> maintained at <a href="https://github.com/lingxitong/Awesome-AI4DigitalPathology">https://github.com/lingxitong/Awesome-AI4DigitalPathology</a>. Each entry is a markdown bullet pointing to a paper / model / dataset / tool, annotated with venue, code link, and (where available) model weights link.</p>
+<p>Pathology-Wiki uses this list as a <strong>discovery and queue source</strong>: rather than ingesting every entry up-front, we mine it incrementally, prioritising entries that fill structural gaps in the wiki's graph.</p>
+<h2 id="coverage">Coverage<a class="headerlink" href="#coverage" title="Permanent link">&para;</a></h2>
+<p>16 sub-topics, ~447 in-scope entries:</p>
 <table>
 <thead>
 <tr>
-<th>目标函数</th>
-<th>示例模型</th>
+<th>Section</th>
+<th style="text-align: right;">~Count</th>
+<th>Maps to Pathology-Wiki</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>对比式 (MoCo / SimCLR)</td>
-<td><a href="../../models/ctranspath/">CTransPath (Swin-T, SRCL)</a>（SRCL = MoCo v3 的变体）</td>
+<td>Surveys, Reviews, Perspectives</td>
+<td style="text-align: right;">16</td>
+<td><code>review_article</code></td>
 </tr>
 <tr>
-<td>iBOT（在线蒸馏 + MIM）</td>
-<td>Phikon</td>
+<td>Digital Slide Scanners and File Formats</td>
+<td style="text-align: right;">4</td>
+<td><code>tool</code></td>
 </tr>
 <tr>
-<td>DINO（自蒸馏）</td>
-<td>Lunit-DINO</td>
+<td>Datasets and Benchmarks</td>
+<td style="text-align: right;">54</td>
+<td><code>dataset</code></td>
 </tr>
 <tr>
-<td>DINOv2（DINO + iBOT + KoLeo）</td>
-<td><a href="../../models/uni/">UNI (ViT-L/16, DINOv2)</a>、Virchow、H-Optimus</td>
+<td>Multiple Instance Learning</td>
+<td style="text-align: right;">45</td>
+<td><code>method</code> / <code>technical_article</code></td>
 </tr>
 <tr>
-<td>掩码图像建模 (MAE)</td>
-<td>（在病理中目前较少见）</td>
+<td>Federated Learning in Computational Pathology</td>
+<td style="text-align: right;">15</td>
+<td><code>technical_article</code></td>
+</tr>
+<tr>
+<td>Patch-Level Foundation Models</td>
+<td style="text-align: right;">34</td>
+<td><code>model</code> / <code>technical_article</code></td>
+</tr>
+<tr>
+<td>Slide-Level Foundation Models and Slide Encoders</td>
+<td style="text-align: right;">19</td>
+<td><code>model</code> / <code>technical_article</code></td>
+</tr>
+<tr>
+<td>Cytology and Cervical Cytology</td>
+<td style="text-align: right;">35</td>
+<td><code>clinical_article</code></td>
+</tr>
+<tr>
+<td>Computational Pathology with Multi-Omics</td>
+<td style="text-align: right;">41</td>
+<td><code>technical_article</code> (E branch)</td>
+</tr>
+<tr>
+<td>Generative Models</td>
+<td style="text-align: right;">31</td>
+<td><code>technical_article</code></td>
+</tr>
+<tr>
+<td>Vision-Language Models and Pathology Agents</td>
+<td style="text-align: right;">76</td>
+<td><code>model</code> / <code>technical_article</code> (D branch)</td>
+</tr>
+<tr>
+<td>Dense Prediction (segmentation)</td>
+<td style="text-align: right;">19</td>
+<td><code>technical_article</code></td>
+</tr>
+<tr>
+<td>Clinical Tasks and Applications</td>
+<td style="text-align: right;">25</td>
+<td><code>clinical_article</code></td>
+</tr>
+<tr>
+<td>Image Registration and Spatial Alignment</td>
+<td style="text-align: right;">16</td>
+<td><code>technical_article</code></td>
+</tr>
+<tr>
+<td>Resources, Toolkits, Open-Source Projects</td>
+<td style="text-align: right;">17</td>
+<td><code>tool</code></td>
+</tr>
+<tr>
+<td>Future Trends and Hot Topics</td>
+<td style="text-align: right;">n/a</td>
+<td>(out of scope)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_4">关键问题<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="how-pathology-wiki-uses-it">How Pathology-Wiki uses it<a class="headerlink" href="#how-pathology-wiki-uses-it" title="Permanent link">&para;</a></h2>
+<p>The list is <strong>not</strong> mirrored verbatim — that would create thousands of stub nodes with no value. Instead:</p>
+<ol>
+<li>We periodically snapshot the README (last snapshot: 2026-05-19).</li>
+<li>Parse and categorise every entry against the 8-branch method map (CLAUDE.md §7).</li>
+<li>Cross-match against existing wiki nodes — entries already covered are tagged "in wiki".</li>
+<li>Score remaining entries by priority (foundational PFMs / VLMs &gt; MIL variants &gt; niche cytology / registration).</li>
+<li>Run <code>/add-article</code> (or batch ingestions) on the highest-priority items.</li>
+</ol>
+<p>The current categorised, priority-tagged queue is the long companion report at <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/reports/2026-05-19-awesome-list-queue.md"><code>reports/2026-05-19-awesome-list-queue.md</code></a>, and a condensed version is embedded in the [<code>SKILL.md</code>](<div class="pwiki-card" markdown></p>
+<div class="pwiki-card-kind">skill · tools</div>
+<h3 class="pwiki-card-title">Skill: awesome-ai4digitalpathology</h3>
+<div class="pwiki-card-meta">Documentation-form SKILL.md (CLAUDE.md §12).</div>
+<div><p>How Claude should use this object — see the SKILL doc at <code>skills/tools/awesome-ai4digitalpathology/SKILL.md</code>.</p></div>
+<div class="pwiki-card-links"><a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/skills/tools/awesome-ai4digitalpathology/SKILL.md" target="_blank" rel="noreferrer">source</a></div>
+<p></div>
+) for this node.</p>
+<h2 id="entries-already-in-the-wiki-cross-matched-on-first-snapshot">Entries already in the wiki (cross-matched on first snapshot)<a class="headerlink" href="#entries-already-in-the-wiki-cross-matched-on-first-snapshot" title="Permanent link">&para;</a></h2>
+<p>The first snapshot found <strong>18 entries</strong> already ingested:</p>
 <ul>
-<li>哪种 SSL 目标在病理上迁移效果最好 —— 对比 vs DINO vs MIM？</li>
-<li>预训练数据多少才够 —— 仅 TCGA vs 多队列百万级？</li>
-<li>什么样的块大小 / 放大倍率组合能最大化下游收益？</li>
-<li>收益如何随模型规模和预训练算力扩展？</li>
-<li>块级 SSL 与切片级预训练（GigaPath）相比如何？</li>
+<li>Datasets: <a href="../../datasets/camelyon16/">Camelyon16 — Cancer Metastases in Lymph Nodes 2016</a>, <a href="../../datasets/panda/">PANDA — Prostate cANcer graDe Assessment</a>, <a href="../../datasets/bach/">BACH — BreAst Cancer Histology Challenge (ICIAR 2018)</a>, <a href="../../datasets/glas/">GlaS — Gland Segmentation in Colon Histology (MICCAI 2015)</a>, <a href="../../datasets/pannuke/">PanNuke — Pan-Cancer Nuclei Seg &amp; Classification</a>, <a href="../../datasets/midog/">MIDOG — MItosis DOmain Generalization Challenge</a>.</li>
+<li>MIL: <a href="../../methods/abmil/">ABMIL — Attention-Based Multiple Instance Learning</a> (<a href="../../articles/technical/abmil-2018/">ABMIL (Ilse, Tomczak, Welling 2018)</a>), <a href="../../methods/clam/">CLAM — Clustering-constrained Attention MIL</a> (<a href="../../articles/technical/clam-2021/">CLAM (Lu et al. 2021, Nat Biomed Eng)</a>), <a href="../../methods/transmil/">TransMIL — Transformer-based Correlated MIL</a> (<a href="../../articles/technical/transmil-2021/">TransMIL (Shao et al. 2021, NeurIPS)</a>).</li>
+<li>Cell / tissue: <a href="../../methods/hover-net/">HoVer-Net — Joint Nuclei Seg + Classification</a> (<a href="../../articles/technical/hover-net-2019/">HoVer-Net (Graham et al. 2019, Med Image Anal)</a>), <a href="../../methods/cellvit/">CellViT — ViT Cell Segmentation + Classification</a> (<a href="../../articles/technical/cellvit-2024/">CellViT (Hörst et al. 2024, Med Image Anal)</a>).</li>
+<li>PFM / SSL: <a href="../../models/uni/">UNI (ViT-L/16, DINOv2)</a> (<a href="../../articles/technical/uni-2024/">UNI (Towards a General-Purpose Foundation Model for Computational Pathology)</a>), <a href="../../models/ctranspath/">CTransPath (Swin-T, SRCL)</a> (<a href="../../articles/technical/ctranspath-2022/">CTransPath (Wang et al. 2022, Med Image Anal)</a>).</li>
+<li>VLM: <a href="../../models/plip/">PLIP (CLIP fine-tuned on OpenPath)</a> (<a href="../../articles/technical/plip-2023/">PLIP (Huang et al. 2023, Nat Med)</a>), <a href="../../articles/technical/mi-zero-2023/">MI-Zero (Lu et al. 2023, CVPR)</a>.</li>
+<li>Tool: <a href="../openslide/">OpenSlide (WSI I/O)</a>.</li>
+<li>Survey: <a href="../../articles/reviews/bahadir-2024/">Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)</a>.</li>
 </ul>
-<h2 id="_5">局限<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>冻结特征天花板</strong> —— 对于某个特定下游任务，端到端微调一个小型专用模型有时能超过冻结的 PFM 特征。</li>
-<li><strong>预训练染色偏差</strong> —— 仅在 TCGA 上预训练会在非 TCGA 染色上表现下降；要稳健泛化需要多队列预训练。</li>
-<li><strong>无语言对齐</strong> —— 纯块级 SSL 不提供任何零样本能力；需要单独的 VL 对齐步骤（CONCH / MUSK / PLIP）。</li>
+<li>Per-entry detail is shallow — extraction of datasets / metrics / methods requires reading the underlying paper.</li>
+<li>Some entries (Future Trends, generic agentic-pathology speculation) are not actionable Pathology-Wiki nodes.</li>
+<li>Snapshot drift — the upstream README is updated independently. Re-snapshot every 1–2 months if active ingestion is happening.</li>
 </ul>
-<h2 id="claude">Claude 应该如何使用这个方法<a class="headerlink" href="#claude" title="Permanent link">&para;</a></h2>
+<h2 id="how-claude-should-use-this-resource">How Claude should use this resource<a class="headerlink" href="#how-claude-should-use-this-resource" title="Permanent link">&para;</a></h2>
 <div class="pwiki-card">
-<div class="pwiki-card-kind">skill · methods</div>
-<h3 class="pwiki-card-title" id="skill-patch-level-ssl">Skill: patch-level-ssl<a class="headerlink" href="#skill-patch-level-ssl" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-kind">skill · tools</div>
+<h3 class="pwiki-card-title" id="skill-awesome-ai4digitalpathology">Skill: awesome-ai4digitalpathology<a class="headerlink" href="#skill-awesome-ai4digitalpathology" title="Permanent link">&para;</a></h3>
 <div class="pwiki-card-meta">Documentation-form SKILL.md (CLAUDE.md §12).</div>
 <div>
-<p>How Claude should use this object — see the SKILL doc at <code>skills/methods/patch-level-ssl/SKILL.md</code>.</p>
+<p>How Claude should use this object — see the SKILL doc at <code>skills/tools/awesome-ai4digitalpathology/SKILL.md</code>.</p>
 </div>
-<div class="pwiki-card-links"><a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/skills/methods/patch-level-ssl/SKILL.md" target="_blank" rel="noreferrer">source</a></div>
+<div class="pwiki-card-links"><a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/skills/tools/awesome-ai4digitalpathology/SKILL.md" target="_blank" rel="noreferrer">source</a></div>
 </div>
-<p>当用户问"我该选哪个 PFM 编码器？"时，默认推荐 <strong>UNI</strong>（DINOv2 ViT-L）作为目前最强的冻结特征，<strong>CTransPath</strong> 作为开放权重、计算便宜的基线。在概念层面讨论预训练策略时，引用此方法节点。</p>
-<h2 id="_6">相关节点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>When the user asks "what's a recent X for pathology?" or "find more papers on Y", <strong>browse the matching section</strong> of this index rather than guessing. When ingesting, <strong>always run <code>/add-article</code> per paper</strong> so the YAML / SKILL / report layer stays consistent — never bulk-stub from this list.</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>parent: <a href="../pathology-foundation-model/">Pathology Foundation Model</a></li>
-<li>representative articles: <a href="../../articles/technical/uni-2024/">UNI (Towards a General-Purpose Foundation Model for Computational Pathology)</a>, <a href="../../articles/technical/ctranspath-2022/">CTransPath (Wang et al. 2022, Med Image Anal)</a></li>
-<li>representative models: <a href="../../models/uni/">UNI (ViT-L/16, DINOv2)</a>, <a href="../../models/ctranspath/">CTransPath (Swin-T, SRCL)</a></li>
+<li>Repository: <a href="https://github.com/lingxitong/Awesome-AI4DigitalPathology">lingxitong/Awesome-AI4DigitalPathology</a></li>
+<li>README: <a href="https://github.com/lingxitong/Awesome-AI4DigitalPathology/blob/main/README.md"><code>README.md</code></a></li>
+<li>Queue report: <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/reports/2026-05-19-awesome-list-queue.md"><code>reports/2026-05-19-awesome-list-queue.md</code></a></li>
 </ul>
 
 
@@ -2383,7 +2449,7 @@ Phikon, Lunit-DINO, UNI, Virchow, H-Optimus).
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  回到页面顶部
+  Back to top
 </button>
         
       </main>
@@ -2431,14 +2497,14 @@ Phikon, Lunit-DINO, UNI, Virchow, H-Optimus).
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://unpkg.com/cytoscape@3.30.0/dist/cytoscape.min.js"></script>
       
-        <script src="../../../javascripts/local-graph.js"></script>
+        <script src="../../javascripts/local-graph.js"></script>
       
     
   </body>
