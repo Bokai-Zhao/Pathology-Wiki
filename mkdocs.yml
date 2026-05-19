@@ -144,6 +144,7 @@ nav:
       - GlaS: datasets/glas.md
       - PanNuke: datasets/pannuke.md
       - MIDOG: datasets/midog.md
+      - TCGA: datasets/tcga.md
   - Methods:
       - Pathology Foundation Model: methods/pathology-foundation-model.md
       - Patch-Level SSL: methods/patch-level-ssl.md

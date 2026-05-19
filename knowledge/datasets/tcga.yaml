@@ -1,0 +1,200 @@
+id: tcga
+type: dataset
+name: TCGA
+full_name: "The Cancer Genome Atlas"
+
+links:
+  homepage: https://www.cancer.gov/ccg/research/genome-sequencing/tcga
+  download: https://portal.gdc.cancer.gov/
+  paper: weinstein-2013-tcga-pan-cancer        # Weinstein et al. Nature Genetics 2013 — node pending §11.6
+  doi: 10.1038/ng.2764                          # to_verify (TCGA Pan-Cancer flagship paper)
+  project: https://www.cancer.gov/ccg/research/genome-sequencing/tcga
+  license: "Controlled access for some clinical fields; open access for most genomic / WSI data via NIH GDC. Verify per-cohort terms before redistribution."
+
+modalities:
+  - h-and-e
+  - rna-seq
+  - dna-mutation
+  - copy-number-variation
+  - dna-methylation
+  - clinical-records
+organs:
+  - breast
+  - lung
+  - colon
+  - rectum
+  - prostate
+  - kidney
+  - liver
+  - stomach
+  - pancreas
+  - bladder
+  - skin
+  - thyroid
+  - uterus
+  - ovary
+  - cervix
+  - testis
+  - brain
+  - head-neck
+  - bone-marrow                              # AML / DLBC
+  - adrenal-gland
+  - oesophagus
+  - bile-duct
+diseases:
+  - pan-cancer
+  - breast-invasive-carcinoma                # BRCA
+  - lung-adenocarcinoma                      # LUAD
+  - lung-squamous-cell-carcinoma             # LUSC
+  - colon-adenocarcinoma                     # COAD
+  - rectum-adenocarcinoma                    # READ
+  - prostate-adenocarcinoma                  # PRAD
+  - clear-cell-renal-cell-carcinoma          # KIRC
+  - papillary-renal-cell-carcinoma           # KIRP
+  - chromophobe-renal-cell-carcinoma         # KICH
+  - hepatocellular-carcinoma                 # LIHC
+  - stomach-adenocarcinoma                   # STAD
+  - pancreatic-adenocarcinoma                # PAAD
+  - bladder-urothelial-carcinoma             # BLCA
+  - skin-cutaneous-melanoma                  # SKCM
+  - thyroid-carcinoma                        # THCA
+  - uterine-corpus-endometrial               # UCEC
+  - ovarian-serous-cystadenocarcinoma        # OV
+  - cervical-squamous-cell-carcinoma         # CESC
+  - testicular-germ-cell-tumours             # TGCT
+  - glioblastoma                             # GBM
+  - low-grade-glioma                         # LGG
+  - head-and-neck-squamous-cell-carcinoma    # HNSC
+  - acute-myeloid-leukemia                   # LAML
+  - diffuse-large-b-cell-lymphoma            # DLBC
+species:
+  - human
+data_types:
+  - whole-slide-image                        # both diagnostic (FFPE) and frozen tissue slides
+  - bulk-rna-seq
+  - whole-exome-sequencing
+  - whole-genome-sequencing
+  - dna-methylation-array
+  - copy-number-array
+  - clinical-record
+
+tasks:
+  - subtype-classification                   # major + minor subtypes per cancer
+  - mutation-prediction                      # H&E → mutation status
+  - biomarker-expression-prediction          # H&E → RNA-seq / IHC proxy
+  - survival-prediction
+  - prognosis-prediction
+  - tumor-vs-normal
+  - msi-prediction                           # microsatellite instability
+  - molecular-subtype-classification
+labels:
+  - cancer-type                              # 33 TCGA cohorts
+  - molecular-subtype
+  - mutation-status
+  - mrna-expression
+  - copy-number-state
+  - dna-methylation-beta
+  - clinical-outcome                         # OS, DFS, PFS
+metrics:
+  - auc
+  - balanced-accuracy
+  - c-index
+  - kaplan-meier-separation
+
+scale:
+  n_slides: 30000                            # ~30k WSIs across 33 cohorts (FFPE diagnostic + frozen) — to_verify exact
+  n_patients: 11000                          # ~11k patients with WSI coverage — to_verify
+  n_centers: to_verify                       # contributed by ~20+ centres across the US/EU
+  file_size: "multi-TB"                      # raw .svs WSIs alone are >10 TB; full multi-omics archive substantially larger
+
+access:
+  public: true
+  license: "TCGA data are released under NIH/NCI Genomic Data Commons access policy. WSIs (slide images) and most RNA-seq / mutation / CNV are open-access. Some clinical fields and patient-level identifiers require dbGaP controlled-access approval."
+  download_difficulty: hard                  # multi-TB; multi-omics requires GDC client + dbGaP approval for restricted fields
+  requires_registration: true                # NIH eRA Commons / dbGaP for controlled-access subsets
+  access_url: https://portal.gdc.cancer.gov/
+
+preprocessing:
+  required_steps:
+    - "Use NIH GDC Data Transfer Tool (`gdc-client`) for bulk download"
+    - "Filter to diagnostic FFPE slides (`*-DX*.svs`) for most pathology benchmarks; frozen slides (`*-TS*.svs`) are noisier"
+    - "Read .svs WSIs via OpenSlide (Aperio scanner format)"
+    - "Match TCGA barcodes to align WSI ↔ RNA-seq ↔ clinical for multimodal studies"
+    - "Per-cohort tissue segmentation + patch extraction (CLAM tissue-segmentation pipeline is standard)"
+    - "Stain normalisation across cohorts is recommended (Macenko / Vahadane) — TCGA spans many scanners and labs"
+  recommended_tools:
+    - openslide
+    - tcga-mil-pipeline                      # node pending — Liu et al. TCGA processing pipeline
+    - clam                                   # CLAM repo includes TCGA-specific preprocessing scripts
+    - gdc-client                             # NIH GDC bulk download CLI
+  coordinate_system: "Native slide pixel space (Aperio .svs); barcodes are case-uuid for cross-modality alignment."
+  file_formats:
+    - svs                                    # WSI
+    - tsv                                    # clinical / RNA-seq counts
+    - vcf                                    # mutations
+    - bigwig                                 # methylation / coverage tracks
+
+used_by_articles:
+  - clam-2021
+  - transmil-2021
+  - dsmil-2021
+  - dtfd-mil-2022
+  - mcat-2021
+  - porpoise-2022
+  - tangle-2024
+  - phikon-2023
+  - ctranspath-2022
+used_by_benchmarks: []
+related_methods:
+  - weakly-supervised-mil
+  - pathology-foundation-model
+  - patch-level-ssl
+related_tools:
+  - openslide
+related_articles: []
+
+known_pitfalls:
+  - "Multi-cohort, multi-scanner, multi-decade — colour and resolution drift across cohorts is large; stain normalisation matters."
+  - "Frozen sections (-TS-*.svs) are diagnostically noisier than FFPE diagnostic slides (-DX-*.svs); most pathology benchmarks filter to FFPE only."
+  - "Some cohorts have very few patients (e.g. CHOL n<60); per-cohort splits can overfit easily."
+  - "Patient-level controlled-access fields (clinical metadata, patient IDs) require dbGaP approval — many MIL papers use TCGA WSIs only and de-identified labels."
+  - "Same patient may have multiple slides — train/test splits MUST be patient-level, never slide-level."
+  - "TCGA cohorts skew toward late-stage / surgical resection patients in academic centres — non-TCGA cohort generalisation is a known weak spot."
+  - "Outcome labels (OS, DFS, PFS) are right-censored; survival modelling must use Cox / Kaplan-Meier-aware metrics, not classification metrics."
+  - "RNA-seq and WSI cohorts overlap substantially but not perfectly — case-uuid matching is the canonical join."
+
+claude:
+  summary: |
+    TCGA (The Cancer Genome Atlas) is the largest public multi-omics cancer
+    cohort: ~30k WSIs across 33 cancer types, ~11k patients, paired with bulk
+    RNA-seq, mutations, CNV, methylation, and clinical records. Almost every
+    pathology AI paper from 2018 onward uses TCGA either for pretraining
+    (CTransPath, Phikon, Lunit-DINO, Prov-GigaPath patch-level) or for
+    downstream evaluation (CLAM, TransMIL, DSMIL, DTFD-MIL, MCAT, PORPOISE,
+    TANGLE — all evaluate on TCGA cohorts). The canonical reference for any
+    pathology AI experimental section.
+  use_when:
+    - "Pretraining a pathology foundation model (CTransPath / UNI / Virchow style)"
+    - "Evaluating any WSI MIL / PFM method on standard pan-cancer / per-cancer subtyping"
+    - "Multimodal histology-genomics studies (paired WSI + RNA-seq + mutations)"
+    - "Pan-cancer survival prediction (PORPOISE, TANGLE, MCAT setups)"
+    - "Cross-cohort generalisation studies — TCGA is the standard 'training' cohort vs non-TCGA institutional held-out"
+  do_not_use_when:
+    - "Need biopsy-level pathology — TCGA is mostly surgical resection + frozen sections, not core needle biopsies (use PANDA for that)"
+    - "Need real-time clinical-grade test data — TCGA is retrospective and decade-old"
+    - "Need patient-level controlled access fields — dbGaP approval required and process is slow"
+    - "Need scanner / cohort consistency — TCGA spans many scanners and labs by design"
+  preprocessing_notes:
+    - "Filter to diagnostic FFPE slides (-DX-*.svs) for most benchmarks — frozen sections are noisier."
+    - "Use case-uuid (TCGA barcode) for multi-omics alignment, not patient ID alone."
+    - "Always patient-level train/test splits — never slide-level (one patient → multiple slides)."
+    - "Stain normalisation across cohorts is recommended."
+  known_pitfalls:
+    - "Frozen vs FFPE noise differential."
+    - "Small per-cohort sizes for rare cancers."
+    - "Controlled-access clinical fields gated by dbGaP."
+    - "Same-patient multi-slide leakage in naive splits."
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium                # exact n_slides / n_patients vary by snapshot date

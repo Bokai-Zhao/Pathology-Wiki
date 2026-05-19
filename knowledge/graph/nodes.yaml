@@ -292,3 +292,10 @@ nodes:
     label: "MCAT (Chen et al. 2021, ICCV)"
     aliases: [chen-2021-mcat, multimodal-co-attention-transformer]
     taxonomy_path: [Articles, Technical, Multimodal]
+
+  # ---- Core public dataset (added 2026-05-20) ----
+  - id: tcga
+    type: dataset
+    label: "TCGA — The Cancer Genome Atlas"
+    aliases: [the-cancer-genome-atlas, tcga-pan-cancer]
+    taxonomy_path: [Datasets, Multi-omics, Pan-Cancer]
