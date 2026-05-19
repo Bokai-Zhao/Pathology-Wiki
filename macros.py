@@ -285,6 +285,14 @@ def define_env(env):
 
     @env.macro
     def local_graph(id_):
+        """ConnectedPapers-style interactive 1-hop graph.
+
+        Emits a div container with the precomputed 1-hop subgraph inlined as
+        a JSON data attribute. `content/javascripts/local-graph.js` reads each
+        such container at load time and renders a Cytoscape force-directed
+        graph. Falls back to a Markdown list when JS is disabled or the
+        node has no edges.
+        """
         g = _graph()
         idx = g.get("reverse_index", {}).get(id_)
         by_id = _node_lookup()
@@ -297,27 +305,126 @@ def define_env(env):
                 '!!! info "Local graph"\n'
                 f'    `{id_}` has no edges in `knowledge/graph/edges.yaml` yet — orphan node.\n'
             )
-        lines = ['!!! abstract "Local graph (1-hop neighbours)"', ""]
-        if out_edges:
-            lines.append("    **Outgoing**")
-            lines.append("")
-            for e in out_edges:
-                target = by_id.get(e["to"], {})
-                label = target.get("label", e["to"])
-                ttype = target.get("type", "?")
-                href = rel_md(_src_path(ttype, e["to"]))
-                lines.append(f"    - `{e['type']}` → [{label}]({href}) `({ttype})`")
-            lines.append("")
-        if in_edges:
-            lines.append("    **Incoming**")
-            lines.append("")
-            for e in in_edges:
-                source = by_id.get(e["from"], {})
-                label = source.get("label", e["from"])
-                stype = source.get("type", "?")
-                href = rel_md(_src_path(stype, e["from"]))
-                lines.append(f"    - [{label}]({href}) `({stype})` → `{e['type']}`")
-        return "\n".join(lines) + "\n"
+
+        # Collect 1-hop subgraph nodes (including the center itself)
+        center_node = by_id.get(id_) or {"id": id_, "type": "node", "label": id_}
+        neighbour_ids: list[str] = []
+        for e in out_edges:
+            if e["to"] not in neighbour_ids and e["to"] != id_:
+                neighbour_ids.append(e["to"])
+        for e in in_edges:
+            if e["from"] not in neighbour_ids and e["from"] != id_:
+                neighbour_ids.append(e["from"])
+
+        def _md_to_url(md_rel: str) -> str:
+            # MkDocs `use_directory_urls` (default true) maps foo.md → foo/.
+            # The JS uses this href as `window.location.href`, so we need
+            # directory-style URLs, not raw .md paths.
+            if md_rel.endswith(".md"):
+                stem = md_rel[:-3]
+                return stem + "/" if stem else "./"
+            return md_rel
+
+        sub_nodes = []
+        for nid in [id_] + neighbour_ids:
+            n = by_id.get(nid, {"id": nid, "type": "node", "label": nid})
+            ntype = n.get("type", "node")
+            sub_nodes.append({
+                "id": nid,
+                "label": n.get("label") or nid,
+                "type": ntype,
+                "href": _md_to_url(rel_md(_src_path(ntype, nid))),
+            })
+
+        sub_edges = []
+        for e in out_edges:
+            sub_edges.append({"from": id_, "to": e["to"], "type": e["type"]})
+        for e in in_edges:
+            sub_edges.append({"from": e["from"], "to": id_, "type": e["type"]})
+
+        payload = {"nodes": sub_nodes, "edges": sub_edges}
+        # Use HTML escaping for the JSON in the data attribute
+        import html
+        json_attr = html.escape(json.dumps(payload, ensure_ascii=False), quote=True)
+
+        # Build a legend of the types present in the subgraph
+        types_in_subgraph: list[str] = []
+        for n in sub_nodes:
+            if n["type"] not in types_in_subgraph:
+                types_in_subgraph.append(n["type"])
+        type_color_map = {
+            "article": "var(--pwiki-color-article)",
+            "clinical_article": "var(--pwiki-color-article)",
+            "technical_article": "var(--pwiki-color-article)",
+            "review_article": "var(--pwiki-color-article)",
+            "benchmark_article": "var(--pwiki-color-article)",
+            "dataset_article": "var(--pwiki-color-article)",
+            "tool_article": "var(--pwiki-color-article)",
+            "guideline_article": "var(--pwiki-color-article)",
+            "perspective_article": "var(--pwiki-color-article)",
+            "preprint": "var(--pwiki-color-article)",
+            "method": "var(--pwiki-color-method)",
+            "dataset": "var(--pwiki-color-dataset)",
+            "model": "var(--pwiki-color-model)",
+            "tool": "var(--pwiki-color-tool)",
+            "benchmark": "var(--pwiki-color-benchmark)",
+            "skill": "var(--pwiki-color-skill)",
+        }
+        legend_seen = set()
+        legend_spans = []
+        for t in types_in_subgraph:
+            # Collapse article-* variants into a single legend item
+            display = "article" if t in (
+                "article", "clinical_article", "technical_article", "review_article",
+                "benchmark_article", "dataset_article", "tool_article",
+                "guideline_article", "perspective_article", "preprint",
+            ) else t
+            if display in legend_seen:
+                continue
+            legend_seen.add(display)
+            color = type_color_map.get(t, "var(--pwiki-color-default)")
+            legend_spans.append(
+                f'<span><i style="background:{color}"></i>{display}</span>'
+            )
+        legend_html = "".join(legend_spans)
+
+        n_out = len(out_edges)
+        n_in = len(in_edges)
+        count_str = f"{n_out} out · {n_in} in · {len(neighbour_ids)} neighbours"
+
+        # Fallback list for no-JS / SSR / build-test environments
+        fallback_lines = ["<div class=\"pwiki-localgraph-fallback\">"]
+        fallback_lines.append("<strong>Local graph</strong> (text fallback — JS disabled)")
+        fallback_lines.append("<ul>")
+        for e in out_edges:
+            target = by_id.get(e["to"], {})
+            label = target.get("label", e["to"])
+            href = rel_md(_src_path(target.get("type", "node"), e["to"]))
+            fallback_lines.append(
+                f'<li><code>{e["type"]}</code> → <a href="{href}">{html.escape(label)}</a></li>'
+            )
+        for e in in_edges:
+            source = by_id.get(e["from"], {})
+            label = source.get("label", e["from"])
+            href = rel_md(_src_path(source.get("type", "node"), e["from"]))
+            fallback_lines.append(
+                f'<li><a href="{href}">{html.escape(label)}</a> → <code>{e["type"]}</code></li>'
+            )
+        fallback_lines.append("</ul></div>")
+        fallback_html = "".join(fallback_lines)
+
+        return (
+            '<div class="pwiki-localgraph">'
+            '<div class="pwiki-localgraph-header">'
+            f'<strong>Local graph</strong>'
+            f'<span class="pwiki-localgraph-legend">{legend_html}'
+            f'<span style="margin-left:0.6rem;opacity:0.7">{count_str}</span>'
+            '</span></div>'
+            f'<div class="pwiki-localgraph-canvas" data-graph="{json_attr}" '
+            f'data-center="{id_}"></div>'
+            '<noscript>' + fallback_html + '</noscript>'
+            '</div>\n'
+        )
 
     @env.macro
     def node_link(id_, label=None):
@@ -331,3 +438,22 @@ def define_env(env):
             "n_edges": len(g.get("edges", [])),
             "stats": g.get("stats", {}),
         }
+
+    @env.macro
+    def node_counts():
+        """Return per-type node counts for the homepage dashboard."""
+        g = _graph()
+        counts: dict[str, int] = {}
+        for n in g.get("nodes", []):
+            t = n.get("type", "node")
+            # Collapse all article subtypes into 'article'
+            if t in (
+                "article", "clinical_article", "technical_article", "review_article",
+                "benchmark_article", "dataset_article", "tool_article",
+                "guideline_article", "perspective_article", "preprint",
+            ):
+                t = "article"
+            counts[t] = counts.get(t, 0) + 1
+        counts["_total_nodes"] = len(g.get("nodes", []))
+        counts["_total_edges"] = len(g.get("edges", []))
+        return counts

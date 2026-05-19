@@ -1,23 +1,70 @@
-/* Pathology-Wiki object cards */
+/* ===========================================================
+   Pathology-Wiki — palette + components
+   primary: deep purple   accent: indigo
+   Per-type node colors used by Cytoscape local-graph component.
+   =========================================================== */
+
+:root {
+  /* Type-color tokens (used by cards + cytoscape) */
+  --pwiki-color-article:   #5E35B1;   /* deep purple 600  */
+  --pwiki-color-method:    #7E57C2;   /* deep purple 400  */
+  --pwiki-color-dataset:   #3F51B5;   /* indigo 500       */
+  --pwiki-color-model:     #B39DDB;   /* deep purple 200  */
+  --pwiki-color-tool:      #5C6BC0;   /* indigo 400       */
+  --pwiki-color-benchmark: #7986CB;   /* indigo 300       */
+  --pwiki-color-skill:     #9575CD;   /* deep purple 300  */
+  --pwiki-color-default:   #9FA8DA;   /* indigo 200       */
+
+  /* Brand-tinted surfaces */
+  --pwiki-surface:           #faf8ff;
+  --pwiki-surface-elevated:  #ffffff;
+  --pwiki-divider:           #ece8f5;
+  --pwiki-hero-from:         #4527A0;  /* deep purple 800 */
+  --pwiki-hero-to:           #3949AB;  /* indigo 600      */
+}
+
+[data-md-color-scheme="slate"] {
+  --pwiki-surface:           #1d1a2e;
+  --pwiki-surface-elevated:  #25223a;
+  --pwiki-divider:           #2f2a48;
+  --pwiki-color-article:   #B39DDB;
+  --pwiki-color-method:    #9575CD;
+  --pwiki-color-dataset:   #7986CB;
+  --pwiki-color-model:     #D1C4E9;
+  --pwiki-color-tool:      #9FA8DA;
+  --pwiki-color-benchmark: #C5CAE9;
+  --pwiki-color-skill:     #B39DDB;
+}
+
+/* ---------- typography links ---------- */
+.md-typeset a:hover {
+  color: var(--md-accent-fg-color);
+}
+
+/* ---------- object cards (existing pwiki-card) ---------- */
 .pwiki-card {
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 6px;
+  border: 1px solid var(--pwiki-divider);
+  border-left: 4px solid var(--pwiki-color-default);
+  border-radius: 8px;
   padding: 0.9rem 1.1rem;
-  margin: 0.8rem 0 1.1rem 0;
-  background: var(--md-default-bg-color);
+  margin: 0.9rem 0 1.2rem 0;
+  background: var(--pwiki-surface-elevated);
+  box-shadow: 0 1px 2px rgba(69, 39, 160, 0.04);
 }
 
 .pwiki-card-kind {
   font-size: 0.72rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--md-default-fg-color--light);
+  color: var(--md-primary-fg-color);
+  font-weight: 600;
   margin-bottom: 0.3rem;
 }
 
 .pwiki-card-title {
   margin: 0 0 0.3rem 0 !important;
   font-size: 1.05rem !important;
+  color: var(--md-default-fg-color);
 }
 
 .pwiki-card-meta {
@@ -33,6 +80,7 @@
 
 .pwiki-card-links a {
   margin-right: 0.6rem;
+  color: var(--md-accent-fg-color);
 }
 
 .pwiki-card pre {
@@ -42,4 +90,258 @@
   background: var(--md-code-bg-color);
   border-radius: 4px;
   overflow-x: auto;
+}
+
+/* Card-left-border accent per object type — driven by the kind text */
+.pwiki-card:has(.pwiki-card-kind:where([class*="article"])) { border-left-color: var(--pwiki-color-article); }
+/* Fallback rules for browsers without :has — applied via JS-free class on the kind div if needed */
+
+/* ===========================================================
+   Local graph (Cytoscape container)
+   =========================================================== */
+
+.pwiki-localgraph {
+  margin: 1.2rem 0 1.6rem 0;
+  border: 1px solid var(--pwiki-divider);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(126, 87, 194, 0.06), transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(63, 81, 181, 0.05), transparent 55%),
+    var(--pwiki-surface-elevated);
+  overflow: hidden;
+  position: relative;
+}
+
+.pwiki-localgraph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.55rem 0.85rem;
+  border-bottom: 1px solid var(--pwiki-divider);
+  font-size: 0.78rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.pwiki-localgraph-header strong {
+  color: var(--md-primary-fg-color);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.pwiki-localgraph-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+  font-size: 0.72rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.pwiki-localgraph-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.pwiki-localgraph-legend i {
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+}
+
+.pwiki-localgraph-canvas {
+  width: 100%;
+  height: 360px;
+}
+
+.pwiki-localgraph-fallback {
+  padding: 0.9rem 1.1rem;
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.pwiki-localgraph-fallback ul {
+  margin: 0.4rem 0 0 1.2rem;
+}
+
+/* ===========================================================
+   Homepage (hero + stats + entry cards)
+   =========================================================== */
+
+.pwiki-hero {
+  margin: 0 0 2rem 0;
+  padding: 2.6rem 2rem 2.4rem 2rem;
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, var(--pwiki-hero-from), var(--pwiki-hero-to));
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.pwiki-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 85% -10%, rgba(255, 255, 255, 0.18), transparent 45%),
+    radial-gradient(circle at 10% 110%, rgba(255, 255, 255, 0.10), transparent 50%);
+  pointer-events: none;
+}
+
+.pwiki-hero h1 {
+  margin: 0 0 0.4rem 0 !important;
+  font-size: 2.1rem !important;
+  font-weight: 700;
+  color: #ffffff !important;
+  letter-spacing: -0.01em;
+}
+
+.pwiki-hero p {
+  margin: 0;
+  max-width: 56ch;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.pwiki-hero .pwiki-hero-tag {
+  display: inline-block;
+  padding: 0.18rem 0.6rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+.pwiki-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin: 0 0 2rem 0;
+}
+
+.pwiki-stat {
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  background: var(--pwiki-surface-elevated);
+  border: 1px solid var(--pwiki-divider);
+  border-left: 4px solid var(--md-primary-fg-color);
+  text-align: left;
+}
+
+.pwiki-stat .pwiki-stat-num {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.pwiki-stat .pwiki-stat-label {
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Per-stat left-border tint */
+.pwiki-stat[data-kind="article"]   { border-left-color: var(--pwiki-color-article); }
+.pwiki-stat[data-kind="method"]    { border-left-color: var(--pwiki-color-method); }
+.pwiki-stat[data-kind="dataset"]   { border-left-color: var(--pwiki-color-dataset); }
+.pwiki-stat[data-kind="model"]     { border-left-color: var(--pwiki-color-model); }
+.pwiki-stat[data-kind="tool"]      { border-left-color: var(--pwiki-color-tool); }
+.pwiki-stat[data-kind="benchmark"] { border-left-color: var(--pwiki-color-benchmark); }
+.pwiki-stat[data-kind="edge"]      { border-left-color: var(--md-accent-fg-color); }
+.pwiki-stat[data-kind="node"]      { border-left-color: var(--md-primary-fg-color); }
+.pwiki-stat[data-kind="article"] .pwiki-stat-num   { color: var(--pwiki-color-article); }
+.pwiki-stat[data-kind="method"] .pwiki-stat-num    { color: var(--pwiki-color-method); }
+.pwiki-stat[data-kind="dataset"] .pwiki-stat-num   { color: var(--pwiki-color-dataset); }
+.pwiki-stat[data-kind="model"] .pwiki-stat-num     { color: var(--pwiki-color-model); }
+.pwiki-stat[data-kind="tool"] .pwiki-stat-num      { color: var(--pwiki-color-tool); }
+.pwiki-stat[data-kind="benchmark"] .pwiki-stat-num { color: var(--pwiki-color-benchmark); }
+
+/* Entry cards */
+.pwiki-entries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+  margin: 0 0 2rem 0;
+}
+
+.pwiki-entry {
+  display: block;
+  padding: 1.05rem 1.15rem 1rem 1.15rem;
+  border-radius: 10px;
+  background: var(--pwiki-surface-elevated);
+  border: 1px solid var(--pwiki-divider);
+  text-decoration: none !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  position: relative;
+}
+
+.pwiki-entry:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(69, 39, 160, 0.12);
+  border-color: var(--md-primary-fg-color);
+}
+
+.pwiki-entry-kind {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--md-primary-fg-color);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.pwiki-entry-title {
+  margin: 0 0 0.3rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+}
+
+.pwiki-entry-desc {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.4;
+}
+
+.pwiki-entry-count {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.95rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--md-primary-fg-color);
+  background: var(--pwiki-surface);
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+}
+
+/* Per-entry left-border tint based on object-type kind */
+.pwiki-entry[data-kind="article"]   { border-left: 3px solid var(--pwiki-color-article); }
+.pwiki-entry[data-kind="method"]    { border-left: 3px solid var(--pwiki-color-method); }
+.pwiki-entry[data-kind="dataset"]   { border-left: 3px solid var(--pwiki-color-dataset); }
+.pwiki-entry[data-kind="model"]     { border-left: 3px solid var(--pwiki-color-model); }
+.pwiki-entry[data-kind="tool"]      { border-left: 3px solid var(--pwiki-color-tool); }
+.pwiki-entry[data-kind="benchmark"] { border-left: 3px solid var(--pwiki-color-benchmark); }
+.pwiki-entry[data-kind="graph"]     { border-left: 3px solid var(--md-accent-fg-color); }
+
+/* Section heading on the homepage */
+.pwiki-section-title {
+  margin: 1.8rem 0 0.8rem 0 !important;
+  font-size: 1.1rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--md-default-fg-color--light);
+  font-weight: 600;
 }

@@ -24,13 +24,13 @@ theme:
     - toc.follow
   palette:
     - scheme: default
-      primary: indigo
+      primary: deep purple
       accent: indigo
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     - scheme: slate
-      primary: indigo
+      primary: deep purple
       accent: indigo
       toggle:
         icon: material/weather-sunny
@@ -120,3 +120,7 @@ extra:
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - https://unpkg.com/cytoscape@3.30.0/dist/cytoscape.min.js
+  - javascripts/local-graph.js
