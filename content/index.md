@@ -15,45 +15,6 @@ hide:
 An agent-extensible knowledge base for computational pathology — every paper, method, dataset, model, tool, and benchmark is a structured node, an AlphaXiv-style page, and a Claude-readable skill, connected as a graph.
 </div>
 
-<div class="pwiki-stats" markdown>
-
-<div class="pwiki-stat" data-kind="node" markdown>
-<div class="pwiki-stat-num">{{ c['_total_nodes'] }}</div>
-<div class="pwiki-stat-label">Nodes</div>
-</div>
-
-<div class="pwiki-stat" data-kind="edge" markdown>
-<div class="pwiki-stat-num">{{ c['_total_edges'] }}</div>
-<div class="pwiki-stat-label">Edges</div>
-</div>
-
-<div class="pwiki-stat" data-kind="article" markdown>
-<div class="pwiki-stat-num">{{ c.get('article', 0) }}</div>
-<div class="pwiki-stat-label">Articles</div>
-</div>
-
-<div class="pwiki-stat" data-kind="method" markdown>
-<div class="pwiki-stat-num">{{ c.get('method', 0) }}</div>
-<div class="pwiki-stat-label">Methods</div>
-</div>
-
-<div class="pwiki-stat" data-kind="dataset" markdown>
-<div class="pwiki-stat-num">{{ c.get('dataset', 0) }}</div>
-<div class="pwiki-stat-label">Datasets</div>
-</div>
-
-<div class="pwiki-stat" data-kind="model" markdown>
-<div class="pwiki-stat-num">{{ c.get('model', 0) }}</div>
-<div class="pwiki-stat-label">Models</div>
-</div>
-
-<div class="pwiki-stat" data-kind="tool" markdown>
-<div class="pwiki-stat-num">{{ c.get('tool', 0) }}</div>
-<div class="pwiki-stat-label">Tools</div>
-</div>
-
-</div>
-
 ## Browse {: .pwiki-section-title }
 
 <div class="pwiki-entries" markdown>
@@ -91,13 +52,6 @@ An agent-extensible knowledge base for computational pathology — every paper, 
 <div class="pwiki-entry-kind">Tools</div>
 <div class="pwiki-entry-title">Libraries &amp; agents</div>
 <p class="pwiki-entry-desc">WSI I/O, segmentation, MIL, SSL pretraining, ST analysis. Each tool is annotated with how Claude can call it.</p>
-</a>
-
-<a class="pwiki-entry" data-kind="graph" href="graph/" markdown>
-<div class="pwiki-entry-count">{{ c['_total_edges'] }}</div>
-<div class="pwiki-entry-kind">Knowledge graph</div>
-<div class="pwiki-entry-title">Cross-links between objects</div>
-<p class="pwiki-entry-desc">Every paper page renders its 1-hop neighbours as an interactive force-directed graph (drag, zoom, click to jump).</p>
 </a>
 
 </div>

@@ -15,45 +15,6 @@ hide:
 面向 Agent 可扩展的计算病理学知识库 —— 每一篇论文、每一种方法、每一个数据集、模型、工具和基准都被建模为结构化节点、AlphaXiv 风格的页面与 Claude 可读的技能文档，并以图谱形式相互连接。
 </div>
 
-<div class="pwiki-stats" markdown>
-
-<div class="pwiki-stat" data-kind="node" markdown>
-<div class="pwiki-stat-num">{{ c['_total_nodes'] }}</div>
-<div class="pwiki-stat-label">节点</div>
-</div>
-
-<div class="pwiki-stat" data-kind="edge" markdown>
-<div class="pwiki-stat-num">{{ c['_total_edges'] }}</div>
-<div class="pwiki-stat-label">边</div>
-</div>
-
-<div class="pwiki-stat" data-kind="article" markdown>
-<div class="pwiki-stat-num">{{ c.get('article', 0) }}</div>
-<div class="pwiki-stat-label">论文</div>
-</div>
-
-<div class="pwiki-stat" data-kind="method" markdown>
-<div class="pwiki-stat-num">{{ c.get('method', 0) }}</div>
-<div class="pwiki-stat-label">方法</div>
-</div>
-
-<div class="pwiki-stat" data-kind="dataset" markdown>
-<div class="pwiki-stat-num">{{ c.get('dataset', 0) }}</div>
-<div class="pwiki-stat-label">数据集</div>
-</div>
-
-<div class="pwiki-stat" data-kind="model" markdown>
-<div class="pwiki-stat-num">{{ c.get('model', 0) }}</div>
-<div class="pwiki-stat-label">模型</div>
-</div>
-
-<div class="pwiki-stat" data-kind="tool" markdown>
-<div class="pwiki-stat-num">{{ c.get('tool', 0) }}</div>
-<div class="pwiki-stat-label">工具</div>
-</div>
-
-</div>
-
 ## 浏览 {: .pwiki-section-title }
 
 <div class="pwiki-entries" markdown>
@@ -91,13 +52,6 @@ hide:
 <div class="pwiki-entry-kind">工具</div>
 <div class="pwiki-entry-title">库与 Agent</div>
 <p class="pwiki-entry-desc">WSI I/O、分割、MIL、SSL 预训练、空间转录组分析。每个工具都标注 Claude 该如何调用。</p>
-</a>
-
-<a class="pwiki-entry" data-kind="graph" href="graph/" markdown>
-<div class="pwiki-entry-count">{{ c['_total_edges'] }}</div>
-<div class="pwiki-entry-kind">知识图谱</div>
-<div class="pwiki-entry-title">对象之间的交叉链接</div>
-<p class="pwiki-entry-desc">每个论文页都以交互力导向图渲染其 1-hop 邻居 —— 可拖、可缩放、点击节点跳转。</p>
 </a>
 
 </div>
