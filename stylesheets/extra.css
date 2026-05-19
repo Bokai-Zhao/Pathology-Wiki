@@ -1,0 +1,45 @@
+/* Pathology-Wiki object cards */
+.pwiki-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 6px;
+  padding: 0.9rem 1.1rem;
+  margin: 0.8rem 0 1.1rem 0;
+  background: var(--md-default-bg-color);
+}
+
+.pwiki-card-kind {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 0.3rem;
+}
+
+.pwiki-card-title {
+  margin: 0 0 0.3rem 0 !important;
+  font-size: 1.05rem !important;
+}
+
+.pwiki-card-meta {
+  font-size: 0.84rem;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 0.4rem;
+}
+
+.pwiki-card-links {
+  margin-top: 0.5rem;
+  font-size: 0.84rem;
+}
+
+.pwiki-card-links a {
+  margin-right: 0.6rem;
+}
+
+.pwiki-card pre {
+  margin: 0.6rem 0 0 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.82rem;
+  background: var(--md-code-bg-color);
+  border-radius: 4px;
+  overflow-x: auto;
+}
