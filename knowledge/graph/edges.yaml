@@ -553,3 +553,31 @@ edges:
   # Bahadir 2024 review references TCGA throughout
   - { from: bahadir-2024, to: tcga, type: related_to,
       evidence: "Bahadir 2024 review references TCGA throughout — primary cohort cited in MIL, PFM, and clinical-translation chapters", confidence: high }
+
+  # ---- CPTAC dataset (added 2026-05-20) ----
+  # Sister cohort to TCGA — proteomics-focused; canonical external validation cohort.
+
+  - { from: cptac, to: openslide, type: related_to,
+      evidence: "CPTAC WSIs are .svs (Aperio); OpenSlide is the canonical reader", confidence: high }
+  - { from: cptac, to: tcga, type: related_to,
+      evidence: "CPTAC is the NCI proteomics-focused sister cohort to TCGA; commonly paired in multi-omics + cross-cohort studies", confidence: high }
+
+  # PFMs commonly evaluate on CPTAC as external validation
+  - { from: gigapath-2024, to: cptac, type: uses_dataset,
+      evidence: "Prov-GigaPath includes CPTAC cohorts in downstream evaluation", confidence: high }
+  - { from: chief-2024, to: cptac, type: uses_dataset,
+      evidence: "CHIEF's 19-cohort evaluation includes CPTAC sub-cohorts", confidence: high }
+  - { from: virchow-2024, to: cptac, type: related_to,
+      evidence: "Virchow benchmarks downstream on CPTAC cohorts as external validation", confidence: medium }
+  - { from: uni-2024, to: cptac, type: related_to,
+      evidence: "UNI evaluates downstream tasks on CPTAC cohorts in addition to TCGA", confidence: medium }
+  - { from: conch-2024, to: cptac, type: related_to,
+      evidence: "CONCH downstream evaluation includes CPTAC-derived tasks", confidence: medium }
+
+  # Awesome-list cross-ref
+  - { from: awesome-ai4digitalpathology, to: cptac, type: related_to,
+      evidence: "Listed in the Datasets and Benchmarks section as a multi-omics public cohort", confidence: high }
+
+  # Bahadir 2024 review
+  - { from: bahadir-2024, to: cptac, type: related_to,
+      evidence: "Bahadir 2024 review references CPTAC alongside TCGA in the public-cohort discussion", confidence: medium }

@@ -1,0 +1,164 @@
+id: cptac
+type: dataset
+name: CPTAC
+full_name: "Clinical Proteomic Tumor Analysis Consortium"
+
+links:
+  homepage: https://proteomics.cancer.gov/programs/cptac
+  download: https://pdc.cancer.gov/pdc/
+  project: https://proteomics.cancer.gov/programs/cptac
+  paper: ellis-2013-cptac-consortium             # Ellis et al. Cancer Cell 2013 founding paper — node pending §11.6
+  doi: to_verify                                  # founding paper DOI to_verify
+  license: "Open access via NIH/NCI Proteomic Data Commons (PDC) for proteomics + WSIs; dbGaP controlled-access for some clinical fields. Verify per-cohort terms before redistribution."
+
+modalities:
+  - h-and-e
+  - bulk-proteomics                              # CPTAC's defining modality — mass-spec proteomics
+  - phosphoproteomics                            # subset of cohorts
+  - rna-seq
+  - dna-mutation
+  - copy-number-variation
+  - clinical-records
+organs:
+  - lung
+  - kidney
+  - pancreas
+  - uterus                                       # endometrial
+  - brain                                        # glioblastoma
+  - head-neck
+  - colon                                        # phase III
+  - rectum
+  - breast                                       # phase III
+  - ovary                                        # phase II
+  - stomach
+diseases:
+  - pan-cancer
+  - lung-adenocarcinoma                          # CPTAC-LUAD
+  - lung-squamous-cell-carcinoma                 # CPTAC-LSCC
+  - clear-cell-renal-cell-carcinoma              # CPTAC-CCRCC
+  - pancreatic-ductal-adenocarcinoma             # CPTAC-PDA
+  - uterine-corpus-endometrial                   # CPTAC-UCEC
+  - glioblastoma                                 # CPTAC-GBM
+  - head-and-neck-squamous-cell-carcinoma        # CPTAC-HNSCC
+  - colon-adenocarcinoma                         # CPTAC-COAD
+  - breast-invasive-carcinoma                    # CPTAC-BRCA
+  - ovarian-serous-cystadenocarcinoma            # CPTAC-OV
+species:
+  - human
+data_types:
+  - whole-slide-image                            # FFPE diagnostic slides per cohort
+  - mass-spectrometry-proteomics                 # bulk + phospho
+  - bulk-rna-seq
+  - whole-exome-sequencing
+  - copy-number-array
+  - clinical-record
+
+tasks:
+  - subtype-classification
+  - mutation-prediction                          # H&E → mutation status
+  - protein-expression-prediction                # H&E → proteomics (CPTAC's distinctive task)
+  - phosphoprotein-expression-prediction         # subset
+  - biomarker-expression-prediction
+  - survival-prediction
+  - prognosis-prediction
+  - external-validation                          # canonical TCGA-trained → CPTAC-validated workflow
+labels:
+  - cancer-type
+  - molecular-subtype
+  - mutation-status
+  - protein-abundance                            # bulk proteomics labels
+  - phosphoprotein-abundance
+  - mrna-expression
+  - clinical-outcome
+
+scale:
+  n_slides: 4500                                 # ~4.5k FFPE WSIs across 10 cohorts — to_verify exact
+  n_patients: 2000                               # ~2k patients with WSI coverage — to_verify
+  n_centers: to_verify                           # multi-institutional consortium contribution
+  file_size: "multi-TB"                          # WSI archive alone is several TB
+
+access:
+  public: true
+  license: "Most CPTAC data are open-access via NIH Proteomic Data Commons (PDC); some clinical fields require dbGaP controlled-access. Each cohort has a per-cohort access page at pdc.cancer.gov."
+  download_difficulty: hard                      # PDC client + dbGaP for restricted fields; multi-cohort spread
+  requires_registration: true                    # NIH eRA Commons / dbGaP for controlled-access
+  access_url: https://pdc.cancer.gov/pdc/
+
+preprocessing:
+  required_steps:
+    - "Use NIH PDC API or web portal to identify per-cohort manifests"
+    - "Download WSIs per cohort — slides are FFPE diagnostic .svs (Aperio)"
+    - "Read .svs WSIs via OpenSlide"
+    - "Match CPTAC case-id (analogous to TCGA barcode) to align WSI ↔ proteomics ↔ clinical records"
+    - "Per-cohort tissue segmentation + patch extraction (CLAM tissue-segmentation pipeline standard)"
+    - "Stain normalisation across cohorts is recommended — CPTAC spans multiple scanners and labs like TCGA"
+  recommended_tools:
+    - openslide
+    - clam
+    - tcga-mil-pipeline                          # node pending — same pipeline transfers to CPTAC barcoded WSIs
+  coordinate_system: "Native slide pixel space (Aperio .svs); CPTAC case-id is the canonical join key for cross-modality alignment."
+  file_formats:
+    - svs                                        # WSI
+    - mzML / raw                                 # mass-spec proteomics
+    - tsv                                        # processed proteomics + clinical
+    - vcf                                        # mutations
+    - bw                                         # methylation tracks (subset)
+
+used_by_articles:
+  - gigapath-2024
+  - chief-2024
+  - virchow-2024
+  - uni-2024
+  - conch-2024
+used_by_benchmarks: []
+related_methods:
+  - pathology-foundation-model
+  - patch-level-ssl
+  - multimodal-pathology-ai                      # deferred parent
+related_tools:
+  - openslide
+related_articles: []
+
+known_pitfalls:
+  - "CPTAC is much smaller per cohort than TCGA (typically n<200 patients per cohort for proteomics-paired) — small-data regime; cross-cohort pretraining helps."
+  - "Multi-cohort, multi-scanner like TCGA — colour and resolution drift across cohorts requires stain normalisation."
+  - "Some cohorts have sparse WSI coverage relative to proteomics coverage — case-id matching MUST verify modality availability."
+  - "Patient-level splits required (one patient → multiple slides possible)."
+  - "Phase II / III / IV cohorts have different acquisition protocols — pooling across phases without careful harmonisation produces noise."
+  - "Proteomics labels are continuous (mass-spec abundances) — cannot be directly used as classification labels without binning / thresholding."
+  - "CPTAC is the canonical *external validation* cohort for TCGA-trained models — using it for both training and testing on the same paper defeats the cross-cohort purpose."
+
+claude:
+  summary: |
+    CPTAC (Clinical Proteomic Tumor Analysis Consortium) is the NIH/NCI's
+    proteomics-focused sister cohort to TCGA. ~4.5k FFPE WSIs, ~2k patients
+    across 10 cancer cohorts, paired with mass-spectrometry proteomics
+    (sometimes including phosphoproteomics) + RNA-seq + mutations + clinical
+    records. The standard external validation cohort for TCGA-trained
+    pathology models, and the only large public cohort with paired H&E +
+    bulk proteomics for protein-from-histology research.
+  use_when:
+    - "External validation of a TCGA-trained pathology model — CPTAC is the canonical held-out cohort"
+    - "Protein expression prediction from H&E (CPTAC has bulk proteomics that TCGA lacks)"
+    - "Phosphoproteomics-aware pathology AI"
+    - "Pan-cancer multimodal studies needing proteomics + WSI"
+    - "Cross-cohort generalisation studies pairing TCGA + CPTAC"
+  do_not_use_when:
+    - "Need a large per-cancer cohort — TCGA is much larger per cohort"
+    - "Need biopsy-level pathology — CPTAC is surgical-resection (use PANDA for biopsies)"
+    - "Need fully open clinical fields — some require dbGaP approval"
+    - "Need realtime clinical-grade test data — CPTAC is retrospective"
+  preprocessing_notes:
+    - "Use PDC client / API for download; per-cohort manifests required."
+    - "Patient-level splits."
+    - "Stain normalisation across cohorts."
+    - "Verify modality availability per case-id — proteomics and WSI coverage don't always overlap perfectly."
+  known_pitfalls:
+    - "Small per-cohort sizes."
+    - "Multi-scanner drift."
+    - "Continuous proteomics labels need binning for classification tasks."
+    - "Don't conflate phases — CPTAC phase II / III / IV protocols differ."
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium                    # exact n_slides / n_patients vary per cohort + snapshot

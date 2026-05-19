@@ -299,3 +299,9 @@ nodes:
     label: "TCGA — The Cancer Genome Atlas"
     aliases: [the-cancer-genome-atlas, tcga-pan-cancer]
     taxonomy_path: [Datasets, Multi-omics, Pan-Cancer]
+
+  - id: cptac
+    type: dataset
+    label: "CPTAC — Clinical Proteomic Tumor Analysis Consortium"
+    aliases: [clinical-proteomic-tumor-analysis-consortium, cptac-pdc]
+    taxonomy_path: [Datasets, Multi-omics, Pan-Cancer]
