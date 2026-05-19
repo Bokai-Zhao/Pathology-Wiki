@@ -232,6 +232,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/camelyon16/"/>
     </url>
     <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/cptac/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/cptac/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/cptac/"/>
+    </url>
+    <url>
         <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/glas/</loc>
         <lastmod>2026-05-19</lastmod>
         <changefreq>daily</changefreq>
@@ -594,6 +601,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/camelyon16/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/camelyon16/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/cptac/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/cptac/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/cptac/"/>
     </url>
     <url>
         <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/glas/</loc>

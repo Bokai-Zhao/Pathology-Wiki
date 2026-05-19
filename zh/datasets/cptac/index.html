@@ -1,28 +1,28 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Pseudo-bag construction + double-tier feature distillation for low-slide-count WSI MIL.">
+        <meta name="description" content="NIH/NCI 以蛋白质组学为核心的 TCGA 姐妹队列。约 4.5k 张 FFPE WSI、~2k 患者、10 个癌种，配套质谱蛋白质组学 + RNA-seq + 突变 + 临床数据。">
       
       
       
-        <link rel="canonical" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/dtfd-mil-2022/">
+        <link rel="canonical" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/cptac/">
       
       
-        <link rel="prev" href="../porpoise-2022/">
+        <link rel="prev" href="../tcga/">
       
       
-        <link rel="next" href="../lunit-dino-2022/">
+        <link rel="next" href="../../methods/pathology-foundation-model/">
       
       
         
-          <link rel="alternate" href="./" hreflang="en">
+          <link rel="alternate" href="../../../datasets/cptac/" hreflang="en">
         
-          <link rel="alternate" href="../../../zh/articles/technical/dtfd-mil-2022/" hreflang="zh">
+          <link rel="alternate" href="./" hreflang="zh">
         
       
       
@@ -31,7 +31,7 @@
     
     
       
-        <title>DTFD-MIL — Double-Tier Feature Distillation MIL (Zhang et al. CVPR 2022) - Pathology-Wiki</title>
+        <title>CPTAC —— 临床蛋白质组肿瘤分析联盟 - Pathology-Wiki — 病理 AI 知识库</title>
       
     
     
@@ -84,8 +84,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#dtfd-mil-double-tier-feature-distillation-multiple-instance-learning-for-histopathology-whole-slide-image-classification" class="md-skip">
-          Skip to content
+        <a href="#cptac-clinical-proteomic-tumor-analysis-consortium" class="md-skip">
+          跳转至
         </a>
       
     </div>
@@ -97,8 +97,8 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Pathology-Wiki" class="md-header__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Pathology-Wiki — 病理 AI 知识库" class="md-header__button md-logo" aria-label="Pathology-Wiki — 病理 AI 知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,13 +112,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Pathology-Wiki
+            Pathology-Wiki — 病理 AI 知识库
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DTFD-MIL — Double-Tier Feature Distillation MIL (Zhang et al. CVPR 2022)
+              CPTAC —— 临床蛋白质组肿瘤分析联盟
             
           </span>
         </div>
@@ -158,20 +158,20 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Select language">
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="./" hreflang="en" class="md-select__link">
+            <a href="../../../datasets/cptac/" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../../zh/articles/technical/dtfd-mil-2022/" hreflang="zh" class="md-select__link">
+            <a href="./" hreflang="zh" class="md-select__link">
               中文
             </a>
           </li>
@@ -192,21 +192,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -219,7 +219,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -231,7 +231,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Bokai-Zhao/Pathology-Wiki" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/Bokai-Zhao/Pathology-Wiki" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -252,7 +252,7 @@
         
           
             
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -262,13 +262,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../../" class="md-tabs__link">
         
   
   
     
   
-  Home
+  首页
 
       </a>
     </li>
@@ -279,12 +279,79 @@
   
   
   
-    
-  
   
     
     
       
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/reviews/bahadir-2024/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  论文
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../models/uni/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  模型
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tools/openslide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  工具
+
+        </a>
+      </li>
+    
+  
+
+      
+        
   
   
   
@@ -294,38 +361,13 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../reviews/bahadir-2024/" class="md-tabs__link">
+        <a href="../panda/" class="md-tabs__link">
           
   
   
     
   
-  Articles
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../../models/uni/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Models
+  数据集
 
         </a>
       </li>
@@ -341,57 +383,13 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../tools/openslide/" class="md-tabs__link">
+        <a href="../../methods/pathology-foundation-model/" class="md-tabs__link">
           
   
   
     
   
-  Tools
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../../datasets/panda/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Datasets
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../../methods/pathology-foundation-model/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Methods
+  方法
 
         </a>
       </li>
@@ -405,13 +403,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../graph/" class="md-tabs__link">
+      <a href="../../graph/" class="md-tabs__link">
         
   
   
     
   
-  Knowledge graph
+  知识图谱
 
       </a>
     </li>
@@ -424,13 +422,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../skills/" class="md-tabs__link">
+      <a href="../../skills/" class="md-tabs__link">
         
   
   
     
   
-  Skills
+  技能
 
       </a>
     </li>
@@ -457,19 +455,19 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Pathology-Wiki" class="md-nav__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
+    <a href="../../" title="Pathology-Wiki — 病理 AI 知识库" class="md-nav__button md-logo" aria-label="Pathology-Wiki — 病理 AI 知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Pathology-Wiki
+    Pathology-Wiki — 病理 AI 知识库
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Bokai-Zhao/Pathology-Wiki" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/Bokai-Zhao/Pathology-Wiki" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -489,14 +487,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Home
+    首页
   
 
     
@@ -513,10 +511,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -528,29 +524,26 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Articles
+    论文
   
 
     
@@ -561,12 +554,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Articles
+    论文
   
 
           </label>
@@ -589,27 +582,24 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
         
           
-          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Reviews
+    综述
   
 
     
@@ -625,7 +615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Reviews
+    综述
   
 
           </label>
@@ -638,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reviews/bahadir-2024/" class="md-nav__link">
+      <a href="../../articles/reviews/bahadir-2024/" class="md-nav__link">
         
   
   
@@ -671,10 +661,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -737,28 +725,25 @@
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Technical
+    技术
   
 
     
@@ -769,12 +754,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Technical
+    技术
   
 
           </label>
@@ -787,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../uni-2024/" class="md-nav__link">
+      <a href="../../articles/technical/uni-2024/" class="md-nav__link">
         
   
   
@@ -815,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../abmil-2018/" class="md-nav__link">
+      <a href="../../articles/technical/abmil-2018/" class="md-nav__link">
         
   
   
@@ -843,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../clam-2021/" class="md-nav__link">
+      <a href="../../articles/technical/clam-2021/" class="md-nav__link">
         
   
   
@@ -871,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transmil-2021/" class="md-nav__link">
+      <a href="../../articles/technical/transmil-2021/" class="md-nav__link">
         
   
   
@@ -899,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../campanella-2019/" class="md-nav__link">
+      <a href="../../articles/technical/campanella-2019/" class="md-nav__link">
         
   
   
@@ -927,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hover-net-2019/" class="md-nav__link">
+      <a href="../../articles/technical/hover-net-2019/" class="md-nav__link">
         
   
   
@@ -955,7 +940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cellvit-2024/" class="md-nav__link">
+      <a href="../../articles/technical/cellvit-2024/" class="md-nav__link">
         
   
   
@@ -983,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ctranspath-2022/" class="md-nav__link">
+      <a href="../../articles/technical/ctranspath-2022/" class="md-nav__link">
         
   
   
@@ -1011,7 +996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../clip-2021/" class="md-nav__link">
+      <a href="../../articles/technical/clip-2021/" class="md-nav__link">
         
   
   
@@ -1039,7 +1024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plip-2023/" class="md-nav__link">
+      <a href="../../articles/technical/plip-2023/" class="md-nav__link">
         
   
   
@@ -1067,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mi-zero-2023/" class="md-nav__link">
+      <a href="../../articles/technical/mi-zero-2023/" class="md-nav__link">
         
   
   
@@ -1095,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gigapath-2024/" class="md-nav__link">
+      <a href="../../articles/technical/gigapath-2024/" class="md-nav__link">
         
   
   
@@ -1123,7 +1108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chief-2024/" class="md-nav__link">
+      <a href="../../articles/technical/chief-2024/" class="md-nav__link">
         
   
   
@@ -1151,7 +1136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../virchow-2024/" class="md-nav__link">
+      <a href="../../articles/technical/virchow-2024/" class="md-nav__link">
         
   
   
@@ -1179,7 +1164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../conch-2024/" class="md-nav__link">
+      <a href="../../articles/technical/conch-2024/" class="md-nav__link">
         
   
   
@@ -1207,7 +1192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pathchat-2024/" class="md-nav__link">
+      <a href="../../articles/technical/pathchat-2024/" class="md-nav__link">
         
   
   
@@ -1235,7 +1220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dsmil-2021/" class="md-nav__link">
+      <a href="../../articles/technical/dsmil-2021/" class="md-nav__link">
         
   
   
@@ -1263,7 +1248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../titan-2025/" class="md-nav__link">
+      <a href="../../articles/technical/titan-2025/" class="md-nav__link">
         
   
   
@@ -1291,7 +1276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../prism-2024/" class="md-nav__link">
+      <a href="../../articles/technical/prism-2024/" class="md-nav__link">
         
   
   
@@ -1319,7 +1304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../madeleine-2024/" class="md-nav__link">
+      <a href="../../articles/technical/madeleine-2024/" class="md-nav__link">
         
   
   
@@ -1347,7 +1332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tangle-2024/" class="md-nav__link">
+      <a href="../../articles/technical/tangle-2024/" class="md-nav__link">
         
   
   
@@ -1375,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../porpoise-2022/" class="md-nav__link">
+      <a href="../../articles/technical/porpoise-2022/" class="md-nav__link">
         
   
   
@@ -1400,37 +1385,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    DTFD-MIL (Zhang 2022)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../articles/technical/dtfd-mil-2022/" class="md-nav__link">
         
   
   
@@ -1446,164 +1404,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dtfd-mil-double-tier-feature-distillation-multiple-instance-learning-for-histopathology-whole-slide-image-classification_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DTFD-MIL: Double-Tier Feature Distillation Multiple Instance Learning for Histopathology Whole Slide Image Classification
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-it-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why it matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-idea" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core idea
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inputs-and-outputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Inputs and outputs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#datasets-tasks-metrics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Datasets / tasks / metrics
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#method" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Method
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main-results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Main results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-claude-should-use-this-article" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How Claude should use this article
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How Claude should use this article">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#skill-dtfd-mil-2022" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skill: dtfd-mil-2022
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-nodes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related nodes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1616,7 +1416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lunit-dino-2022/" class="md-nav__link">
+      <a href="../../articles/technical/lunit-dino-2022/" class="md-nav__link">
         
   
   
@@ -1644,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phikon-2023/" class="md-nav__link">
+      <a href="../../articles/technical/phikon-2023/" class="md-nav__link">
         
   
   
@@ -1672,7 +1472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dt-mil-2021/" class="md-nav__link">
+      <a href="../../articles/technical/dt-mil-2021/" class="md-nav__link">
         
   
   
@@ -1700,7 +1500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mcat-2021/" class="md-nav__link">
+      <a href="../../articles/technical/mcat-2021/" class="md-nav__link">
         
   
   
@@ -1774,7 +1574,7 @@
   <span class="md-ellipsis">
     
   
-    Models
+    模型
   
 
     
@@ -1790,7 +1590,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Models
+    模型
   
 
           </label>
@@ -1803,7 +1603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../models/uni/" class="md-nav__link">
+      <a href="../../models/uni/" class="md-nav__link">
         
   
   
@@ -1831,7 +1631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../models/ctranspath/" class="md-nav__link">
+      <a href="../../models/ctranspath/" class="md-nav__link">
         
   
   
@@ -1859,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../models/plip/" class="md-nav__link">
+      <a href="../../models/plip/" class="md-nav__link">
         
   
   
@@ -1923,7 +1723,7 @@
   <span class="md-ellipsis">
     
   
-    Tools
+    工具
   
 
     
@@ -1939,7 +1739,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Tools
+    工具
   
 
           </label>
@@ -1952,7 +1752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/openslide/" class="md-nav__link">
+      <a href="../../tools/openslide/" class="md-nav__link">
         
   
   
@@ -1980,7 +1780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/awesome-ai4digitalpathology/" class="md-nav__link">
+      <a href="../../tools/awesome-ai4digitalpathology/" class="md-nav__link">
         
   
   
@@ -2012,8 +1812,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -2037,26 +1839,29 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Datasets
+    数据集
   
 
     
@@ -2067,12 +1872,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Datasets
+    数据集
   
 
           </label>
@@ -2085,7 +1890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../datasets/panda/" class="md-nav__link">
+      <a href="../panda/" class="md-nav__link">
         
   
   
@@ -2113,7 +1918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../datasets/camelyon16/" class="md-nav__link">
+      <a href="../camelyon16/" class="md-nav__link">
         
   
   
@@ -2141,7 +1946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../datasets/bach/" class="md-nav__link">
+      <a href="../bach/" class="md-nav__link">
         
   
   
@@ -2169,7 +1974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../datasets/glas/" class="md-nav__link">
+      <a href="../glas/" class="md-nav__link">
         
   
   
@@ -2197,7 +2002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../datasets/pannuke/" class="md-nav__link">
+      <a href="../pannuke/" class="md-nav__link">
         
   
   
@@ -2225,7 +2030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../datasets/midog/" class="md-nav__link">
+      <a href="../midog/" class="md-nav__link">
         
   
   
@@ -2253,7 +2058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../datasets/tcga/" class="md-nav__link">
+      <a href="../tcga/" class="md-nav__link">
         
   
   
@@ -2278,10 +2083,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../datasets/cptac/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPTAC
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2297,6 +2129,175 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clinical-proteomic-tumor-analysis-consortium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clinical Proteomic Tumor Analysis Consortium
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么重要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        包含什么
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模态与范围
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        任务与指标
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取方式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预处理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiki-cptac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        本 wiki 中引用 CPTAC 的论文
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见坑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude 应该如何使用这个数据集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Claude 应该如何使用这个数据集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-cptac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill: cptac
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关节点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2359,7 +2360,7 @@
   <span class="md-ellipsis">
     
   
-    Methods
+    方法
   
 
     
@@ -2375,7 +2376,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Methods
+    方法
   
 
           </label>
@@ -2388,7 +2389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../methods/pathology-foundation-model/" class="md-nav__link">
+      <a href="../../methods/pathology-foundation-model/" class="md-nav__link">
         
   
   
@@ -2416,7 +2417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../methods/patch-level-ssl/" class="md-nav__link">
+      <a href="../../methods/patch-level-ssl/" class="md-nav__link">
         
   
   
@@ -2444,7 +2445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../methods/weakly-supervised-mil/" class="md-nav__link">
+      <a href="../../methods/weakly-supervised-mil/" class="md-nav__link">
         
   
   
@@ -2472,7 +2473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../methods/abmil/" class="md-nav__link">
+      <a href="../../methods/abmil/" class="md-nav__link">
         
   
   
@@ -2500,7 +2501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../methods/clam/" class="md-nav__link">
+      <a href="../../methods/clam/" class="md-nav__link">
         
   
   
@@ -2528,7 +2529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../methods/transmil/" class="md-nav__link">
+      <a href="../../methods/transmil/" class="md-nav__link">
         
   
   
@@ -2556,7 +2557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../methods/hover-net/" class="md-nav__link">
+      <a href="../../methods/hover-net/" class="md-nav__link">
         
   
   
@@ -2584,7 +2585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../methods/cellvit/" class="md-nav__link">
+      <a href="../../methods/cellvit/" class="md-nav__link">
         
   
   
@@ -2612,7 +2613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../methods/pathology-vlm/" class="md-nav__link">
+      <a href="../../methods/pathology-vlm/" class="md-nav__link">
         
   
   
@@ -2647,14 +2648,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../graph/" class="md-nav__link">
+      <a href="../../graph/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Knowledge graph
+    知识图谱
   
 
     
@@ -2674,14 +2675,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../skills/" class="md-nav__link">
+      <a href="../../skills/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Skills
+    技能
   
 
     
@@ -2707,7 +2708,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
@@ -2716,15 +2717,15 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dtfd-mil-double-tier-feature-distillation-multiple-instance-learning-for-histopathology-whole-slide-image-classification_1" class="md-nav__link">
+  <a href="#clinical-proteomic-tumor-analysis-consortium" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DTFD-MIL: Double-Tier Feature Distillation Multiple Instance Learning for Histopathology Whole Slide Image Classification
+        Clinical Proteomic Tumor Analysis Consortium
       
     </span>
   </a>
@@ -2732,10 +2733,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-it-matters" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why it matters
+        为什么重要
       
     </span>
   </a>
@@ -2743,10 +2744,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-idea" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Core idea
+        包含什么
       
     </span>
   </a>
@@ -2754,10 +2755,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inputs-and-outputs" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inputs and outputs
+        模态与范围
       
     </span>
   </a>
@@ -2765,10 +2766,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#datasets-tasks-metrics" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Datasets / tasks / metrics
+        任务与指标
       
     </span>
   </a>
@@ -2776,10 +2777,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#method" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Method
+        获取方式
       
     </span>
   </a>
@@ -2787,10 +2788,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-results" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Main results
+        预处理
       
     </span>
   </a>
@@ -2798,10 +2799,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
+  <a href="#wiki-cptac" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Limitations
+        本 wiki 中引用 CPTAC 的论文
       
     </span>
   </a>
@@ -2809,22 +2810,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-claude-should-use-this-article" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How Claude should use this article
+        常见坑
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How Claude should use this article">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude 应该如何使用这个数据集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Claude 应该如何使用这个数据集">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#skill-dtfd-mil-2022" class="md-nav__link">
+  <a href="#skill-cptac" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Skill: dtfd-mil-2022
+        Skill: cptac
       
     </span>
   </a>
@@ -2837,10 +2849,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-nodes" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related nodes
+        相关节点
       
     </span>
   </a>
@@ -2848,10 +2860,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        References
+        参考
       
     </span>
   </a>
@@ -2875,7 +2887,7 @@
 
 
   
-    <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/edit/main/content/articles/technical/dtfd-mil-2022.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/edit/main/content/datasets/cptac.zh.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2883,79 +2895,123 @@
   
 
 
-<h1 id="dtfd-mil-double-tier-feature-distillation-multiple-instance-learning-for-histopathology-whole-slide-image-classification">DTFD-MIL: Double-Tier Feature Distillation Multiple Instance Learning for Histopathology Whole Slide Image Classification<a class="headerlink" href="#dtfd-mil-double-tier-feature-distillation-multiple-instance-learning-for-histopathology-whole-slide-image-classification" title="Permanent link">&para;</a></h1>
+<h1 id="cptac-clinical-proteomic-tumor-analysis-consortium">CPTAC —— Clinical Proteomic Tumor Analysis Consortium（临床蛋白质组肿瘤分析联盟）<a class="headerlink" href="#cptac-clinical-proteomic-tumor-analysis-consortium" title="Permanent link">&para;</a></h1>
 <div class="pwiki-card">
-<div class="pwiki-card-kind">article · technical_article</div>
-<h3 class="pwiki-card-title" id="dtfd-mil-double-tier-feature-distillation-multiple-instance-learning-for-histopathology-whole-slide-image-classification_1">DTFD-MIL: Double-Tier Feature Distillation Multiple Instance Learning for Histopathology Whole Slide Image Classification<a class="headerlink" href="#dtfd-mil-double-tier-feature-distillation-multiple-instance-learning-for-histopathology-whole-slide-image-classification_1" title="Permanent link">&para;</a></h3>
-<div class="pwiki-card-meta">Hongrun Zhang, Yanda Meng, Yitian Zhao et al. · 2022 · CVPR</div>
-<div class="pwiki-card-links"><a href="https://doi.org/10.1109/CVPR52688.2022.01824" target="_blank" rel="noreferrer">doi</a> · <a href="https://openaccess.thecvf.com/content/CVPR2022/html/Zhang_DTFD-MIL_Double-Tier_Feature_Distillation_Multiple_Instance_Learning_for_Histopathology_Whole_CVPR_2022_paper.html" target="_blank" rel="noreferrer">paper</a> · <a href="https://github.com/hrzhang1123/DTFD-MIL" target="_blank" rel="noreferrer">github</a></div>
+<div class="pwiki-card-kind">dataset</div>
+<h3 class="pwiki-card-title" id="clinical-proteomic-tumor-analysis-consortium">Clinical Proteomic Tumor Analysis Consortium<a class="headerlink" href="#clinical-proteomic-tumor-analysis-consortium" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-meta">h-and-e · bulk-proteomics · phosphoproteomics · rna-seq · dna-mutation · copy-number-variation · clinical-records · lung, kidney, pancreas, uterus, brain, head-neck, colon, rectum, breast, ovary, stomach · 4,500 slides · Most CPTAC data are open-access via NIH Proteomic Data Commons (PDC); some clinical fields require dbGaP controlled-access. Each cohort has a per-cohort access page at pdc.cancer.gov.</div>
+<div class="pwiki-card-links"><a href="https://proteomics.cancer.gov/programs/cptac" target="_blank" rel="noreferrer">homepage</a> · <a href="https://pdc.cancer.gov/pdc/" target="_blank" rel="noreferrer">download</a> · <a href="https://proteomics.cancer.gov/programs/cptac" target="_blank" rel="noreferrer">project</a> · <a href="https://pdc.cancer.gov/pdc/" target="_blank" rel="noreferrer">access</a></div>
 </div>
-<div class="pwiki-localgraph"><div class="pwiki-localgraph-header"><strong>Local graph</strong><span class="pwiki-localgraph-legend"><span><i style="background:var(--pwiki-color-article)"></i>article</span><span><i style="background:var(--pwiki-color-method)"></i>method</span><span><i style="background:var(--pwiki-color-dataset)"></i>dataset</span><span><i style="background:var(--pwiki-color-tool)"></i>tool</span><span style="margin-left:0.6rem;opacity:0.7">7 out · 2 in · 9 neighbours</span></span></div><div class="pwiki-localgraph-canvas" data-graph="{&quot;nodes&quot;: [{&quot;id&quot;: &quot;dtfd-mil-2022&quot;, &quot;label&quot;: &quot;DTFD-MIL (Zhang et al. 2022, CVPR)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;dtfd-mil-2022/&quot;}, {&quot;id&quot;: &quot;weakly-supervised-mil&quot;, &quot;label&quot;: &quot;Weakly-Supervised Multiple Instance Learning (WSI)&quot;, &quot;type&quot;: &quot;method&quot;, &quot;href&quot;: &quot;../../methods/weakly-supervised-mil/&quot;}, {&quot;id&quot;: &quot;abmil-2018&quot;, &quot;label&quot;: &quot;ABMIL (Ilse, Tomczak, Welling 2018)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;abmil-2018/&quot;}, {&quot;id&quot;: &quot;clam-2021&quot;, &quot;label&quot;: &quot;CLAM (Lu et al. 2021, Nat Biomed Eng)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;clam-2021/&quot;}, {&quot;id&quot;: &quot;transmil-2021&quot;, &quot;label&quot;: &quot;TransMIL (Shao et al. 2021, NeurIPS)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;transmil-2021/&quot;}, {&quot;id&quot;: &quot;dsmil-2021&quot;, &quot;label&quot;: &quot;DSMIL (Li, Li, Eliceiri 2021, CVPR)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;dsmil-2021/&quot;}, {&quot;id&quot;: &quot;camelyon16&quot;, &quot;label&quot;: &quot;Camelyon16 — Cancer Metastases in Lymph Nodes 2016&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;../../datasets/camelyon16/&quot;}, {&quot;id&quot;: &quot;tcga&quot;, &quot;label&quot;: &quot;TCGA — The Cancer Genome Atlas&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;../../datasets/tcga/&quot;}, {&quot;id&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;label&quot;: &quot;Awesome-AI4DigitalPathology — curated reference list (~447 entries)&quot;, &quot;type&quot;: &quot;tool&quot;, &quot;href&quot;: &quot;../../tools/awesome-ai4digitalpathology/&quot;}, {&quot;id&quot;: &quot;panda&quot;, &quot;label&quot;: &quot;PANDA — Prostate cANcer graDe Assessment&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;../../datasets/panda/&quot;}], &quot;edges&quot;: [{&quot;from&quot;: &quot;dtfd-mil-2022&quot;, &quot;to&quot;: &quot;weakly-supervised-mil&quot;, &quot;type&quot;: &quot;proposes_method&quot;}, {&quot;from&quot;: &quot;dtfd-mil-2022&quot;, &quot;to&quot;: &quot;abmil-2018&quot;, &quot;type&quot;: &quot;extends&quot;}, {&quot;from&quot;: &quot;dtfd-mil-2022&quot;, &quot;to&quot;: &quot;clam-2021&quot;, &quot;type&quot;: &quot;compares_with&quot;}, {&quot;from&quot;: &quot;dtfd-mil-2022&quot;, &quot;to&quot;: &quot;transmil-2021&quot;, &quot;type&quot;: &quot;compares_with&quot;}, {&quot;from&quot;: &quot;dtfd-mil-2022&quot;, &quot;to&quot;: &quot;dsmil-2021&quot;, &quot;type&quot;: &quot;compares_with&quot;}, {&quot;from&quot;: &quot;dtfd-mil-2022&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;dtfd-mil-2022&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;dtfd-mil-2022&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;panda&quot;, &quot;to&quot;: &quot;dtfd-mil-2022&quot;, &quot;type&quot;: &quot;related_to&quot;}]}" data-center="dtfd-mil-2022"></div><noscript><div class="pwiki-localgraph-fallback"><strong>Local graph</strong> (text fallback — JS disabled)<ul><li><code>proposes_method</code> → <a href="../../methods/weakly-supervised-mil.md">Weakly-Supervised Multiple Instance Learning (WSI)</a></li><li><code>extends</code> → <a href="abmil-2018.md">ABMIL (Ilse, Tomczak, Welling 2018)</a></li><li><code>compares_with</code> → <a href="clam-2021.md">CLAM (Lu et al. 2021, Nat Biomed Eng)</a></li><li><code>compares_with</code> → <a href="transmil-2021.md">TransMIL (Shao et al. 2021, NeurIPS)</a></li><li><code>compares_with</code> → <a href="dsmil-2021.md">DSMIL (Li, Li, Eliceiri 2021, CVPR)</a></li><li><code>uses_dataset</code> → <a href="../../datasets/camelyon16.md">Camelyon16 — Cancer Metastases in Lymph Nodes 2016</a></li><li><code>uses_dataset</code> → <a href="../../datasets/tcga.md">TCGA — The Cancer Genome Atlas</a></li><li><a href="../../tools/awesome-ai4digitalpathology.md">Awesome-AI4DigitalPathology — curated reference list (~447 entries)</a> → <code>related_to</code></li><li><a href="../../datasets/panda.md">PANDA — Prostate cANcer graDe Assessment</a> → <code>related_to</code></li></ul></div></noscript></div>
+<div class="pwiki-localgraph"><div class="pwiki-localgraph-header"><strong>Local graph</strong><span class="pwiki-localgraph-legend"><span><i style="background:var(--pwiki-color-dataset)"></i>dataset</span><span><i style="background:var(--pwiki-color-tool)"></i>tool</span><span><i style="background:var(--pwiki-color-article)"></i>article</span><span style="margin-left:0.6rem;opacity:0.7">2 out · 7 in · 9 neighbours</span></span></div><div class="pwiki-localgraph-canvas" data-graph="{&quot;nodes&quot;: [{&quot;id&quot;: &quot;cptac&quot;, &quot;label&quot;: &quot;CPTAC — Clinical Proteomic Tumor Analysis Consortium&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;cptac/&quot;}, {&quot;id&quot;: &quot;openslide&quot;, &quot;label&quot;: &quot;OpenSlide (WSI I/O)&quot;, &quot;type&quot;: &quot;tool&quot;, &quot;href&quot;: &quot;../tools/openslide/&quot;}, {&quot;id&quot;: &quot;tcga&quot;, &quot;label&quot;: &quot;TCGA — The Cancer Genome Atlas&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;tcga/&quot;}, {&quot;id&quot;: &quot;gigapath-2024&quot;, &quot;label&quot;: &quot;Prov-GigaPath (Xu et al. 2024, Nature)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/gigapath-2024/&quot;}, {&quot;id&quot;: &quot;chief-2024&quot;, &quot;label&quot;: &quot;CHIEF (Wang et al. 2024, Nature)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/chief-2024/&quot;}, {&quot;id&quot;: &quot;virchow-2024&quot;, &quot;label&quot;: &quot;Virchow (Vorontsov et al. 2024, Nat Med)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/virchow-2024/&quot;}, {&quot;id&quot;: &quot;uni-2024&quot;, &quot;label&quot;: &quot;UNI (Towards a General-Purpose Foundation Model for Computational Pathology)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/uni-2024/&quot;}, {&quot;id&quot;: &quot;conch-2024&quot;, &quot;label&quot;: &quot;CONCH (Lu et al. 2024, Nat Med)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/conch-2024/&quot;}, {&quot;id&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;label&quot;: &quot;Awesome-AI4DigitalPathology — curated reference list (~447 entries)&quot;, &quot;type&quot;: &quot;tool&quot;, &quot;href&quot;: &quot;../tools/awesome-ai4digitalpathology/&quot;}, {&quot;id&quot;: &quot;bahadir-2024&quot;, &quot;label&quot;: &quot;Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)&quot;, &quot;type&quot;: &quot;review_article&quot;, &quot;href&quot;: &quot;../articles/reviews/bahadir-2024/&quot;}], &quot;edges&quot;: [{&quot;from&quot;: &quot;cptac&quot;, &quot;to&quot;: &quot;openslide&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;cptac&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;gigapath-2024&quot;, &quot;to&quot;: &quot;cptac&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;chief-2024&quot;, &quot;to&quot;: &quot;cptac&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;virchow-2024&quot;, &quot;to&quot;: &quot;cptac&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;uni-2024&quot;, &quot;to&quot;: &quot;cptac&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;conch-2024&quot;, &quot;to&quot;: &quot;cptac&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;cptac&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;bahadir-2024&quot;, &quot;to&quot;: &quot;cptac&quot;, &quot;type&quot;: &quot;related_to&quot;}]}" data-center="cptac"></div><noscript><div class="pwiki-localgraph-fallback"><strong>Local graph</strong> (text fallback — JS disabled)<ul><li><code>related_to</code> → <a href="../tools/openslide.md">OpenSlide (WSI I/O)</a></li><li><code>related_to</code> → <a href="tcga.md">TCGA — The Cancer Genome Atlas</a></li><li><a href="../articles/technical/gigapath-2024.md">Prov-GigaPath (Xu et al. 2024, Nature)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/chief-2024.md">CHIEF (Wang et al. 2024, Nature)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/virchow-2024.md">Virchow (Vorontsov et al. 2024, Nat Med)</a> → <code>related_to</code></li><li><a href="../articles/technical/uni-2024.md">UNI (Towards a General-Purpose Foundation Model for Computational Pathology)</a> → <code>related_to</code></li><li><a href="../articles/technical/conch-2024.md">CONCH (Lu et al. 2024, Nat Med)</a> → <code>related_to</code></li><li><a href="../tools/awesome-ai4digitalpathology.md">Awesome-AI4DigitalPathology — curated reference list (~447 entries)</a> → <code>related_to</code></li><li><a href="../articles/reviews/bahadir-2024.md">Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)</a> → <code>related_to</code></li></ul></div></noscript></div>
 
-<h2 id="why-it-matters">Why it matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h2>
-<p><a href="../abmil-2018/">ABMIL (Ilse, Tomczak, Welling 2018)</a>, <a href="../clam-2021/">CLAM (Lu et al. 2021, Nat Biomed Eng)</a>, <a href="../transmil-2021/">TransMIL (Shao et al. 2021, NeurIPS)</a>, <a href="../dsmil-2021/">DSMIL (Li, Li, Eliceiri 2021, CVPR)</a> all assume <strong>enough slides per class</strong> to learn an effective bag-level classifier. In rare-cancer or rare-subtype regimes, this assumption breaks. DTFD-MIL addresses this with <strong>pseudo-bag construction</strong>: each WSI is partitioned into many smaller pseudo-bags, an inner-tier MIL aggregator produces per-pseudo-bag embeddings, and an outer-tier aggregator pools them with a feature-distillation loss aligning inner and outer features.</p>
-<p>The pseudo-bag idea is now a standard regularisation trick in MIL pipelines facing limited training data.</p>
-<h2 id="core-idea">Core idea<a class="headerlink" href="#core-idea" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>WSI = full bag of N patches
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   ↓ split into M pseudo-bags of N/M patches each
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   ↓
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>inner MIL aggregator → M pseudo-bag embeddings
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   ↓
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>outer MIL aggregator → slide-level prediction
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>   ↓
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>+ feature-distillation loss (inner ↔ outer alignment)
+<h2 id="_1">为什么重要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><a href="../tcga/">TCGA — The Cancer Genome Atlas</a> 是规范的预训练 + 评估队列；<strong>CPTAC 则是规范的外部验证队列</strong>。现代病理 PFM（<a href="../../articles/technical/gigapath-2024/">Prov-GigaPath (Xu et al. 2024, Nature)</a>、<a href="../../articles/technical/chief-2024/">CHIEF (Wang et al. 2024, Nature)</a>、<a href="../../articles/technical/virchow-2024/">Virchow (Vorontsov et al. 2024, Nat Med)</a>、<a href="../../articles/technical/uni-2024/">UNI (Towards a General-Purpose Foundation Model for Computational Pathology)</a>、<a href="../../articles/technical/conch-2024/">CONCH (Lu et al. 2024, Nat Med)</a>）通常会同时报告 TCGA 和 CPTAC 上的下游性能,以证明跨队列泛化。</p>
+<p>CPTAC 还是<strong>唯一规模较大的、配对 H&amp;E + bulk 质谱蛋白质组学的公开队列</strong>,使它成为 <em>从组织学预测蛋白表达</em> 这一独特任务的规范资源 —— 这是 TCGA 不直接支持的。</p>
+<h2 id="_2">包含什么<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>约 4,500 张 FFPE 诊断 WSI</strong>（精确数字 <em>待核实</em>，按快照变化）。</li>
+<li><strong>约 2,000 位患者</strong>有 WSI 覆盖（<em>待核实</em>）。</li>
+<li><strong>10 个癌种 cohort</strong>：CPTAC-LUAD（肺腺癌）、CPTAC-LSCC（肺鳞癌）、CPTAC-CCRCC（透明细胞肾癌）、CPTAC-PDA（胰腺导管腺癌）、CPTAC-UCEC（子宫内膜癌）、CPTAC-GBM（多形性胶质母细胞瘤）、CPTAC-HNSCC（头颈鳞癌）、CPTAC-COAD（结肠癌）、CPTAC-BRCA（乳腺癌）、CPTAC-OV（卵巢癌）—— cohort 列表会随着 phase 推进而扩展。</li>
+<li>同时配有<strong>质谱蛋白质组学</strong>（bulk + 部分 cohort 配磷酸化蛋白质组）、<strong>bulk RNA-seq</strong>、<strong>全外显子测序</strong>、<strong>CNV</strong>、<strong>结构化临床记录</strong>。</li>
+</ul>
+<h2 id="_3">模态与范围<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>模态</strong>：H&amp;E + bulk 蛋白质组 + 磷酸化蛋白质组（部分） + RNA-seq + 突变 + CNV + 临床。</li>
+<li><strong>器官</strong>：肺、肾、胰、子宫、脑、头颈、结肠、乳腺、卵巢等。</li>
+<li><strong>疾病</strong>：10 个癌种 cohort，覆盖常见癌种与若干罕见癌种。</li>
+<li><strong>物种</strong>：人。</li>
+<li><strong>样本类型</strong>：手术切除 FFPE 诊断切片。</li>
+</ul>
+<h2 id="_4">任务与指标<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>亚型分类（按 cohort）</td>
+<td>AUC、balanced accuracy</td>
+</tr>
+<tr>
+<td>突变预测（H&amp;E → 突变状态）</td>
+<td>AUC</td>
+</tr>
+<tr>
+<td><strong>蛋白表达预测</strong>（H&amp;E → bulk 蛋白质组）</td>
+<td>Pearson 相关</td>
+</tr>
+<tr>
+<td>磷酸化蛋白表达预测（部分 cohort）</td>
+<td>Pearson、Spearman</td>
+</tr>
+<tr>
+<td>生存 / 预后</td>
+<td>C-index</td>
+</tr>
+<tr>
+<td>TCGA 训练模型的外部验证</td>
+<td>跨 cohort Δ-AUC</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">获取方式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>托管在 <strong>NIH Proteomic Data Commons (PDC)</strong>：<a href="https://pdc.cancer.gov/pdc/">https://pdc.cancer.gov/pdc/</a>。WSI 和大多数组学数据是公开的；部分临床字段需要通过 NIH eRA Commons 申请 <strong>dbGaP 受控访问</strong>。</p>
+<p>每个 cohort 在 PDC 上都有专用访问页面。通过 PDC API 或网页端 manifest 下载。</p>
+<h2 id="_6">预处理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 在 PDC 网页端或 API 上拿到 cohort manifest</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># 用 PDC/GDC client 下载（与 TCGA 的 gdc-client 类似）</span>
 </span></code></pre></div>
-<p>Pseudo-bags act as data augmentation and as ensemble averaging within a single slide.</p>
-<h2 id="inputs-and-outputs">Inputs and outputs<a class="headerlink" href="#inputs-and-outputs" title="Permanent link">&para;</a></h2>
+<p>标准流程：</p>
+<ol>
+<li>在 PDC 网页查询并导出 cohort manifest。</li>
+<li>下载 WSI（FFPE 诊断 <code>.svs</code>，Aperio 格式）。</li>
+<li>用 <a href="../../tools/openslide/">OpenSlide (WSI I/O)</a> 读取。</li>
+<li>组织分割 + 块提取，常用 <a href="../../methods/clam/">CLAM — Clustering-constrained Attention MIL</a> 工具箱（处理 TCGA 的脚本对 CPTAC barcode 同样适用）。</li>
+<li><strong>染色归一化</strong>（Macenko / Vahadane）—— CPTAC 也跨多家扫描仪和实验室。</li>
+<li><strong>CPTAC case-id 匹配</strong>对齐 WSI ↔ 蛋白质组 ↔ RNA-seq ↔ 临床。</li>
+<li><strong>患者级训练 / 测试切分</strong> —— 同一患者可能有多张切片。</li>
+</ol>
+<h2 id="wiki-cptac">本 wiki 中引用 CPTAC 的论文<a class="headerlink" href="#wiki-cptac" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Input</strong>: bag of patch features per WSI.</li>
-<li><strong>Output</strong>: slide-level class probability + pseudo-bag attention maps.</li>
+<li>现代 PFM 下游：<a href="../../articles/technical/gigapath-2024/">Prov-GigaPath (Xu et al. 2024, Nature)</a>、<a href="../../articles/technical/chief-2024/">CHIEF (Wang et al. 2024, Nature)</a>、<a href="../../articles/technical/virchow-2024/">Virchow (Vorontsov et al. 2024, Nat Med)</a>、<a href="../../articles/technical/uni-2024/">UNI (Towards a General-Purpose Foundation Model for Computational Pathology)</a>、<a href="../../articles/technical/conch-2024/">CONCH (Lu et al. 2024, Nat Med)</a>。</li>
 </ul>
-<h2 id="datasets-tasks-metrics">Datasets / tasks / metrics<a class="headerlink" href="#datasets-tasks-metrics" title="Permanent link">&para;</a></h2>
+<p>CPTAC 每个 cohort 患者数比 TCGA 少，所以多数论文把 CPTAC 用作<strong>TCGA 训练模型的外部验证</strong>而非主训练队列。</p>
+<h2 id="_7">常见坑<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../../../datasets/camelyon16/">Camelyon16 — Cancer Metastases in Lymph Nodes 2016</a> — breast lymph-node metastasis.</li>
-<li>TCGA-NSCLC, TCGA-RCC — subtype classification.</li>
-<li>Metrics: AUC, accuracy.</li>
+<li><strong>每 cohort 规模较小</strong> —— 一般每个 cohort 配齐 proteomics + WSI 的患者数 &lt; 200,跨 cohort 预训练能缓解。</li>
+<li><strong>多 cohort、多扫描仪</strong>漂移与 TCGA 类似 —— 颜色与分辨率差异较大。</li>
+<li><strong>模态覆盖不齐</strong> —— 部分病例有蛋白质组但无 WSI 或反之，case-id 匹配必须先核对模态可用性。</li>
+<li><strong>患者级切分</strong>必要（一个患者可能多张切片）。</li>
+<li><strong>phase II / III / IV cohort</strong> 采集协议不同 —— 不做协调地汇总会引入噪声。</li>
+<li><strong>连续蛋白质组学标签</strong>（质谱丰度）—— 用作分类任务前需 binning / 阈值化。</li>
+<li><strong>不要在同一篇论文中既用 CPTAC 训练又用 CPTAC 测试</strong> —— 这破坏了它作为规范<em>外部</em>验证队列的作用。</li>
 </ul>
-<h2 id="method">Method<a class="headerlink" href="#method" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Patch encoder</strong>: ResNet (pre-PFM era).</li>
-<li><strong>Pseudo-bag splitter</strong>: configurable number of pseudo-bags per slide.</li>
-<li><strong>Inner / outer MIL</strong>: ABMIL-style attention pooling at both tiers.</li>
-<li><strong>Loss</strong>: bag-level cross-entropy + feature-distillation MSE between inner and outer features.</li>
-</ul>
-<h2 id="main-results">Main results<a class="headerlink" href="#main-results" title="Permanent link">&para;</a></h2>
-<p>DTFD-MIL outperforms <a href="../../../methods/abmil/">ABMIL — Attention-Based Multiple Instance Learning</a>, <a href="../../../methods/clam/">CLAM — Clustering-constrained Attention MIL</a>, <a href="../../../methods/transmil/">TransMIL — Transformer-based Correlated MIL</a>, and <a href="../dsmil-2021/">DSMIL (Li, Li, Eliceiri 2021, CVPR)</a> on Camelyon16 and TCGA cohorts, particularly when training-set size is small.</p>
-<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Pseudo-bag count</strong> is a hyperparameter that affects performance — needs per-cohort tuning.</li>
-<li><strong>Feature distillation</strong> adds computational overhead vs single-tier MIL.</li>
-<li><strong>Default ResNet encoder</strong> is now superseded by pathology PFMs (<a href="../../../models/uni/">UNI (ViT-L/16, DINOv2)</a> / <a href="../virchow-2024/">Virchow (Vorontsov et al. 2024, Nat Med)</a> / <a href="../gigapath-2024/">Prov-GigaPath (Xu et al. 2024, Nature)</a>).</li>
-</ul>
-<h2 id="how-claude-should-use-this-article">How Claude should use this article<a class="headerlink" href="#how-claude-should-use-this-article" title="Permanent link">&para;</a></h2>
+<h2 id="claude">Claude 应该如何使用这个数据集<a class="headerlink" href="#claude" title="Permanent link">&para;</a></h2>
 <div class="pwiki-card">
-<div class="pwiki-card-kind">skill · articles</div>
-<h3 class="pwiki-card-title" id="skill-dtfd-mil-2022">Skill: dtfd-mil-2022<a class="headerlink" href="#skill-dtfd-mil-2022" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-kind">skill · datasets</div>
+<h3 class="pwiki-card-title" id="skill-cptac">Skill: cptac<a class="headerlink" href="#skill-cptac" title="Permanent link">&para;</a></h3>
 <div class="pwiki-card-meta">Documentation-form SKILL.md (CLAUDE.md §12).</div>
 <div>
-<p>How Claude should use this object — see the SKILL doc at <code>skills/articles/dtfd-mil-2022/SKILL.md</code>.</p>
+<p>How Claude should use this object — see the SKILL doc at <code>skills/datasets/cptac/SKILL.md</code>.</p>
 </div>
-<div class="pwiki-card-links"><a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/skills/articles/dtfd-mil-2022/SKILL.md" target="_blank" rel="noreferrer">source</a></div>
+<div class="pwiki-card-links"><a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/skills/datasets/cptac/SKILL.md" target="_blank" rel="noreferrer">source</a></div>
 </div>
-<p>Cite DTFD-MIL as the <strong>pseudo-bag MIL precedent</strong> and as the canonical sibling to ABMIL / CLAM / TransMIL / DSMIL. Particularly relevant when training data is scarce.</p>
-<h2 id="related-nodes">Related nodes<a class="headerlink" href="#related-nodes" title="Permanent link">&para;</a></h2>
+<p>CPTAC 是 <strong>TCGA 训练模型的规范外部验证队列</strong>,也是唯一规模较大的、配对 H&amp;E + 蛋白质组学的公开队列。当用户问"怎么在外部 cohort 上验证 TCGA 训练的模型"或"哪里有病理 + bulk 蛋白质组"时，答案就是 CPTAC。</p>
+<h2 id="_8">相关节点<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <ul>
-<li>parent method: <a href="../../../methods/weakly-supervised-mil/">Weakly-Supervised Multiple Instance Learning (WSI)</a></li>
-<li>predecessor: <a href="../abmil-2018/">ABMIL (Ilse, Tomczak, Welling 2018)</a></li>
-<li>siblings: <a href="../clam-2021/">CLAM (Lu et al. 2021, Nat Biomed Eng)</a>, <a href="../transmil-2021/">TransMIL (Shao et al. 2021, NeurIPS)</a>, <a href="../dsmil-2021/">DSMIL (Li, Li, Eliceiri 2021, CVPR)</a></li>
-<li>canonical dataset: <a href="../../../datasets/camelyon16/">Camelyon16 — Cancer Metastases in Lymph Nodes 2016</a></li>
+<li>姐妹队列：<a href="../tcga/">TCGA — The Cancer Genome Atlas</a></li>
+<li>工具：<a href="../../tools/openslide/">OpenSlide (WSI I/O)</a></li>
+<li>工具箱：<a href="../../methods/clam/">CLAM — Clustering-constrained Attention MIL</a></li>
+<li>同类公开数据集：<a href="../camelyon16/">Camelyon16 — Cancer Metastases in Lymph Nodes 2016</a>、<a href="../panda/">PANDA — Prostate cANcer graDe Assessment</a>、<a href="../pannuke/">PanNuke — Pan-Cancer Nuclei Seg &amp; Classification</a>、<a href="../midog/">MIDOG — MItosis DOmain Generalization Challenge</a></li>
 </ul>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h2 id="_9">参考<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <ul>
-<li>DOI: <a href="https://doi.org/10.1109/CVPR52688.2022.01824">10.1109/CVPR52688.2022.01824</a></li>
-<li>arXiv: <a href="https://arxiv.org/abs/2203.12081">2203.12081</a></li>
-<li>Code: <a href="https://github.com/hrzhang1123/DTFD-MIL">github.com/hrzhang1123/DTFD-MIL</a></li>
-<li><em>CVPR 2022</em> pp 18780–18790</li>
+<li>PDC 入口：<a href="https://pdc.cancer.gov/pdc/">pdc.cancer.gov/pdc/</a></li>
+<li>项目页：<a href="https://proteomics.cancer.gov/programs/cptac">proteomics.cancer.gov/programs/cptac</a></li>
+<li>创始论文：Ellis 等，<em>Cancer Cell</em>（2013）</li>
 </ul>
 
 
@@ -2983,7 +3039,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Back to top
+  回到页面顶部
 </button>
         
       </main>
@@ -3031,7 +3087,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
