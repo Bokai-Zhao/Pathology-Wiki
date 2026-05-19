@@ -451,22 +451,27 @@ Default behaviour: **ask, do not auto-stub**. Record the user's choice in the up
 
 ### 11.7 Slash commands
 
-MVP convention — Claude recognises these phrases in user prompts and runs the matching pipeline:
+The five ingestion pipelines are registered as Claude Code skills under `.claude/skills/<name>/SKILL.md` and invoked via slash menu (kebab-case):
 
 ```
-/add_article  {url|doi|pdf|abstract}    → 11.1
-/add_tool     {github_url}              → 11.2
-/add_dataset  {dataset_url}             → 11.3
-/add_method   {method_name}             → 11.4
-/add_benchmark {name|url}               → 11.5
-/update_knowledge_base {source_list}
-/build_graph
-/export_claude_context
+/add-article   {url|doi|pdf|abstract}    → 11.1
+/add-tool      {github_url}              → 11.2
+/add-dataset   {dataset_url}             → 11.3
+/add-method    {method_name}             → 11.4
+/add-benchmark {name|url}                → 11.5
 ```
 
-Once the workflow stabilises, promote the high-frequency ones (`/add_article`, `/add_tool`, `/add_dataset`) to real Claude Code slash commands under `.claude/commands/*.md`. Until then, treat them as user-prompt conventions.
+Each registered skill is a thin wrapper with frontmatter (`name`, `description`) that points to the canonical doc-form `skills/{category}/{id}/SKILL.md` for full pipeline detail. Source-of-truth lives under `skills/`; the `.claude/skills/` shim is regenerable.
 
-> **简**：5 条 ingestion 流水线步骤死。引用了不存在的节点必须停下问用户，**默认不自动建 stub**。Slash 命令现在是约定，未来高频的几个升级成真命令。
+Less-frequent operations stay as natural-language conventions (Claude understands them but they're not in the slash menu):
+
+```
+/build_graph              → run scripts/python/build_graph.py
+/export_claude_context    → run scripts/python/export_claude_context.py
+/update_knowledge_base    → batch ingest a source_list
+```
+
+> **简**：5 条 ingestion 流水线已注册成 `.claude/skills/` 下的真 skill，斜杠菜单里有 `/add-article` 等。其它低频操作仍用自然语言或脚本调用。
 
 ---
 

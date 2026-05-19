@@ -77,14 +77,14 @@ Full sub-branch list under [`knowledge/taxonomies/method_map.yaml`](./knowledge/
 
 ## Adding new objects
 
-In a Claude Code session, use slash conventions:
+In a Claude Code session, the five ingestion pipelines are registered as slash skills under `.claude/skills/`:
 
 ```
-/add_article  {url | doi | pdf | abstract}
-/add_tool     {github_url}
-/add_dataset  {url}
-/add_method   {name}
-/add_benchmark {name | url}
+/add-article   {url | doi | pdf | abstract}
+/add-tool      {github_url}
+/add-dataset   {url}
+/add-method    {name}
+/add-benchmark {name | url}
 ```
 
 Each pipeline classifies, extracts, links, validates, and writes all five artifacts. When an object cites another that doesn't have a node yet, Claude **stops and asks** rather than auto-stubbing. Full step lists in [CLAUDE.md §11](./CLAUDE.md#11-ingestion-pipelines-and-slash-commands).
@@ -159,4 +159,4 @@ Pathology-Wiki/
 
 ---
 
-> **简**：这是一个由 Claude Code 维护的病理 AI 知识库 + GitHub Pages 站点。点上面的 Live site 就能浏览；想让 Claude 加新对象就在会话里说 `/add_article {url}`。运维规则全在 `CLAUDE.md`，设计原文在 `claude.md`。
+> **简**：这是一个由 Claude Code 维护的病理 AI 知识库 + GitHub Pages 站点。点上面的 Live site 就能浏览；想让 Claude 加新对象就在会话里说 `/add-article {url}`。运维规则全在 `CLAUDE.md`，设计原文在 `claude.md`。

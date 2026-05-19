@@ -63,17 +63,19 @@ CI runs all of the above on every push to `main` (under 60 s typical) — see
 
 ## Adding objects
 
-In a Claude Code session, use slash conventions:
+In a Claude Code session, use the registered slash skills:
 
 ```
-/add_article  {url|doi|pdf}
-/add_tool     {github_url}
-/add_dataset  {url}
-/add_method   {name}
-/add_benchmark {name}
+/add-article   {url|doi|pdf}
+/add-tool      {github_url}
+/add-dataset   {url}
+/add-method    {name}
+/add-benchmark {name}
 ```
 
-Each command runs the matching pipeline; full step lists in
+These live under `.claude/skills/<name>/SKILL.md` (project-scoped, committed
+to the repo). Each is a thin wrapper that points back to the canonical
+documentation at `skills/{category}/{id}/SKILL.md`. Full step lists in
 [`CLAUDE.md` §11](../CLAUDE.md#11-ingestion-pipelines-and-slash-commands)
 and the design version in `claude.md` §7.
 
