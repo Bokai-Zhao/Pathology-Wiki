@@ -1,0 +1,131 @@
+id: clip-2021
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "Learning Transferable Visual Models From Natural Language Supervision"
+authors:
+  - Alec Radford
+  - Jong Wook Kim
+  - Chris Hallacy
+  - Aditya Ramesh
+  - Gabriel Goh
+  - Sandhini Agarwal
+  - Girish Sastry
+  - Amanda Askell
+  - Pamela Mishkin
+  - Jack Clark
+  - Gretchen Krueger
+  - Ilya Sutskever
+year: 2021
+venue: ICML
+publication_status: published
+
+links:
+  arxiv: "2103.00020"
+  paper: https://proceedings.mlr.press/v139/radford21a.html
+  github: https://github.com/openai/CLIP
+  doi: 10.48550/arXiv.2103.00020   # to_verify (ICML proceedings has no separate DOI)
+
+abstract: |
+  Introduces CLIP — Contrastive Language-Image Pretraining. Trains a joint
+  image and text encoder on 400M (image, caption) pairs scraped from the web
+  with a contrastive InfoNCE objective: images and matched captions become
+  close in a shared embedding space, mismatched pairs distant. The resulting
+  model enables zero-shot image classification: provide candidate class names
+  as text prompts, encode them, encode the image, and assign the image to the
+  closest text. CLIP underpins the entire modern pathology VL stack — PLIP,
+  CONCH, QuiltNet, MI-Zero are CLIP-architecture or CLIP-initialised models
+  fine-tuned on pathology data.
+keywords:
+  - contrastive learning
+  - vision-language
+  - zero-shot classification
+  - foundation model
+  - multimodal
+
+domains: [computer-vision, natural-language-processing, multimodal]
+modalities:
+  - natural-image
+  - natural-text
+organs: []
+diseases: []
+biomarkers: []
+tasks:
+  - zero-shot-classification
+  - image-text-retrieval
+  - vision-language-pretraining
+metrics:
+  - accuracy
+  - top-k-accuracy
+
+related_methods:
+  - pathology-vlm
+related_models: []
+related_datasets: []
+related_tools: []
+related_benchmarks: []
+related_articles: []
+
+technical_focus:
+  method_family:
+    - vision-language-contrastive
+    - image-text-pretraining
+  model_architecture:
+    - vit-b-32
+    - vit-l-14
+    - resnet-50
+    - text-transformer
+  training_strategy:
+    - contrastive-info-nce
+    - large-batch-pretraining
+  supervision_type:
+    - weakly-supervised                # web-scraped captions, not curated labels
+    - vision-language-paired
+  input_type:
+    - rgb-image
+    - text-prompt
+  output_type:
+    - image-embedding
+    - text-embedding
+    - zero-shot-class-probabilities
+  datasets:
+    - webimagetext-400m              # internal OpenAI web-scraped corpus
+  metrics:
+    - imagenet-top-1
+    - top-5-accuracy
+  baselines:
+    - resnet-imagenet-supervised
+    - efficientnet-imagenet
+  implementation: "PyTorch; OpenAI released code + pretrained weights for ViT-B/32, ViT-B/16, ViT-L/14 (RN50/101 variants too)."
+  reproducibility: "Code and weights public on github.com/openai/CLIP; pretraining corpus (WIT-400M) not released — replication needs LAION."
+  limitations:
+    - "Pretraining data not released — reproduction needs LAION or similar."
+    - "Natural-image / web-text domain — direct application to pathology fails without fine-tuning (PLIP, CONCH)."
+    - "Text prompts are sensitive to phrasing — prompt-engineering matters for zero-shot accuracy."
+    - "No clinical text training — pathology terminology is out-of-distribution."
+  reusable_components:
+    - dual-encoder-architecture
+    - info-nce-contrastive-objective
+    - clip-zero-shot-prompt-template
+
+claude:
+  summary: |
+    Radford et al. (ICML 2021) — CLIP is the foundational vision-language
+    contrastive model that underpins the entire modern pathology VL stack.
+    PLIP, CONCH, QuiltNet, MI-Zero are CLIP-architecture or CLIP-initialised
+    fine-tunes on pathology data. Always cite when introducing image-text
+    contrastive methods to a pathology audience.
+  use_when:
+    - "Introducing image-text contrastive learning in any pathology paper"
+    - "Establishing the architectural precedent for PLIP / CONCH / QuiltNet"
+    - "Discussing zero-shot classification frameworks"
+  do_not_use_when:
+    - "Need pathology-specific VL — cite PLIP / CONCH / QuiltNet / MUSK"
+    - "Need report-grade clinical text alignment — CLIP's web text is not enough"
+    - "Need slide-level zero-shot — cite MI-Zero"
+  update_level: taxonomy_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

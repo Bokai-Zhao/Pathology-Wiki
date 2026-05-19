@@ -151,3 +151,35 @@ edges:
       evidence: "CellViT is the canonical ViT baseline on PanNuke", confidence: high }
   - { from: hover-net-2019, to: cellvit-2024, type: related_to,
       evidence: "HoVer-Net precedes and motivates CellViT; both share decoder structure", confidence: high }
+
+  # ---- Cluster 4: Pathology VLM (added 2026-05-19) ----
+
+  # Method hierarchy
+  - { from: pathology-vlm, to: patch-level-ssl, type: related_to,
+      evidence: "Pathology VLMs are typically initialised from / share architecture with patch-level SSL encoders; CLIP-fine-tune style", confidence: high }
+
+  # Articles propose methods / release models
+  - { from: clip-2021, to: pathology-vlm, type: related_to,
+      evidence: "CLIP is the foundational image-text contrastive recipe that pathology VLMs (PLIP, CONCH, QuiltNet, MUSK) build on", confidence: high }
+  - { from: plip-2023, to: pathology-vlm, type: proposes_method,
+      evidence: "Huang et al. Nat Med 2023 — introduces PLIP, the first widely-cited pathology VL foundation model", confidence: high }
+  - { from: plip-2023, to: plip, type: releases_model,
+      evidence: "PLIP paper releases the PLIP checkpoint (CLIP ViT-B/32 fine-tuned on OpenPath)", confidence: high }
+  - { from: plip-2023, to: clip-2021, type: extends,
+      evidence: "PLIP is CLIP fine-tuned on pathology image-caption pairs from medical Twitter", confidence: high }
+  - { from: mi-zero-2023, to: pathology-vlm, type: extends,
+      evidence: "MI-Zero extends pathology VL from patch-level zero-shot to slide-level zero-shot via top-k aggregation", confidence: high }
+  - { from: mi-zero-2023, to: weakly-supervised-mil, type: related_to,
+      evidence: "MI-Zero borrows MIL-style aggregation (top-k pooling) to lift patch-level VL scores to slide level", confidence: high }
+  - { from: mi-zero-2023, to: plip-2023, type: related_to,
+      evidence: "MI-Zero builds on patch-level VL models like PLIP (and the authors' contemporaneous Mahmood-Lab VL model)", confidence: high }
+
+  # Model + PFM relations
+  - { from: plip, to: pathology-vlm, type: belongs_to,
+      evidence: "PLIP is a pathology vision-language foundation model", confidence: high }
+  - { from: plip, to: clip-2021, type: extends,
+      evidence: "PLIP fine-tunes the CLIP architecture on OpenPath", confidence: high }
+
+  # Cross-cluster: PLIP evaluated on pannuke crops
+  - { from: plip-2023, to: pannuke, type: uses_dataset,
+      evidence: "PLIP downstream evaluation includes PanNuke patch-level crops", confidence: medium }

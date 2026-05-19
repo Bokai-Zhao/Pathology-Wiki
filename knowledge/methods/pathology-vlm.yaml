@@ -1,0 +1,71 @@
+id: pathology-vlm
+type: method
+name: Pathology Vision-Language Models
+
+stage:
+  - pathology_vlm
+
+parent_methods: []
+child_methods: []
+predecessors:
+  - patch-level-ssl
+successors: []
+
+core_idea: |
+  Align pathology image features with text descriptions (captions, reports,
+  textbook excerpts) via large-scale image-text contrastive pretraining
+  (CLIP-style) or generative alignment (caption / report generation), to
+  enable zero-shot classification, retrieval, and natural-language querying
+  of histopathology images. The text encoder serves as a flexible classifier
+  whose label set can change at inference time, sidestepping per-task
+  fine-tuning. Pathology VLMs are the foundational technology under modern
+  pathology MLLMs (PathChat, PathGen, MUSK) and zero-shot WSI pipelines
+  (MI-Zero, CONCH-MIL).
+
+key_questions:
+  - "Where does the text supervision come from — captions, reports, Twitter, textbooks?"
+  - "Image-text contrastive (CLIP) vs generative captioning vs instruction-tuned MLLM?"
+  - "How does zero-shot accuracy compare against frozen-feature linear probing?"
+  - "How to extend patch-level VL alignment to slide-level (MI-Zero, CONCH-MIL)?"
+  - "What text vocabulary covers diagnostic pathology adequately?"
+
+representative_articles:
+  - clip-2021
+  - plip-2023
+  - mi-zero-2023
+representative_models:
+  - plip
+representative_tools: []
+representative_datasets: []
+related_benchmarks: []
+
+tasks:
+  - zero-shot-classification
+  - image-text-retrieval
+  - text-to-image-retrieval
+  - histology-captioning
+  - pathology-vqa
+modalities:
+  - h-and-e
+  - pathology-text
+
+claude:
+  summary: |
+    Umbrella method node for pathology vision-language models. Subbranches:
+    image-text contrastive (CLIP-style — PLIP / CONCH / QuiltNet), report
+    alignment, histology captioning, pathology VQA, retrieval-augmented
+    reasoning, instruction-tuned pathology MLLM (PathChat, MUSK). MI-Zero
+    extends image-text VL alignment from patch to slide via MIL aggregation
+    on top of VL features.
+  use_when:
+    - "Discussing zero-shot classification on H&E"
+    - "Positioning a new pathology VL method in the D branch of the method map"
+    - "Comparing pathology VLMs (PLIP / CONCH / MUSK / QuiltNet)"
+    - "Designing a pathology retrieval or captioning pipeline"
+  do_not_use_when:
+    - "User wants vision-only PFM features for MIL — link to patch-level-ssl instead"
+    - "User wants slide-level pretraining (GigaPath) — different sub-branch"
+  update_level: taxonomy_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

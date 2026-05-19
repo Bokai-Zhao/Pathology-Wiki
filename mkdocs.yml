@@ -82,9 +82,13 @@ nav:
           - "HoVer-Net (Graham 2019)": articles/technical/hover-net-2019.md
           - "CellViT (Hörst 2024)": articles/technical/cellvit-2024.md
           - "CTransPath (Wang 2022)": articles/technical/ctranspath-2022.md
+          - "CLIP (Radford 2021)": articles/technical/clip-2021.md
+          - "PLIP (Huang 2023)": articles/technical/plip-2023.md
+          - "MI-Zero (Lu 2023)": articles/technical/mi-zero-2023.md
   - Models:
       - UNI: models/uni.md
       - CTransPath: models/ctranspath.md
+      - PLIP: models/plip.md
   - Tools:
       - OpenSlide: tools/openslide.md
   - Datasets:
@@ -103,6 +107,7 @@ nav:
       - TransMIL: methods/transmil.md
       - HoVer-Net: methods/hover-net.md
       - CellViT: methods/cellvit.md
+      - Pathology VLM: methods/pathology-vlm.md
   - Knowledge graph: graph.md
   - Skills: skills.md
 

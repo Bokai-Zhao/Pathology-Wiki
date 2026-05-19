@@ -1,0 +1,141 @@
+id: mi-zero-2023
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "Visual Language Pretrained Multiple Instance Zero-Shot Transfer for Histopathology Images"
+authors:
+  - Ming Y. Lu
+  - Bowen Chen
+  - Andrew Zhang
+  - Drew F. K. Williamson
+  - Richard J. Chen
+  - Tong Ding
+  - Long Phi Le
+  - Yung-Sung Chuang
+  - Faisal Mahmood
+year: 2023
+venue: CVPR
+publication_status: published
+
+links:
+  doi: 10.1109/CVPR52729.2023.01893
+  paper: https://openaccess.thecvf.com/content/CVPR2023/papers/Lu_Visual_Language_Pretrained_Multiple_Instance_Zero-Shot_Transfer_for_Histopathology_Images_CVPR_2023_paper.pdf
+  github: https://github.com/mahmoodlab/MI-Zero
+  arxiv: "2306.07831"
+
+abstract: |
+  Introduces MI-Zero, a method to perform zero-shot slide-level classification
+  on whole-slide images using a pathology vision-language model. Patch-level
+  VL similarity scores (computed against text prompts) are aggregated via
+  three pooling functions — top-k, weighted top-k, and identity — over the
+  slide's patches to produce a slide-level zero-shot prediction without any
+  slide-level training. MI-Zero uses a pre-existing pathology VL model
+  (the authors release one alongside) and demonstrates competitive zero-shot
+  performance on TCGA-NSCLC, TCGA-RCC, and TCGA-BRCA subtyping.
+keywords:
+  - zero-shot
+  - vision-language
+  - whole slide image
+  - multiple instance learning
+  - pathology
+  - histopathology
+
+domains: [computational-pathology, multimodal]
+modalities:
+  - h-and-e
+  - pathology-text
+organs:
+  - lung
+  - kidney
+  - breast
+diseases:
+  - non-small-cell-lung-cancer
+  - renal-cell-carcinoma
+  - breast-cancer
+biomarkers: []
+tasks:
+  - zero-shot-classification
+  - slide-level-classification
+  - subtype-classification
+metrics:
+  - accuracy
+  - auc
+  - balanced-accuracy
+
+related_methods:
+  - pathology-vlm
+  - weakly-supervised-mil
+related_models:
+  - plip                              # PLIP can serve as the underlying patch-level VL model
+related_datasets: []
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - plip-2023
+  - clip-2021
+
+technical_focus:
+  method_family:
+    - pathology-vlm
+    - weakly-supervised-mil
+    - zero-shot-aggregation
+  model_architecture:
+    - vit-clip-pathology              # any pathology VL patch encoder
+    - text-transformer
+    - top-k-aggregator
+  training_strategy:
+    - zero-shot                       # no slide-level training
+    - patch-level-vl-pretraining-required-upstream
+  supervision_type:
+    - zero-shot
+  input_type:
+    - h-and-e-patch
+    - text-prompt
+  output_type:
+    - patch-vl-similarity-score
+    - slide-level-zero-shot-prediction
+  datasets:
+    - tcga-nsclc                       # not yet nodes — descriptive labels
+    - tcga-rcc
+    - tcga-brca
+  metrics:
+    - zero-shot-accuracy
+    - auc
+    - balanced-accuracy
+  baselines:
+    - clip-imagenet-zero-shot
+    - plip-patch-level-zero-shot
+    - fully-supervised-mil
+  implementation: "PyTorch; aggregator wraps any patch-level VL model."
+  reproducibility: "Code public on github.com/mahmoodlab/MI-Zero; needs a pathology VL checkpoint."
+  limitations:
+    - "Zero-shot accuracy lags behind fully-supervised MIL on most tasks — useful for label-poor regimes."
+    - "Sensitive to text-prompt choice — prompt engineering matters."
+    - "Patch encoder quality dominates downstream zero-shot accuracy."
+    - "Top-k aggregation may under-weight diffuse signal across many low-attention patches."
+  reusable_components:
+    - top-k-vl-aggregator
+    - prompt-template-library
+
+claude:
+  summary: |
+    Lu et al. (CVPR 2023) — MI-Zero extends pathology VL zero-shot
+    classification from patch to slide level via top-k aggregation over patch
+    VL similarity scores. Enables zero-shot WSI subtyping with no slide-level
+    training. The canonical reference for slide-level zero-shot VL pipelines;
+    the foundation that CONCH-MIL and successors build on.
+  use_when:
+    - "Zero-shot WSI classification needed (no slide-level labels)"
+    - "Label-poor regime where supervision is expensive"
+    - "Demonstrating that a pathology VL model can extend from patch to slide"
+    - "Comparing zero-shot vs supervised MIL on the same backbone"
+  do_not_use_when:
+    - "Slide-level labels are abundant — fully-supervised MIL outperforms"
+    - "Need fine-grained spatial localisation — top-k aggregation is coarse"
+    - "Need bag-level pretraining — use CONCH-MIL / slide-level VL methods"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

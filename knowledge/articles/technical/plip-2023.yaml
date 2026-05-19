@@ -1,0 +1,136 @@
+id: plip-2023
+type: article
+
+article_type:
+  primary: technical_article
+  secondary:
+    - dataset_article                 # releases OpenPath image-caption corpus
+
+title: "A visual–language foundation model for pathology image analysis using medical Twitter"
+authors:
+  - Zhi Huang
+  - Federico Bianchi
+  - Mert Yuksekgonul
+  - Thomas J. Montine
+  - James Zou
+year: 2023
+venue: Nature Medicine
+publication_status: published
+
+links:
+  doi: 10.1038/s41591-023-02504-3
+  paper: https://www.nature.com/articles/s41591-023-02504-3
+  github: https://github.com/PathologyFoundation/plip
+  huggingface: https://huggingface.co/vinid/plip
+  pubmed: to_verify
+
+abstract: |
+  Introduces PLIP, a pathology vision-language foundation model obtained by
+  fine-tuning CLIP on OpenPath — a corpus of ~200k pathology image-caption
+  pairs mined from medical Twitter (clinician posts using pathology-related
+  hashtags). PLIP enables zero-shot pathology image classification, image-text
+  retrieval, and similar-image search across multiple H&E benchmarks (Kather
+  CRC, PanNuke crops, others). Demonstrated to outperform CLIP-ImageNet and
+  to match or exceed supervised baselines on several zero-shot tasks. Also
+  releases the OpenPath dataset, the first large-scale pathology image-caption
+  corpus with open access.
+keywords:
+  - vision-language
+  - pathology
+  - CLIP
+  - zero-shot
+  - foundation model
+  - medical twitter
+  - histopathology
+
+domains: [computational-pathology, multimodal]
+modalities:
+  - h-and-e
+  - pathology-text
+organs: []
+diseases: []
+biomarkers: []
+tasks:
+  - zero-shot-classification
+  - image-text-retrieval
+  - text-to-image-retrieval
+  - patch-classification
+metrics:
+  - accuracy
+  - top-k-accuracy
+  - precision-at-k
+
+related_methods:
+  - pathology-vlm
+related_models:
+  - plip
+related_datasets:
+  - openpath                          # not yet a node — pending future ingestion
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - clip-2021
+
+technical_focus:
+  method_family:
+    - pathology-vlm
+    - vision-language-contrastive
+  model_architecture:
+    - vit-b-32                         # CLIP backbone
+    - text-transformer
+  training_strategy:
+    - clip-fine-tune
+    - contrastive-info-nce
+  supervision_type:
+    - weakly-supervised                # noisy Twitter captions
+    - vision-language-paired
+  input_type:
+    - h-and-e-patch
+    - pathology-text
+  output_type:
+    - image-embedding
+    - text-embedding
+    - zero-shot-class-probabilities
+  datasets:
+    - openpath                         # 200k image-caption pairs from medical Twitter
+    - kather-crc                       # not yet a node — downstream evaluation
+    - pannuke                          # downstream evaluation crops
+  metrics:
+    - zero-shot-accuracy
+    - top-k-retrieval
+  baselines:
+    - clip-imagenet
+    - resnet-imagenet
+  implementation: "PyTorch; fine-tunes OpenAI CLIP ViT-B/32 with InfoNCE on OpenPath."
+  reproducibility: "Code + weights public; OpenPath corpus public on Hugging Face."
+  limitations:
+    - "Twitter-derived captions are noisy — clinical fidelity varies."
+    - "ViT-B/32 backbone is small; newer pathology VLMs (CONCH, QuiltNet) outperform on many tasks."
+    - "Captions skew to common findings — rare conditions under-represented."
+    - "Patch-level only — slide-level zero-shot needs MI-Zero / CONCH-MIL."
+    - "Twitter-mined data raises ethical / consent concerns; subsequent work (CONCH, QuiltNet) uses textbook sources."
+  reusable_components:
+    - openpath-corpus
+    - pathology-clip-fine-tune-recipe
+
+claude:
+  summary: |
+    Huang et al. (Nat Med 2023) — PLIP is the first widely-cited pathology
+    vision-language foundation model. CLIP ViT-B/32 fine-tuned on ~200k
+    pathology image-caption pairs mined from medical Twitter (OpenPath).
+    Enables zero-shot H&E classification and image-text retrieval. Superseded
+    by CONCH for many downstream tasks but remains the standard open-weights
+    reference for pathology VL.
+  use_when:
+    - "Citing the first pathology VL foundation model"
+    - "Open-weights pathology VL baseline (CONCH may be gated)"
+    - "Discussing image-text contrastive pretraining on pathology data"
+    - "OpenPath as a reference image-caption corpus"
+  do_not_use_when:
+    - "Need state-of-the-art pathology VL — cite CONCH / QuiltNet / MUSK"
+    - "Need slide-level zero-shot — cite MI-Zero"
+    - "Need clinical-grade text fidelity — Twitter captions are noisy"
+  update_level: taxonomy_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

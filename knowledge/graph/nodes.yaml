@@ -146,3 +146,34 @@ nodes:
     label: "CTransPath (Wang et al. 2022, Med Image Anal)"
     aliases: [wang-2022-ctranspath, transpath-2022]
     taxonomy_path: [Articles, Technical, Pathology SSL]
+
+  # ---- Cluster 4: Pathology VLM branch (added 2026-05-19) ----
+  - id: pathology-vlm
+    type: method
+    label: Pathology Vision-Language Models
+    aliases: [pathology-vl, pathology-vision-language]
+    taxonomy_path: [Pathology Vision-Language Models]
+
+  - id: plip
+    type: model
+    label: PLIP (CLIP fine-tuned on OpenPath)
+    aliases: [pathology-plip]
+    taxonomy_path: [Pathology Vision-Language Models, Vision-Language Foundation Models]
+
+  - id: clip-2021
+    type: technical_article
+    label: "CLIP (Radford et al. 2021, ICML)"
+    aliases: [radford-2021-clip]
+    taxonomy_path: [Articles, Technical, Vision-Language]
+
+  - id: plip-2023
+    type: technical_article
+    label: "PLIP (Huang et al. 2023, Nat Med)"
+    aliases: [huang-2023-plip, pathology-plip-paper]
+    taxonomy_path: [Articles, Technical, Pathology VLM]
+
+  - id: mi-zero-2023
+    type: technical_article
+    label: "MI-Zero (Lu et al. 2023, CVPR)"
+    aliases: [lu-2023-mi-zero, mizero-2023]
+    taxonomy_path: [Articles, Technical, Pathology VLM]

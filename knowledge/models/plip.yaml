@@ -1,0 +1,80 @@
+id: plip
+type: model
+name: PLIP — Pathology Language–Image Pretraining
+
+model_family: vision_language_pfm
+architecture: ViT-B/32 (CLIP-init)
+parameter_count: ~150M           # CLIP ViT-B/32 baseline, to_verify
+input_type:
+  - h-and-e-patch-224x224
+  - pathology-text
+output_type:
+  - patch-embedding
+  - text-embedding
+embedding_dim: 512                # to_verify (CLIP ViT-B default projection dim)
+
+training:
+  paradigm: vision-language-contrastive
+  objective: clip-info-nce
+  pretraining_data:
+    - openpath                    # ~200k image–caption pairs mined from medical Twitter
+  n_slides: to_verify             # PLIP pretraining is patch+text pairs, not WSIs
+  n_patches: 200000               # ~200k image–caption pairs (Huang 2023 abstract)
+  n_centers: to_verify
+
+released_by: Stanford / Zou Lab
+released_in_article: plip-2023
+release_date: "2023-09"           # to_verify exact month (paper Nat Med Sep 2023)
+weights_license: cc-by-nc-sa-4.0   # to_verify
+weights_access: open
+
+links:
+  github: https://github.com/PathologyFoundation/plip
+  huggingface: https://huggingface.co/vinid/plip
+  paper: plip-2023
+  doi: 10.1038/s41591-023-02504-3
+
+related_methods:
+  - pathology-vlm
+related_datasets:
+  - openpath                      # not yet a node (PLIP-curated Twitter image-caption corpus)
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - plip-2023
+
+capabilities:
+  - "Zero-shot pathology image classification via text prompts"
+  - "Image-text retrieval over histology corpora"
+  - "Patch + text joint embedding usable in retrieval-augmented pipelines"
+
+limitations:
+  - "Trained on Twitter-mined captions — text quality and clinical fidelity vary"
+  - "ViT-B/32 backbone is small by modern PFM standards"
+  - "Captions skew toward common findings — rare conditions are under-represented"
+  - "Patch-level only — slide-level VL needs MI-Zero / CONCH-MIL"
+  - "Twitter-based corpus raises ethical / consent concerns; later VLMs (CONCH, QuiltNet) use textbook sources"
+
+claude:
+  summary: |
+    PLIP (Huang et al., Nat Med 2023) — CLIP fine-tuned on ~200k pathology
+    image-caption pairs mined from medical Twitter (OpenPath corpus). First
+    widely-cited pathology VL model with open weights; enables zero-shot
+    classification and text-image retrieval on H&E patches. Superseded by
+    CONCH for many downstream tasks but remains an important reference and
+    a usable open baseline.
+  use_when:
+    - "Zero-shot pathology classification via text prompts"
+    - "Image-text retrieval on H&E corpora"
+    - "Comparing pathology VLMs (cite alongside CONCH / QuiltNet / MUSK)"
+    - "Open-weights baseline when CONCH is not available"
+  do_not_use_when:
+    - "Need state-of-the-art VL performance — CONCH typically outperforms"
+    - "Need slide-level zero-shot — use MI-Zero on top of PLIP, or CONCH-MIL"
+    - "Need clinical-grade text fidelity — Twitter captions are noisy"
+  prefer_over:
+    - clip-imagenet              # for any pathology task
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium
