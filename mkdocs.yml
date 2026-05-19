@@ -120,6 +120,7 @@ nav:
       - PLIP: models/plip.md
   - Tools:
       - OpenSlide: tools/openslide.md
+      - "Awesome-AI4DigitalPathology": tools/awesome-ai4digitalpathology.md
   - Datasets:
       - PANDA: datasets/panda.md
       - Camelyon16: datasets/camelyon16.md

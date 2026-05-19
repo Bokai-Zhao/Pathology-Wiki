@@ -257,3 +257,29 @@ edges:
       evidence: "Model CTransPath referenced via ctranspath-2022 article — pre-UNI SSL baseline", confidence: medium }
   - { from: bahadir-2024, to: plip, type: related_to,
       evidence: "Model PLIP referenced via plip-2023 article — pathology VL foundation model exemplar", confidence: medium }
+
+  # ---- Awesome-AI4DigitalPathology curated index (added 2026-05-19) ----
+  # The list catalogues ~447 entries; many overlap with our existing nodes.
+  # Edges below capture the index-points-to-resource relationship for the
+  # nodes already in our graph. New paper ingestions from the list will add
+  # their own edges through the standard /add-article pipeline.
+  - { from: awesome-ai4digitalpathology, to: uni, type: related_to,
+      evidence: "Listed as the canonical vision-only PFM example", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: ctranspath, type: related_to,
+      evidence: "Listed as the canonical pre-UNI pathology SSL baseline", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: plip, type: related_to,
+      evidence: "Listed as the open-weights pathology VL baseline", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: clam, type: related_to,
+      evidence: "Listed in the MIL section as the de-facto open-source MIL toolkit", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: hover-net, type: related_to,
+      evidence: "Listed in the dense-prediction section as the canonical nuclei seg + classification CNN", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: cellvit, type: related_to,
+      evidence: "Listed as the modern ViT-based nuclei seg + classification baseline", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: bahadir-2024, type: related_to,
+      evidence: "Listed in the surveys/reviews section alongside other pathology-AI surveys", confidence: medium }
+  - { from: awesome-ai4digitalpathology, to: camelyon16, type: related_to,
+      evidence: "Listed as a core public WSI benchmark", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: panda, type: related_to,
+      evidence: "Listed as a core public WSI benchmark for Gleason / ISUP grading", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: pannuke, type: related_to,
+      evidence: "Listed as a core nuclei-segmentation benchmark", confidence: high }

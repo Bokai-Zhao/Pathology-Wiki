@@ -1,0 +1,92 @@
+id: awesome-ai4digitalpathology
+type: tool
+name: Awesome-AI4DigitalPathology
+tool_type:
+  - reference_index
+  - paper_list
+  - awesome_list
+
+links:
+  github: https://github.com/lingxitong/Awesome-AI4DigitalPathology
+  homepage: https://github.com/lingxitong/Awesome-AI4DigitalPathology
+  docs: https://github.com/lingxitong/Awesome-AI4DigitalPathology/blob/main/README.md
+
+supported_inputs:
+  - "Markdown README (browseable)"
+supported_outputs:
+  - "Curated, categorised reference list of AI-for-digital-pathology papers, datasets, and tools"
+
+capabilities:
+  - "Indexes ~447 references across 16 sub-topics: surveys, datasets, MIL, federated learning, patch-level / slide-level foundation models, cytology, multi-omics, generative models, vision-language models and pathology agents, dense prediction, clinical applications, image registration, and resources/toolkits."
+  - "Each entry annotated with paper venue, code link, and (where available) model weights link."
+  - "Frequently updated — useful as a snapshot of community-curated state-of-the-art in any sub-area."
+
+related_methods:
+  - pathology-foundation-model
+  - pathology-vlm
+  - weakly-supervised-mil
+  - patch-level-ssl
+related_tasks: []
+related_datasets:
+  - camelyon16
+  - panda
+  - pannuke
+  - bach
+  - glas
+  - midog
+related_benchmarks: []
+related_articles:
+  - bahadir-2024
+related_models:
+  - uni
+  - ctranspath
+  - plip
+
+agent_interface:
+  callable: false                  # not a runtime tool — a curated reference resource
+  install_command: ""              # browse on github
+  example_usage: |
+    Browse https://github.com/lingxitong/Awesome-AI4DigitalPathology/blob/main/README.md
+    to discover new papers / models / datasets to ingest into Pathology-Wiki.
+    See `skills/tools/awesome-ai4digitalpathology/SKILL.md` for the categorised
+    pending-ingestion queue (Wave 1 / pending high / pending medium tags).
+  cli_available: false
+  python_api_available: false
+  docker_available: false
+
+maturity:
+  repo_status: active
+  documentation: good
+  reproducibility: unknown          # n/a — reference list not code
+  maintenance_level: active
+
+language: []                       # n/a — markdown documentation
+
+license: unknown                    # to_verify against repo LICENSE
+
+limitations:
+  - "Curated by a small team — coverage is broad but not exhaustive; some sub-fields (especially the very latest 2025 work) lag a few months behind arXiv."
+  - "No structured metadata — entries are markdown bullets with badges, not parseable JSON."
+  - "Per-entry annotations are short blurbs; deep extraction (datasets, metrics, methods) requires reading the underlying paper."
+  - "Includes some entries (Future Trends, agentic pathology speculation) that are not actionable Pathology-Wiki nodes."
+
+claude:
+  summary: |
+    Awesome-AI4DigitalPathology is a community-curated index of ~447 papers,
+    datasets, and tools for AI in computational pathology, organised into
+    16 sub-topic sections. Pathology-Wiki uses it as a discovery / queue
+    source: the per-entry `pending-ingestion queue` lives in this tool's
+    SKILL.md and in `reports/2026-05-19-awesome-list-queue.md`.
+  use_when:
+    - "User asks 'what's a recent X for pathology?' — browse the matching section"
+    - "Building a Pathology-Wiki ingestion queue across a sub-area"
+    - "Cross-checking that a candidate paper has community traction"
+    - "Surveying what's new in any of: PFMs, VLMs, MIL, datasets, generative pathology, etc."
+  do_not_use_when:
+    - "Need primary-source detail on a specific paper — read the paper itself"
+    - "Need licence / install / runtime usage of a tool — this is an index, not a runnable tool"
+    - "Need exhaustive coverage — community lists are curated, not complete"
+  update_level: skill_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium       # license to_verify; per-entry counts could shift on future README updates
