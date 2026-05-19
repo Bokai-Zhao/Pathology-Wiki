@@ -33,7 +33,8 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install pyyaml jsonschema networkx click \
-                      mkdocs mkdocs-material mkdocs-macros-plugin pymdown-extensions
+                      mkdocs mkdocs-material mkdocs-macros-plugin \
+                      mkdocs-static-i18n pymdown-extensions
       - name: Validate schemas
         run: python scripts/python/validate_schema.py
       - name: Build graph
