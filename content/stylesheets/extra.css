@@ -221,9 +221,11 @@
 
 .pwiki-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  /* upper bound 200px stops a lone trailing card from stretching the full row */
+  grid-template-columns: repeat(auto-fit, minmax(140px, 200px));
   gap: 0.75rem;
   margin: 0 0 2rem 0;
+  justify-content: start;
 }
 
 .pwiki-stat {
@@ -270,9 +272,11 @@
 /* Entry cards */
 .pwiki-entries {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  /* upper bound 340px keeps a lone trailing card from stretching across the full row */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 340px));
   gap: 0.9rem;
   margin: 0 0 2rem 0;
+  justify-content: start;
 }
 
 .pwiki-entry {
