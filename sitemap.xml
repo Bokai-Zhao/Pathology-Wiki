@@ -1,139 +1,479 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/graph/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/graph/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/graph/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/graph/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/skills/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/skills/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/skills/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/skills/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/reviews/bahadir-2024/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/reviews/bahadir-2024/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/reviews/bahadir-2024/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/reviews/bahadir-2024/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/abmil-2018/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/abmil-2018/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/abmil-2018/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/abmil-2018/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/campanella-2019/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/campanella-2019/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/campanella-2019/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/campanella-2019/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/cellvit-2024/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/cellvit-2024/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/cellvit-2024/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/cellvit-2024/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/clam-2021/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/clam-2021/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/clam-2021/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/clam-2021/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/clip-2021/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/clip-2021/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/clip-2021/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/clip-2021/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/ctranspath-2022/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/ctranspath-2022/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/ctranspath-2022/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/ctranspath-2022/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/hover-net-2019/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/hover-net-2019/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/hover-net-2019/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/hover-net-2019/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/mi-zero-2023/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/mi-zero-2023/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/mi-zero-2023/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/mi-zero-2023/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/plip-2023/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/plip-2023/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/plip-2023/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/plip-2023/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/transmil-2021/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/transmil-2021/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/transmil-2021/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/transmil-2021/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/uni-2024/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/uni-2024/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/uni-2024/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/uni-2024/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/bach/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/bach/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/bach/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/bach/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/camelyon16/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/camelyon16/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/camelyon16/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/camelyon16/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/glas/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/glas/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/glas/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/glas/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/midog/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/midog/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/midog/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/midog/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/panda/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/panda/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/panda/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/panda/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/pannuke/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/pannuke/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/pannuke/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/pannuke/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/abmil/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/abmil/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/abmil/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/abmil/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/cellvit/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/cellvit/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/cellvit/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/cellvit/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/clam/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/clam/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/clam/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/clam/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/hover-net/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/hover-net/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/hover-net/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/hover-net/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/patch-level-ssl/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/patch-level-ssl/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/patch-level-ssl/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/patch-level-ssl/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/pathology-foundation-model/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/pathology-foundation-model/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/pathology-foundation-model/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/pathology-foundation-model/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/pathology-vlm/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/pathology-vlm/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/pathology-vlm/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/pathology-vlm/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/transmil/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/transmil/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/transmil/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/transmil/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/weakly-supervised-mil/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/weakly-supervised-mil/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/weakly-supervised-mil/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/weakly-supervised-mil/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/models/ctranspath/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/models/ctranspath/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/models/ctranspath/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/models/ctranspath/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/models/plip/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/models/plip/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/models/plip/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/models/plip/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/models/uni/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/models/uni/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/models/uni/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/models/uni/"/>
     </url>
     <url>
-         <loc>https://bokai-zhao.github.io/Pathology-Wiki/tools/openslide/</loc>
-         <lastmod>2026-05-19</lastmod>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/tools/openslide/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/tools/openslide/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/tools/openslide/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/graph/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/graph/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/graph/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/skills/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/skills/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/skills/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/reviews/bahadir-2024/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/reviews/bahadir-2024/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/reviews/bahadir-2024/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/abmil-2018/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/abmil-2018/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/abmil-2018/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/campanella-2019/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/campanella-2019/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/campanella-2019/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/cellvit-2024/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/cellvit-2024/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/cellvit-2024/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/clam-2021/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/clam-2021/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/clam-2021/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/clip-2021/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/clip-2021/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/clip-2021/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/ctranspath-2022/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/ctranspath-2022/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/ctranspath-2022/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/hover-net-2019/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/hover-net-2019/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/hover-net-2019/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/mi-zero-2023/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/mi-zero-2023/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/mi-zero-2023/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/plip-2023/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/plip-2023/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/plip-2023/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/transmil-2021/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/transmil-2021/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/transmil-2021/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/uni-2024/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/articles/technical/uni-2024/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/articles/technical/uni-2024/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/bach/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/bach/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/bach/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/camelyon16/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/camelyon16/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/camelyon16/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/glas/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/glas/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/glas/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/midog/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/midog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/midog/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/panda/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/panda/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/panda/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/pannuke/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/pannuke/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/pannuke/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/abmil/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/abmil/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/abmil/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/cellvit/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/cellvit/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/cellvit/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/clam/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/clam/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/clam/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/hover-net/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/hover-net/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/hover-net/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/patch-level-ssl/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/patch-level-ssl/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/patch-level-ssl/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/pathology-foundation-model/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/pathology-foundation-model/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/pathology-foundation-model/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/pathology-vlm/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/pathology-vlm/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/pathology-vlm/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/transmil/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/transmil/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/transmil/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/weakly-supervised-mil/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/weakly-supervised-mil/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/methods/weakly-supervised-mil/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/models/ctranspath/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/models/ctranspath/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/models/ctranspath/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/models/plip/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/models/plip/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/models/plip/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/models/uni/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/models/uni/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/models/uni/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/tools/openslide/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/tools/openslide/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/tools/openslide/"/>
     </url>
 </urlset>
