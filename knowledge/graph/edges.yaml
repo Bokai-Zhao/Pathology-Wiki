@@ -47,3 +47,61 @@ edges:
   # GlaS (glands) and PanNuke (nuclei) are the morphometric segmentation pair
   - { from: glas, to: pannuke, type: related_to,
       evidence: "GlaS (gland-level) and PanNuke (cell-level) are the standard pair of small-scale H&E segmentation benchmarks", confidence: high }
+
+  # ---- Cluster 2: Weakly-supervised MIL — articles propose methods, methods evaluated on datasets (added 2026-05-19) ----
+
+  # Method hierarchy
+  - { from: abmil, to: weakly-supervised-mil, type: belongs_to,
+      evidence: "ABMIL is the canonical attention-based MIL variant; weakly-supervised-mil is the parent method node", confidence: high }
+  - { from: clam, to: abmil, type: extends,
+      evidence: "CLAM extends ABMIL with per-class attention branches + instance-clustering loss", confidence: high }
+  - { from: clam, to: weakly-supervised-mil, type: belongs_to,
+      evidence: "CLAM is a weakly-supervised MIL variant", confidence: high }
+  - { from: transmil, to: weakly-supervised-mil, type: belongs_to,
+      evidence: "TransMIL is a Transformer-based weakly-supervised MIL variant", confidence: high }
+  - { from: transmil, to: abmil, type: extends,
+      evidence: "TransMIL replaces ABMIL's MLP attention with Nyström self-attention + PPEG positional encoding", confidence: high }
+
+  # Articles propose methods
+  - { from: abmil-2018, to: abmil, type: proposes_method,
+      evidence: "Ilse, Tomczak, Welling ICML 2018 — introduces the attention-MIL formulation", confidence: high }
+  - { from: clam-2021, to: clam, type: proposes_method,
+      evidence: "Lu et al. Nat Biomed Eng 2021 — introduces CLAM-SB / CLAM-MB", confidence: high }
+  - { from: transmil-2021, to: transmil, type: proposes_method,
+      evidence: "Shao et al. NeurIPS 2021 — introduces TransMIL", confidence: high }
+  - { from: campanella-2019, to: weakly-supervised-mil, type: proposes_method,
+      evidence: "Campanella et al. Nat Med 2019 — first clinical-grade application of weakly-supervised MIL (CNN + RNN aggregator) on ~44k MSKCC slides", confidence: high }
+
+  # Method-method comparison / lineage among the articles
+  - { from: clam-2021, to: abmil-2018, type: extends,
+      evidence: "CLAM paper explicitly extends Ilse 2018 attention pooling", confidence: high }
+  - { from: transmil-2021, to: abmil-2018, type: extends,
+      evidence: "TransMIL benchmarks against ABMIL; replaces MLP attention with Transformer self-attention", confidence: high }
+  - { from: transmil-2021, to: clam-2021, type: compares_with,
+      evidence: "TransMIL reports comparisons against CLAM on Camelyon16 and TCGA cohorts", confidence: high }
+
+  # Articles use datasets
+  - { from: abmil-2018, to: camelyon16, type: uses_dataset,
+      evidence: "ABMIL paper evaluates on the Camelyon16 lymph-node metastasis benchmark", confidence: high }
+  - { from: clam-2021, to: camelyon16, type: uses_dataset,
+      evidence: "CLAM paper evaluates on Camelyon16 in addition to renal/lung subtyping", confidence: high }
+  - { from: transmil-2021, to: camelyon16, type: uses_dataset,
+      evidence: "TransMIL paper evaluates on Camelyon16 + TCGA-NSCLC + TCGA-RCC", confidence: high }
+  - { from: campanella-2019, to: camelyon16, type: related_to,
+      evidence: "Campanella 2019 is the clinical-grade scale predecessor whose triage methodology informs Camelyon16-style benchmarks (no direct use of Camelyon16 cohort)", confidence: medium }
+
+  # CLAM toolkit is the de-facto MIL head on top of PFMs
+  - { from: clam, to: pathology-foundation-model, type: related_to,
+      evidence: "CLAM is the default MIL aggregator on top of UNI / GigaPath / Virchow PFM features in modern WSI benchmarks", confidence: high }
+
+  # PANDA's MIL method hints now resolve
+  - { from: panda, to: clam, type: related_to,
+      evidence: "CLAM is a canonical MIL aggregator used in PANDA Gleason-grading pipelines", confidence: medium }
+  - { from: panda, to: abmil, type: related_to,
+      evidence: "ABMIL is a canonical MIL aggregator used in PANDA Gleason-grading pipelines", confidence: medium }
+  - { from: panda, to: weakly-supervised-mil, type: related_to,
+      evidence: "PANDA Gleason grading is a standard weakly-supervised MIL target", confidence: high }
+
+  # weakly-supervised-mil → pathology-foundation-model is the historical succession edge
+  - { from: weakly-supervised-mil, to: pathology-foundation-model, type: related_to,
+      evidence: "Pathology foundation models build on the MIL paradigm — typical pipeline is PFM patch features fed into a MIL aggregator", confidence: high }

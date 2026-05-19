@@ -1,0 +1,61 @@
+id: abmil
+type: method
+name: Attention-Based Multiple Instance Learning (ABMIL)
+
+stage:
+  - deep_wsi_learning
+
+parent_methods:
+  - weakly-supervised-mil
+child_methods:
+  - clam
+predecessors: []
+successors:
+  - clam
+  - transmil
+
+core_idea: |
+  Replace permutation-invariant pooling (mean / max) over instances with a
+  learned attention mechanism. Each instance produces a scalar attention
+  weight via a small two-layer MLP; the bag embedding is the attention-weighted
+  sum of instance embeddings. The attention weights are interpretable — they
+  highlight which patches drove the slide-level prediction, providing free
+  heatmap-style localisation.
+
+key_questions:
+  - "Sigmoid vs softmax attention?"
+  - "Gated attention vs vanilla?"
+  - "How much does attention temperature affect heatmap quality?"
+  - "Single-head vs multi-head attention for multi-class bags?"
+
+representative_articles:
+  - abmil-2018
+representative_models: []
+representative_tools: []
+representative_datasets:
+  - camelyon16
+related_benchmarks: []
+
+tasks:
+  - slide-level-classification
+  - tumor-detection
+modalities:
+  - h-and-e
+
+claude:
+  summary: |
+    ABMIL (Ilse, Tomczak, Welling — ICML 2018) is the foundational attention
+    aggregator for MIL on WSIs. Every modern MIL variant (CLAM, TransMIL,
+    DSMIL, DTFD-MIL) descends from it. Default first baseline for any new
+    slide-level task.
+  use_when:
+    - "First baseline for a new WSI binary or multi-class slide-level task"
+    - "When interpretable attention heatmaps are required as a free byproduct"
+    - "Educational reference for the simplest learned MIL aggregator"
+  do_not_use_when:
+    - "When instance-instance correlations matter — use TransMIL / DSMIL"
+    - "When multi-scale context is needed — use multi-resolution variants"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

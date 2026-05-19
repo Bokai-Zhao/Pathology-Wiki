@@ -75,6 +75,10 @@ nav:
   - Articles:
       - Technical:
           - "UNI (2024)": articles/technical/uni-2024.md
+          - "ABMIL (Ilse 2018)": articles/technical/abmil-2018.md
+          - "CLAM (Lu 2021)": articles/technical/clam-2021.md
+          - "TransMIL (Shao 2021)": articles/technical/transmil-2021.md
+          - "Campanella 2019 — clinical-grade MIL": articles/technical/campanella-2019.md
   - Models:
       - UNI: models/uni.md
   - Tools:
@@ -88,6 +92,10 @@ nav:
       - MIDOG: datasets/midog.md
   - Methods:
       - Pathology Foundation Model: methods/pathology-foundation-model.md
+      - Weakly-Supervised MIL: methods/weakly-supervised-mil.md
+      - ABMIL: methods/abmil.md
+      - CLAM: methods/clam.md
+      - TransMIL: methods/transmil.md
   - Knowledge graph: graph.md
   - Skills: skills.md
 

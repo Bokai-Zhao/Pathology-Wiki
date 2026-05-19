@@ -54,3 +54,52 @@ nodes:
     label: "MIDOG — MItosis DOmain Generalization Challenge"
     aliases: [midog-2021, midog-2022, midog-2025]
     taxonomy_path: [Datasets, Mitosis Detection]
+
+  # ---- Cluster 2: Weakly-supervised MIL methods + papers (added 2026-05-19) ----
+  - id: weakly-supervised-mil
+    type: method
+    label: Weakly-Supervised Multiple Instance Learning (WSI)
+    aliases: [wsi-mil, mil-weakly-supervised]
+    taxonomy_path: [Deep Learning for WSI, Weakly Supervised MIL]
+
+  - id: abmil
+    type: method
+    label: ABMIL — Attention-Based Multiple Instance Learning
+    aliases: [attention-mil, attention-based-mil]
+    taxonomy_path: [Deep Learning for WSI, Weakly Supervised MIL, Attention-based MIL]
+
+  - id: clam
+    type: method
+    label: CLAM — Clustering-constrained Attention MIL
+    aliases: [clam-sb, clam-mb]
+    taxonomy_path: [Deep Learning for WSI, Weakly Supervised MIL, Attention-based MIL]
+
+  - id: transmil
+    type: method
+    label: TransMIL — Transformer-based Correlated MIL
+    aliases: [trans-mil]
+    taxonomy_path: [Deep Learning for WSI, Weakly Supervised MIL, Transformer MIL]
+
+  - id: abmil-2018
+    type: technical_article
+    label: "ABMIL (Ilse, Tomczak, Welling 2018)"
+    aliases: [ilse-2018-abmil]
+    taxonomy_path: [Articles, Technical, MIL]
+
+  - id: clam-2021
+    type: technical_article
+    label: "CLAM (Lu et al. 2021, Nat Biomed Eng)"
+    aliases: [lu-2021-clam]
+    taxonomy_path: [Articles, Technical, MIL]
+
+  - id: transmil-2021
+    type: technical_article
+    label: "TransMIL (Shao et al. 2021, NeurIPS)"
+    aliases: [shao-2021-transmil]
+    taxonomy_path: [Articles, Technical, MIL]
+
+  - id: campanella-2019
+    type: technical_article
+    label: "Campanella et al. 2019 — Clinical-Grade Weakly-Supervised Pathology MIL"
+    aliases: [clinical-grade-mil-2019, mskcc-mil-2019]
+    taxonomy_path: [Articles, Technical, MIL]

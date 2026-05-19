@@ -1,0 +1,70 @@
+id: weakly-supervised-mil
+type: method
+name: Weakly-Supervised Multiple Instance Learning (WSI)
+
+stage:
+  - deep_wsi_learning
+
+parent_methods: []
+child_methods:
+  - abmil
+  - clam
+  - transmil
+predecessors: []
+successors:
+  - pathology-foundation-model
+
+core_idea: |
+  Treat a whole-slide image as a bag of patch instances and train end-to-end
+  with only a slide-level label, without per-patch annotation. The aggregator
+  (mean / max → attention → transformer → graph) learns to weigh patch
+  contributions to the slide prediction. WSI MIL is the dominant paradigm for
+  any slide-level classification task in pathology and the immediate
+  predecessor of pathology foundation models — most modern PFM pipelines still
+  use an MIL aggregator on top of frozen PFM features.
+
+key_questions:
+  - "How to aggregate thousands of patch features into one slide prediction?"
+  - "How to make attention weights spatially interpretable (heatmaps, lesion localisation)?"
+  - "How to scale beyond memory (gradient checkpointing, foreground sampling, hierarchical aggregation)?"
+  - "How to handle weak / noisy slide labels (e.g. report mining)?"
+  - "How does MIL combine with PFM frozen features vs end-to-end fine-tuning?"
+
+representative_articles:
+  - abmil-2018
+  - clam-2021
+  - transmil-2021
+  - campanella-2019
+representative_models: []
+representative_tools: []
+representative_datasets:
+  - camelyon16
+  - panda
+related_benchmarks: []
+
+tasks:
+  - tumor-detection
+  - slide-level-classification
+  - grading
+  - survival-prediction
+  - biomarker-expression-prediction
+modalities:
+  - h-and-e
+
+claude:
+  summary: |
+    Umbrella method for weakly-supervised MIL on WSIs. The standard pipeline:
+    patch the slide, encode each patch with a backbone (ImageNet / SSL /
+    pathology PFM), aggregate via attention or transformer, predict at slide
+    level. Children: ABMIL, CLAM, TransMIL, DSMIL, DTFD-MIL, SETMIL.
+  use_when:
+    - "Slide-level classification with only slide-level labels"
+    - "Building any new WSI classification baseline"
+    - "Combining with a PFM backbone for downstream evaluation"
+  do_not_use_when:
+    - "Need patch- or pixel-level supervision — use fully-supervised seg / det"
+    - "Need real-time inference — MIL bags are large"
+  update_level: taxonomy_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

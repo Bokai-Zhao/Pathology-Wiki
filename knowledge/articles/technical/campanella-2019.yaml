@@ -1,0 +1,150 @@
+id: campanella-2019
+type: article
+
+article_type:
+  primary: technical_article
+  secondary:
+    - clinical_article
+
+title: "Clinical-grade computational pathology using weakly supervised deep learning on whole slide images"
+authors:
+  - Gabriele Campanella
+  - Matthew G. Hanna
+  - Luke Geneslaw
+  - Allen Miraflor
+  - Vitor Werneck Krauss Silva
+  - Klaus J. Busam
+  - Edi Brogi
+  - Victor E. Reuter
+  - David S. Klimstra
+  - Thomas J. Fuchs
+year: 2019
+venue: Nature Medicine
+publication_status: published
+
+links:
+  doi: 10.1038/s41591-019-0508-1
+  paper: https://www.nature.com/articles/s41591-019-0508-1
+  pubmed: to_verify
+
+abstract: |
+  Demonstrates the first clinical-grade application of weakly-supervised MIL
+  to pathology at scale: ~44,732 WSIs across prostate core needle biopsies,
+  basal cell carcinoma, and breast cancer metastasis to axillary lymph nodes,
+  trained from slide-level diagnostic reports alone (no pixel or patch
+  annotation). The MIL pipeline (CNN feature extractor + RNN-based bag
+  aggregator) achieves AUCs > 0.98 across all three tasks. Defines a
+  computer-assisted triage workflow that would have allowed pathologists to
+  safely exclude 65–75% of slides as negative, demonstrating clinical-grade
+  weak supervision is feasible.
+keywords:
+  - multiple instance learning
+  - clinical-grade pathology
+  - prostate cancer
+  - basal cell carcinoma
+  - breast metastasis
+  - whole slide image
+  - weakly-supervised learning
+
+domains: [computational-pathology, clinical-pathology]
+modalities: [h-and-e]
+organs: [prostate, skin, lymph-node, breast]
+diseases:
+  - prostate-cancer
+  - basal-cell-carcinoma
+  - breast-cancer-metastasis
+biomarkers: []
+tasks:
+  - slide-level-classification
+  - tumor-detection
+  - clinical-triage
+metrics:
+  - auc
+  - sensitivity
+  - specificity
+
+related_methods:
+  - weakly-supervised-mil
+related_models: []
+related_datasets:
+  - camelyon16
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - abmil-2018
+
+technical_focus:
+  method_family:
+    - weakly-supervised-mil
+    - cnn-patch-classification
+    - rnn-aggregation
+  model_architecture:
+    - resnet-cnn
+    - rnn-aggregator
+    - max-pool-mil
+  training_strategy:
+    - bag-instance-mining
+    - top-k-instance-selection
+    - end-to-end-bag-level
+  supervision_type:
+    - weakly-supervised                  # slide-level diagnostic labels only
+  input_type:
+    - h-and-e-patch
+    - bag-of-patches
+    - slide-level-diagnosis
+  output_type:
+    - slide-level-label
+    - tumor-probability
+  datasets:
+    - mskcc-prostate-internal            # 24,859 slides — internal
+    - mskcc-bcc-internal                 # 9,962 slides — internal
+    - mskcc-breast-axillary-internal     # 9,894 slides — internal
+  metrics:
+    - auc
+    - sensitivity
+    - specificity
+  baselines:
+    - fully-supervised-tile-cnn
+    - rule-based-baseline
+  implementation: "PyTorch + custom MIL training loop; large-scale distributed training on internal MSKCC cluster."
+  reproducibility: "Code available (limited); training slides are internal MSKCC clinical cohorts and cannot be released."
+  limitations:
+    - "Training cohorts are entirely internal MSKCC clinical data — external replication is impossible from scratch."
+    - "RNN aggregator is now superseded by attention / Transformer MIL (ABMIL / CLAM / TransMIL)."
+    - "Clinical-grade claim requires prospective deployment study — the paper is retrospective."
+  reusable_components:
+    - mil-training-recipe
+    - top-k-instance-selection
+
+clinical_focus:
+  clinical_problem: "Diagnostic triage of routine surgical pathology slides — automate detection of cancer in prostate biopsies, basal cell carcinoma skin biopsies, and axillary lymph-node sections."
+  clinical_endpoints:
+    - cancer-presence-detection
+    - clinical-triage-rate
+  treatment_context: []
+  cohort_design: "Retrospective MSKCC cohort: prostate 24,859 + BCC 9,962 + breast axillary 9,894 slides, slide-level labels from clinical reports."
+  clinical_workflow: "Computer-assisted triage: model labels slides as positive / negative; pathologist reviews positives + a subset of negatives. Modelled to safely exclude 65–75% of confirmed-negative slides."
+  clinical_need_for_ai: "Pathology workload bottleneck; high inter-observer variability for early-stage cancer detection; triage automation can free pathologist time for harder cases."
+  possible_ai_tasks:
+    - slide-level-tumor-detection
+    - clinical-triage
+
+claude:
+  summary: |
+    Campanella et al. (Nat Med 2019) — landmark scale demonstration of
+    weakly-supervised MIL on ~44k clinical WSIs at MSKCC across three
+    organ systems. Established that slide-level labels alone are sufficient
+    for clinical-grade tumor detection and seeded the modern weak-supervision
+    push in pathology.
+  use_when:
+    - "Citing the clinical-grade scale precedent for weakly-supervised MIL"
+    - "Discussing triage workflows or computer-assisted pathology deployment"
+    - "Motivating use of slide-level diagnostic-report labels at scale"
+  do_not_use_when:
+    - "Need specific aggregator details — cite ABMIL / CLAM / TransMIL instead"
+    - "Need reproducible training data — MSKCC cohorts are internal"
+    - "Need biomarker / molecular prediction — paper is tumor-presence only"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

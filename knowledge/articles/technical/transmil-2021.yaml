@@ -1,0 +1,126 @@
+id: transmil-2021
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "TransMIL: Transformer based Correlated Multiple Instance Learning for Whole Slide Image Classification"
+authors:
+  - Zhuchen Shao
+  - Hao Bian
+  - Yang Chen
+  - Yifeng Wang
+  - Jian Zhang
+  - Xiangyang Ji
+  - Yongbing Zhang
+year: 2021
+venue: NeurIPS
+publication_status: published
+
+links:
+  arxiv: "2106.00908"
+  paper: https://proceedings.neurips.cc/paper/2021/hash/10c272d06794d3e5785d5e7c5356e9ff-Abstract.html
+  github: https://github.com/szc19990412/TransMIL
+  doi: to_verify
+
+abstract: |
+  Introduces TransMIL, a Transformer-based MIL aggregator that models
+  correlations between patches in a WSI bag. Two components: (1) Nyström-based
+  self-attention to scale to bags of thousands of patches, and (2) a Pyramid
+  Position Encoding Generator (PPEG) that injects 2-D spatial context via a
+  combination of multi-scale convolutions and learned positional embeddings.
+  TransMIL outperforms permutation-invariant MIL baselines on Camelyon16,
+  TCGA-NSCLC, and TCGA-RCC slide-level classification.
+keywords:
+  - transformer
+  - multiple instance learning
+  - whole slide image
+  - correlated MIL
+  - Nyström attention
+
+domains: [computational-pathology]
+modalities: [h-and-e]
+organs: [breast, lung, kidney, lymph-node]
+diseases:
+  - breast-cancer-metastasis
+  - non-small-cell-lung-cancer
+  - renal-cell-carcinoma
+biomarkers: []
+tasks:
+  - slide-level-classification
+  - subtype-classification
+metrics:
+  - auc
+  - accuracy
+  - f1
+
+related_methods:
+  - weakly-supervised-mil
+  - transmil
+related_models: []
+related_datasets:
+  - camelyon16
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - abmil-2018
+  - clam-2021
+
+technical_focus:
+  method_family:
+    - weakly-supervised-mil
+    - transformer-aggregation
+    - correlated-mil
+  model_architecture:
+    - resnet-50-imagenet
+    - transformer-encoder
+    - nystrom-attention
+    - pyramid-position-encoding-ppeg
+  training_strategy:
+    - end-to-end-bag-level
+  supervision_type:
+    - weakly-supervised
+  input_type:
+    - h-and-e-patch
+    - bag-of-patches
+  output_type:
+    - bag-level-label
+  datasets:
+    - camelyon16
+  metrics:
+    - auc
+    - accuracy
+    - f1
+  baselines:
+    - abmil
+    - clam
+    - dsmil
+    - mil-rnn
+  implementation: "PyTorch; Nyström-attention via the nystrom-attention package."
+  reproducibility: "Code public on github.com/szc19990412/TransMIL; relies on user-extracted patch features (default ResNet-50 ImageNet)."
+  limitations:
+    - "Nyström attention is an approximation — exact attention numbers can differ on small bags."
+    - "Adds parameters vs ABMIL / CLAM — compute-bound deployment may prefer simpler aggregators."
+    - "Default ResNet-50 features are now superseded by pathology PFMs."
+  reusable_components:
+    - transmil-aggregator
+    - ppeg-positional-encoding
+
+claude:
+  summary: |
+    Shao et al. (NeurIPS 2021) — TransMIL brings Transformer self-attention to
+    WSI MIL with Nyström approximation and 2-D positional encoding. Standard
+    third baseline alongside ABMIL and CLAM in any modern WSI classification
+    benchmark.
+  use_when:
+    - "WSI classification where patch-patch correlations are likely informative"
+    - "Large bags where Nyström attention provides compute headroom"
+    - "Survival or multi-class subtyping needing long-range context"
+  do_not_use_when:
+    - "Small bag size — CLAM or ABMIL are simpler and adequate"
+    - "Need attention heatmaps as the primary output — CLAM's per-class branches are simpler to visualise"
+    - "Compute-constrained inference — adds Transformer parameters"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

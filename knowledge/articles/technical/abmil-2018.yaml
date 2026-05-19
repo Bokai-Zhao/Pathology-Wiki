@@ -1,0 +1,112 @@
+id: abmil-2018
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "Attention-based Deep Multiple Instance Learning"
+authors:
+  - Maximilian Ilse
+  - Jakub M. Tomczak
+  - Max Welling
+year: 2018
+venue: ICML
+publication_status: published
+
+links:
+  arxiv: "1802.04712"
+  paper: https://proceedings.mlr.press/v80/ilse18a.html
+  doi: 10.48550/arXiv.1802.04712       # to_verify (arxiv DOI, ICML proceedings has no separate DOI)
+  github: https://github.com/AMLab-Amsterdam/AttentionDeepMIL
+
+abstract: |
+  Proposes a permutation-invariant attention mechanism for multiple instance
+  learning. Each instance in a bag produces a scalar attention weight via a
+  small two-layer MLP; the bag embedding is the attention-weighted sum of
+  instance embeddings. Two variants: vanilla and gated attention. Demonstrated
+  on synthetic MNIST bags and on histopathology (breast and colon cancer).
+  Establishes attention pooling as the default learned MIL aggregator.
+keywords:
+  - multiple instance learning
+  - attention mechanism
+  - histopathology
+  - weakly-supervised learning
+  - interpretability
+
+domains: [computational-pathology, machine-learning]
+modalities: [h-and-e]
+organs: [breast, colon]
+diseases: [breast-cancer, colorectal-cancer]
+biomarkers: []
+tasks:
+  - slide-level-classification
+  - tumor-detection
+metrics:
+  - auc
+  - accuracy
+
+related_methods:
+  - weakly-supervised-mil
+  - abmil
+related_models: []
+related_datasets:
+  - camelyon16
+related_tools: []
+related_benchmarks: []
+related_articles: []
+
+technical_focus:
+  method_family:
+    - weakly-supervised-mil
+    - attention-mechanism
+  model_architecture:
+    - cnn-feature-extractor
+    - attention-pooling
+  training_strategy:
+    - end-to-end-bag-level
+  supervision_type:
+    - weakly-supervised
+  input_type:
+    - h-and-e-patch
+    - bag-of-patches
+  output_type:
+    - bag-level-label
+    - attention-weights
+  datasets:
+    - mnist                              # synthetic MIL benchmark
+    - camelyon16
+  metrics:
+    - auc
+    - accuracy
+  baselines:
+    - mean-pool-mil
+    - max-pool-mil
+    - mi-net
+  implementation: "PyTorch (original); two-layer MLP attention head."
+  reproducibility: "Code public on github.com/AMLab-Amsterdam/AttentionDeepMIL; synthetic MIL benchmarks easy to reproduce; histopathology results depend on patch-extraction pipeline."
+  limitations:
+    - "Permutation-invariant — ignores spatial layout of patches in the slide."
+    - "Single-class attention; multi-class requires extensions (CLAM-MB)."
+    - "No instance-instance interaction modelling — TransMIL / DSMIL address this later."
+  reusable_components:
+    - attention-pooling-layer
+    - gated-attention-layer
+
+claude:
+  summary: |
+    Ilse, Tomczak, Welling (ICML 2018). The paper that introduced learned
+    attention pooling to MIL and seeded the modern WSI MIL literature in
+    pathology. ABMIL is the default first baseline for any new slide-level
+    classification task; CLAM, TransMIL, DSMIL, DTFD-MIL all descend from it.
+  use_when:
+    - "Citing the origin of attention-based MIL for any pathology paper"
+    - "Establishing the simplest learned-attention baseline"
+    - "Teaching MIL aggregation fundamentals"
+  do_not_use_when:
+    - "Need spatial / sequence modelling — cite TransMIL"
+    - "Need class-specific attention — cite CLAM-MB"
+    - "Need explicit instance-instance correlations — cite DSMIL or TransMIL"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

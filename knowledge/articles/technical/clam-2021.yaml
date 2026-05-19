@@ -1,0 +1,132 @@
+id: clam-2021
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "Data-efficient and weakly supervised computational pathology on whole-slide images"
+authors:
+  - Ming Y. Lu
+  - Drew F. K. Williamson
+  - Tiffany Y. Chen
+  - Richard J. Chen
+  - Matteo Barbieri
+  - Faisal Mahmood
+year: 2021
+venue: Nature Biomedical Engineering
+publication_status: published
+
+links:
+  doi: 10.1038/s41551-020-00682-w
+  paper: https://www.nature.com/articles/s41551-020-00682-w
+  github: https://github.com/mahmoodlab/CLAM
+  pubmed: to_verify
+
+abstract: |
+  Introduces CLAM (Clustering-constrained Attention Multi-instance Learning),
+  a data-efficient weakly-supervised MIL framework with two variants: CLAM-SB
+  (single-branch attention with slide-level softmax) and CLAM-MB (one
+  attention branch per class). Adds an instance-level clustering loss that
+  uses the highest- and lowest-attended patches as positive / negative
+  pseudo-labels for an auxiliary classifier, regularising attention and
+  improving data efficiency. Demonstrated on renal cell carcinoma subtyping,
+  non-small cell lung cancer subtyping, and lymph-node metastasis detection.
+  The release ships training code, pretrained models, and slide-processing
+  scripts that became the de-facto pathology MIL toolkit.
+keywords:
+  - multiple instance learning
+  - attention mechanism
+  - weakly-supervised learning
+  - whole slide image
+  - data efficiency
+  - computational pathology
+
+domains: [computational-pathology]
+modalities: [h-and-e]
+organs: [kidney, lung, lymph-node, breast]
+diseases:
+  - renal-cell-carcinoma
+  - non-small-cell-lung-cancer
+  - breast-cancer-metastasis
+biomarkers: []
+tasks:
+  - subtype-classification
+  - slide-level-classification
+  - tumor-detection
+metrics:
+  - auc
+  - accuracy
+  - f1
+
+related_methods:
+  - weakly-supervised-mil
+  - clam
+  - abmil
+related_models: []
+related_datasets:
+  - camelyon16
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - abmil-2018
+
+technical_focus:
+  method_family:
+    - weakly-supervised-mil
+    - attention-mechanism
+    - instance-level-clustering
+  model_architecture:
+    - resnet-50-imagenet                 # default patch encoder in original release
+    - attention-mlp
+    - per-class-attention-branch
+  training_strategy:
+    - end-to-end-bag-level
+    - auxiliary-instance-clustering-loss
+  supervision_type:
+    - weakly-supervised
+  input_type:
+    - h-and-e-patch-256x256
+    - bag-of-patches
+  output_type:
+    - bag-level-label
+    - attention-heatmap
+  datasets:
+    - camelyon16
+  metrics:
+    - auc
+    - accuracy
+  baselines:
+    - abmil
+    - mil-rnn
+    - mean-pool-mil
+  implementation: "PyTorch; modular pipeline (CLAM repo) covering tissue segmentation, patch extraction, feature extraction, MIL training, heatmap generation."
+  reproducibility: "Code and pretrained models public on github.com/mahmoodlab/CLAM; reproduction requires user-supplied WSIs (TCGA/CPTAC for renal & lung)."
+  limitations:
+    - "Default ResNet-50 ImageNet features are now superseded by pathology PFMs (UNI / GigaPath / Virchow)."
+    - "Permutation-invariant attention — ignores spatial structure."
+    - "Instance-clustering loss uses pseudo-labels that can be noisy in tumor-rich slides."
+  reusable_components:
+    - clam-sb-aggregator
+    - clam-mb-aggregator
+    - tissue-segmentation-pipeline
+    - heatmap-visualisation-toolkit
+
+claude:
+  summary: |
+    Lu, Williamson, Chen et al. (Nat Biomed Eng 2021) — CLAM is the standard
+    weakly-supervised MIL framework on WSIs, distributed via the most widely
+    used pathology MIL repo (mahmoodlab/CLAM). Default MIL head on top of
+    UNI / GigaPath / Virchow in modern PFM evaluation pipelines.
+  use_when:
+    - "Building any modern WSI multi-class slide-level baseline"
+    - "Need an open-source, well-maintained MIL toolkit"
+    - "Data-limited settings where instance clustering helps"
+    - "Reproducing 2021–2025 PFM evaluation results"
+  do_not_use_when:
+    - "Need explicit instance-instance correlation modelling — TransMIL / DSMIL"
+    - "Need slide-level pretraining of the encoder — GigaPath"
+    - "Need pixel-level supervision — fully-supervised segmentation"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

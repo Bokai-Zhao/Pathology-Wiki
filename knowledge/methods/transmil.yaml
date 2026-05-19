@@ -1,0 +1,60 @@
+id: transmil
+type: method
+name: TransMIL — Transformer-based Correlated Multiple Instance Learning
+
+stage:
+  - deep_wsi_learning
+
+parent_methods:
+  - weakly-supervised-mil
+child_methods: []
+predecessors:
+  - abmil
+  - clam
+successors: []
+
+core_idea: |
+  Replace ABMIL's MLP-attention aggregator with a Transformer encoder that
+  models instance-instance correlations. Two ingredients: (1) a Nyström-based
+  attention approximation to make self-attention feasible on bags of
+  thousands of patches; (2) a Pyramid Position Encoding Generator (PPEG) to
+  re-inject 2-D spatial context into the sequence. The result captures
+  correlations between distant patches that mean / attention pooling cannot.
+
+key_questions:
+  - "Does Nyström approximation hurt quality vs exact attention on small bags?"
+  - "Does spatial positional encoding actually help or is the random-2D mix sufficient?"
+  - "How many layers / heads are necessary?"
+
+representative_articles:
+  - transmil-2021
+representative_models: []
+representative_tools: []
+representative_datasets:
+  - camelyon16
+related_benchmarks: []
+
+tasks:
+  - slide-level-classification
+  - subtype-classification
+  - survival-prediction
+modalities:
+  - h-and-e
+
+claude:
+  summary: |
+    TransMIL (Shao et al., NeurIPS 2021) brings Transformer self-attention to
+    WSI MIL with Nyström approximation + PPEG positional encoding. Standard
+    third baseline alongside ABMIL and CLAM in any modern WSI classification
+    benchmark.
+  use_when:
+    - "WSI classification where instance-instance correlations are likely informative"
+    - "Multi-class subtyping with large bags (Nyström gives compute headroom)"
+    - "Survival prediction where context across distant patches matters"
+  do_not_use_when:
+    - "Small bag size — CLAM or ABMIL are simpler and adequate"
+    - "Compute-bound deployment — Transformer adds parameters"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high

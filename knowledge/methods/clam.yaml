@@ -1,0 +1,64 @@
+id: clam
+type: method
+name: CLAM — Clustering-constrained Attention Multi-Instance Learning
+
+stage:
+  - deep_wsi_learning
+
+parent_methods:
+  - abmil
+child_methods: []
+predecessors:
+  - abmil
+successors:
+  - transmil
+
+core_idea: |
+  Extend ABMIL with (1) a single-branch (CLAM-SB) or multi-branch (CLAM-MB)
+  class-specific attention head per class, and (2) an instance-level clustering
+  loss that uses the highest- and lowest-attended patches as positive /
+  negative pseudo-labels for an auxiliary classifier. The clustering signal
+  regularises attention and substantially improves data efficiency on smaller
+  cohorts. CLAM is the de-facto standard MIL baseline for pathology PFM
+  evaluation in 2021–2025 thanks to its open-source repo and reliable
+  attention heatmaps.
+
+key_questions:
+  - "Single-branch vs multi-branch for >2 classes?"
+  - "Instance loss weighting — when does it help vs hurt?"
+  - "Effect of pretrained encoder choice (ImageNet vs CTransPath vs UNI)?"
+
+representative_articles:
+  - clam-2021
+representative_models: []
+representative_tools: []
+representative_datasets:
+  - camelyon16
+  - panda
+related_benchmarks: []
+
+tasks:
+  - slide-level-classification
+  - subtype-classification
+  - grading
+modalities:
+  - h-and-e
+
+claude:
+  summary: |
+    CLAM (Lu et al., Nat Biomed Eng 2021) is the standard open-source MIL
+    aggregator. Two variants — CLAM-SB (one attention branch, slide-level
+    softmax) and CLAM-MB (one attention branch per class). Used as the
+    default MIL head on top of UNI / GigaPath / Virchow in modern PFM
+    evaluations.
+  use_when:
+    - "Building any modern WSI multi-class classification baseline on top of a PFM"
+    - "Need a reliable open-source attention MIL with strong heatmaps"
+    - "Subtype classification with limited slide counts (CLAM's data efficiency claim)"
+  do_not_use_when:
+    - "Need explicit instance-instance correlation modelling — TransMIL or DSMIL"
+    - "Need slide-level pretraining of the encoder itself — use GigaPath instead"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: high
