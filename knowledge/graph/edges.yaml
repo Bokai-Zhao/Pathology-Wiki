@@ -84,7 +84,11 @@ edges:
   - { from: abmil-2018, to: camelyon16, type: uses_dataset,
       evidence: "ABMIL paper evaluates on the Camelyon16 lymph-node metastasis benchmark", confidence: high }
   - { from: clam-2021, to: camelyon16, type: uses_dataset,
-      evidence: "CLAM paper evaluates on Camelyon16 in addition to renal/lung subtyping", confidence: high }
+      evidence: "CLAM paper evaluates on Camelyon16 in addition to renal/lung subtyping (Litjens 2018 GigaScience release, ref 46)", confidence: high }
+  - { from: clam-2021, to: campanella-2019, type: related_to,
+      evidence: "CLAM (ref 36) cites Campanella 2019 as the prior clinical-grade weakly-supervised MIL precedent; positioned as the next-generation data-efficient alternative", confidence: high }
+  - { from: clam-2021, to: hover-net-2019, type: related_to,
+      evidence: "CLAM cites HoVer-Net (ref 10) as the contemporaneous nuclei-segmentation reference; methodologically tangential, cited as context", confidence: medium }
   - { from: transmil-2021, to: camelyon16, type: uses_dataset,
       evidence: "TransMIL paper evaluates on Camelyon16 + TCGA-NSCLC + TCGA-RCC", confidence: high }
   - { from: campanella-2019, to: camelyon16, type: related_to,

@@ -19,20 +19,24 @@ publication_status: published
 links:
   doi: 10.1038/s41551-020-00682-w
   paper: https://www.nature.com/articles/s41551-020-00682-w
+  pdf: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8711640/    # open access via PMC
   github: https://github.com/mahmoodlab/CLAM
-  pubmed: to_verify
+  pubmed: "33649564"
 
 abstract: |
-  Introduces CLAM (Clustering-constrained Attention Multi-instance Learning),
-  a data-efficient weakly-supervised MIL framework with two variants: CLAM-SB
-  (single-branch attention with slide-level softmax) and CLAM-MB (one
-  attention branch per class). Adds an instance-level clustering loss that
-  uses the highest- and lowest-attended patches as positive / negative
-  pseudo-labels for an auxiliary classifier, regularising attention and
-  improving data efficiency. Demonstrated on renal cell carcinoma subtyping,
-  non-small cell lung cancer subtyping, and lymph-node metastasis detection.
-  The release ships training code, pretrained models, and slide-processing
-  scripts that became the de-facto pathology MIL toolkit.
+  Deep-learning methods for computational pathology require either manual
+  annotation of gigapixel whole-slide images (WSIs) or large datasets of WSIs
+  with slide-level labels, and typically suffer from poor domain adaptation and
+  interpretability. CLAM (clustering-constrained-attention multiple-instance
+  learning) is an interpretable weakly supervised method for data-efficient
+  WSI processing that requires only slide-level labels. It uses attention-based
+  learning to identify subregions of high diagnostic value and instance-level
+  clustering over those representative regions to constrain and refine the
+  feature space. Applied to subtyping of renal cell carcinoma and non-small-cell
+  lung cancer and to lymph-node-metastasis detection, CLAM localises known
+  morphological features without spatial labels, outperforms standard weakly
+  supervised baselines, and generalises to independent test cohorts,
+  smartphone microscopy and varying tissue content.
 keywords:
   - multiple instance learning
   - attention mechanism
@@ -53,6 +57,8 @@ tasks:
   - subtype-classification
   - slide-level-classification
   - tumor-detection
+  - domain-adaptation                  # paper validates cross-cohort + cross-magnification generalisation
+  - cross-magnification-evaluation     # smartphone-microscopy + varying-tissue-content tests
 metrics:
   - auc
   - accuracy
@@ -69,6 +75,8 @@ related_tools: []
 related_benchmarks: []
 related_articles:
   - abmil-2018
+  - campanella-2019              # cited as the clinical-grade weakly-supervised MIL precedent
+  - hover-net-2019               # cited as the nuclei-segmentation reference (ref 10)
 
 technical_focus:
   method_family:
