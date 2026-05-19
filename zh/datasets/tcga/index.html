@@ -1,44 +1,44 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="400 H&E sentinel-lymph-node WSIs from two centres with slide-level + lesion-level annotations.">
+        <meta name="description" content="约 3 万张 WSI，覆盖 33 种癌症、~1.1 万患者，配套 RNA-seq、突变、CNV、甲基化与临床记录。最大的公开多组学癌症队列。">
       
       
       
-        <link rel="canonical" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/camelyon16/">
+        <link rel="canonical" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/tcga/">
       
       
-        <link rel="prev" href="../panda/">
+        <link rel="prev" href="../midog/">
       
       
-        <link rel="next" href="../bach/">
+        <link rel="next" href="../../methods/pathology-foundation-model/">
       
       
         
-          <link rel="alternate" href="./" hreflang="en">
+          <link rel="alternate" href="../../../datasets/tcga/" hreflang="en">
         
-          <link rel="alternate" href="../../zh/datasets/camelyon16/" hreflang="zh">
+          <link rel="alternate" href="./" hreflang="zh">
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Camelyon16 — Breast Cancer Lymph-Node Metastasis Detection - Pathology-Wiki</title>
+        <title>TCGA —— 癌症基因组图谱 - Pathology-Wiki — 病理 AI 知识库</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -57,9 +57,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -84,8 +84,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#camelyon16-cancer-metastases-in-lymph-nodes-2016" class="md-skip">
-          Skip to content
+        <a href="#tcga-the-cancer-genome-atlas" class="md-skip">
+          跳转至
         </a>
       
     </div>
@@ -97,8 +97,8 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Pathology-Wiki" class="md-header__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Pathology-Wiki — 病理 AI 知识库" class="md-header__button md-logo" aria-label="Pathology-Wiki — 病理 AI 知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,13 +112,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Pathology-Wiki
+            Pathology-Wiki — 病理 AI 知识库
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Camelyon16 — Breast Cancer Lymph-Node Metastasis Detection
+              TCGA —— 癌症基因组图谱
             
           </span>
         </div>
@@ -158,20 +158,20 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Select language">
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="./" hreflang="en" class="md-select__link">
+            <a href="../../../datasets/tcga/" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../zh/datasets/camelyon16/" hreflang="zh" class="md-select__link">
+            <a href="./" hreflang="zh" class="md-select__link">
               中文
             </a>
           </li>
@@ -192,21 +192,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -219,7 +219,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -231,7 +231,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Bokai-Zhao/Pathology-Wiki" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/Bokai-Zhao/Pathology-Wiki" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -252,7 +252,7 @@
         
           
             
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -262,13 +262,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../" class="md-tabs__link">
         
   
   
     
   
-  Home
+  首页
 
       </a>
     </li>
@@ -296,7 +296,7 @@
   
     
   
-  Articles
+  论文
 
         </a>
       </li>
@@ -321,7 +321,7 @@
   
     
   
-  Models
+  模型
 
         </a>
       </li>
@@ -343,7 +343,7 @@
   
     
   
-  Tools
+  工具
 
         </a>
       </li>
@@ -367,7 +367,7 @@
   
     
   
-  Datasets
+  数据集
 
         </a>
       </li>
@@ -389,7 +389,7 @@
   
     
   
-  Methods
+  方法
 
         </a>
       </li>
@@ -409,7 +409,7 @@
   
     
   
-  Knowledge graph
+  知识图谱
 
       </a>
     </li>
@@ -428,7 +428,7 @@
   
     
   
-  Skills
+  技能
 
       </a>
     </li>
@@ -455,19 +455,19 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Pathology-Wiki" class="md-nav__button md-logo" aria-label="Pathology-Wiki" data-md-component="logo">
+    <a href="../../" title="Pathology-Wiki — 病理 AI 知识库" class="md-nav__button md-logo" aria-label="Pathology-Wiki — 病理 AI 知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Pathology-Wiki
+    Pathology-Wiki — 病理 AI 知识库
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Bokai-Zhao/Pathology-Wiki" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/Bokai-Zhao/Pathology-Wiki" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -487,14 +487,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Home
+    首页
   
 
     
@@ -543,7 +543,7 @@
   <span class="md-ellipsis">
     
   
-    Articles
+    论文
   
 
     
@@ -559,7 +559,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Articles
+    论文
   
 
           </label>
@@ -599,7 +599,7 @@
   <span class="md-ellipsis">
     
   
-    Reviews
+    综述
   
 
     
@@ -615,7 +615,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Reviews
+    综述
   
 
           </label>
@@ -743,7 +743,7 @@
   <span class="md-ellipsis">
     
   
-    Technical
+    技术
   
 
     
@@ -759,7 +759,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Technical
+    技术
   
 
           </label>
@@ -1574,7 +1574,7 @@
   <span class="md-ellipsis">
     
   
-    Models
+    模型
   
 
     
@@ -1590,7 +1590,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Models
+    模型
   
 
           </label>
@@ -1723,7 +1723,7 @@
   <span class="md-ellipsis">
     
   
-    Tools
+    工具
   
 
     
@@ -1739,7 +1739,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Tools
+    工具
   
 
           </label>
@@ -1859,7 +1859,7 @@
   <span class="md-ellipsis">
     
   
-    Datasets
+    数据集
   
 
     
@@ -1875,7 +1875,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Datasets
+    数据集
   
 
           </label>
@@ -1913,37 +1913,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Camelyon16
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../camelyon16/" class="md-nav__link">
         
   
   
@@ -1959,164 +1932,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#camelyon16-cancer-metastases-in-lymph-nodes-2016-challenge" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CAMELYON16 — Cancer Metastases in Lymph Nodes 2016 Challenge
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-it-contains" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What it contains
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#modalities-and-scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modalities and scope
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tasks-and-metrics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tasks and metrics
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#access" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Access
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#preprocessing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Preprocessing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-it-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why it matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#known-pitfalls" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Known pitfalls
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-claude-should-use-this-dataset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How Claude should use this dataset
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How Claude should use this dataset">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#skill-camelyon16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skill: camelyon16
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-nodes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related nodes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2238,10 +2053,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../tcga/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TCGA
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2257,6 +2099,175 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-cancer-genome-atlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Cancer Genome Atlas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么重要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        包含什么
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模态与范围
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        任务与指标
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取方式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预处理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiki-tcga" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        本 wiki 中引用 TCGA 的论文
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见坑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude 应该如何使用这个数据集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Claude 应该如何使用这个数据集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-tcga" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill: tcga
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关节点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2319,7 +2330,7 @@
   <span class="md-ellipsis">
     
   
-    Methods
+    方法
   
 
     
@@ -2335,7 +2346,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Methods
+    方法
   
 
           </label>
@@ -2614,7 +2625,7 @@
   <span class="md-ellipsis">
     
   
-    Knowledge graph
+    知识图谱
   
 
     
@@ -2641,7 +2652,7 @@
   <span class="md-ellipsis">
     
   
-    Skills
+    技能
   
 
     
@@ -2667,7 +2678,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
@@ -2676,15 +2687,15 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#camelyon16-cancer-metastases-in-lymph-nodes-2016-challenge" class="md-nav__link">
+  <a href="#the-cancer-genome-atlas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CAMELYON16 — Cancer Metastases in Lymph Nodes 2016 Challenge
+        The Cancer Genome Atlas
       
     </span>
   </a>
@@ -2692,10 +2703,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-it-contains" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What it contains
+        为什么重要
       
     </span>
   </a>
@@ -2703,10 +2714,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#modalities-and-scope" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Modalities and scope
+        包含什么
       
     </span>
   </a>
@@ -2714,10 +2725,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tasks-and-metrics" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tasks and metrics
+        模态与范围
       
     </span>
   </a>
@@ -2725,10 +2736,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#access" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Access
+        任务与指标
       
     </span>
   </a>
@@ -2736,10 +2747,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#preprocessing" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Preprocessing
+        获取方式
       
     </span>
   </a>
@@ -2747,10 +2758,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-it-matters" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why it matters
+        预处理
       
     </span>
   </a>
@@ -2758,10 +2769,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#known-pitfalls" class="md-nav__link">
+  <a href="#wiki-tcga" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Known pitfalls
+        本 wiki 中引用 TCGA 的论文
       
     </span>
   </a>
@@ -2769,22 +2780,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-claude-should-use-this-dataset" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How Claude should use this dataset
+        常见坑
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How Claude should use this dataset">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude 应该如何使用这个数据集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Claude 应该如何使用这个数据集">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#skill-camelyon16" class="md-nav__link">
+  <a href="#skill-tcga" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Skill: camelyon16
+        Skill: tcga
       
     </span>
   </a>
@@ -2797,10 +2819,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-nodes" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related nodes
+        相关节点
       
     </span>
   </a>
@@ -2808,10 +2830,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        References
+        参考
       
     </span>
   </a>
@@ -2835,7 +2857,7 @@
 
 
   
-    <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/edit/main/content/datasets/camelyon16.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/edit/main/content/datasets/tcga.zh.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2843,102 +2865,133 @@
   
 
 
-<h1 id="camelyon16-cancer-metastases-in-lymph-nodes-2016">Camelyon16 — Cancer Metastases in Lymph Nodes 2016<a class="headerlink" href="#camelyon16-cancer-metastases-in-lymph-nodes-2016" title="Permanent link">&para;</a></h1>
+<h1 id="tcga-the-cancer-genome-atlas">TCGA —— The Cancer Genome Atlas（癌症基因组图谱）<a class="headerlink" href="#tcga-the-cancer-genome-atlas" title="Permanent link">&para;</a></h1>
 <div class="pwiki-card">
 <div class="pwiki-card-kind">dataset</div>
-<h3 class="pwiki-card-title" id="camelyon16-cancer-metastases-in-lymph-nodes-2016-challenge">CAMELYON16 — Cancer Metastases in Lymph Nodes 2016 Challenge<a class="headerlink" href="#camelyon16-cancer-metastases-in-lymph-nodes-2016-challenge" title="Permanent link">&para;</a></h3>
-<div class="pwiki-card-meta">h-and-e · lymph-node, breast · 400 slides · CC0 1.0 (public domain dedication) per grand-challenge release; verify on the data page before redistribution</div>
-<div class="pwiki-card-links"><a href="https://camelyon16.grand-challenge.org/" target="_blank" rel="noreferrer">homepage</a> · <a href="https://camelyon17.grand-challenge.org/Data/" target="_blank" rel="noreferrer">download</a> · <a href="https://doi.org/10.1001/jama.2017.14585" target="_blank" rel="noreferrer">doi</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">license</a> · <a href="https://camelyon17.grand-challenge.org/Data/" target="_blank" rel="noreferrer">access</a></div>
+<h3 class="pwiki-card-title" id="the-cancer-genome-atlas">The Cancer Genome Atlas<a class="headerlink" href="#the-cancer-genome-atlas" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-meta">h-and-e · rna-seq · dna-mutation · copy-number-variation · dna-methylation · clinical-records · breast, lung, colon, rectum, prostate, kidney, liver, stomach, pancreas, bladder, skin, thyroid, uterus, ovary, cervix, testis, brain, head-neck, bone-marrow, adrenal-gland, oesophagus, bile-duct · 30,000 slides · TCGA data are released under NIH/NCI Genomic Data Commons access policy. WSIs (slide images) and most RNA-seq / mutation / CNV are open-access. Some clinical fields and patient-level identifiers require dbGaP controlled-access approval.</div>
+<div class="pwiki-card-links"><a href="https://www.cancer.gov/ccg/research/genome-sequencing/tcga" target="_blank" rel="noreferrer">homepage</a> · <a href="https://portal.gdc.cancer.gov/" target="_blank" rel="noreferrer">download</a> · <a href="https://doi.org/10.1038/ng.2764" target="_blank" rel="noreferrer">doi</a> · <a href="https://www.cancer.gov/ccg/research/genome-sequencing/tcga" target="_blank" rel="noreferrer">project</a> · <a href="https://portal.gdc.cancer.gov/" target="_blank" rel="noreferrer">access</a></div>
 </div>
-<div class="pwiki-localgraph"><div class="pwiki-localgraph-header"><strong>Local graph</strong><span class="pwiki-localgraph-legend"><span><i style="background:var(--pwiki-color-dataset)"></i>dataset</span><span><i style="background:var(--pwiki-color-tool)"></i>tool</span><span><i style="background:var(--pwiki-color-method)"></i>method</span><span><i style="background:var(--pwiki-color-article)"></i>article</span><span style="margin-left:0.6rem;opacity:0.7">1 out · 11 in · 12 neighbours</span></span></div><div class="pwiki-localgraph-canvas" data-graph="{&quot;nodes&quot;: [{&quot;id&quot;: &quot;camelyon16&quot;, &quot;label&quot;: &quot;Camelyon16 — Cancer Metastases in Lymph Nodes 2016&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;camelyon16/&quot;}, {&quot;id&quot;: &quot;openslide&quot;, &quot;label&quot;: &quot;OpenSlide (WSI I/O)&quot;, &quot;type&quot;: &quot;tool&quot;, &quot;href&quot;: &quot;../tools/openslide/&quot;}, {&quot;id&quot;: &quot;pathology-foundation-model&quot;, &quot;label&quot;: &quot;Pathology Foundation Model&quot;, &quot;type&quot;: &quot;method&quot;, &quot;href&quot;: &quot;../methods/pathology-foundation-model/&quot;}, {&quot;id&quot;: &quot;panda&quot;, &quot;label&quot;: &quot;PANDA — Prostate cANcer graDe Assessment&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;panda/&quot;}, {&quot;id&quot;: &quot;abmil-2018&quot;, &quot;label&quot;: &quot;ABMIL (Ilse, Tomczak, Welling 2018)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/abmil-2018/&quot;}, {&quot;id&quot;: &quot;clam-2021&quot;, &quot;label&quot;: &quot;CLAM (Lu et al. 2021, Nat Biomed Eng)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/clam-2021/&quot;}, {&quot;id&quot;: &quot;transmil-2021&quot;, &quot;label&quot;: &quot;TransMIL (Shao et al. 2021, NeurIPS)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/transmil-2021/&quot;}, {&quot;id&quot;: &quot;campanella-2019&quot;, &quot;label&quot;: &quot;Campanella et al. 2019 — Clinical-Grade Weakly-Supervised Pathology MIL&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/campanella-2019/&quot;}, {&quot;id&quot;: &quot;bahadir-2024&quot;, &quot;label&quot;: &quot;Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)&quot;, &quot;type&quot;: &quot;review_article&quot;, &quot;href&quot;: &quot;../articles/reviews/bahadir-2024/&quot;}, {&quot;id&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;label&quot;: &quot;Awesome-AI4DigitalPathology — curated reference list (~447 entries)&quot;, &quot;type&quot;: &quot;tool&quot;, &quot;href&quot;: &quot;../tools/awesome-ai4digitalpathology/&quot;}, {&quot;id&quot;: &quot;dsmil-2021&quot;, &quot;label&quot;: &quot;DSMIL (Li, Li, Eliceiri 2021, CVPR)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/dsmil-2021/&quot;}, {&quot;id&quot;: &quot;dtfd-mil-2022&quot;, &quot;label&quot;: &quot;DTFD-MIL (Zhang et al. 2022, CVPR)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/dtfd-mil-2022/&quot;}, {&quot;id&quot;: &quot;dt-mil-2021&quot;, &quot;label&quot;: &quot;DT-MIL (Li et al. 2021, MICCAI)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/dt-mil-2021/&quot;}], &quot;edges&quot;: [{&quot;from&quot;: &quot;camelyon16&quot;, &quot;to&quot;: &quot;openslide&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;pathology-foundation-model&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;panda&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;abmil-2018&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;clam-2021&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;transmil-2021&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;campanella-2019&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;bahadir-2024&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;dsmil-2021&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;dtfd-mil-2022&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;dt-mil-2021&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}]}" data-center="camelyon16"></div><noscript><div class="pwiki-localgraph-fallback"><strong>Local graph</strong> (text fallback — JS disabled)<ul><li><code>related_to</code> → <a href="../tools/openslide.md">OpenSlide (WSI I/O)</a></li><li><a href="../methods/pathology-foundation-model.md">Pathology Foundation Model</a> → <code>related_to</code></li><li><a href="panda.md">PANDA — Prostate cANcer graDe Assessment</a> → <code>related_to</code></li><li><a href="../articles/technical/abmil-2018.md">ABMIL (Ilse, Tomczak, Welling 2018)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/clam-2021.md">CLAM (Lu et al. 2021, Nat Biomed Eng)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/transmil-2021.md">TransMIL (Shao et al. 2021, NeurIPS)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/campanella-2019.md">Campanella et al. 2019 — Clinical-Grade Weakly-Supervised Pathology MIL</a> → <code>related_to</code></li><li><a href="../articles/reviews/bahadir-2024.md">Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)</a> → <code>related_to</code></li><li><a href="../tools/awesome-ai4digitalpathology.md">Awesome-AI4DigitalPathology — curated reference list (~447 entries)</a> → <code>related_to</code></li><li><a href="../articles/technical/dsmil-2021.md">DSMIL (Li, Li, Eliceiri 2021, CVPR)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/dtfd-mil-2022.md">DTFD-MIL (Zhang et al. 2022, CVPR)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/dt-mil-2021.md">DT-MIL (Li et al. 2021, MICCAI)</a> → <code>uses_dataset</code></li></ul></div></noscript></div>
+<div class="pwiki-localgraph"><div class="pwiki-localgraph-header"><strong>Local graph</strong><span class="pwiki-localgraph-legend"><span><i style="background:var(--pwiki-color-dataset)"></i>dataset</span><span><i style="background:var(--pwiki-color-tool)"></i>tool</span><span><i style="background:var(--pwiki-color-model)"></i>model</span><span><i style="background:var(--pwiki-color-article)"></i>article</span><span style="margin-left:0.6rem;opacity:0.7">1 out · 17 in · 18 neighbours</span></span></div><div class="pwiki-localgraph-canvas" data-graph="{&quot;nodes&quot;: [{&quot;id&quot;: &quot;tcga&quot;, &quot;label&quot;: &quot;TCGA — The Cancer Genome Atlas&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;tcga/&quot;}, {&quot;id&quot;: &quot;openslide&quot;, &quot;label&quot;: &quot;OpenSlide (WSI I/O)&quot;, &quot;type&quot;: &quot;tool&quot;, &quot;href&quot;: &quot;../tools/openslide/&quot;}, {&quot;id&quot;: &quot;ctranspath&quot;, &quot;label&quot;: &quot;CTransPath (Swin-T, SRCL)&quot;, &quot;type&quot;: &quot;model&quot;, &quot;href&quot;: &quot;../models/ctranspath/&quot;}, {&quot;id&quot;: &quot;ctranspath-2022&quot;, &quot;label&quot;: &quot;CTransPath (Wang et al. 2022, Med Image Anal)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/ctranspath-2022/&quot;}, {&quot;id&quot;: &quot;phikon-2023&quot;, &quot;label&quot;: &quot;Phikon (Filiot et al. 2023, Owkin)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/phikon-2023/&quot;}, {&quot;id&quot;: &quot;lunit-dino-2022&quot;, &quot;label&quot;: &quot;Lunit-DINO (Kang et al. 2022)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/lunit-dino-2022/&quot;}, {&quot;id&quot;: &quot;tangle-2024&quot;, &quot;label&quot;: &quot;TANGLE (Jaume et al. 2024, CVPR)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/tangle-2024/&quot;}, {&quot;id&quot;: &quot;mcat-2021&quot;, &quot;label&quot;: &quot;MCAT (Chen et al. 2021, ICCV)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/mcat-2021/&quot;}, {&quot;id&quot;: &quot;porpoise-2022&quot;, &quot;label&quot;: &quot;PORPOISE (Chen et al. 2022, Cancer Cell)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/porpoise-2022/&quot;}, {&quot;id&quot;: &quot;clam-2021&quot;, &quot;label&quot;: &quot;CLAM (Lu et al. 2021, Nat Biomed Eng)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/clam-2021/&quot;}, {&quot;id&quot;: &quot;transmil-2021&quot;, &quot;label&quot;: &quot;TransMIL (Shao et al. 2021, NeurIPS)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/transmil-2021/&quot;}, {&quot;id&quot;: &quot;dsmil-2021&quot;, &quot;label&quot;: &quot;DSMIL (Li, Li, Eliceiri 2021, CVPR)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/dsmil-2021/&quot;}, {&quot;id&quot;: &quot;dtfd-mil-2022&quot;, &quot;label&quot;: &quot;DTFD-MIL (Zhang et al. 2022, CVPR)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/dtfd-mil-2022/&quot;}, {&quot;id&quot;: &quot;gigapath-2024&quot;, &quot;label&quot;: &quot;Prov-GigaPath (Xu et al. 2024, Nature)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/gigapath-2024/&quot;}, {&quot;id&quot;: &quot;virchow-2024&quot;, &quot;label&quot;: &quot;Virchow (Vorontsov et al. 2024, Nat Med)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/virchow-2024/&quot;}, {&quot;id&quot;: &quot;chief-2024&quot;, &quot;label&quot;: &quot;CHIEF (Wang et al. 2024, Nature)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/chief-2024/&quot;}, {&quot;id&quot;: &quot;titan-2025&quot;, &quot;label&quot;: &quot;TITAN (Ding et al. 2025, Nat Med)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/titan-2025/&quot;}, {&quot;id&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;label&quot;: &quot;Awesome-AI4DigitalPathology — curated reference list (~447 entries)&quot;, &quot;type&quot;: &quot;tool&quot;, &quot;href&quot;: &quot;../tools/awesome-ai4digitalpathology/&quot;}, {&quot;id&quot;: &quot;bahadir-2024&quot;, &quot;label&quot;: &quot;Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)&quot;, &quot;type&quot;: &quot;review_article&quot;, &quot;href&quot;: &quot;../articles/reviews/bahadir-2024/&quot;}], &quot;edges&quot;: [{&quot;from&quot;: &quot;tcga&quot;, &quot;to&quot;: &quot;openslide&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;ctranspath&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;ctranspath-2022&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;phikon-2023&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;lunit-dino-2022&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;tangle-2024&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;mcat-2021&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;porpoise-2022&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;clam-2021&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;transmil-2021&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;dsmil-2021&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;dtfd-mil-2022&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;gigapath-2024&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;virchow-2024&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;chief-2024&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;titan-2025&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;bahadir-2024&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;related_to&quot;}]}" data-center="tcga"></div><noscript><div class="pwiki-localgraph-fallback"><strong>Local graph</strong> (text fallback — JS disabled)<ul><li><code>related_to</code> → <a href="../tools/openslide.md">OpenSlide (WSI I/O)</a></li><li><a href="../models/ctranspath.md">CTransPath (Swin-T, SRCL)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/ctranspath-2022.md">CTransPath (Wang et al. 2022, Med Image Anal)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/phikon-2023.md">Phikon (Filiot et al. 2023, Owkin)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/lunit-dino-2022.md">Lunit-DINO (Kang et al. 2022)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/tangle-2024.md">TANGLE (Jaume et al. 2024, CVPR)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/mcat-2021.md">MCAT (Chen et al. 2021, ICCV)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/porpoise-2022.md">PORPOISE (Chen et al. 2022, Cancer Cell)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/clam-2021.md">CLAM (Lu et al. 2021, Nat Biomed Eng)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/transmil-2021.md">TransMIL (Shao et al. 2021, NeurIPS)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/dsmil-2021.md">DSMIL (Li, Li, Eliceiri 2021, CVPR)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/dtfd-mil-2022.md">DTFD-MIL (Zhang et al. 2022, CVPR)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/gigapath-2024.md">Prov-GigaPath (Xu et al. 2024, Nature)</a> → <code>related_to</code></li><li><a href="../articles/technical/virchow-2024.md">Virchow (Vorontsov et al. 2024, Nat Med)</a> → <code>related_to</code></li><li><a href="../articles/technical/chief-2024.md">CHIEF (Wang et al. 2024, Nature)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/titan-2025.md">TITAN (Ding et al. 2025, Nat Med)</a> → <code>related_to</code></li><li><a href="../tools/awesome-ai4digitalpathology.md">Awesome-AI4DigitalPathology — curated reference list (~447 entries)</a> → <code>related_to</code></li><li><a href="../articles/reviews/bahadir-2024.md">Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)</a> → <code>related_to</code></li></ul></div></noscript></div>
 
-<h2 id="what-it-contains">What it contains<a class="headerlink" href="#what-it-contains" title="Permanent link">&para;</a></h2>
-<p>Camelyon16 is the founding public benchmark for <strong>breast cancer metastasis detection in sentinel lymph nodes</strong> on H&amp;E WSIs. The release contains <strong>400 whole-slide images</strong> (270 training + 130 test) contributed by <strong>Radboud University Medical Center</strong> and <strong>Utrecht University Medical Center</strong>.</p>
-<p>Each slide is labelled at three granularities:</p>
+<h2 id="_1">为什么重要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>TCGA 是<strong>最重要的公开多组学癌症队列</strong>。2018 年以后几乎所有病理 AI 论文都用到 TCGA，要么：</p>
 <ul>
-<li><strong>Slide-level</strong>: negative / isolated tumor cells (ITC) / micrometastasis / macrometastasis.</li>
-<li><strong>Lesion-level</strong>: exhaustive polygons around contiguous tumor regions on positive slides (XML/JSON).</li>
-<li><strong>Pixel-level</strong>: derived tumor masks from the lesion polygons.</li>
+<li><strong>作预训练数据</strong> —— <a href="../../articles/technical/ctranspath-2022/">CTransPath (Wang et al. 2022, Med Image Anal)</a>、<a href="../../articles/technical/phikon-2023/">Phikon (Filiot et al. 2023, Owkin)</a>、<a href="../../articles/technical/lunit-dino-2022/">Lunit-DINO (Kang et al. 2022)</a>、<a href="../../articles/technical/gigapath-2024/">Prov-GigaPath (Xu et al. 2024, Nature)</a> 的块编码器都在 TCGA H&amp;E 块上预训练。</li>
+<li><strong>作下游评估</strong> —— <a href="../../articles/technical/clam-2021/">CLAM (Lu et al. 2021, Nat Biomed Eng)</a>、<a href="../../articles/technical/transmil-2021/">TransMIL (Shao et al. 2021, NeurIPS)</a>、<a href="../../articles/technical/dsmil-2021/">DSMIL (Li, Li, Eliceiri 2021, CVPR)</a>、<a href="../../articles/technical/dtfd-mil-2022/">DTFD-MIL (Zhang et al. 2022, CVPR)</a> 都在 TCGA-RCC / TCGA-NSCLC / TCGA-BRCA 上评测。</li>
+<li><strong>作多模态研究</strong> —— <a href="../../articles/technical/mcat-2021/">MCAT (Chen et al. 2021, ICCV)</a>、<a href="../../articles/technical/porpoise-2022/">PORPOISE (Chen et al. 2022, Cancer Cell)</a>、<a href="../../articles/technical/tangle-2024/">TANGLE (Jaume et al. 2024, CVPR)</a> 用的是配对的 WSI + RNA-seq + 突变数据。</li>
 </ul>
-<h2 id="modalities-and-scope">Modalities and scope<a class="headerlink" href="#modalities-and-scope" title="Permanent link">&para;</a></h2>
+<p>TCGA 也是<strong>跨队列泛化研究的默认训练队列</strong>，外部机构数据通常作为 held-out 测试。</p>
+<h2 id="_2">包含什么<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Modality</strong>: H&amp;E</li>
-<li><strong>Organ</strong>: lymph node (sentinel) — breast-cancer specimen</li>
-<li><strong>Disease</strong>: breast cancer with regional metastasis</li>
-<li><strong>Species</strong>: human</li>
-<li><strong>Specimen type</strong>: sentinel lymph node sections</li>
+<li><strong>约 30,000 张 WSI</strong>，覆盖 <strong>33 个癌种</strong>（具体数字 <em>待核实</em>）。</li>
+<li><strong>约 11,000 名患者</strong>有 WSI 覆盖（<em>待核实</em>）。</li>
+<li>大部分患者还配有<strong>bulk RNA-seq、全外显子 / 全基因组测序、拷贝数变异（CNV）、DNA 甲基化、临床记录</strong>。</li>
+<li>两类切片：<strong>诊断 FFPE</strong>（<code>-DX-*.svs</code>）与<strong>冷冻切片</strong>（<code>-TS-*.svs</code>）。多数病理 AI 基准只用 FFPE。</li>
 </ul>
-<h2 id="tasks-and-metrics">Tasks and metrics<a class="headerlink" href="#tasks-and-metrics" title="Permanent link">&para;</a></h2>
+<h2 id="_3">模态与范围<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>模态</strong>：H&amp;E + bulk 多组学（RNA-seq、DNA 突变、CNV、甲基化）+ 临床记录。</li>
+<li><strong>器官</strong>：pan-cancer —— 乳腺、肺、结肠、前列腺、肾、肝、胃、胰腺、膀胱、皮肤、甲状腺、子宫、卵巢、宫颈、脑、头颈等。</li>
+<li><strong>疾病</strong>：33 个癌症 cohort（TCGA-BRCA / TCGA-LUAD / TCGA-LUSC / TCGA-COAD / TCGA-PRAD / TCGA-KIRC / TCGA-LIHC / ... / TCGA-LAML / TCGA-DLBC）。</li>
+<li><strong>物种</strong>：人。</li>
+<li><strong>样本类型</strong>：手术切除（多数 cohort）+ 冷冻切片。</li>
+</ul>
+<h2 id="_4">任务与指标<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Task</th>
-<th>Metric</th>
+<th>任务</th>
+<th>指标</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Slide-level tumor presence</td>
+<td>亚型分类（按 cohort）</td>
+<td>AUC、balanced accuracy</td>
+</tr>
+<tr>
+<td>突变预测（H&amp;E → 突变状态）</td>
 <td>AUC</td>
 </tr>
 <tr>
-<td>Lesion-level detection</td>
-<td><strong>FROC</strong> (free-response ROC) — the headline challenge metric</td>
+<td>生物标志物 / mRNA 表达预测</td>
+<td>AUC、Pearson</td>
 </tr>
 <tr>
-<td>Pixel segmentation</td>
-<td>Dice (secondary)</td>
+<td>生存 / 预后预测</td>
+<td>C-index、Kaplan-Meier 分离</td>
+</tr>
+<tr>
+<td>肿瘤 vs 正常（按 cohort）</td>
+<td>AUC</td>
+</tr>
+<tr>
+<td>MSI 预测</td>
+<td>AUC</td>
+</tr>
+<tr>
+<td>Pan-cancer 基础模型预训练</td>
+<td>下游任务 AUC 套件</td>
 </tr>
 </tbody>
 </table>
-<p>FROC measures sensitivity at fixed false-positive-per-image counts and is the standard against which weakly supervised MIL pipelines are reported.</p>
-<h2 id="access">Access<a class="headerlink" href="#access" title="Permanent link">&para;</a></h2>
-<p>Hosted via the grand-challenge platform (<code>camelyon17.grand-challenge.org/Data/</code> is the canonical data page for both editions). Registration required. Released under CC0 — the data are public-domain dedicated, but redistribution should still cite the JAMA 2017 challenge paper.</p>
-<p>The full release is ~750 GB <em>(to verify)</em>; budget time for Aspera / S3 download.</p>
-<h2 id="preprocessing">Preprocessing<a class="headerlink" href="#preprocessing" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">openslide</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">slide</span> <span class="o">=</span> <span class="n">openslide</span><span class="o">.</span><span class="n">OpenSlide</span><span class="p">(</span><span class="s2">&quot;/data/camelyon16/training/tumor/tumor_001.tif&quot;</span><span class="p">)</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">slide</span><span class="o">.</span><span class="n">level_dimensions</span><span class="p">,</span> <span class="n">slide</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;openslide.mpp-x&quot;</span><span class="p">))</span>
+<h2 id="_5">获取方式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>托管在 <strong>NIH Genomic Data Commons (GDC)</strong>：<a href="https://portal.gdc.cancer.gov/">https://portal.gdc.cancer.gov/</a>。WSI 和大多数基因组数据是公开的；部分临床字段和患者级标识符需要通过 NIH eRA Commons 申请 <strong>dbGaP 受控访问</strong>。</p>
+<p>批量下载用官方 <strong><code>gdc-client</code></strong> CLI。</p>
+<h2 id="_6">预处理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 批量下载某 cohort 的 FFPE 诊断切片</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>gdc-client<span class="w"> </span>download<span class="w"> </span>-m<span class="w"> </span>manifest_TCGA_BRCA_DX.txt
 </span></code></pre></div>
-<p>Standard pipeline:</p>
+<p>标准流程：</p>
 <ol>
-<li>Read <code>.tif</code> via <a href="../../tools/openslide/">OpenSlide (WSI I/O)</a> — handles Aperio / Hamamatsu vendor blocks.</li>
-<li>Tissue mask at level 4-6 (downsample) → keep only foreground patches.</li>
-<li>Patch at 20× or 40× (challenge slides have 40× level); 256×256 conventional for MIL.</li>
-<li>Build positive/negative patch labels from the XML tumor polygons.</li>
+<li><strong>过滤为 FFPE</strong>（<code>-DX-*.svs</code>）—— 冷冻切片噪声较大。</li>
+<li>用 <a href="../../tools/openslide/">OpenSlide (WSI I/O)</a> 读取（Aperio <code>.svs</code> 格式）。</li>
+<li><strong>组织分割 + 块提取</strong>，常用 <a href="../../methods/clam/">CLAM — Clustering-constrained Attention MIL</a> 工具箱（自带 TCGA 专用脚本）。</li>
+<li><strong>染色归一化</strong>（Macenko / Vahadane）—— TCGA 跨多家扫描仪与多家中心。</li>
+<li><strong>TCGA barcode（case-uuid）匹配</strong>对齐 WSI ↔ RNA-seq ↔ 临床数据。</li>
+<li><strong>患者级训练 / 测试切分</strong> —— 同一患者常有多张切片；切片级切分会泄漏。</li>
 </ol>
-<h2 id="why-it-matters">Why it matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h2>
-<p>Camelyon16 is the <strong>seed dataset for the entire weakly-supervised MIL literature in pathology</strong> — ABMIL, CLAM, TransMIL, DSMIL, DTFD-MIL all report Camelyon16 numbers. Any new WSI classification method without a Camelyon16 number is treated with suspicion.</p>
-<h2 id="known-pitfalls">Known pitfalls<a class="headerlink" href="#known-pitfalls" title="Permanent link">&para;</a></h2>
+<h2 id="wiki-tcga">本 wiki 中引用 TCGA 的论文<a class="headerlink" href="#wiki-tcga" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Two-centre, two-scanner</strong> drift — Pannoramic 250 Flash (Radboud) vs Aperio (Utrecht). Stain and resolution differ.</li>
-<li><strong>Lesion vs slide metrics tell different stories</strong> — high AUC with low FROC means the model is voting correctly but localising poorly.</li>
-<li><strong>ITC may be under-annotated</strong> — exhaustive polygons cover the main contiguous lesion only.</li>
-<li><strong>Camelyon17 is a different challenge</strong> (patient-level pN staging on 1000 slides from 5 centres) — do not conflate.</li>
+<li>预训练：<a href="../../articles/technical/ctranspath-2022/">CTransPath (Wang et al. 2022, Med Image Anal)</a>、<a href="../../articles/technical/phikon-2023/">Phikon (Filiot et al. 2023, Owkin)</a>、<a href="../../articles/technical/lunit-dino-2022/">Lunit-DINO (Kang et al. 2022)</a>。</li>
+<li>MIL 评估：<a href="../../articles/technical/clam-2021/">CLAM (Lu et al. 2021, Nat Biomed Eng)</a>、<a href="../../articles/technical/transmil-2021/">TransMIL (Shao et al. 2021, NeurIPS)</a>、<a href="../../articles/technical/dsmil-2021/">DSMIL (Li, Li, Eliceiri 2021, CVPR)</a>、<a href="../../articles/technical/dtfd-mil-2022/">DTFD-MIL (Zhang et al. 2022, CVPR)</a>。</li>
+<li>多模态：<a href="../../articles/technical/mcat-2021/">MCAT (Chen et al. 2021, ICCV)</a>、<a href="../../articles/technical/porpoise-2022/">PORPOISE (Chen et al. 2022, Cancer Cell)</a>、<a href="../../articles/technical/tangle-2024/">TANGLE (Jaume et al. 2024, CVPR)</a>。</li>
+<li>现代 PFM 下游：<a href="../../articles/technical/gigapath-2024/">Prov-GigaPath (Xu et al. 2024, Nature)</a>、<a href="../../articles/technical/virchow-2024/">Virchow (Vorontsov et al. 2024, Nat Med)</a>、<a href="../../articles/technical/chief-2024/">CHIEF (Wang et al. 2024, Nature)</a>、<a href="../../articles/technical/titan-2025/">TITAN (Ding et al. 2025, Nat Med)</a>。</li>
 </ul>
-<h2 id="how-claude-should-use-this-dataset">How Claude should use this dataset<a class="headerlink" href="#how-claude-should-use-this-dataset" title="Permanent link">&para;</a></h2>
+<h2 id="_7">常见坑<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>多 cohort、多扫描仪</strong> —— 颜色与分辨率漂移很大，染色归一化必要。</li>
+<li><strong>冷冻 vs FFPE</strong> —— <code>-TS-*.svs</code> 比 <code>-DX-*.svs</code> 噪。</li>
+<li><strong>小 cohort 易过拟合</strong> —— 罕见癌种 cohort 患者数很少（CHOL 不足 60），需要跨癌种预训练。</li>
+<li><strong>受控访问字段</strong> —— 部分临床字段需 dbGaP 批准。</li>
+<li><strong>同患者多切片泄漏</strong> —— 切分必须以患者为粒度。</li>
+<li><strong>晚期 / 学术中心偏置</strong> —— 跨中心泛化是已知弱点。</li>
+<li><strong>右删失生存标签</strong> —— 必须用 Cox / KM 感知指标，不要硬套分类指标。</li>
+<li><strong>WSI 与 RNA-seq 不完全重叠</strong> —— 用 case-uuid 做规范连接。</li>
+</ul>
+<h2 id="claude">Claude 应该如何使用这个数据集<a class="headerlink" href="#claude" title="Permanent link">&para;</a></h2>
 <div class="pwiki-card">
 <div class="pwiki-card-kind">skill · datasets</div>
-<h3 class="pwiki-card-title" id="skill-camelyon16">Skill: camelyon16<a class="headerlink" href="#skill-camelyon16" title="Permanent link">&para;</a></h3>
+<h3 class="pwiki-card-title" id="skill-tcga">Skill: tcga<a class="headerlink" href="#skill-tcga" title="Permanent link">&para;</a></h3>
 <div class="pwiki-card-meta">Documentation-form SKILL.md (CLAUDE.md §12).</div>
 <div>
-<p>How Claude should use this object — see the SKILL doc at <code>skills/datasets/camelyon16/SKILL.md</code>.</p>
+<p>How Claude should use this object — see the SKILL doc at <code>skills/datasets/tcga/SKILL.md</code>.</p>
 </div>
-<div class="pwiki-card-links"><a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/skills/datasets/camelyon16/SKILL.md" target="_blank" rel="noreferrer">source</a></div>
+<div class="pwiki-card-links"><a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/skills/datasets/tcga/SKILL.md" target="_blank" rel="noreferrer">source</a></div>
 </div>
-<p>Camelyon16 is the <strong>first benchmark to run</strong> when proposing a new WSI classification / MIL method. Always pair slide-AUC with lesion-FROC.</p>
-<h2 id="related-nodes">Related nodes<a class="headerlink" href="#related-nodes" title="Permanent link">&para;</a></h2>
+<p>TCGA 是<strong>任何病理 AI 实验部分的默认队列</strong>。需要病理 + 基因组数据 / pan-cancer 亚型 / 跨癌种基础模型 → TCGA。前列腺活检 Gleason 分级 → <a href="../panda/">PANDA — Prostate cANcer graDe Assessment</a>。乳腺转移检测 → <a href="../camelyon16/">Camelyon16 — Cancer Metastases in Lymph Nodes 2016</a>。</p>
+<h2 id="_8">相关节点<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <ul>
-<li>tool: <a href="../../tools/openslide/">OpenSlide (WSI I/O)</a></li>
-<li>method context: <a href="../../methods/pathology-foundation-model/">Pathology Foundation Model</a></li>
-<li>companion benchmark: <a href="../panda/">PANDA — Prostate cANcer graDe Assessment</a> (grading complement)</li>
-<li>challenge paper: <code>bejnordi-2017-camelyon16</code> <em>(article node deferred — pending §11.6)</em></li>
+<li>工具：<a href="../../tools/openslide/">OpenSlide (WSI I/O)</a></li>
+<li>工具箱：<a href="../../methods/clam/">CLAM — Clustering-constrained Attention MIL</a>（自带 TCGA 预处理脚本）</li>
+<li>同类公开数据集：<a href="../camelyon16/">Camelyon16 — Cancer Metastases in Lymph Nodes 2016</a>、<a href="../panda/">PANDA — Prostate cANcer graDe Assessment</a>、<a href="../pannuke/">PanNuke — Pan-Cancer Nuclei Seg &amp; Classification</a>、<a href="../midog/">MIDOG — MItosis DOmain Generalization Challenge</a></li>
 </ul>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h2 id="_9">参考<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Challenge homepage: <a href="https://camelyon16.grand-challenge.org/">camelyon16.grand-challenge.org</a></li>
-<li>Data download (joint with Camelyon17): <a href="https://camelyon17.grand-challenge.org/Data/">camelyon17.grand-challenge.org/Data/</a></li>
-<li>Bejnordi et al., <em>JAMA</em> 2017 (DOI to verify)</li>
+<li>入口：<a href="https://portal.gdc.cancer.gov/">GDC 数据门户</a></li>
+<li>项目主页：<a href="https://www.cancer.gov/ccg/research/genome-sequencing/tcga">cancer.gov/ccg/research/genome-sequencing/tcga</a></li>
+<li>Pan-Cancer 旗舰论文：Weinstein 等，<em>Nature Genetics</em> 45:1113–1120（2013）</li>
 </ul>
 
 
@@ -2966,7 +3019,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Back to top
+  回到页面顶部
 </button>
         
       </main>
@@ -3014,14 +3067,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.action.edit", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://unpkg.com/cytoscape@3.30.0/dist/cytoscape.min.js"></script>
       
-        <script src="../../javascripts/local-graph.js"></script>
+        <script src="../../../javascripts/local-graph.js"></script>
       
     
   </body>

@@ -6,23 +6,23 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="400 H&E sentinel-lymph-node WSIs from two centres with slide-level + lesion-level annotations.">
+        <meta name="description" content="~30k WSIs across 33 cancer types, ~11k patients, paired with bulk RNA-seq, mutations, CNV, methylation, and clinical records. The largest public multi-omics cancer cohort.">
       
       
       
-        <link rel="canonical" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/camelyon16/">
+        <link rel="canonical" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/tcga/">
       
       
-        <link rel="prev" href="../panda/">
+        <link rel="prev" href="../midog/">
       
       
-        <link rel="next" href="../bach/">
+        <link rel="next" href="../../methods/pathology-foundation-model/">
       
       
         
           <link rel="alternate" href="./" hreflang="en">
         
-          <link rel="alternate" href="../../zh/datasets/camelyon16/" hreflang="zh">
+          <link rel="alternate" href="../../zh/datasets/tcga/" hreflang="zh">
         
       
       
@@ -31,7 +31,7 @@
     
     
       
-        <title>Camelyon16 — Breast Cancer Lymph-Node Metastasis Detection - Pathology-Wiki</title>
+        <title>TCGA — The Cancer Genome Atlas - Pathology-Wiki</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#camelyon16-cancer-metastases-in-lymph-nodes-2016" class="md-skip">
+        <a href="#tcga-the-cancer-genome-atlas" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Camelyon16 — Breast Cancer Lymph-Node Metastasis Detection
+              TCGA — The Cancer Genome Atlas
             
           </span>
         </div>
@@ -171,7 +171,7 @@
           </li>
         
           <li class="md-select__item">
-            <a href="../../zh/datasets/camelyon16/" hreflang="zh" class="md-select__link">
+            <a href="../../zh/datasets/tcga/" hreflang="zh" class="md-select__link">
               中文
             </a>
           </li>
@@ -1913,37 +1913,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Camelyon16
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../camelyon16/" class="md-nav__link">
         
   
   
@@ -1959,164 +1932,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#camelyon16-cancer-metastases-in-lymph-nodes-2016-challenge" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CAMELYON16 — Cancer Metastases in Lymph Nodes 2016 Challenge
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-it-contains" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What it contains
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#modalities-and-scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modalities and scope
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tasks-and-metrics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tasks and metrics
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#access" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Access
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#preprocessing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Preprocessing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-it-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why it matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#known-pitfalls" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Known pitfalls
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-claude-should-use-this-dataset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How Claude should use this dataset
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How Claude should use this dataset">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#skill-camelyon16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skill: camelyon16
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-nodes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related nodes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2238,10 +2053,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../tcga/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TCGA
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2257,6 +2099,175 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-cancer-genome-atlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Cancer Genome Atlas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-contains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it contains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modalities-and-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modalities and scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks-and-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tasks and metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preprocessing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#used-by-articles-in-this-wiki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Used by articles in this wiki
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-claude-should-use-this-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Claude should use this dataset
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Claude should use this dataset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-tcga" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill: tcga
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2681,10 +2692,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#camelyon16-cancer-metastases-in-lymph-nodes-2016-challenge" class="md-nav__link">
+  <a href="#the-cancer-genome-atlas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CAMELYON16 — Cancer Metastases in Lymph Nodes 2016 Challenge
+        The Cancer Genome Atlas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it matters
       
     </span>
   </a>
@@ -2747,10 +2769,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-it-matters" class="md-nav__link">
+  <a href="#used-by-articles-in-this-wiki" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why it matters
+        Used by articles in this wiki
       
     </span>
   </a>
@@ -2781,10 +2803,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#skill-camelyon16" class="md-nav__link">
+  <a href="#skill-tcga" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Skill: camelyon16
+        Skill: tcga
       
     </span>
   </a>
@@ -2835,7 +2857,7 @@
 
 
   
-    <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/edit/main/content/datasets/camelyon16.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/Bokai-Zhao/Pathology-Wiki/edit/main/content/datasets/tcga.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2843,30 +2865,37 @@
   
 
 
-<h1 id="camelyon16-cancer-metastases-in-lymph-nodes-2016">Camelyon16 — Cancer Metastases in Lymph Nodes 2016<a class="headerlink" href="#camelyon16-cancer-metastases-in-lymph-nodes-2016" title="Permanent link">&para;</a></h1>
+<h1 id="tcga-the-cancer-genome-atlas">TCGA — The Cancer Genome Atlas<a class="headerlink" href="#tcga-the-cancer-genome-atlas" title="Permanent link">&para;</a></h1>
 <div class="pwiki-card">
 <div class="pwiki-card-kind">dataset</div>
-<h3 class="pwiki-card-title" id="camelyon16-cancer-metastases-in-lymph-nodes-2016-challenge">CAMELYON16 — Cancer Metastases in Lymph Nodes 2016 Challenge<a class="headerlink" href="#camelyon16-cancer-metastases-in-lymph-nodes-2016-challenge" title="Permanent link">&para;</a></h3>
-<div class="pwiki-card-meta">h-and-e · lymph-node, breast · 400 slides · CC0 1.0 (public domain dedication) per grand-challenge release; verify on the data page before redistribution</div>
-<div class="pwiki-card-links"><a href="https://camelyon16.grand-challenge.org/" target="_blank" rel="noreferrer">homepage</a> · <a href="https://camelyon17.grand-challenge.org/Data/" target="_blank" rel="noreferrer">download</a> · <a href="https://doi.org/10.1001/jama.2017.14585" target="_blank" rel="noreferrer">doi</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">license</a> · <a href="https://camelyon17.grand-challenge.org/Data/" target="_blank" rel="noreferrer">access</a></div>
+<h3 class="pwiki-card-title" id="the-cancer-genome-atlas">The Cancer Genome Atlas<a class="headerlink" href="#the-cancer-genome-atlas" title="Permanent link">&para;</a></h3>
+<div class="pwiki-card-meta">h-and-e · rna-seq · dna-mutation · copy-number-variation · dna-methylation · clinical-records · breast, lung, colon, rectum, prostate, kidney, liver, stomach, pancreas, bladder, skin, thyroid, uterus, ovary, cervix, testis, brain, head-neck, bone-marrow, adrenal-gland, oesophagus, bile-duct · 30,000 slides · TCGA data are released under NIH/NCI Genomic Data Commons access policy. WSIs (slide images) and most RNA-seq / mutation / CNV are open-access. Some clinical fields and patient-level identifiers require dbGaP controlled-access approval.</div>
+<div class="pwiki-card-links"><a href="https://www.cancer.gov/ccg/research/genome-sequencing/tcga" target="_blank" rel="noreferrer">homepage</a> · <a href="https://portal.gdc.cancer.gov/" target="_blank" rel="noreferrer">download</a> · <a href="https://doi.org/10.1038/ng.2764" target="_blank" rel="noreferrer">doi</a> · <a href="https://www.cancer.gov/ccg/research/genome-sequencing/tcga" target="_blank" rel="noreferrer">project</a> · <a href="https://portal.gdc.cancer.gov/" target="_blank" rel="noreferrer">access</a></div>
 </div>
-<div class="pwiki-localgraph"><div class="pwiki-localgraph-header"><strong>Local graph</strong><span class="pwiki-localgraph-legend"><span><i style="background:var(--pwiki-color-dataset)"></i>dataset</span><span><i style="background:var(--pwiki-color-tool)"></i>tool</span><span><i style="background:var(--pwiki-color-method)"></i>method</span><span><i style="background:var(--pwiki-color-article)"></i>article</span><span style="margin-left:0.6rem;opacity:0.7">1 out · 11 in · 12 neighbours</span></span></div><div class="pwiki-localgraph-canvas" data-graph="{&quot;nodes&quot;: [{&quot;id&quot;: &quot;camelyon16&quot;, &quot;label&quot;: &quot;Camelyon16 — Cancer Metastases in Lymph Nodes 2016&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;camelyon16/&quot;}, {&quot;id&quot;: &quot;openslide&quot;, &quot;label&quot;: &quot;OpenSlide (WSI I/O)&quot;, &quot;type&quot;: &quot;tool&quot;, &quot;href&quot;: &quot;../tools/openslide/&quot;}, {&quot;id&quot;: &quot;pathology-foundation-model&quot;, &quot;label&quot;: &quot;Pathology Foundation Model&quot;, &quot;type&quot;: &quot;method&quot;, &quot;href&quot;: &quot;../methods/pathology-foundation-model/&quot;}, {&quot;id&quot;: &quot;panda&quot;, &quot;label&quot;: &quot;PANDA — Prostate cANcer graDe Assessment&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;panda/&quot;}, {&quot;id&quot;: &quot;abmil-2018&quot;, &quot;label&quot;: &quot;ABMIL (Ilse, Tomczak, Welling 2018)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/abmil-2018/&quot;}, {&quot;id&quot;: &quot;clam-2021&quot;, &quot;label&quot;: &quot;CLAM (Lu et al. 2021, Nat Biomed Eng)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/clam-2021/&quot;}, {&quot;id&quot;: &quot;transmil-2021&quot;, &quot;label&quot;: &quot;TransMIL (Shao et al. 2021, NeurIPS)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/transmil-2021/&quot;}, {&quot;id&quot;: &quot;campanella-2019&quot;, &quot;label&quot;: &quot;Campanella et al. 2019 — Clinical-Grade Weakly-Supervised Pathology MIL&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/campanella-2019/&quot;}, {&quot;id&quot;: &quot;bahadir-2024&quot;, &quot;label&quot;: &quot;Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)&quot;, &quot;type&quot;: &quot;review_article&quot;, &quot;href&quot;: &quot;../articles/reviews/bahadir-2024/&quot;}, {&quot;id&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;label&quot;: &quot;Awesome-AI4DigitalPathology — curated reference list (~447 entries)&quot;, &quot;type&quot;: &quot;tool&quot;, &quot;href&quot;: &quot;../tools/awesome-ai4digitalpathology/&quot;}, {&quot;id&quot;: &quot;dsmil-2021&quot;, &quot;label&quot;: &quot;DSMIL (Li, Li, Eliceiri 2021, CVPR)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/dsmil-2021/&quot;}, {&quot;id&quot;: &quot;dtfd-mil-2022&quot;, &quot;label&quot;: &quot;DTFD-MIL (Zhang et al. 2022, CVPR)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/dtfd-mil-2022/&quot;}, {&quot;id&quot;: &quot;dt-mil-2021&quot;, &quot;label&quot;: &quot;DT-MIL (Li et al. 2021, MICCAI)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/dt-mil-2021/&quot;}], &quot;edges&quot;: [{&quot;from&quot;: &quot;camelyon16&quot;, &quot;to&quot;: &quot;openslide&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;pathology-foundation-model&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;panda&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;abmil-2018&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;clam-2021&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;transmil-2021&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;campanella-2019&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;bahadir-2024&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;dsmil-2021&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;dtfd-mil-2022&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;dt-mil-2021&quot;, &quot;to&quot;: &quot;camelyon16&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}]}" data-center="camelyon16"></div><noscript><div class="pwiki-localgraph-fallback"><strong>Local graph</strong> (text fallback — JS disabled)<ul><li><code>related_to</code> → <a href="../tools/openslide.md">OpenSlide (WSI I/O)</a></li><li><a href="../methods/pathology-foundation-model.md">Pathology Foundation Model</a> → <code>related_to</code></li><li><a href="panda.md">PANDA — Prostate cANcer graDe Assessment</a> → <code>related_to</code></li><li><a href="../articles/technical/abmil-2018.md">ABMIL (Ilse, Tomczak, Welling 2018)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/clam-2021.md">CLAM (Lu et al. 2021, Nat Biomed Eng)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/transmil-2021.md">TransMIL (Shao et al. 2021, NeurIPS)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/campanella-2019.md">Campanella et al. 2019 — Clinical-Grade Weakly-Supervised Pathology MIL</a> → <code>related_to</code></li><li><a href="../articles/reviews/bahadir-2024.md">Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)</a> → <code>related_to</code></li><li><a href="../tools/awesome-ai4digitalpathology.md">Awesome-AI4DigitalPathology — curated reference list (~447 entries)</a> → <code>related_to</code></li><li><a href="../articles/technical/dsmil-2021.md">DSMIL (Li, Li, Eliceiri 2021, CVPR)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/dtfd-mil-2022.md">DTFD-MIL (Zhang et al. 2022, CVPR)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/dt-mil-2021.md">DT-MIL (Li et al. 2021, MICCAI)</a> → <code>uses_dataset</code></li></ul></div></noscript></div>
+<div class="pwiki-localgraph"><div class="pwiki-localgraph-header"><strong>Local graph</strong><span class="pwiki-localgraph-legend"><span><i style="background:var(--pwiki-color-dataset)"></i>dataset</span><span><i style="background:var(--pwiki-color-tool)"></i>tool</span><span><i style="background:var(--pwiki-color-model)"></i>model</span><span><i style="background:var(--pwiki-color-article)"></i>article</span><span style="margin-left:0.6rem;opacity:0.7">1 out · 17 in · 18 neighbours</span></span></div><div class="pwiki-localgraph-canvas" data-graph="{&quot;nodes&quot;: [{&quot;id&quot;: &quot;tcga&quot;, &quot;label&quot;: &quot;TCGA — The Cancer Genome Atlas&quot;, &quot;type&quot;: &quot;dataset&quot;, &quot;href&quot;: &quot;tcga/&quot;}, {&quot;id&quot;: &quot;openslide&quot;, &quot;label&quot;: &quot;OpenSlide (WSI I/O)&quot;, &quot;type&quot;: &quot;tool&quot;, &quot;href&quot;: &quot;../tools/openslide/&quot;}, {&quot;id&quot;: &quot;ctranspath&quot;, &quot;label&quot;: &quot;CTransPath (Swin-T, SRCL)&quot;, &quot;type&quot;: &quot;model&quot;, &quot;href&quot;: &quot;../models/ctranspath/&quot;}, {&quot;id&quot;: &quot;ctranspath-2022&quot;, &quot;label&quot;: &quot;CTransPath (Wang et al. 2022, Med Image Anal)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/ctranspath-2022/&quot;}, {&quot;id&quot;: &quot;phikon-2023&quot;, &quot;label&quot;: &quot;Phikon (Filiot et al. 2023, Owkin)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/phikon-2023/&quot;}, {&quot;id&quot;: &quot;lunit-dino-2022&quot;, &quot;label&quot;: &quot;Lunit-DINO (Kang et al. 2022)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/lunit-dino-2022/&quot;}, {&quot;id&quot;: &quot;tangle-2024&quot;, &quot;label&quot;: &quot;TANGLE (Jaume et al. 2024, CVPR)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/tangle-2024/&quot;}, {&quot;id&quot;: &quot;mcat-2021&quot;, &quot;label&quot;: &quot;MCAT (Chen et al. 2021, ICCV)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/mcat-2021/&quot;}, {&quot;id&quot;: &quot;porpoise-2022&quot;, &quot;label&quot;: &quot;PORPOISE (Chen et al. 2022, Cancer Cell)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/porpoise-2022/&quot;}, {&quot;id&quot;: &quot;clam-2021&quot;, &quot;label&quot;: &quot;CLAM (Lu et al. 2021, Nat Biomed Eng)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/clam-2021/&quot;}, {&quot;id&quot;: &quot;transmil-2021&quot;, &quot;label&quot;: &quot;TransMIL (Shao et al. 2021, NeurIPS)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/transmil-2021/&quot;}, {&quot;id&quot;: &quot;dsmil-2021&quot;, &quot;label&quot;: &quot;DSMIL (Li, Li, Eliceiri 2021, CVPR)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/dsmil-2021/&quot;}, {&quot;id&quot;: &quot;dtfd-mil-2022&quot;, &quot;label&quot;: &quot;DTFD-MIL (Zhang et al. 2022, CVPR)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/dtfd-mil-2022/&quot;}, {&quot;id&quot;: &quot;gigapath-2024&quot;, &quot;label&quot;: &quot;Prov-GigaPath (Xu et al. 2024, Nature)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/gigapath-2024/&quot;}, {&quot;id&quot;: &quot;virchow-2024&quot;, &quot;label&quot;: &quot;Virchow (Vorontsov et al. 2024, Nat Med)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/virchow-2024/&quot;}, {&quot;id&quot;: &quot;chief-2024&quot;, &quot;label&quot;: &quot;CHIEF (Wang et al. 2024, Nature)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/chief-2024/&quot;}, {&quot;id&quot;: &quot;titan-2025&quot;, &quot;label&quot;: &quot;TITAN (Ding et al. 2025, Nat Med)&quot;, &quot;type&quot;: &quot;technical_article&quot;, &quot;href&quot;: &quot;../articles/technical/titan-2025/&quot;}, {&quot;id&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;label&quot;: &quot;Awesome-AI4DigitalPathology — curated reference list (~447 entries)&quot;, &quot;type&quot;: &quot;tool&quot;, &quot;href&quot;: &quot;../tools/awesome-ai4digitalpathology/&quot;}, {&quot;id&quot;: &quot;bahadir-2024&quot;, &quot;label&quot;: &quot;Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)&quot;, &quot;type&quot;: &quot;review_article&quot;, &quot;href&quot;: &quot;../articles/reviews/bahadir-2024/&quot;}], &quot;edges&quot;: [{&quot;from&quot;: &quot;tcga&quot;, &quot;to&quot;: &quot;openslide&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;ctranspath&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;ctranspath-2022&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;phikon-2023&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;lunit-dino-2022&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;tangle-2024&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;mcat-2021&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;porpoise-2022&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;clam-2021&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;transmil-2021&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;dsmil-2021&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;dtfd-mil-2022&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;gigapath-2024&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;virchow-2024&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;chief-2024&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;uses_dataset&quot;}, {&quot;from&quot;: &quot;titan-2025&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;awesome-ai4digitalpathology&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;related_to&quot;}, {&quot;from&quot;: &quot;bahadir-2024&quot;, &quot;to&quot;: &quot;tcga&quot;, &quot;type&quot;: &quot;related_to&quot;}]}" data-center="tcga"></div><noscript><div class="pwiki-localgraph-fallback"><strong>Local graph</strong> (text fallback — JS disabled)<ul><li><code>related_to</code> → <a href="../tools/openslide.md">OpenSlide (WSI I/O)</a></li><li><a href="../models/ctranspath.md">CTransPath (Swin-T, SRCL)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/ctranspath-2022.md">CTransPath (Wang et al. 2022, Med Image Anal)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/phikon-2023.md">Phikon (Filiot et al. 2023, Owkin)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/lunit-dino-2022.md">Lunit-DINO (Kang et al. 2022)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/tangle-2024.md">TANGLE (Jaume et al. 2024, CVPR)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/mcat-2021.md">MCAT (Chen et al. 2021, ICCV)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/porpoise-2022.md">PORPOISE (Chen et al. 2022, Cancer Cell)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/clam-2021.md">CLAM (Lu et al. 2021, Nat Biomed Eng)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/transmil-2021.md">TransMIL (Shao et al. 2021, NeurIPS)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/dsmil-2021.md">DSMIL (Li, Li, Eliceiri 2021, CVPR)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/dtfd-mil-2022.md">DTFD-MIL (Zhang et al. 2022, CVPR)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/gigapath-2024.md">Prov-GigaPath (Xu et al. 2024, Nature)</a> → <code>related_to</code></li><li><a href="../articles/technical/virchow-2024.md">Virchow (Vorontsov et al. 2024, Nat Med)</a> → <code>related_to</code></li><li><a href="../articles/technical/chief-2024.md">CHIEF (Wang et al. 2024, Nature)</a> → <code>uses_dataset</code></li><li><a href="../articles/technical/titan-2025.md">TITAN (Ding et al. 2025, Nat Med)</a> → <code>related_to</code></li><li><a href="../tools/awesome-ai4digitalpathology.md">Awesome-AI4DigitalPathology — curated reference list (~447 entries)</a> → <code>related_to</code></li><li><a href="../articles/reviews/bahadir-2024.md">Bahadir et al. 2024 — AI Applications in Histopathology (Nat Rev Electr Eng)</a> → <code>related_to</code></li></ul></div></noscript></div>
 
-<h2 id="what-it-contains">What it contains<a class="headerlink" href="#what-it-contains" title="Permanent link">&para;</a></h2>
-<p>Camelyon16 is the founding public benchmark for <strong>breast cancer metastasis detection in sentinel lymph nodes</strong> on H&amp;E WSIs. The release contains <strong>400 whole-slide images</strong> (270 training + 130 test) contributed by <strong>Radboud University Medical Center</strong> and <strong>Utrecht University Medical Center</strong>.</p>
-<p>Each slide is labelled at three granularities:</p>
+<h2 id="why-it-matters">Why it matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h2>
+<p>TCGA is <strong>the</strong> foundational public multi-omics cancer cohort. Almost every pathology AI paper from 2018 onward uses TCGA either:</p>
 <ul>
-<li><strong>Slide-level</strong>: negative / isolated tumor cells (ITC) / micrometastasis / macrometastasis.</li>
-<li><strong>Lesion-level</strong>: exhaustive polygons around contiguous tumor regions on positive slides (XML/JSON).</li>
-<li><strong>Pixel-level</strong>: derived tumor masks from the lesion polygons.</li>
+<li><strong>For pretraining</strong> — <a href="../../articles/technical/ctranspath-2022/">CTransPath (Wang et al. 2022, Med Image Anal)</a>, <a href="../../articles/technical/phikon-2023/">Phikon (Filiot et al. 2023, Owkin)</a>, <a href="../../articles/technical/lunit-dino-2022/">Lunit-DINO (Kang et al. 2022)</a>, and <a href="../../articles/technical/gigapath-2024/">Prov-GigaPath (Xu et al. 2024, Nature)</a>'s patch encoder all train on TCGA H&amp;E patches.</li>
+<li><strong>For downstream evaluation</strong> — <a href="../../articles/technical/clam-2021/">CLAM (Lu et al. 2021, Nat Biomed Eng)</a>, <a href="../../articles/technical/transmil-2021/">TransMIL (Shao et al. 2021, NeurIPS)</a>, <a href="../../articles/technical/dsmil-2021/">DSMIL (Li, Li, Eliceiri 2021, CVPR)</a>, <a href="../../articles/technical/dtfd-mil-2022/">DTFD-MIL (Zhang et al. 2022, CVPR)</a> all benchmark on TCGA-RCC / TCGA-NSCLC / TCGA-BRCA.</li>
+<li><strong>For multimodal studies</strong> — <a href="../../articles/technical/mcat-2021/">MCAT (Chen et al. 2021, ICCV)</a>, <a href="../../articles/technical/porpoise-2022/">PORPOISE (Chen et al. 2022, Cancer Cell)</a>, <a href="../../articles/technical/tangle-2024/">TANGLE (Jaume et al. 2024, CVPR)</a> use paired WSI + RNA-seq + mutations.</li>
+</ul>
+<p>TCGA is also the <strong>default training cohort</strong> in cross-cohort generalisation studies, with non-TCGA institutional data held out for testing.</p>
+<h2 id="what-it-contains">What it contains<a class="headerlink" href="#what-it-contains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>~30,000 WSIs</strong> across <strong>33 cancer types</strong> <em>(to verify exact counts)</em>.</li>
+<li><strong>~11,000 patients</strong> with WSI coverage <em>(to verify)</em>.</li>
+<li>Paired <strong>bulk RNA-seq, whole-exome / whole-genome sequencing, copy-number arrays, DNA methylation arrays, and structured clinical records</strong> for most patients.</li>
+<li>Two slide types: <strong>diagnostic FFPE</strong> (<code>-DX-*.svs</code>) and <strong>frozen sections</strong> (<code>-TS-*.svs</code>). Most pathology AI benchmarks filter to FFPE.</li>
 </ul>
 <h2 id="modalities-and-scope">Modalities and scope<a class="headerlink" href="#modalities-and-scope" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Modality</strong>: H&amp;E</li>
-<li><strong>Organ</strong>: lymph node (sentinel) — breast-cancer specimen</li>
-<li><strong>Disease</strong>: breast cancer with regional metastasis</li>
-<li><strong>Species</strong>: human</li>
-<li><strong>Specimen type</strong>: sentinel lymph node sections</li>
+<li><strong>Modality</strong>: H&amp;E + bulk omics (RNA-seq, DNA mutations, CNV, methylation) + clinical records.</li>
+<li><strong>Organs</strong>: pan-cancer — breast, lung, colon, prostate, kidney, liver, stomach, pancreas, bladder, skin, thyroid, uterus, ovary, cervix, brain, head &amp; neck, etc.</li>
+<li><strong>Diseases</strong>: 33 cancer-type cohorts (TCGA-BRCA, TCGA-LUAD, TCGA-LUSC, TCGA-COAD, TCGA-PRAD, TCGA-KIRC, TCGA-LIHC, ... TCGA-LAML, TCGA-DLBC).</li>
+<li><strong>Species</strong>: human.</li>
+<li><strong>Specimen types</strong>: surgical resection (most cohorts) + frozen sections.</li>
 </ul>
 <h2 id="tasks-and-metrics">Tasks and metrics<a class="headerlink" href="#tasks-and-metrics" title="Permanent link">&para;</a></h2>
 <table>
@@ -2878,67 +2907,91 @@
 </thead>
 <tbody>
 <tr>
-<td>Slide-level tumor presence</td>
+<td>Subtype classification (per cohort)</td>
+<td>AUC, balanced accuracy</td>
+</tr>
+<tr>
+<td>Mutation prediction (H&amp;E → mutation status)</td>
 <td>AUC</td>
 </tr>
 <tr>
-<td>Lesion-level detection</td>
-<td><strong>FROC</strong> (free-response ROC) — the headline challenge metric</td>
+<td>Biomarker / mRNA expression prediction</td>
+<td>AUC, Pearson</td>
 </tr>
 <tr>
-<td>Pixel segmentation</td>
-<td>Dice (secondary)</td>
+<td>Survival / prognosis prediction</td>
+<td>C-index, Kaplan-Meier separation</td>
+</tr>
+<tr>
+<td>Tumor vs normal (per cohort)</td>
+<td>AUC</td>
+</tr>
+<tr>
+<td>MSI prediction</td>
+<td>AUC</td>
+</tr>
+<tr>
+<td>Pan-cancer foundation-model pretraining</td>
+<td>downstream-task AUC suite</td>
 </tr>
 </tbody>
 </table>
-<p>FROC measures sensitivity at fixed false-positive-per-image counts and is the standard against which weakly supervised MIL pipelines are reported.</p>
 <h2 id="access">Access<a class="headerlink" href="#access" title="Permanent link">&para;</a></h2>
-<p>Hosted via the grand-challenge platform (<code>camelyon17.grand-challenge.org/Data/</code> is the canonical data page for both editions). Registration required. Released under CC0 — the data are public-domain dedicated, but redistribution should still cite the JAMA 2017 challenge paper.</p>
-<p>The full release is ~750 GB <em>(to verify)</em>; budget time for Aspera / S3 download.</p>
+<p>Hosted at the <strong>NIH Genomic Data Commons (GDC)</strong> at <a href="https://portal.gdc.cancer.gov/">https://portal.gdc.cancer.gov/</a>. WSIs and most genomic data are open-access; some clinical fields and patient-level identifiers require <strong>dbGaP controlled-access approval</strong> via NIH eRA Commons.</p>
+<p>Bulk download is via the official <strong><code>gdc-client</code></strong> CLI.</p>
 <h2 id="preprocessing">Preprocessing<a class="headerlink" href="#preprocessing" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">openslide</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">slide</span> <span class="o">=</span> <span class="n">openslide</span><span class="o">.</span><span class="n">OpenSlide</span><span class="p">(</span><span class="s2">&quot;/data/camelyon16/training/tumor/tumor_001.tif&quot;</span><span class="p">)</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">slide</span><span class="o">.</span><span class="n">level_dimensions</span><span class="p">,</span> <span class="n">slide</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;openslide.mpp-x&quot;</span><span class="p">))</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Bulk-download FFPE diagnostic slides for one cohort</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>gdc-client<span class="w"> </span>download<span class="w"> </span>-m<span class="w"> </span>manifest_TCGA_BRCA_DX.txt
 </span></code></pre></div>
 <p>Standard pipeline:</p>
 <ol>
-<li>Read <code>.tif</code> via <a href="../../tools/openslide/">OpenSlide (WSI I/O)</a> — handles Aperio / Hamamatsu vendor blocks.</li>
-<li>Tissue mask at level 4-6 (downsample) → keep only foreground patches.</li>
-<li>Patch at 20× or 40× (challenge slides have 40× level); 256×256 conventional for MIL.</li>
-<li>Build positive/negative patch labels from the XML tumor polygons.</li>
+<li><strong>Filter to FFPE</strong> (<code>-DX-*.svs</code>) — frozen sections are noisier.</li>
+<li><strong>Read</strong> with <a href="../../tools/openslide/">OpenSlide (WSI I/O)</a> (Aperio <code>.svs</code> format).</li>
+<li><strong>Tissue segmentation + patch extraction</strong> via the <a href="../../methods/clam/">CLAM — Clustering-constrained Attention MIL</a> toolkit (TCGA-specific scripts shipped).</li>
+<li><strong>Stain normalisation</strong> (Macenko / Vahadane) — TCGA spans many scanners and labs.</li>
+<li><strong>Match TCGA barcodes</strong> (case-uuid) for multi-modal alignment of WSI ↔ RNA-seq ↔ clinical.</li>
+<li><strong>Patient-level train/test splits</strong> — same patient often has multiple slides; slide-level splits leak.</li>
 </ol>
-<h2 id="why-it-matters">Why it matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h2>
-<p>Camelyon16 is the <strong>seed dataset for the entire weakly-supervised MIL literature in pathology</strong> — ABMIL, CLAM, TransMIL, DSMIL, DTFD-MIL all report Camelyon16 numbers. Any new WSI classification method without a Camelyon16 number is treated with suspicion.</p>
+<h2 id="used-by-articles-in-this-wiki">Used by articles in this wiki<a class="headerlink" href="#used-by-articles-in-this-wiki" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Pretraining: <a href="../../articles/technical/ctranspath-2022/">CTransPath (Wang et al. 2022, Med Image Anal)</a>, <a href="../../articles/technical/phikon-2023/">Phikon (Filiot et al. 2023, Owkin)</a>, <a href="../../articles/technical/lunit-dino-2022/">Lunit-DINO (Kang et al. 2022)</a>.</li>
+<li>MIL evaluation: <a href="../../articles/technical/clam-2021/">CLAM (Lu et al. 2021, Nat Biomed Eng)</a>, <a href="../../articles/technical/transmil-2021/">TransMIL (Shao et al. 2021, NeurIPS)</a>, <a href="../../articles/technical/dsmil-2021/">DSMIL (Li, Li, Eliceiri 2021, CVPR)</a>, <a href="../../articles/technical/dtfd-mil-2022/">DTFD-MIL (Zhang et al. 2022, CVPR)</a>.</li>
+<li>Multimodal: <a href="../../articles/technical/mcat-2021/">MCAT (Chen et al. 2021, ICCV)</a>, <a href="../../articles/technical/porpoise-2022/">PORPOISE (Chen et al. 2022, Cancer Cell)</a>, <a href="../../articles/technical/tangle-2024/">TANGLE (Jaume et al. 2024, CVPR)</a>.</li>
+<li>Modern PFM downstream: <a href="../../articles/technical/gigapath-2024/">Prov-GigaPath (Xu et al. 2024, Nature)</a>, <a href="../../articles/technical/virchow-2024/">Virchow (Vorontsov et al. 2024, Nat Med)</a>, <a href="../../articles/technical/chief-2024/">CHIEF (Wang et al. 2024, Nature)</a>, <a href="../../articles/technical/titan-2025/">TITAN (Ding et al. 2025, Nat Med)</a>.</li>
+</ul>
 <h2 id="known-pitfalls">Known pitfalls<a class="headerlink" href="#known-pitfalls" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Two-centre, two-scanner</strong> drift — Pannoramic 250 Flash (Radboud) vs Aperio (Utrecht). Stain and resolution differ.</li>
-<li><strong>Lesion vs slide metrics tell different stories</strong> — high AUC with low FROC means the model is voting correctly but localising poorly.</li>
-<li><strong>ITC may be under-annotated</strong> — exhaustive polygons cover the main contiguous lesion only.</li>
-<li><strong>Camelyon17 is a different challenge</strong> (patient-level pN staging on 1000 slides from 5 centres) — do not conflate.</li>
+<li><strong>Multi-cohort, multi-scanner</strong> — colour and resolution drift across cohorts is large; stain normalisation matters.</li>
+<li><strong>Frozen vs FFPE</strong> — <code>-TS-*.svs</code> are diagnostically noisier than <code>-DX-*.svs</code>; most benchmarks filter.</li>
+<li><strong>Small per-cohort sizes</strong> for rare cancers (e.g. CHOL n&lt;60) — overfitting is easy; cross-cohort pretraining helps.</li>
+<li><strong>Controlled-access fields</strong> (clinical metadata, patient IDs) require dbGaP approval — many MIL papers use only WSI + de-identified labels.</li>
+<li><strong>Same-patient multi-slide leakage</strong> — splits MUST be patient-level, never slide-level.</li>
+<li><strong>Late-stage / academic-centre skew</strong> — non-TCGA cohort generalisation is a known weak spot; cross-cohort eval matters.</li>
+<li><strong>Right-censored outcome labels</strong> — survival modelling must use Cox / Kaplan-Meier-aware metrics, not classification metrics.</li>
+<li><strong>Imperfect WSI ↔ RNA-seq overlap</strong> — case-uuid matching is the canonical join.</li>
 </ul>
 <h2 id="how-claude-should-use-this-dataset">How Claude should use this dataset<a class="headerlink" href="#how-claude-should-use-this-dataset" title="Permanent link">&para;</a></h2>
 <div class="pwiki-card">
 <div class="pwiki-card-kind">skill · datasets</div>
-<h3 class="pwiki-card-title" id="skill-camelyon16">Skill: camelyon16<a class="headerlink" href="#skill-camelyon16" title="Permanent link">&para;</a></h3>
+<h3 class="pwiki-card-title" id="skill-tcga">Skill: tcga<a class="headerlink" href="#skill-tcga" title="Permanent link">&para;</a></h3>
 <div class="pwiki-card-meta">Documentation-form SKILL.md (CLAUDE.md §12).</div>
 <div>
-<p>How Claude should use this object — see the SKILL doc at <code>skills/datasets/camelyon16/SKILL.md</code>.</p>
+<p>How Claude should use this object — see the SKILL doc at <code>skills/datasets/tcga/SKILL.md</code>.</p>
 </div>
-<div class="pwiki-card-links"><a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/skills/datasets/camelyon16/SKILL.md" target="_blank" rel="noreferrer">source</a></div>
+<div class="pwiki-card-links"><a href="https://github.com/Bokai-Zhao/Pathology-Wiki/blob/main/skills/datasets/tcga/SKILL.md" target="_blank" rel="noreferrer">source</a></div>
 </div>
-<p>Camelyon16 is the <strong>first benchmark to run</strong> when proposing a new WSI classification / MIL method. Always pair slide-AUC with lesion-FROC.</p>
+<p>TCGA is the <strong>default canonical cohort</strong> for any pathology AI experimental section. When the user asks "where do I get pathology + genomics data?", or "what's the standard cohort for pan-cancer subtyping?", the answer is TCGA. For biopsy-level prostate Gleason grading, prefer <a href="../panda/">PANDA — Prostate cANcer graDe Assessment</a>; for breast metastasis detection, <a href="../camelyon16/">Camelyon16 — Cancer Metastases in Lymph Nodes 2016</a>.</p>
 <h2 id="related-nodes">Related nodes<a class="headerlink" href="#related-nodes" title="Permanent link">&para;</a></h2>
 <ul>
 <li>tool: <a href="../../tools/openslide/">OpenSlide (WSI I/O)</a></li>
-<li>method context: <a href="../../methods/pathology-foundation-model/">Pathology Foundation Model</a></li>
-<li>companion benchmark: <a href="../panda/">PANDA — Prostate cANcer graDe Assessment</a> (grading complement)</li>
-<li>challenge paper: <code>bejnordi-2017-camelyon16</code> <em>(article node deferred — pending §11.6)</em></li>
+<li>toolkit: <a href="../../methods/clam/">CLAM — Clustering-constrained Attention MIL</a> (TCGA-specific preprocessing scripts)</li>
+<li>companion datasets: <a href="../camelyon16/">Camelyon16 — Cancer Metastases in Lymph Nodes 2016</a>, <a href="../panda/">PANDA — Prostate cANcer graDe Assessment</a>, <a href="../pannuke/">PanNuke — Pan-Cancer Nuclei Seg &amp; Classification</a>, <a href="../midog/">MIDOG — MItosis DOmain Generalization Challenge</a></li>
 </ul>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Challenge homepage: <a href="https://camelyon16.grand-challenge.org/">camelyon16.grand-challenge.org</a></li>
-<li>Data download (joint with Camelyon17): <a href="https://camelyon17.grand-challenge.org/Data/">camelyon17.grand-challenge.org/Data/</a></li>
-<li>Bejnordi et al., <em>JAMA</em> 2017 (DOI to verify)</li>
+<li>Portal: <a href="https://portal.gdc.cancer.gov/">GDC Data Portal</a></li>
+<li>Project page: <a href="https://www.cancer.gov/ccg/research/genome-sequencing/tcga">cancer.gov/ccg/research/genome-sequencing/tcga</a></li>
+<li>Pan-Cancer flagship paper: Weinstein et al., <em>Nature Genetics</em> 45:1113–1120 (2013)</li>
 </ul>
 
 

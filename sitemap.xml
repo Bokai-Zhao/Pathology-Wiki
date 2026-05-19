@@ -260,6 +260,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/pannuke/"/>
     </url>
     <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/datasets/tcga/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/tcga/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/tcga/"/>
+    </url>
+    <url>
         <loc>https://bokai-zhao.github.io/Pathology-Wiki/methods/abmil/</loc>
         <lastmod>2026-05-19</lastmod>
         <changefreq>daily</changefreq>
@@ -615,6 +622,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/pannuke/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/pannuke/"/>
+    </url>
+    <url>
+        <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/tcga/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://bokai-zhao.github.io/Pathology-Wiki/zh/datasets/tcga/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://bokai-zhao.github.io/Pathology-Wiki/datasets/tcga/"/>
     </url>
     <url>
         <loc>https://bokai-zhao.github.io/Pathology-Wiki/zh/methods/abmil/</loc>
