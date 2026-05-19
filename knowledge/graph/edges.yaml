@@ -283,3 +283,91 @@ edges:
       evidence: "Listed as a core public WSI benchmark for Gleason / ISUP grading", confidence: high }
   - { from: awesome-ai4digitalpathology, to: pannuke, type: related_to,
       evidence: "Listed as a core nuclei-segmentation benchmark", confidence: high }
+
+  # ---- Wave 1 from Awesome-AI4DigitalPathology (added 2026-05-20) ----
+  # 6 new article nodes filling the largest gaps. Method-hierarchy and
+  # cross-comparison edges below.
+
+  # Prov-GigaPath
+  - { from: gigapath-2024, to: pathology-foundation-model, type: belongs_to,
+      evidence: "Prov-GigaPath is a slide-level pathology foundation model", confidence: high }
+  - { from: gigapath-2024, to: patch-level-ssl, type: belongs_to,
+      evidence: "Stage-1 patch encoder uses DINOv2 patch-level SSL", confidence: high }
+  - { from: gigapath-2024, to: uni-2024, type: compares_with,
+      evidence: "Prov-GigaPath benchmarks directly against UNI on 26 downstream tasks (wins on 25)", confidence: high }
+  - { from: gigapath-2024, to: ctranspath-2022, type: compares_with,
+      evidence: "Prov-GigaPath benchmarks against CTransPath as the open-weights pre-PFM baseline", confidence: high }
+
+  # CHIEF
+  - { from: chief-2024, to: pathology-foundation-model, type: belongs_to,
+      evidence: "CHIEF is a clinical-grade pathology foundation model", confidence: high }
+  - { from: chief-2024, to: patch-level-ssl, type: belongs_to,
+      evidence: "Pretraining uses patch-level contrastive SSL with clinical-text alignment head", confidence: high }
+  - { from: chief-2024, to: ctranspath-2022, type: extends,
+      evidence: "Built on Swin-T pathology backbone evolved from CTransPath, plus clinical-text-aligned objective", confidence: medium }
+  - { from: chief-2024, to: uni-2024, type: compares_with,
+      evidence: "Benchmarks against UNI in the contemporaneous PFM cohort", confidence: medium }
+
+  # Virchow
+  - { from: virchow-2024, to: pathology-foundation-model, type: belongs_to,
+      evidence: "Virchow is a patch-level pathology foundation model", confidence: high }
+  - { from: virchow-2024, to: patch-level-ssl, type: belongs_to,
+      evidence: "Uses DINOv2 patch-level SSL pretraining at ViT-H scale", confidence: high }
+  - { from: virchow-2024, to: uni-2024, type: compares_with,
+      evidence: "Benchmarks head-to-head with UNI; ViT-H vs ViT-L scaling comparison", confidence: high }
+  - { from: virchow-2024, to: gigapath-2024, type: compares_with,
+      evidence: "Compares against Prov-GigaPath's patch encoder on patch-level tasks", confidence: high }
+
+  # CONCH
+  - { from: conch-2024, to: pathology-vlm, type: belongs_to,
+      evidence: "CONCH is a pathology vision-language foundation model", confidence: high }
+  - { from: conch-2024, to: pathology-foundation-model, type: belongs_to,
+      evidence: "Also serves as a strong patch-level vision encoder, fitting under PFM umbrella", confidence: medium }
+  - { from: conch-2024, to: plip-2023, type: extends,
+      evidence: "Replaces PLIP's Twitter-mined corpus with curated textbook+paper image-caption pairs and adds a CoCa captioning head", confidence: high }
+  - { from: conch-2024, to: clip-2021, type: extends,
+      evidence: "Inherits CLIP's contrastive image-text architecture, modified with CoCa-style captioning head", confidence: high }
+  - { from: conch-2024, to: plip-2023, type: supersedes,
+      evidence: "CONCH is the modern default pathology VL foundation model, succeeding PLIP on essentially all reported benchmarks", confidence: high }
+
+  # PathChat
+  - { from: pathchat-2024, to: pathology-vlm, type: belongs_to,
+      evidence: "PathChat is an instruction-tuned pathology vision-language model (MLLM)", confidence: high }
+  - { from: pathchat-2024, to: conch-2024, type: extends,
+      evidence: "Uses CONCH as the visual encoder, paired with Llama-2 13B and instruction-tuned for conversational pathology", confidence: high }
+  - { from: pathchat-2024, to: plip-2023, type: related_to,
+      evidence: "Extends the pathology VL line that PLIP started", confidence: medium }
+
+  # DSMIL
+  - { from: dsmil-2021, to: weakly-supervised-mil, type: proposes_method,
+      evidence: "Introduces dual-stream MIL with critical-instance + non-local attention; member of the weakly-supervised-mil family", confidence: high }
+  - { from: dsmil-2021, to: abmil-2018, type: extends,
+      evidence: "Extends attention-MIL with dual-stream architecture", confidence: high }
+  - { from: dsmil-2021, to: clam-2021, type: compares_with,
+      evidence: "Contemporaneous sibling of CLAM in the 2021 MIL benchmark cohort", confidence: high }
+  - { from: dsmil-2021, to: transmil-2021, type: compares_with,
+      evidence: "TransMIL benchmarks against DSMIL as a non-local-attention precedent", confidence: high }
+  - { from: dsmil-2021, to: camelyon16, type: uses_dataset,
+      evidence: "DSMIL evaluates on Camelyon16 + TCGA-NSCLC", confidence: high }
+
+  # Awesome-list cross-references for Wave 1 entries
+  - { from: awesome-ai4digitalpathology, to: gigapath-2024, type: related_to,
+      evidence: "Listed in the slide-level FMs section", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: chief-2024, type: related_to,
+      evidence: "Listed in the slide-level FMs section as the clinical-grade-validated PFM", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: virchow-2024, type: related_to,
+      evidence: "Listed in the patch-level FMs section as the largest pathology PFM", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: conch-2024, type: related_to,
+      evidence: "Listed in the VLM section as the modern default pathology VL model", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: pathchat-2024, type: related_to,
+      evidence: "Listed in the VLM/Agents section as the first pathology copilot", confidence: high }
+  - { from: awesome-ai4digitalpathology, to: dsmil-2021, type: related_to,
+      evidence: "Listed in the MIL section as a canonical dual-stream variant", confidence: high }
+
+  # PANDA hint: DSMIL is a third canonical MIL aggregator on PANDA
+  - { from: panda, to: dsmil-2021, type: related_to,
+      evidence: "DSMIL is a canonical MIL aggregator used in PANDA Gleason-grading pipelines alongside ABMIL / CLAM", confidence: medium }
+
+  # Bahadir 2024 review extension
+  - { from: bahadir-2024, to: gigapath-2024, type: related_to,
+      evidence: "Bahadir 2024 review cutoff is ~mid-2023; Prov-GigaPath is the canonical slide-level PFM successor to the review's PFM-section discussion", confidence: medium }

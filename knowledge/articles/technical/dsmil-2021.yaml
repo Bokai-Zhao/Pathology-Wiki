@@ -1,0 +1,133 @@
+id: dsmil-2021
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "Dual-stream Multiple Instance Learning Network for Whole Slide Image Classification with Self-supervised Contrastive Learning"
+authors:
+  - Bin Li
+  - Yin Li
+  - Kevin W. Eliceiri
+year: 2021
+venue: CVPR
+publication_status: published
+
+links:
+  arxiv: "2011.08939"
+  paper: https://openaccess.thecvf.com/content/CVPR2021/papers/Li_Dual-Stream_Multiple_Instance_Learning_Network_for_Whole_Slide_Image_Classification_CVPR_2021_paper.pdf
+  github: https://github.com/binli123/dsmil-wsi
+  doi: 10.1109/CVPR46437.2021.01403       # to_verify
+
+abstract: |
+  DSMIL (Dual-Stream Multiple Instance Learning) introduces a two-stream
+  MIL architecture for WSI classification. The first stream selects the
+  highest-attention "critical instance" via a max-pooling operation; the
+  second stream weights all instances against that critical instance via
+  a non-local attention mechanism, producing a calibrated bag embedding.
+  The method also introduces a self-supervised contrastive pretraining
+  step (SimCLR-style) on patch features before MIL training, improving
+  data efficiency on small cohorts. Evaluated on Camelyon16 and TCGA-NSCLC,
+  DSMIL outperforms ABMIL and earlier MIL baselines.
+keywords:
+  - multiple instance learning
+  - dual-stream attention
+  - non-local attention
+  - self-supervised pretraining
+  - whole slide image
+  - contrastive learning
+
+domains: [computational-pathology]
+modalities: [h-and-e]
+organs: [breast, lung, lymph-node]
+diseases:
+  - breast-cancer-metastasis
+  - non-small-cell-lung-cancer
+biomarkers: []
+tasks:
+  - slide-level-classification
+  - subtype-classification
+  - tumor-detection
+metrics:
+  - auc
+  - accuracy
+  - f1
+
+related_methods:
+  - weakly-supervised-mil
+  - abmil
+related_models: []
+related_datasets:
+  - camelyon16
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - abmil-2018
+  - clam-2021
+  - transmil-2021
+
+technical_focus:
+  method_family:
+    - weakly-supervised-mil
+    - attention-mechanism
+    - dual-stream
+    - non-local-attention
+  model_architecture:
+    - resnet-encoder
+    - critical-instance-stream
+    - non-local-attention-stream
+  training_strategy:
+    - simclr-pretraining                  # patch-level SSL before MIL
+    - end-to-end-bag-level
+  supervision_type:
+    - weakly-supervised
+    - self-supervised                     # for the patch encoder
+  input_type:
+    - h-and-e-patch
+    - bag-of-patches
+  output_type:
+    - bag-level-label
+    - critical-instance-coordinate
+  datasets:
+    - camelyon16
+    - tcga-nsclc                          # descriptive label, deferred
+  metrics:
+    - auc
+    - accuracy
+    - f1
+  baselines:
+    - abmil
+    - mean-pool-mil
+    - max-pool-mil
+    - rnn-mil
+  implementation: "PyTorch; SimCLR pretraining + dual-stream MIL head; code public on github.com/binli123/dsmil-wsi."
+  reproducibility: "Code and weights public; reproduction needs Camelyon16 / TCGA WSIs."
+  limitations:
+    - "Critical-instance max-pooling can miss diffuse signal in slides where positive evidence is spread across many low-attention patches."
+    - "Two-stage SSL + MIL training is computationally heavier than direct MIL on PFM features."
+    - "Default ResNet encoder is now superseded by pathology PFMs (UNI / GigaPath / Virchow)."
+  reusable_components:
+    - dual-stream-mil-aggregator
+    - critical-instance-pooling
+    - simclr-pathology-pretraining
+
+claude:
+  summary: |
+    Li, Li, Eliceiri (CVPR 2021) — DSMIL combines a critical-instance
+    max-pooling stream with a non-local-attention stream for WSI MIL,
+    plus SimCLR self-supervised pretraining of the patch encoder.
+    Standard sibling reference to ABMIL / CLAM / TransMIL in the modern
+    MIL benchmark suite. The non-local attention idea is a precedent
+    for TransMIL's later Transformer self-attention.
+  use_when:
+    - "Citing the dual-stream MIL formulation"
+    - "Establishing the precedent for SSL-pretrained patch encoders before MIL"
+    - "Comparing MIL aggregators — cite alongside ABMIL / CLAM / TransMIL"
+  do_not_use_when:
+    - "Need a simpler MIL baseline — ABMIL / CLAM are simpler"
+    - "Need explicit Transformer self-attention — TransMIL is the canonical reference"
+    - "Need open MIL toolkit ergonomics — CLAM repo is more polished"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

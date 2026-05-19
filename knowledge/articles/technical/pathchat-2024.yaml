@@ -1,0 +1,166 @@
+id: pathchat-2024
+type: article
+
+article_type:
+  primary: technical_article
+  secondary:
+    - clinical_article                   # validated as a diagnostic copilot
+
+title: "A multimodal generative AI copilot for human pathology"
+authors:
+  - Ming Y. Lu
+  - Bowen Chen
+  - Drew F. K. Williamson
+  - Richard J. Chen
+  - Melissa Zhao
+  - Aaron K. Chow
+  - Kenji Ikemura
+  - Ahrong Kim
+  - Dimitra Pouli
+  - Ankush Patel
+  - Amr Soliman
+  - Chengkuan Chen
+  - Tong Ding
+  - Judy J. Wang
+  - Georg Gerber
+  - Ivy Liang
+  - Long Phi Le
+  - Anil V. Parwani
+  - Luca L. Weishaupt
+  - Faisal Mahmood
+year: 2024
+venue: Nature
+publication_status: published
+
+links:
+  doi: 10.1038/s41586-024-07618-3
+  paper: https://www.nature.com/articles/s41586-024-07618-3
+  github: https://github.com/fedshyvana/pathology_mllm_training
+  pubmed: to_verify
+
+abstract: |
+  PathChat is a multimodal generative AI copilot for human pathology — an
+  instruction-tuned large multimodal model (MLLM) that pairs a CONCH-derived
+  pathology image encoder with a Llama-2 13B language model and is fine-
+  tuned on ~456,000 pathology-specific instruction-response pairs. PathChat
+  performs interactive Q&A, differential diagnosis, biomarker reasoning,
+  and clinical-context grounding directly on H&E patches and morphology
+  descriptions. In a multi-pathologist evaluation across cancer subtype
+  reasoning, immunohistochemistry recommendations, and structured-report
+  generation, PathChat outperforms LLaVA-Med and a generic GPT-4V baseline.
+  The first conversational pathology copilot from a major research lab.
+keywords:
+  - multimodal LLM
+  - pathology copilot
+  - instruction tuning
+  - vision-language
+  - generative AI
+  - clinical pathology
+
+domains: [computational-pathology, clinical-pathology, multimodal]
+modalities:
+  - h-and-e
+  - pathology-text
+  - clinical-question
+organs: []
+diseases: []
+biomarkers: []
+tasks:
+  - pathology-vqa
+  - histology-captioning
+  - differential-diagnosis-reasoning
+  - biomarker-reasoning
+  - report-generation
+  - instruction-tuned-mllm
+metrics:
+  - pathologist-preference
+  - exact-match
+  - factuality
+
+related_methods:
+  - pathology-vlm
+  - pathology-foundation-model
+related_models:
+  - plip
+related_datasets: []
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - conch-2024
+  - plip-2023
+  - mi-zero-2023
+
+technical_focus:
+  method_family:
+    - pathology-vlm
+    - instruction-tuned-mllm
+    - vision-language-generative
+  model_architecture:
+    - conch-vision-encoder
+    - llama-2-13b
+    - vision-language-projector
+  training_strategy:
+    - instruction-tuning
+    - vision-language-alignment
+  supervision_type:
+    - supervised-instruction-pairs
+  input_type:
+    - h-and-e-patch
+    - clinical-question-text
+  output_type:
+    - free-form-text-response
+    - differential-diagnosis-list
+    - structured-report
+  datasets:
+    - pathchat-instruction-456k          # internal — ~456k pathology instruction-response pairs
+  metrics:
+    - pathologist-preference
+    - exact-match
+    - factuality
+  baselines:
+    - llava-med
+    - gpt-4v
+  implementation: "PyTorch; CONCH ViT visual encoder + Llama-2 13B language model + lightweight projector; instruction-tuned on internal pathology Q&A corpus."
+  reproducibility: "Public training code skeleton on github.com/fedshyvana/pathology_mllm_training; instruction-tuning corpus is internal Mahmood Lab — full reproduction blocked."
+  limitations:
+    - "Instruction-tuning corpus is internal — full reproduction blocked."
+    - "Llama-2 13B base — succeeded by larger / newer LLM bases (Llama-3, Llama-4) since publication."
+    - "Validated on internal evaluation panel — external prospective validation pending."
+    - "Patch-level visual input only — slide-level reasoning requires upstream MIL aggregation."
+  reusable_components:
+    - conch-vision-encoder-llm-projector
+    - pathology-instruction-tuning-recipe
+
+clinical_focus:
+  clinical_problem: "Conversational diagnostic support and reasoning over H&E patches: differential diagnosis, immunohistochemistry recommendation, biomarker explanation, and structured-report generation."
+  clinical_endpoints:
+    - pathologist-preference
+    - clinical-answer-correctness
+  clinical_workflow: "Pathology copilot: pathologist examines an H&E patch and asks PathChat free-form questions; the model returns a grounded text response with optional structured artifacts."
+  clinical_need_for_ai: "Pathologist time pressure + complex differential diagnosis decisions + need for second-opinion grounding from a unified vision-language assistant."
+  possible_ai_tasks:
+    - differential-diagnosis-reasoning
+    - immunohistochemistry-recommendation
+    - report-generation
+    - educational-pathology-Q&A
+
+claude:
+  summary: |
+    Lu et al. (Nature 2024, 634:466–473) — PathChat is the first published
+    conversational pathology copilot. CONCH visual encoder + Llama-2 13B
+    language model, instruction-tuned on ~456k pathology Q&A pairs.
+    Outperforms LLaVA-Med and GPT-4V on multi-pathologist evaluation.
+    Canonical reference for instruction-tuned pathology MLLMs.
+  use_when:
+    - "Citing the first conversational pathology copilot"
+    - "Discussing instruction-tuned pathology MLLMs (vs zero-shot CONCH)"
+    - "Designing a pathology Q&A or report-generation pipeline"
+    - "Comparing pathology MLLMs (cite alongside Quilt-LLaVA, MUSK, PathGen-LLaVA)"
+  do_not_use_when:
+    - "Need open instruction-tuning data — internal"
+    - "Need a non-generative VL model — cite CONCH directly"
+    - "Need slide-level reasoning — patch-level only"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

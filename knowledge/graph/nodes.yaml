@@ -191,3 +191,41 @@ nodes:
     label: "Awesome-AI4DigitalPathology — curated reference list (~447 entries)"
     aliases: [awesome-ai4dp, awesome-pathology-ai, lingxitong-awesome-list]
     taxonomy_path: [Resources, Curated Reference Lists]
+
+  # ---- Wave 1 from Awesome-AI4DigitalPathology (added 2026-05-20) ----
+  # Six top-priority new papers filling the largest gaps in the existing graph.
+  - id: gigapath-2024
+    type: technical_article
+    label: "Prov-GigaPath (Xu et al. 2024, Nature)"
+    aliases: [xu-2024-gigapath, prov-gigapath-paper]
+    taxonomy_path: [Articles, Technical, Slide-Level PFM]
+
+  - id: chief-2024
+    type: technical_article
+    label: "CHIEF (Wang et al. 2024, Nature)"
+    aliases: [wang-2024-chief]
+    taxonomy_path: [Articles, Technical, Pathology PFM]
+
+  - id: virchow-2024
+    type: technical_article
+    label: "Virchow (Vorontsov et al. 2024, Nat Med)"
+    aliases: [vorontsov-2024-virchow, paige-virchow]
+    taxonomy_path: [Articles, Technical, Pathology PFM]
+
+  - id: conch-2024
+    type: technical_article
+    label: "CONCH (Lu et al. 2024, Nat Med)"
+    aliases: [lu-2024-conch, mahmood-conch]
+    taxonomy_path: [Articles, Technical, Pathology VLM]
+
+  - id: pathchat-2024
+    type: technical_article
+    label: "PathChat (Lu et al. 2024, Nature)"
+    aliases: [lu-2024-pathchat, pathology-copilot]
+    taxonomy_path: [Articles, Technical, Pathology MLLM]
+
+  - id: dsmil-2021
+    type: technical_article
+    label: "DSMIL (Li, Li, Eliceiri 2021, CVPR)"
+    aliases: [li-2021-dsmil, dual-stream-mil]
+    taxonomy_path: [Articles, Technical, MIL]

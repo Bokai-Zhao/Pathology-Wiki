@@ -114,6 +114,12 @@ nav:
           - "CLIP (Radford 2021)": articles/technical/clip-2021.md
           - "PLIP (Huang 2023)": articles/technical/plip-2023.md
           - "MI-Zero (Lu 2023)": articles/technical/mi-zero-2023.md
+          - "Prov-GigaPath (Xu 2024)": articles/technical/gigapath-2024.md
+          - "CHIEF (Wang 2024)": articles/technical/chief-2024.md
+          - "Virchow (Vorontsov 2024)": articles/technical/virchow-2024.md
+          - "CONCH (Lu 2024)": articles/technical/conch-2024.md
+          - "PathChat (Lu 2024)": articles/technical/pathchat-2024.md
+          - "DSMIL (Li 2021)": articles/technical/dsmil-2021.md
   - Models:
       - UNI: models/uni.md
       - CTransPath: models/ctranspath.md

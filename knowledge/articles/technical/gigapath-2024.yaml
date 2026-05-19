@@ -1,0 +1,154 @@
+id: gigapath-2024
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "A whole-slide foundation model for digital pathology from real-world data"
+authors:
+  - Hanwen Xu
+  - Naoto Usuyama
+  - Jaspreet Bagga
+  - Sheng Zhang
+  - Rajesh Rao
+  - Tristan Naumann
+  - Cliff Wong
+  - Zelalem Gero
+  - Javier González
+  - Yu Gu
+  - Yanbo Xu
+  - Mu Wei
+  - Wenhui Wang
+  - Shuming Ma
+  - Furu Wei
+  - Jianwei Yang
+  - Chunyuan Li
+  - Jianfeng Gao
+  - Carlo Bifulco
+  - Brian Piening
+  - Hoifung Poon
+year: 2024
+venue: Nature
+publication_status: published
+
+links:
+  doi: 10.1038/s41586-024-07441-w
+  paper: https://www.nature.com/articles/s41586-024-07441-w
+  github: https://github.com/prov-gigapath/prov-gigapath
+  huggingface: https://huggingface.co/prov-gigapath/prov-gigapath
+  pubmed: to_verify
+
+abstract: |
+  Prov-GigaPath is the first published whole-slide foundation model for
+  digital pathology. The authors curate Prov-Path, a real-world clinical
+  cohort of ~171,189 whole-slide images and ~1.3 billion 256×256 patches
+  from Providence health network. A two-stage pretraining pipeline first
+  applies DINOv2 to a ViT-based patch encoder, then trains a slide-level
+  Transformer (LongNet) on slide-level patch sequences via masked
+  autoencoding. The released checkpoint outperforms prior pathology PFMs
+  (UNI, Phikon, CTransPath) on 25 of 26 downstream tasks across pan-cancer
+  classification, mutation prediction, biomarker prediction, and
+  vision-language alignment.
+keywords:
+  - pathology foundation model
+  - slide-level pretraining
+  - whole slide image
+  - DINOv2
+  - LongNet
+  - real-world data
+
+domains: [computational-pathology]
+modalities: [h-and-e]
+organs: []                          # pan-tissue
+diseases: []                        # pan-cancer
+biomarkers: []
+tasks:
+  - tissue-type-classification
+  - subtype-classification
+  - mutation-prediction
+  - biomarker-expression-prediction
+  - slide-level-classification
+  - vision-language-alignment
+metrics:
+  - auc
+  - accuracy
+  - balanced-accuracy
+
+related_methods:
+  - pathology-foundation-model
+  - patch-level-ssl
+  - slide-level-pretraining          # deferred parent method node — hint
+related_models:
+  - uni                              # canonical predecessor / peer
+  - ctranspath
+related_datasets: []
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - uni-2024
+  - ctranspath-2022
+
+technical_focus:
+  method_family:
+    - pathology-foundation-model
+    - patch-level-ssl
+    - slide-level-pretraining
+  model_architecture:
+    - vit-patch-encoder
+    - longnet-slide-transformer
+  training_strategy:
+    - dinov2                         # patch-level pretraining
+    - masked-autoencoding            # slide-level pretraining
+    - two-stage-pretraining
+  supervision_type:
+    - self-supervised
+  input_type:
+    - h-and-e-patch-256x256
+    - whole-slide-patch-sequence
+  output_type:
+    - patch-embedding
+    - slide-embedding
+  datasets:
+    - prov-path                      # Providence-internal cohort, ~171k WSIs
+  metrics:
+    - auc
+    - balanced-accuracy
+  baselines:
+    - uni
+    - ctranspath
+    - phikon
+  implementation: "PyTorch; ViT patch encoder + LongNet slide-level Transformer; checkpoints distributed via Hugging Face under gated terms."
+  reproducibility: "Code public on github.com/prov-gigapath/prov-gigapath; weights public on Hugging Face (gated); Prov-Path pretraining cohort is internal Providence clinical data — pretraining cannot be reproduced from scratch."
+  limitations:
+    - "Prov-Path is internal — pretraining is not reproducible without similar real-world clinical access."
+    - "Slide-level Transformer (LongNet) is heavier than ABMIL/CLAM/TransMIL aggregators — inference cost is higher."
+    - "Gated weights via Hugging Face — open-research workflows requiring fully open weights should consider CTransPath."
+    - "H&E only in primary release."
+  reusable_components:
+    - vit-pathology-encoder
+    - longnet-slide-aggregator
+    - two-stage-patch-then-slide-recipe
+
+claude:
+  summary: |
+    Xu et al. (Nature 2024, 630:181–188) — Prov-GigaPath is the first
+    published slide-level pathology foundation model. Two-stage pretraining
+    on Providence's ~171k-WSI Prov-Path cohort: DINOv2 on patches, then
+    LongNet masked autoencoding on slide-level patch sequences. Beats UNI /
+    CTransPath / Phikon on 25/26 downstream tasks. Sister paper to UNI in
+    the modern PFM cohort; the canonical reference for slide-level
+    pretraining.
+  use_when:
+    - "Designing or comparing slide-level pretraining recipes"
+    - "Choosing a strong slide-level encoder for downstream WSI tasks"
+    - "Citing the precedent for two-stage patch-then-slide pretraining"
+  do_not_use_when:
+    - "Need open pretraining data — Prov-Path is internal"
+    - "Need a lightweight encoder — LongNet adds compute"
+    - "Need a vision-language model — cite CONCH / MUSK / PLIP instead"
+  prefer_over:
+    - resnet-50-imagenet               # for slide-level tasks
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

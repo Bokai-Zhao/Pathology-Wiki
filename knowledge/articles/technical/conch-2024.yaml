@@ -1,0 +1,154 @@
+id: conch-2024
+type: article
+
+article_type:
+  primary: technical_article
+  secondary:
+    - dataset_article                    # paper releases image-caption pretraining corpora
+
+title: "A visual-language foundation model for computational pathology"
+authors:
+  - Ming Y. Lu
+  - Bowen Chen
+  - Drew F. K. Williamson
+  - Richard J. Chen
+  - Ivy Liang
+  - Tong Ding
+  - Guillaume Jaume
+  - Igor Odintsov
+  - Long Phi Le
+  - Georg Gerber
+  - Anil V. Parwani
+  - Andrew Zhang
+  - Faisal Mahmood
+year: 2024
+venue: Nature Medicine
+publication_status: published
+
+links:
+  doi: 10.1038/s41591-024-02856-4
+  paper: https://www.nature.com/articles/s41591-024-02856-4
+  github: https://github.com/mahmoodlab/CONCH
+  huggingface: https://huggingface.co/MahmoodLab/CONCH
+  pubmed: to_verify
+
+abstract: |
+  CONCH (CONtrastive learning from Captions for Histopathology) is a
+  pathology vision-language foundation model from Mahmood Lab. Pretrained
+  on ~1.17 million pathology image-caption pairs sourced from textbooks,
+  educational presentations, and research publications, CONCH uses a
+  CoCa-style contrastive + captioning dual objective with a ViT-B/16
+  visual encoder. Evaluated on 14 downstream tasks spanning zero-shot
+  classification, image-text retrieval, image-image retrieval,
+  segmentation, and cross-modal cancer subtyping, CONCH consistently
+  outperforms PLIP and prior pathology VL models. The successor to PLIP
+  in the open-weights pathology VL cohort; superseded by CONCH v1.5
+  (a later checkpoint released on Hugging Face).
+keywords:
+  - vision-language
+  - pathology
+  - CoCa
+  - foundation model
+  - zero-shot
+  - image-text-retrieval
+  - histopathology
+
+domains: [computational-pathology, multimodal]
+modalities:
+  - h-and-e
+  - pathology-text
+organs: []
+diseases: []
+biomarkers: []
+tasks:
+  - zero-shot-classification
+  - image-text-retrieval
+  - text-to-image-retrieval
+  - cross-modal-subtype-classification
+  - segmentation
+metrics:
+  - accuracy
+  - top-k-accuracy
+  - precision-at-k
+  - dice
+
+related_methods:
+  - pathology-vlm
+  - pathology-foundation-model
+related_models:
+  - plip
+related_datasets: []
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - plip-2023
+  - clip-2021
+  - mi-zero-2023
+
+technical_focus:
+  method_family:
+    - pathology-vlm
+    - vision-language-contrastive
+    - vision-language-captioning
+  model_architecture:
+    - vit-b-16
+    - text-transformer
+    - coca-dual-objective
+  training_strategy:
+    - contrastive-info-nce
+    - captioning
+  supervision_type:
+    - vision-language-paired
+  input_type:
+    - h-and-e-patch
+    - pathology-caption
+  output_type:
+    - image-embedding
+    - text-embedding
+    - generated-caption
+    - zero-shot-class-probabilities
+  datasets:
+    - conch-1-17m                       # ~1.17M image-caption pairs from textbooks/presentations/papers
+  metrics:
+    - zero-shot-accuracy
+    - top-k-retrieval
+    - dice
+  baselines:
+    - plip
+    - clip-imagenet
+    - biomedclip
+  implementation: "PyTorch; ViT-B/16 + text Transformer; CoCa-style dual objective; checkpoints distributed via Hugging Face under gated research terms."
+  reproducibility: "Code public on github.com/mahmoodlab/CONCH; weights gated on Hugging Face; pretraining corpus partly internal-curated and not redistributable."
+  limitations:
+    - "Pretraining corpus partly internal — open replication is partial."
+    - "ViT-B/16 backbone — smaller than Virchow ViT-H but larger than PLIP ViT-B/32."
+    - "Patch-level only — slide-level zero-shot needs MI-Zero or CONCH-MIL extension."
+    - "Gated weights — open workflows requiring open weights should fall back to PLIP."
+  reusable_components:
+    - conch-image-encoder
+    - conch-text-encoder
+    - coca-pathology-recipe
+
+claude:
+  summary: |
+    Lu et al. (Nat Med 2024, 30:863–874) — CONCH is the modern pathology
+    vision-language foundation model from Mahmood Lab. ViT-B/16 + text
+    Transformer trained with a CoCa-style contrastive + captioning
+    objective on ~1.17M textbook/paper image-caption pairs. State of the
+    art on most pathology VL benchmarks at release; successor to PLIP and
+    canonical reference for any modern pathology VL pipeline.
+  use_when:
+    - "Need state-of-the-art pathology vision-language foundation model"
+    - "Zero-shot pathology classification with state-of-the-art accuracy"
+    - "Image-text / text-image retrieval on pathology corpora"
+    - "Comparing pathology VL models — cite alongside PLIP, MUSK, QuiltNet"
+  do_not_use_when:
+    - "Need open weights without gating — fall back to PLIP"
+    - "Need a clinical conversational model — cite PathChat instead"
+    - "Need slide-level zero-shot — extend with MI-Zero / CONCH-MIL"
+  prefer_over:
+    - plip                              # for SOTA tasks where access is OK
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

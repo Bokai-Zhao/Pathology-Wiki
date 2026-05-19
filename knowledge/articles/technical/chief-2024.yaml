@@ -1,0 +1,158 @@
+id: chief-2024
+type: article
+
+article_type:
+  primary: technical_article
+  secondary:
+    - clinical_article                # validated on 19 cohorts; clinical-grade framing
+
+title: "A pathology foundation model for cancer diagnosis and prognosis prediction"
+authors:
+  - Xiyue Wang
+  - Junhan Zhao
+  - Eliana Marostica
+  - Wei Yuan
+  - Jietian Jin
+  - Jiayu Zhang
+  - Ruijiang Li
+  - Hongping Tang
+  - Kanran Wang
+  - Yu Li
+  - Fang Wang
+  - Yulong Peng
+  - Junyou Zhu
+  - Jing Zhang
+  - Christopher R. Jackson
+  - Jun Zhang
+  - Deborah Dillon
+  - Nancy U. Lin
+  - Lynette Sholl
+  - Thomas Denize
+  - David Meredith
+  - Keith L. Ligon
+  - Sabina Signoretti
+  - Shuji Ogino
+  - Jeffrey A. Golden
+  - MacLean P. Nasrallah
+  - Xiao Han
+  - Sen Yang
+  - Kun-Hsing Yu
+year: 2024
+venue: Nature
+publication_status: published
+
+links:
+  doi: 10.1038/s41586-024-07894-z
+  paper: https://www.nature.com/articles/s41586-024-07894-z
+  github: https://github.com/hms-dbmi/CHIEF
+  pubmed: to_verify
+
+abstract: |
+  CHIEF (Clinical Histopathology Imaging Evaluation Foundation) is a
+  pathology foundation model for cancer diagnosis and prognosis. Pretrained
+  on a multi-cohort H&E corpus with a hybrid contrastive + clinical-text-
+  aligned objective, CHIEF is evaluated across 19 independent cohorts
+  spanning 32 cancer types, ~60,000 WSIs from 24 hospitals worldwide.
+  Demonstrates strong diagnosis (AUC > 0.94 average) and survival prediction
+  on rare and common cancers, plus generalisation to non-Tencent / non-MGH
+  cohorts. Published alongside Prov-GigaPath in 2024 as a parallel
+  clinical-grade-focused PFM benchmark.
+keywords:
+  - pathology foundation model
+  - clinical evaluation
+  - cancer diagnosis
+  - cancer prognosis
+  - multi-cohort
+
+domains: [computational-pathology, clinical-pathology]
+modalities: [h-and-e]
+organs: []                          # pan-cancer
+diseases: []                        # 32 cancer types
+biomarkers: []
+tasks:
+  - subtype-classification
+  - cancer-detection
+  - survival-prediction
+  - prognosis-prediction
+  - rare-cancer-detection
+metrics:
+  - auc
+  - balanced-accuracy
+  - c-index
+
+related_methods:
+  - pathology-foundation-model
+  - patch-level-ssl
+related_models:
+  - uni
+  - ctranspath
+related_datasets: []
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - uni-2024
+  - gigapath-2024
+  - ctranspath-2022
+
+technical_focus:
+  method_family:
+    - pathology-foundation-model
+    - patch-level-ssl
+    - contrastive-learning
+  model_architecture:
+    - swin-transformer
+    - patch-encoder
+    - clinical-text-aligned-head
+  training_strategy:
+    - contrastive
+    - clinical-text-alignment
+  supervision_type:
+    - self-supervised
+    - weakly-supervised
+  input_type:
+    - h-and-e-patch
+    - clinical-report-text
+  output_type:
+    - patch-embedding
+    - cancer-class-probability
+    - survival-risk-score
+  datasets:
+    - tcga                             # used for some downstream cohorts
+    - 19-independent-clinical-cohorts  # ~60k WSIs from 24 hospitals
+  metrics:
+    - auc
+    - balanced-accuracy
+    - c-index
+  baselines:
+    - ctranspath
+    - resnet-50-imagenet
+  implementation: "PyTorch; Swin-T patch encoder + clinical-text alignment head; code released on hms-dbmi/CHIEF."
+  reproducibility: "Code public on github.com/hms-dbmi/CHIEF; many of the 19 cohorts are public (TCGA-derived) but several are institution-internal."
+  limitations:
+    - "Clinical-text-aligned head requires aligned reports — the publicly released checkpoint is image-only."
+    - "Multi-cohort training cohort is partly internal (24 hospitals) — full pretraining cannot be reproduced from scratch."
+    - "Evaluation focuses on diagnosis + prognosis — does not target VL or instruction-following pathology MLLM use cases."
+  reusable_components:
+    - swin-pathology-encoder
+    - clinical-text-aligned-pretraining-recipe
+
+claude:
+  summary: |
+    Wang et al. (Nature 2024, 634:970–978) — CHIEF is a clinical-grade
+    pathology foundation model evaluated across 19 cohorts, 32 cancer
+    types, 60k WSIs from 24 hospitals. Trained with a hybrid
+    contrastive + clinical-text-aligned objective on Swin-T. Sister to
+    Prov-GigaPath (whole-slide-pretraining), with a stronger
+    clinical-evaluation framing.
+  use_when:
+    - "Citing a clinical-grade-validated pathology PFM"
+    - "Comparing PFMs on rare-cancer or multi-cohort generalisation"
+    - "Discussing clinical-text-aligned pretraining for pathology"
+  do_not_use_when:
+    - "Need open pretraining data — partly internal"
+    - "Need a slide-level pretrained encoder — Prov-GigaPath is the slide-level reference"
+    - "Need a vision-language model — CONCH / MUSK"
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium

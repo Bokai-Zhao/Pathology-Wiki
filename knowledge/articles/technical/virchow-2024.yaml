@@ -1,0 +1,156 @@
+id: virchow-2024
+type: article
+
+article_type:
+  primary: technical_article
+
+title: "A foundation model for clinical-grade computational pathology and rare cancers detection"
+authors:
+  - Eugene Vorontsov
+  - Alican Bozkurt
+  - Adam Casson
+  - George Shaikovski
+  - Michal Zelechowski
+  - Kristen Severson
+  - Eric Zimmermann
+  - James Hall
+  - Neil Tenenholtz
+  - Nicolo Fusi
+  - Ellen Yang
+  - Philippe Mathieu
+  - Alexander van Eck
+  - Donghun Lee
+  - Julian Viret
+  - Eric Robert
+  - Yi Kan Wang
+  - Jeremy D. Kunz
+  - Matthew C. H. Lee
+  - Jan H. Bernhard
+  - Ran A. Godrich
+  - Gerard Oakley
+  - Ewan Millar
+  - Matthew Hanna
+  - Hannah Wen
+  - Juan A. Retamero
+  - William A. Moye
+  - Razik Yousfi
+  - Christopher Kanan
+  - David S. Klimstra
+  - Brandon Rothrock
+  - Siqi Liu
+  - Thomas J. Fuchs
+year: 2024
+venue: Nature Medicine
+publication_status: published
+
+links:
+  doi: 10.1038/s41591-024-03141-0
+  paper: https://www.nature.com/articles/s41591-024-03141-0
+  huggingface: https://huggingface.co/paige-ai/Virchow
+  pubmed: to_verify
+
+abstract: |
+  Virchow is a 632M-parameter ViT-H/14 patch-level pathology foundation
+  model trained with DINOv2 on ~1.5 million WSIs and ~2 billion patches
+  from Memorial Sloan Kettering Cancer Center — the largest published
+  pathology pretraining cohort to date. Evaluated on 17 tissue / cancer
+  types and 7 rare-cancer detection tasks, Virchow matches or beats
+  prior PFMs (UNI, Prov-GigaPath, CTransPath) on most patch-level and
+  slide-level downstream benchmarks. Particular emphasis on rare-cancer
+  detection where pretraining-data scale dominates downstream gains.
+  Released via Paige.AI under a research license on Hugging Face.
+keywords:
+  - pathology foundation model
+  - vision transformer
+  - DINOv2
+  - rare cancer
+  - clinical-grade
+  - large-scale pretraining
+
+domains: [computational-pathology, clinical-pathology]
+modalities: [h-and-e]
+organs: []                            # pan-tissue (17 types)
+diseases: []                          # pan-cancer + rare-cancer
+biomarkers: []
+tasks:
+  - tissue-type-classification
+  - cancer-detection
+  - subtype-classification
+  - rare-cancer-detection
+  - biomarker-expression-prediction
+metrics:
+  - auc
+  - balanced-accuracy
+  - top-k-accuracy
+
+related_methods:
+  - pathology-foundation-model
+  - patch-level-ssl
+related_models:
+  - uni
+  - ctranspath
+related_datasets: []
+related_tools: []
+related_benchmarks: []
+related_articles:
+  - uni-2024
+  - gigapath-2024
+  - ctranspath-2022
+
+technical_focus:
+  method_family:
+    - pathology-foundation-model
+    - patch-level-ssl
+  model_architecture:
+    - vit-h-14                         # ~632M parameters
+  training_strategy:
+    - dinov2
+    - large-scale-self-supervised
+  supervision_type:
+    - self-supervised
+  input_type:
+    - h-and-e-patch-224x224
+  output_type:
+    - patch-embedding-1280d            # ViT-H hidden dim — to_verify
+  datasets:
+    - mskcc-internal-virchow-cohort    # ~1.5M WSIs, internal
+  metrics:
+    - auc
+    - balanced-accuracy
+    - top-k-accuracy
+  baselines:
+    - uni
+    - ctranspath
+    - resnet-50-imagenet
+  implementation: "PyTorch; ViT-H/14 with DINOv2; weights distributed via Hugging Face under gated research license."
+  reproducibility: "Weights public (gated) on huggingface.co/paige-ai/Virchow; pretraining cohort is MSKCC-internal — cannot be reproduced from scratch."
+  limitations:
+    - "Pretraining cohort is MSKCC-internal — open replication blocked."
+    - "ViT-H is large — inference cost higher than ViT-L (UNI) or Swin-T (CTransPath)."
+    - "Gated weights — open-research workflows needing fully open weights should consider CTransPath / Phikon."
+    - "Patch-level only — slide-level downstream tasks need a separate aggregator."
+  reusable_components:
+    - vit-h-pathology-encoder
+    - dinov2-large-scale-recipe
+
+claude:
+  summary: |
+    Vorontsov et al. (Nat Med 2024, 30:2924–2935) — Virchow is the largest
+    published pathology PFM at release: ViT-H/14 (~632M parameters), DINOv2
+    on ~1.5M WSIs / ~2B patches from MSKCC. Particularly strong on rare-
+    cancer detection where pretraining-data scale dominates. Sister model
+    to UNI in the modern PFM cohort.
+  use_when:
+    - "Need the strongest published patch-level pathology PFM (rare-cancer regimes especially)"
+    - "Comparing PFM scale effects (Virchow ViT-H vs UNI ViT-L vs Phikon ViT-B)"
+    - "Citing the MSKCC-led PFM cohort"
+  do_not_use_when:
+    - "Compute-constrained downstream — UNI / CTransPath are smaller"
+    - "Need open weights without gating — use CTransPath / Phikon"
+    - "Need slide-level pretraining — Prov-GigaPath"
+  prefer_over:
+    - resnet-50-imagenet                  # for any pathology task
+  update_level: link_update
+  update_status: complete
+  extraction_confidence: high
+  metadata_confidence: medium
