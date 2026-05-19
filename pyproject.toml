@@ -1,7 +1,7 @@
 [project]
 name = "pathology-wiki-tools"
-version = "0.0.1"
-description = "Data-side scripts for Pathology-Wiki: validation, graph build, context export."
+version = "0.1.0"
+description = "Data + site tooling for Pathology-Wiki (validation, graph build, MkDocs Material rendering)."
 requires-python = ">=3.10"
 dependencies = [
   "pyyaml>=6.0",
@@ -11,16 +11,16 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+site = [
+  "mkdocs>=1.6",
+  "mkdocs-material>=9.5",
+  "mkdocs-macros-plugin>=1.0",
+  "pymdown-extensions>=10.7",
+]
 dev = [
   "pytest>=7",
   "ruff>=0.1",
 ]
-
-[project.scripts]
-pwiki-validate = "scripts.python.validate_schema:main"
-pwiki-build-graph = "scripts.python.build_graph:main"
-pwiki-export-context = "scripts.python.export_claude_context:main"
-pwiki-check-orphans = "scripts.python.check_orphans:main"
 
 [tool.ruff]
 line-length = 100

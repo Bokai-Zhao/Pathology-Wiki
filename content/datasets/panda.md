@@ -1,21 +1,14 @@
 ---
-id: panda
 title: "PANDA — Prostate cANcer graDe Assessment Challenge"
-slug: /datasets/panda
-sidebar_position: 1
 description: "~10.6K H&E prostate biopsy WSIs from two centres (Radboudumc, Karolinska) labelled with ISUP grade."
 tags: [dataset, prostate-cancer, gleason, isup, h-and-e, kaggle]
 ---
 
-import LocalGraph from '@site/src/components/LocalGraph';
-import DatasetCard from '@site/src/components/DatasetCard';
-import SkillCard from '@site/src/components/SkillCard';
-
 # PANDA — Prostate cANcer graDe Assessment
 
-<DatasetCard id="panda" />
+{{ dataset("panda") }}
 
-<LocalGraph nodeId="panda" hops={1} />
+{{ local_graph("panda") }}
 
 ## What it contains
 
@@ -83,11 +76,11 @@ Recommended flow:
 
 ## How Claude should use this dataset
 
-<SkillCard id="panda" />
+{{ skill_card("panda") }}
 
 ## Related nodes
 
-- tool: [OpenSlide](/tools/openslide) — canonical reader.
+- tool: {{ node_link("openslide") }} — canonical reader.
 - methods: weakly-supervised-mil, pathology-foundation-model, clam, abmil *(method nodes pending — §11.6)*.
 
 ## References

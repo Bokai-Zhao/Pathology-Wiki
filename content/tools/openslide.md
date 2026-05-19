@@ -1,21 +1,14 @@
 ---
-id: openslide
 title: "OpenSlide — WSI I/O library"
-slug: /tools/openslide
-sidebar_position: 1
 description: "C library + Python bindings for reading multi-format whole-slide images."
 tags: [tool, wsi-io, openslide, h-and-e]
 ---
 
-import LocalGraph from '@site/src/components/LocalGraph';
-import ToolCard from '@site/src/components/ToolCard';
-import SkillCard from '@site/src/components/SkillCard';
-
 # OpenSlide
 
-<ToolCard id="openslide" />
+{{ tool("openslide") }}
 
-<LocalGraph nodeId="openslide" hops={1} />
+{{ local_graph("openslide") }}
 
 ## What it is
 
@@ -52,7 +45,7 @@ region = slide.read_region((x, y), level=0, size=(256, 256))   # PIL.Image RGBA
 ## Inputs and outputs
 
 - **Inputs**: SVS, NDPI, VMS, VMU, SCN, MRXS, BIF, tiled TIFF, ...
-- **Outputs**: RGBA tiles (PIL.Image), thumbnails, associated images (label, macro), property dictionaries (mpp-x/y, level downsamples, vendor metadata).
+- **Outputs**: RGBA tiles (PIL.Image), thumbnails, associated images (label, macro), property dictionaries (mpp-x/y, level downsamples, vendor properties).
 
 ## When to use
 
@@ -64,7 +57,7 @@ region = slide.read_region((x, y), level=0, size=(256, 256))   # PIL.Image RGBA
 
 - The slide is already a tiled TIFF and `pyvips` is faster for the workload.
 - GPU-decoded reads needed → use **cuCIM**.
-- DICOM WSIs → use **pydicom** or a DICOM-aware reader.
+- WSI is **DICOM** → use **pydicom** or a DICOM-aware reader.
 
 ## Common failure modes
 
@@ -80,8 +73,8 @@ region = slide.read_region((x, y), level=0, size=(256, 256))   # PIL.Image RGBA
 
 ## How Claude should use this tool
 
-<SkillCard id="openslide" />
+{{ skill_card("openslide") }}
 
 ## Related nodes
 
-- dataset: [PANDA](/datasets/panda) — H&E TIFFs that OpenSlide reads.
+- dataset: {{ node_link("panda") }} — H&E TIFFs that OpenSlide reads.

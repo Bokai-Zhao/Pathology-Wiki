@@ -1,0 +1,95 @@
+site_name: Pathology-Wiki
+site_description: An agent-extensible knowledge base for computational pathology.
+site_url: https://bokai-zhao.github.io/Pathology-Wiki/
+repo_url: https://github.com/Bokai-Zhao/Pathology-Wiki
+repo_name: Bokai-Zhao/Pathology-Wiki
+edit_uri: edit/main/content/
+
+docs_dir: content
+site_dir: site
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.highlight
+    - search.suggest
+    - search.share
+    - content.code.copy
+    - content.action.edit
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - macros:
+      module_name: macros
+      include_dir: content
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.snippets
+
+nav:
+  - Home: index.md
+  - Articles:
+      - Technical:
+          - "UNI (2024)": articles/technical/uni-2024.md
+  - Models:
+      - UNI: models/uni.md
+  - Tools:
+      - OpenSlide: tools/openslide.md
+  - Datasets:
+      - PANDA: datasets/panda.md
+  - Methods:
+      - Pathology Foundation Model: methods/pathology-foundation-model.md
+  - Knowledge graph: graph.md
+  - Skills: skills.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Bokai-Zhao/Pathology-Wiki
+
+extra_css:
+  - stylesheets/extra.css

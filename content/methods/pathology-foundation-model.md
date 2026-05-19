@@ -1,21 +1,14 @@
 ---
-id: pathology-foundation-model
 title: "Pathology Foundation Model"
-slug: /methods/pathology-foundation-model
-sidebar_position: 1
 description: "Umbrella method node for pathology foundation models (vision-only, vision-language, vision-omics)."
 tags: [method, pathology-foundation-model, ssl, dinov2, vit]
 ---
 
-import LocalGraph from '@site/src/components/LocalGraph';
-import MethodCard from '@site/src/components/MethodCard';
-import SkillCard from '@site/src/components/SkillCard';
-
 # Pathology Foundation Model
 
-<MethodCard id="pathology-foundation-model" />
+{{ method("pathology-foundation-model") }}
 
-<LocalGraph nodeId="pathology-foundation-model" hops={1} />
+{{ local_graph("pathology-foundation-model") }}
 
 ## Why it matters
 
@@ -42,15 +35,15 @@ Pretrain a large encoder on a massive pathology corpus, then evaluate generality
 
 ## Representative models
 
-- [UNI](/models/uni) — vision-only, ViT-L/16, DINOv2
+- {{ node_link("uni") }} — vision-only, ViT-L/16, DINOv2
 
 *(More representative models will be linked as their nodes are added.)*
 
 ## How Claude should use this method
 
-<SkillCard id="pathology-foundation-model" />
+{{ skill_card("pathology-foundation-model") }}
 
 ## Related nodes
 
-- article: [UNI paper](/articles/technical/uni-2024)
-- model: [UNI](/models/uni)
+- article: {{ node_link("uni-2024") }}
+- model: {{ node_link("uni") }}

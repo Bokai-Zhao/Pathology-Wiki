@@ -1,21 +1,14 @@
 ---
-id: uni
 title: "UNI (model card)"
-slug: /models/uni
-sidebar_position: 1
 description: "Vision-only pathology foundation model — ViT-L/16, DINOv2, Mass-100K."
 tags: [model, foundation-model, vision-only-pfm, vit-l, dinov2]
 ---
 
-import LocalGraph from '@site/src/components/LocalGraph';
-import ModelCard from '@site/src/components/ModelCard';
-import SkillCard from '@site/src/components/SkillCard';
-
 # UNI
 
-<ModelCard id="uni" />
+{{ model("uni") }}
 
-<LocalGraph nodeId="uni" hops={1} />
+{{ local_graph("uni") }}
 
 ## Why it matters
 
@@ -46,7 +39,12 @@ login()
 import timm
 import torch
 
-model = timm.create_model("hf_hub:MahmoodLab/UNI", pretrained=True, init_values=1e-5, dynamic_img_size=True)
+model = timm.create_model(
+    "hf_hub:MahmoodLab/UNI",
+    pretrained=True,
+    init_values=1e-5,
+    dynamic_img_size=True,
+)
 model.eval()
 ```
 
@@ -76,9 +74,9 @@ model.eval()
 
 ## How Claude should use this object
 
-<SkillCard id="uni" />
+{{ skill_card("uni") }}
 
 ## Related nodes
 
-- article: [UNI paper (uni-2024)](/articles/technical/uni-2024)
-- method: [Pathology Foundation Model](/methods/pathology-foundation-model)
+- article: {{ node_link("uni-2024") }}
+- method: {{ node_link("pathology-foundation-model") }}

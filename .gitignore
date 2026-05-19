@@ -1,19 +1,23 @@
-node_modules/
-.docusaurus/
-build/
-.cache-loader/
+# OS / editor junk
 .DS_Store
+.idea/
+.vscode/
+
+# Python
 __pycache__/
 *.pyc
 .venv/
 venv/
 .env
 .env.local
-.idea/
-.vscode/
+*.egg-info/
+
+# MkDocs build output (generated)
+site/
+
+# Claude Code local settings
 .claude/settings.local.json
 
-# generated artifacts — regenerable, do not commit raw
-src/data/*.json
+# Generated artefacts — regenerable, do not commit raw
 knowledge/graph/graph.json
 knowledge/agent_context.md
